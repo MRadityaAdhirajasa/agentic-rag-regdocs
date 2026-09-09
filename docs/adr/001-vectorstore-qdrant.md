@@ -1,0 +1,1 @@
+pgvector (tidak ada text search config Bahasa Indonesia) dan ChromaDB (sekarang punya sparse plus RRF juga; Qdrant dipilih karena named vectors dan kematangan payload filtering)

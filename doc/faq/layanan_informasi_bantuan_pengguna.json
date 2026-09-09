@@ -1,0 +1,788 @@
+{
+  "source": {
+    "name": "OSS BKPM",
+    "base_url": "https://oss.go.id",
+    "type": "faq",
+    "category": "Layanan Informasi dan Bantuan Pengguna",
+    "input_method": "manual",
+    "last_updated": "2025-12-24"
+  },
+  "items": [
+    {
+      "id": "faq-libp-001",
+      "question": "Apa itu sumber pembiayaan pada isian data di Sistem OSS?",
+      "answer": "Sumber Pembiayaan adalah sumber pendanaan yang digunakan untuk melakukan investasi sesuai kegiatan usaha yang sedang diajukan. Adapun sumber pembiayaan mencakup: a. Modal sendiri yang diambil dari modal disetor/ditempatkan atau sisa modal disetor/ditempatkan (jika belum secara penuh digunakan atas kegiatan usaha lainnya); b. Pinjaman yang merupakan besaran dana yang didapatkan dari pinjaman, baik dalam negeri maupun luar negeri; c. Laba ditanam Kembali (retained earnings) merupakan laba perusahaan yang tidak dibagikan sebagai dividen kepada pemegang saham, tetapi dipertahankan dan digunakan kembali untuk kegiatan usaha perusahaan. Nilai tersebut dapat dilihat pada laporan keuangan (terutama bagi Badan Usaha yang sudah beroperasi lama); d. Agio Saham, yaitu selisih lebih antara harga setoran pemegang saham dengan nilai nominal sahamnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e489037795640efd3ef084",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-002",
+      "question": "Bagaimana prosedur mengundang BKPM sebagai narasumber?",
+      "answer": "Jika ingin mengundang Kementerian Investasi dan Hilirisasi/BKPM sebagai narasumber dalam sebuah acara, Bapak/Ibu dapat mengirimkan surat melalui email info@bkpm.go.id atau mengirimkan surat fisik ke alamat Jl. Gatot Subroto No.44, Kelurahan Senayan, Kecamatan Kebayoran Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190. Sebagai referensi: 1. Perihal pelayanan perizinan berusaha, surat ditujukan kepada Deputi Bidang Pelayanan Penanaman Modal. 2. Perihal LKPM termasuk di dalamnya pengawasan, surat ditujukan kepada Deputi Bidang Pengendalian dan Pelaksanaan Penanaman Modal. 3. Perihal teknis sistem, surat ditujukan kepada Deputi Bidang Teknologi Informasi Penanaman Modal.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488ed711547977a0df2d3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-003",
+      "question": "Adakah Pengajuan Sertifikat Halal yang Gratis?",
+      "answer": "Pemerintah menyediakan program sertifikat halal gratis berupa Self Declare yang hanya dapat diajukan bagi pelaku usaha mikro dan usaha kecil. Pengajuan sertifikat halal dapat dilakukan melalui situs web resmi SIHALAL: https://ptsp.halal.go.id/. Pastikan Bapak/Ibu sudah memiliki NIB berbasis risiko sebelum mendaftar. Informasi lebih lanjut dapat menghubungi pihak Badan Penyelenggara Jaminan Produk Halal (BPJPH) Kementerian Agama.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488eb7795640efd3ef078",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-004",
+      "question": "Bagaimana cara mengajukan bantuan UMKM?",
+      "answer": "Bantuan dana untuk UMKM tidak dapat diajukan melalui OSS. Silakan menghubungi kelurahan atau Dinas Koperasi dan UMKM sesuai dengan lokasi usaha untuk mengetahui informasi terkait bantuan dana bagi UMKM.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488e57795640efd3ef076",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-005",
+      "question": "Bagaimana cara memperoleh Rekomendasi Alih Status ITAS ke ITAP?",
+      "answer": "Prosedur pengajuan alih status izin tinggal, baik ITK menjadi ITAS maupun ITAS menjadi ITAP, kini tidak lagi membutuhkan rekomendasi dari Kementerian Investasi/BKPM sebagaimana tertuang pada Peraturan Menteri Hukum dan HAM Nomor 22 Tahun 2023 tentang Visa dan Izin Tinggal. Bapak/Ibu dapat melakukan permohonan langsung perubahan status keimigrasian ke Ditjen Imigrasi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488f0711547977a0df2d5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-006",
+      "question": "Apakah cetakan OSS produk OSS per tanggal 5 Oktober 2025 sudah menggunakan format baru sebagaimana Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025?",
+      "answer": "Sebagian besar template cetakan produk OSS menggunakan template cetakan eksisting yang disesuaikan dengan PP 28/2025. Seperti misalnya merubah kata-kata PP5/2025 menjadi PP28/2025, dan untuk data-data yang ditampilkan dalam cetakan tidak terlalu jauh berbeda dengan PP 5/2021.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488e07795640efd3ef072",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-007",
+      "question": "Di mana alamat Kementerian Investasi dan Hilirisasi/BKPM?",
+      "answer": "Berikut adalah alamat Kementerian Investasi dan Hilirisasi/BKPM beserta tautan lokasinya Jl. Gatot Subroto No.44, Kelurahan Senayan, Kecamatan Kebayoran Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190 https://maps.app.goo.gl/MGgmSYEKw8Kcg42t9",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488e8711547977a0df2d1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-008",
+      "question": "Apakah ada penyesuaian form isian di Sistem OSS?",
+      "answer": "Pada awal launching di 5 Oktober 2025, akan ada penyesuaian halaman pengajuan perizinan berusaha eksisting untuk pengisian data tenaga kerja disabilitas, sumber pembiayaan, hasil penjualan tahunan sebagaimana pengaturan di Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488dd711547977a0df2cf",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-009",
+      "question": "Apakah pada di 5 Oktober 2025 penanaman di Sistem OSS sudah menggunakan Lampiran I dan II PP 28?",
+      "answer": "Ya, pada tanggal 5 Oktober 2025, penanaman PB dan PB UMKU sesuai dengan mapping di Lampiran I dan II PP 28 Tahun 2025",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488da711547977a0df2cd",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-010",
+      "question": "Apakah pada peraturan terbaru kegiatan usaha pendukung harus tercantum pada Akta?",
+      "answer": "Bagi kegiatan usaha pendukung yang merupakan sumber pendapatan bagi pelaku usaha maka KBLI harus dicantumkan pada Akta dan pengesahannya sebagaimana dimaksud dalam Pasal 35 ayat 7 Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488c87795640efd3ef066",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-011",
+      "question": "Apakah saat ini jenis kegiatan usaha pendukung dapat digunakan untuk kegiatan yang menghasilkan profit?",
+      "answer": "Ya, sesuai dengan informasi pada pasal 35 ayat (6) Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025, kegiatan usaha pendukung dapat merupakan sumber pendapatan atau menghasilkan keuntungan bagi Pelaku Usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488c57795640efd3ef064",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-012",
+      "question": "Berapa minimum modal ditempatkan/disetor bagi Penanaman Modal Asing (PMA) yang diatur pada Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025?",
+      "answer": "Sesuai Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025 Pasal 26 ayat 10 ketentuan minimum modal ditempatkan/disetor bagi Penanaman Modal Asing (PMA) adalah paling sedikit Rp2.500.000.000,00 (dua miliar lima ratus juta Rupiah) per perseroan terbatas, kecuali ditentukan lain berdasarkan ketentuan peraturan perundang-undangan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488c27795640efd3ef062",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-013",
+      "question": "Permen Investasi 5 Tahun 2025 dapat diakses di mana?",
+      "answer": "Peraturan tersebut dapat diakses melalui: https://jdih.bkpm.go.id/id/document/peraturan-menteri-investasi-dan-hilirisasi-kepala-badan-koordinasi-penanaman-modal-nomor-5-tahun-2025-tentang-pedoman-dan-tata-cara-penyelenggaraan-perizinan-berusaha-berbasis-risiko-dan-fasilitas-penanaman-modal-melalui-sistem-perizinan-berusaha-terintegrasi-secara-elektronik-online-single-submission",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488bf7795640efd3ef060",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-014",
+      "question": "Apa saja faktor yang menentukan Nilai investasi bagi UMKM?",
+      "answer": "Berdasarkan Pasal 25 ayat (3) dan (4) Peraturan Menteri Investasi dan Hilirisasi/BKPM Nomor 5 Tahun 2025, Untuk nilai investasi bagi skala usaha mikro, kecil dan menengah ditentukan berdasarkan modal usaha dan hasil penjualan tahunan. Hal tersebut dirincikan sebagai berikut: Skala usaha mikro: - Memiliki modal usaha sampai dengan paling banyak Rp1.000.000.000,00 (satu miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha; atau - Memiliki hasil penjualan tahunan dari kegiatan usaha sampai dengan paling banyak Rp2.000.000.000,00 (dua miliar rupiah) Skala usaha kecil: - Memiliki modal usaha lebih dari Rp1.000.000.000,00 (satu miliar rupiah) sampai dengan paling banyak Rp5.000.000.000,00 (lima miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha; atau - Memiliki hasil penjualan tahunan dari kegiatan usaha lebih dari Rp2.000.000.000,00 (dua miliar rupiah) sampai dengan paling banyak Rp15.000.000.000,00 (lima belas miliar rupiah); Skala usaha menengah: - Memiliki modal usaha lebih dari Rp5.000.000.000,00 (lima miliar rupiah) sampai dengan paling banyak Rp10.000.000.000,00 (sepuluh miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha; atau - Memiliki hasil penjualan tahunan dari kegiatan usaha tidak melebihi Rp50.000.000.000,00 (lima puluh miliar rupiah)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488d47795640efd3ef070",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-015",
+      "question": "Apakah modal disetor/ditempatkan PMA dapat dipindahkan dari rekening badan usaha?",
+      "answer": "Terdapat ketentuan modal ditempatkan/disetor PMA tidak dapat dipindahkan dari rekening badan usaha untuk waktu paling singkat 12 (dua belas) bulan terhitung sejak ditempatkan/disetor, kecuali dalam rangka pembelian aset, pembangunan bangunan gedung, dan/atau operasional badan usaha. Hal tersebut dilakukan dalam bentuk komitmen berupa pernyataan mandiri oleh Pelaku Usaha ketika melakukan permohonan PB melalui Sistem OSS. Untuk mengetahui Format pernyataan mandiri dapat dilihat pada Lampiran I Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488ca7795640efd3ef068",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-016",
+      "question": "Apakah terdapat ketentuan nilai investasi bagi PMA untuk kegiatan usaha pembangunan dan pengusahaan stasiun pengisian kendaraan listrik umum?",
+      "answer": "Dalam hal kegiatan usaha pembangunan dan pengusahaan stasiun pengisian kendaraan listrik umum, ketentuan nilai minimum investasi lebih besar dari Rp10.000.000.000,00 (sepuluh miliar rupiah) di luar tanah dan bangunan dalam 1 (satu) provinsi yang tercantum pada Pasal 26 ayat 7.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488d7711547977a0df2cb",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-017",
+      "question": "Apakah Peraturan BKPM Nomor 4 Tahun 2021 masih aktif?",
+      "answer": "Dengan diterbitkannya Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025, maka mencabut: 1. Peraturan Badan Koordinasi Penanaman Modal Nomor 3 Tahun 2021 tentang Sistem Perizinan Berusaha Berbasis Risiko Terintegrasi Secara Elektronik (Berita Negara Republik Indonesia Tahun 2021 Nomor 271); 2. Peraturan Badan Koordinasi Penanaman Modal Nomor 4 Tahun 2021 tentang Pedoman dan Tata Cara Pelayanan Perizinan Berusaha Berbasis Risiko dan Fasilitas Penanaman Modal (Berita Negara Republik Indonesia Tahun 2021 Nomor 272); dan 3. Peraturan Badan Koordinasi Penanaman Modal Nomor 5 Tahun 2021 tentang Pedoman dan Tata Cara Pengawasan Perizinan Berusaha Berbasis Risiko (Berita Negara Republik Indonesia Tahun 2021 Nomor 273)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488bd7795640efd3ef05e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-018",
+      "question": "Apakah Jangka Waktu Perkiraan Beroperasi/Produksi dapat diubah?",
+      "answer": "Sesuai Pasal 38 ayat (4) Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025, pengisian Jangka waktu perkiraan beroperasi dapat dilakukan perubahan sebanyak 1 (satu) kali disertai dengan alasan perubahannya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488d27795640efd3ef06e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-019",
+      "question": "Apakah terdapat sanksi apabila pelaku usaha memindahkan modal ditempatkan/disetor sebelum 12 (dua belas) bulan?",
+      "answer": "Bagi Pelaku Usaha yang memindahkan modal ditempatkan/disetor sebelum 12 bulan selain untuk pembelian aset, pembangunan bangunan gedung, dan/atau operasional badan usaha maka akan dikenakan sanksi administratif. Sesuai dengan yang tertuang pada Pasal 27 ayat (4) Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488cd7795640efd3ef06a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-020",
+      "question": "Apakah perpanjangan perizinan berusaha dan PB-UMKU wajib mengajukan persyaratan dasar yang baru?",
+      "answer": "Bagi Pelaku Usaha yang telah memiliki PB dan/atau PB UMKU dan telah melaksanakan kegiatan usaha, proses perpanjangan PB dan/atau PB UMKU tidak perlu didahului dengan pengajuan persyaratan dasar baru selama persyaratan dasar masih berlaku sesuai dengan yang tercantum pada pada pasal 238 Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488d07795640efd3ef06c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-021",
+      "question": "Apakah sudah ada peraturan turunan dari PP 28 Tahun 2025?",
+      "answer": "Sudah diterbitkan Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025 sebagai peraturan pelaksanaan atas PP 28 Tahun 2025",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488b17795640efd3ef056",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-022",
+      "question": "Hal baru apa yang ada di PP 28 Tahun 2025 dibandingkan dengan PP 5 Tahun 2021?",
+      "answer": "PP 28 Tahun 2025 diterbitkan dalam rangka memberikan kepastian perizinan berusaha, terutama penerapan Service Level Agreement (SLA) untuk penerbitan Persyaratan Dasar, Perizinan Berusaha (PB), dan Perizinan Berusaha Untuk Menunjang Kegiatan Usaha (PB-UMKU). Selain itu, PP ini juga mengatur mengenai penyederhaan alur proses permohonan dan penerbitan PB dan PB-UMKU",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488ae7795640efd3ef054",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-023",
+      "question": "PP 28 Tahun 2025 itu mengenai apa?",
+      "answer": "PP 28 Tahun 2025 adalah mengenai Penyelenggaraan Perizinan Berusaha Berbasis Risiko sebagai pengganti dari PP 5 Tahun 2021 yang merupakan turunan atau pelaksanaan dari UU Cipta Kerja Nomor 6 Tahun 2023.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488a87795640efd3ef050",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-024",
+      "question": "Dimana Bisa Cek Hasil Pengaduan yang Saya Input di Akun OSS?",
+      "answer": "ntuk pengaduan atas unit/layanan lainnya di Kementerian Investasi dan Hilirisasi/BKPM dapat mengirimkan email ke pengaduan@bkpm.go.id atau melalui situs lapor.go.id.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488a47795640efd3ef04e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-025",
+      "question": "Permen Investasi 5 Tahun 2025 dapat diakses di mana?",
+      "answer": "Peraturan tersebut dapat diakses melalui: https://jdih.bkpm.go.id/id/document/peraturan-menteri-investasi-dan-hilirisasi-kepala-badan-koordinasi-penanaman-modal-nomor-5-tahun-2025-tentang-pedoman-dan-tata-cara-penyelenggaraan-perizinan-berusaha-berbasis-risiko-dan-fasilitas-penanaman-modal-melalui-sistem-perizinan-berusaha-terintegrasi-secara-elektronik-online-single-submission",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488bf7795640efd3ef060",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-026",
+      "question": "Apakah Peraturan BKPM Nomor 4 Tahun 2021 masih aktif?",
+      "answer": "Dengan diterbitkannya Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025, maka mencabut: 1. Peraturan Badan Koordinasi Penanaman Modal Nomor 3 Tahun 2021 tentang Sistem Perizinan Berusaha Berbasis Risiko Terintegrasi Secara Elektronik (Berita Negara Republik Indonesia Tahun 2021 Nomor 271); 2. Peraturan Badan Koordinasi Penanaman Modal Nomor 4 Tahun 2021 tentang Pedoman dan Tata Cara Pelayanan Perizinan Berusaha Berbasis Risiko dan Fasilitas Penanaman Modal (Berita Negara Republik Indonesia Tahun 2021 Nomor 272); dan 3. Peraturan Badan Koordinasi Penanaman Modal Nomor 5 Tahun 2021 tentang Pedoman dan Tata Cara Pengawasan Perizinan Berusaha Berbasis Risiko (Berita Negara Republik Indonesia Tahun 2021 Nomor 273)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488bd7795640efd3ef05e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-027",
+      "question": "Bolehkah perusahaan melakukan tahap persiapan sebelum izin dan sertifikat diterbitkan?",
+      "answer": "Perusahaan dapat memulai tahap persiapan sebelum izin dan sertifikat Standar resmi diterbitkan, dengan syarat telah memiliki NIB yang diterbitkan melalui OSS. Bagi pelaku usaha dalam kategori menengah tinggi dan tinggi, tahap persiapan dapat dilakukan meskipun sertifikat Standar dan izin belum diverifikasi asalkan tetap memenuhi persyaratan untuk melanjutkan ke kegiatan operasional atau komersial. Pada tahap persiapan, perusahaan diperbolehkan melaksanakan berbagai aktivitas, termasuk pengadaan lahan, pembangunan gedung, pengadaan peralatan atau sarana, perekrutan sumber daya manusia, pemenuhan Standar usaha, serta kegiatan lain yang mendukung operasional atau komersial. Tahap ini juga mencakup prastudi kelayakan dan pembiayaan operasional selama masa konstruksi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488a17795640efd3ef04c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-028",
+      "question": "Di mana diatur mengenai syarat investasi dan besaran modal untuk PMA?",
+      "answer": "Ketentuan tersebut diatur di dalam Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488b67795640efd3ef05a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-029",
+      "question": "Apakah akan ada format LKPM baru atas penerapan PP 28 Tahun 2025?",
+      "answer": "Pada masa Pelaporan LKPM Triwulan III Tahun 2025 ini akan tetap menggunakan format lama (tidak mengalami perubahan)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488ba7795640efd3ef05c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-030",
+      "question": "Apa yang diatur di dalam Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025?",
+      "answer": "Peraturan Menteri Investasi dan Hilirisasi/Kepala BKPM Nomor 5 Tahun 2025 mengatur mengenai penerbitan Persyaratan Dasar, penerbitan Perizinan Berusaha (PB), Penerbitan Perizinan Berusaha Untuk Menunjang Kegiatan Usaha (PB-UMKU), permohonan fasilitasi penanaman modal, dan juga layanan pengawasan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488b37795640efd3ef058",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-031",
+      "question": "Apa yang diatur di dalam PP 28 Tahun 2025?",
+      "answer": "PP 28 Tahun 2025 mengatur bagaimana tata cara permohonan dan penerbitan Persyaratan Dasar (KKPR, Persetujuan Lingkungan, dan PBG/SLF), Perizinan Berusaha, dan Perizinan Berusaha Untuk Menunjang Kegiatan Usaha. PP ini juga mengatur mengenai tata cara pengawasan, termasuk di dalamnya mengenai laporan kegiatan penanaman modal dan juga pemberian sanksi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488ab7795640efd3ef052",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-032",
+      "question": "Berapa minimal nominal saham bagi setiap pemegang saham?",
+      "answer": "Saat ini tidak ada ketentuan minimal nilai nominal saham untuk masing-masing pemegang saham dalam suatu perusahaan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4887e711547977a0df2c1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-033",
+      "question": "Apakah PT Perseorangan perlu memiliki akta? Apakah PT Perorangan perlu memiliki akta? Apakah PT Perorangan perlu memiliki akta? Apakah Perseroan Perorangan perlu memiliki akta?",
+      "answer": "PT perseorangan dalam hal ini perseroan perorangan yang didirikan oleh satu orang, tidak memerlukan akta dalam proses pendirian. Hal ini sebagaimana diatur dalam Peraturan Pemerintah Nomor 8 Tahun 2021. Sebagai gantinya, proses pendirian PT perseorangan cukup dengan mengisi pernyataan pendirian dan melakukan pendaftaran secara online melalui sistem Administrasi Hukum Umum (AHU) Kementerian Hukum agar mendapatkan sertifikat pendaftaran. Panduan pendaftaran PT Perseorangan pada sistem AHU dapat dilihat melalui tautan berikut: https://panduan.ahu.go.id/doku.php?id=panduan_perseroan_perorangan",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48879711547977a0df2bf",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-034",
+      "question": "Kenapa Muncul Keterangan d/h pada Cetakan NIB Setelah Ubah Nama Perusahaan?",
+      "answer": "Keterangan d/h merupakan singkatan dari 'diperbaharui/hasil' yang memiliki makna bahwa telah terjadi perubahan pada dokumen yang dimaksud. Keterangan ini muncul pada cetakan NIB ketika Pelaku Usaha melakukan perubahan nama perusahaan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488977795640efd3ef046",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-035",
+      "question": "Haruskah KBLI 10763 ditambahkan bersamaan dengan KBLI 01270 karena terintegrasi?",
+      "answer": "Kedua KBLI tersebut wajib ditambahkan secara bersamaan karena KBLI 10763 merupakan kegiatan usaha industri pengolahan teh yang wajib terintegrasi dengan kegiatan usaha pertanian tanaman untuk bahan minuman dalam KBLI 01270. Ketentuan ini juga berlaku untuk KBLI terintegrasi lainnya, seperti: KBLI 10721 wajib terintegrasi dengan KBLI 01140 (Perkebunan Tebu) KBLI 10431 wajib terintegrasi dengan KBLI 01262 (Perkebunan Buah Kelapa Sawit) Setelah berhasil login akun OSS, Bapak/Ibu dapat menambahkan kedua KBLI tersebut secara bersamaan pada menu Pengembangan. Ketentuan tersebut diatur pada Lampiran II Salinan PP Nomor 5 Tahun 2021 Sektor Pertanian. Untuk PP Nomor 5 Tahun 2021 dapat diunduh pada tautan berikut: https://oss.go.id/regulasi/6936b7af-89b4-4e8b-bddd-a1550bd27cbe",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48884711547977a0df2c5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-036",
+      "question": "Apakah API bisa diubah?",
+      "answer": "API hanya dapat dilakukan perubahan dari API-U menjadi API-P dengan syarat NIB yang berlaku sebagai API-U. Hal tersebut diatur pada Pasal 8 Ayat (1) Peraturan Menteri Perdagangan (Permendag) Nomor 16 Tahun 2025.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4888a711547977a0df2c9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-037",
+      "question": "Bagaimana cara perpanjangan izin KPPA?",
+      "answer": "Khusus bagi Kantor Perwakilan Perusahaan Asing (KPPA), NIB tidak perlu dilakukan perpanjangan karena berlaku selama KPPA masih melakukan kegiatan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48887711547977a0df2c7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-038",
+      "question": "Apakah perdagangan eceran bisa memilih API-U?",
+      "answer": "Perdagangan eceran tidak dapat memilih API-U. NIB berlaku sebagai API-U hanya dapat diajukan atas kegiatan perdagangan besar yang di dalamnya mencakup kegiatan impor.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488927795640efd3ef042",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-039",
+      "question": "Adakah perbedaan antara NITKU dengan NIB?",
+      "answer": "Nomor Identitas Tempat Kegiatan Usaha (NITKU) adalah nomor identitas wajib pajak cabang yang diterbitkan oleh Ditjen Pajak. NITKU diberikan untuk tempat kegiatan usaha wajib pajak yang terpisah dari tempat tinggal atau tempat kedudukan wajib pajak. Sedangkan, Nomor Induk Berusaha (NIB) adalah identitas bagi pelaku usaha dalam melaksanakan kegiatan usahanya sekaligus bukti registrasi/pendaftaran yang diterbitkan oleh lembaga OSS.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488947795640efd3ef044",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-040",
+      "question": "Kapan umur API mulai dihitung?",
+      "answer": "Jika yang dimaksud adalah mengenai ketentuan 'NIB yang berlaku sebagai API-U telah melewati masa berlaku paling singkat 1 (satu) tahun' sebagaimana sebelumnya diatur di Permendag Nomor 36 Tahun 2023, maka saat ini ketentuan tersebut sudah tidak diberlakukan sebagaimana tertuang dalam Permendag Nomor 16 Tahun 2025.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4888d7795640efd3ef040",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-041",
+      "question": "Apakah Yayasan bisa memiliki API-U?",
+      "answer": "Yayasan tidak dapat mengajukan API-U karena yayasan tidak dapat melakukan kegiatan usaha perdagangan. Yayasan adalah badan hukum yang bergerak khusus dalam bidang sosial, kemanusiaan, dan keagamaan. Sesuai dengan tujuan pendiriannya, yayasan tidak berorientasi pada profit atau keuntungan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48881711547977a0df2c3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-042",
+      "question": "Apakah label halal MUI masih bisa digunakan?",
+      "answer": "Label halal yang ditetapkan MUI masih dapat digunakan paling lama 5 tahun terhitung sejak PP No. 39 Tahun 2021 diundangkan. Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4886a711547977a0df2b5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-043",
+      "question": "Apakah sertifikat halal yang sudah dimiliki berlaku untuk semua produk yang dimiliki?",
+      "answer": "Sertifikat halal yang diterbitkan berlaku untuk 1 jenis produk. Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48866711547977a0df2b3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-044",
+      "question": "Bisakah WNA mengajukan NIB Perorangan?",
+      "answer": "Warga Negara Asing (WNA) tidak dapat mengajukan NIB untuk usaha perseorangan di Indonesia. Hal ini karena perizinan berusaha bagi pelaku usaha perseorangan hanya dapat diajukan oleh Warga Negara Indonesia (WNI). Pelaku usaha WNA dapat mengajukan perizinan berusaha dalam bentuk PT Penanaman Modal Asing (PMA), kantor perwakilan, atau Badan Usaha Luar Negeri (BULN). Hal tersebut diatur pada Peraturan Pemerintah Nomor 5 Tahun 2021 tentang Penyelenggaraan Perizinan Berusaha Berbasis Risiko dan Peraturan BKPM Nomor 4 Tahun 2021 tentang Pedoman dan Tata Cara Pelayanan Perizinan Berusaha Berbasis Risiko dan Fasilitas Penanaman Modal",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48870711547977a0df2b9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-045",
+      "question": "Apa yang dimaksud dengan proyek inline?",
+      "answer": "Proyek satu lini merupakan: 1. sektor industri berdasarkan kriteria menggunakan satu rangkaian mesin dalam proses terintegrasi atau metode/teknologi yang sama yang menghasilkan lebih dari 1 (satu) produk/jasa dengan KBLI berbeda dan dalam lokasi yang sama; atau 2. sektor lainnya menggunakan kode KBLI 5 (lima) digit yang berbeda di lokasi yang sama. Kegiatan dalam 1 (satu) lini produksi merupakan kegiatan usaha yang berlokasi dalam satu kesatuan hamparan ekosistem kegiatan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4886d711547977a0df2b7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-046",
+      "question": "Peraturan apa yang mengatur tentang sertifikasi halal?",
+      "answer": "Kewajiban sertifikasi halal diatur pada Undang-Undang Nomor 33 Tahun 2014 tentang Jaminan Produk Halal: Produk yang masuk, beredar, dan diperdagangkan di wilayah Indonesia wajib bersertifikat halal dan Peraturan Pemerintah Nomor 42 Tahun 2024. Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4885d711547977a0df2af",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-047",
+      "question": "Apa Perbedaan KPPA dan KP3A?",
+      "answer": "Kantor Perwakilan Perusahaan Asing (KPPA) didirikan dalam rangka sebagai pengawas, penghubung, koordinator, dan mengurus kepentingan perusahaan atau perusahaan-perusahaan afiliasinya, serta mempersiapkan pendirian dan pengembangan usaha perusahaan Penanaman Modal Asing (PMA) di Indonesia. Sedangkan, Kantor Perwakilan Perusahaan Perdagangan Asing (KP3A) didirikan dalam rangka sebagai perwakilan perusahaan perdagangan asing yang dapat berbentuk Agen Penjualan (Selling Agent) dan/atau Agen Pabrik (Manufactures Agent) dan/atau Agen Pembelian (Buying Agent).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4885b7795640efd3ef03c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-048",
+      "question": "Mengapa Muncul Keterangan 'Jenis badan usaha tidak diizinkan' Saat Pengajuan Izin Edar PKRT Dalam Negeri di REGALKES?",
+      "answer": "Keterangan 'Jenis badan usaha tidak diizinkan' muncul saat mengajukan izin edar Pangan Kemasan Rumah Tangga (PKRT) dalam negeri di REGALKES karena jenis badan usaha yang diajukan tidak sesuai dengan persyaratan umum usaha industri yang telah ditetapkan. Perlu diketahui bahwa izin edar PKRT dalam negeri hanya dapat diajukan bagi pelaku usaha non-perseorangan seperti Perseroan Terbatas (PT), Koperasi, atau Persekutuan Komanditer (CV). Ketentuan ini mengacu pada Peraturan Menteri Kesehatan Nomor 14 Tahun 2021 tentang Kegiatan Usaha dan Produk pada Penyelenggaraan Perizinan Berusaha Berbasis Risiko Sektor Kesehatan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48855711547977a0df2ab",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-049",
+      "question": "Mengapa Taiwan Tidak Muncul dalam Pilihan 'Negara Asal Kantor Perwakilan' Saat Pendaftaran?",
+      "answer": "Saat mendaftarkan akun OSS, Taiwan tidak muncul dalam pilihan Negara Asal Kantor Perwakilan karena Indonesia tidak memiliki hubungan diplomatik resmi atau hubungan bilateral dengan negara tersebut. Oleh karena itu, di dalam sistem OSS Taiwan tidak disertakan dalam pilihan negara asal untuk kantor perwakilan. Sebagai gantinya, Bapak/Ibu dapat memilih negara asal China. Selain Taiwan, Korea Utara dan Israel juga tidak tersedia dalam pilihan negara asal kantor perwakilan karena Indonesia tidak memiliki hubungan diplomatik resmi atau hubungan bilateral dengan kedua negara tersebut.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48858711547977a0df2ad",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-050",
+      "question": "Produk apa saja yang wajib bersertifikat halal?",
+      "answer": "Produk yang wajib bersertifikat halal terdiri dari: 1. Barang: Makanan, minuman, obat, kosmetik, produk kimiawi, produk biologi, produk rekayasa genetik, dan barang yang dipakai, digunakan atau dimanfaatkan. 2. Jasa: Penyembelihan, pengolahan, penyimpanan, pengemasan, pendistribusian, penjualan dan penyajian. Informasi detail mengenai produk yang wajib bersertifikat halal dapat dilihat pada Keputusan Menteri Agama Republik Indonesia Nomor 748 Tahun 2021 Tentang Jenis Produk Yang Wajib Bersertifikat Halal. Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48860711547977a0df2b1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-051",
+      "question": "Bolehkah kegiatan usaha perdagangan eceran melakukan ekspor?",
+      "answer": "Kegiatan usaha perdagangan eceran (KBLI 47xxx) adalah kegiatan yang dilakukan oleh pelaku usaha distribusi yang memasarkan barang secara langsung kepada end customer di dalam negeri. Sementara itu, untuk kegiatan ekspor termasuk dalam kegiatan usaha perdagangan besar.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48873711547977a0df2bb",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-052",
+      "question": "Apakah KSO atau JO Bisa Memiliki NIB?",
+      "answer": "Kerjasama Operasional (KSO) atau Joint Operation (JO) bukan merupakan bentuk badan usaha sehingga tidak dapat memohonkan NIB. Kewajiban pengurusan perizinan berusaha termasuk di dalamnya NIB melekat kepada masing-masing badan usaha atau entitas yang melakukan kerjasama. Misalnya, PT. A dan PT. B melakukan kerjasama operasi dalam pembuatan rel kereta api. Pada contoh ini, NIB wajib dimiliki oleh masing-masing entitas PT. A dan PT. B.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48876711547977a0df2bd",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-053",
+      "question": "Apakah sertifikat halal ada masa berlaku?",
+      "answer": "Sertifikat halal berlaku sejak diterbitkan oleh BPJPH dan tetap berlaku sepanjang tidak terdapat perubahan komposisi bahan dan/atau Proses Produk Halal (PPH). Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488637795640efd3ef03e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-054",
+      "question": "Bagaimana Cara Mengetahui Lokasi Saya Sudah Memiliki RDTR yang Terintegrasi dengan OSS?",
+      "answer": "Untuk mengetahui apakah lokasi usaha sudah memiliki Rencana Detail Tata Ruang (RDTR) yang terintegrasi dengan sistem OSS, silakan mengikuti langkah-langkah berikut: 1. Kunjungi https://oss.go.id lalu pilih menu Informasi lalu klik Informasi Lokasi Usaha 2. Pilih Rencana Tata Ruang (RTR) kemudian klik RDTR Interaktif untuk dapat melihat lokasi usaha yang sudah memiliki RDTR. Masukkan detail lokasi seperti nama kabupaten/kota untuk memeriksa apakah lokasi tersebut sudah memiliki RDTR yang terintegrasi dengan sistem OSS 3. Bapak/Ibu juga dapat melakukan pengecekan RDTR berdasarkan peta polygon wilayah kegiatan usaha yang dimiliki dengan mengklik tombol RDTR Interaktif di bagian bawah yang berwarna biru 4. Jika lokasi usaha berada di wilayah RDTR yang telah terintegrasi dengan sistem OSS, maka diberikan kemudahan Kesesuaian Kegiatan Pemanfaatan Ruang (KKPR) menggunakan mekanisme Konfirmasi Kesesuaian Kegiatan Pemanfaatan Ruang (KKKPR) yang diterbitkan secara otomatis melalui sistem OSS.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4884b711547977a0df2a5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-055",
+      "question": "Mengapa muncul Nomor Izin Penanaman Modal (NIPM )di akun PT PMA saat akses menu Permohonan Baru?",
+      "answer": "Nomor Izin Penanaman Modal (NIPM) yang muncul saat PT PMA mengakses menu Permohonan Baru, pada umumnya disebabkan oleh ketidaksesuaian data permodalan asing pada badan usaha tersebut yang saat ini pengaturannya harus paling sedikit Rp 10 miliar untuk modal disetor/ditempatkan. Jika perusahaan Bapak/Ibu adalah PT PMA baru dan belum memiliki perizinan berusaha sebelum diberlakukannya OSS RBA, silakan melakukan penyesuaian modal ditempatkan atau disetor pada akta perusahaan dan data AHU sesuai dengan ketentuan permodalan asing yang berlaku yaitu modal disetor/ditempatkan paling sedikit 10 miliar rupiah sebagaimana diatur pada Peraturan BKPM Nomor 4 Tahun 2021. Jika perusahaan Bapak/Ibu adalah PT PMA lama yang didirikan sebelum berlakunya PP 5 Tahun 2021 dan sudah memiliki perizinan berusaha sebelum diberlakukannya OSS RBA, silakan mengajukan surat resmi terkait pemeriksaan dan pembukaan Grandfather Clause terlebih dahulu ke pihak Deregulasi Kementerian Investasi dan Hilirisasi/BKPM melalui alamat email info@bkpm.go.id.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488487795640efd3ef03a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-056",
+      "question": "Bagaimana cara cek KBLI single purpose? Apakah KBLI saya termasuk single purpose?",
+      "answer": "Tidak semua KBLI dapat digabung dalam satu NIB atau disebut juga KBLI Single Purpose. Artinya, dalam satu NIB hanya boleh memiliki satu KBLI dan tidak dapat dijalankan dengan KBLI lain. Untuk mengetahui KBLI Single Purpose, Bapak/Ibu dapat melakukan pengecekan secara mandiri dengan mengikuti langkah berikut: 1. Kunjungi oss.go.id 2. Lihat menu Informasi » Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) 2020 3. Tulis kata kunci sesuai dengan kegiatan usaha yang akan dijalankan atau input KBLI (misalnya KBLI 52291) 4. Jika termasuk KBLI Single Purpose, maka akan muncul notifikasi seperti berikut: 'Seluruh Bidang Usaha dalam Ruang Lingkup Kegiatan KBLI ini, berlaku ketentuan kegiatan dilakukan oleh Badan Usaha yang didirikan khusus (single purpose).'",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48842711547977a0df2a1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-057",
+      "question": "Apakah Modal Dasar Menentukan Skala Usaha?",
+      "answer": "Modal dasar tidak menentukan skala usaha. Ketentuan skala usaha dilihat dari total modal disetor/ditempatkan di dalam akta dan/atau total nilai investasi di luar tanah dan bangunan yang diinput di dalam sistem OSS.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4883e711547977a0df29f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-058",
+      "question": "Bisakah API-U Digunakan untuk KBLI 47?",
+      "answer": "Berdasarkan Peraturan Menteri Perdagangan Nomor 8 Tahun 2024 tentang Perubahan Ketiga Atas Peraturan Menteri Perdagangan Nomor 36 Tahun 2023 Tentang Kebijakan Dan Pengaturan Impor, pengajuan API-U hanya diperbolehkan untuk KBLI dengan kegiatan usaha perdagangan besar yang memiliki kode 45xxx dan 46xxx. KBLI yang dapat memilih API-U, yaitu: 1. Semua KBLI 46xxx 2. 45101: Perdagangan Besar Mobil Baru 3. 45102: Perdagangan Besar Mobil Bekas 4. 45301: Perdagangan Besar Suku Cadang dan Aksesori Mobil 5. 45401: Perdagangan Besar Sepeda Motor Baru 6. 45402: Perdagangan Besar Sepeda Motor Bekas 7. 45405: Perdagangan Besar Suku Cadang Sepeda Motor dan Aksesorinya KBLI yang tidak dapat memilih API (API-U/API-P), yaitu: 1. Semua KBLI 47xxx 2. 45104: Perdagangan Eceran Mobil Bekas 3. 45302: Perdagangan Eceran Suku Cadang dan Aksesori Mobil 4. 45403: Perdagangan Eceran Sepeda Motor Baru 5. 45404: Perdagangan Eceran Sepeda Motor Bekas 6. 45406: Perdagangan Eceran Suku Cadang Sepeda Motor dan Aksesorinya Selain yang tercantum di atas, maka KBLI tersebut dapat memilih API-P.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48834711547977a0df299",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-059",
+      "question": "Apakah KBLI 52291 bisa digabung dengan KBLI lain?",
+      "answer": "KBLI 52291 - Jasa Pengurusan Transportasi (JPT) merupakan bidang usaha single purpose yang tidak dapat dijalankan bersamaan dengan KBLI lain sesuai dengan Peraturan Pemerintah Nomor 31 Tahun 2021 tentang Penyelenggaraan Bidang Pelayaran dan Peraturan Menteri Perhubungan Nomor PM 12 Tahun 2021 tentang Standar Kegiatan Usaha dan Produk pada Penyelenggaraan Perizinan Berusaha Berbasis Risiko Sektor Transportasi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4882f711547977a0df297",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-060",
+      "question": "Bolehkah KPPA Melakukan Kegiatan yang Menghasilkan Keuntungan?",
+      "answer": "Sebagaimana diatur dalam Peraturan BKPM Nomor 4 Tahun 2021, Kantor Perwakilan Perusahaan Asing (KPPA) tidak boleh melakukan kegiatan yang menghasilkan keuntungan. Hal ini karena berlaku ketentuan pembatasan sebagai berikut: 1. KPPA hanya berfungsi sebagai pengawas, penghubung, koordinator, dan mengurus kepentingan perusahaan atau perusahaan-perusahaan afiliasinya 2. Mempersiapkan pendirian dan pengembangan usaha perusahaan PMA di Indonesia atau di negara lain dan Indonesia 3. Berlokasi di gedung perkantoran di ibu kota provinsi 4. Tidak mencari sesuatu penghasilan dari sumber di Indonesia termasuk tidak dibenarkan melaksanakan kegiatan atau melakukan sesuatu perikatan/transaksi penjualan dan pembelian barang atau jasa komersial dengan perusahaan atau perorangan di dalam negeri 5. Tidak ikut serta dalam bentuk apapun dalam pengelolaan sesuatu perusahaan, anak perusahaan atau cabang perusahaan yang ada di Indonesia.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48845711547977a0df2a3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-061",
+      "question": "Apakah perdagangan besar dan perdagangan eceran bisa digabung?",
+      "answer": "Untuk Bidang Usaha Perdagangan Besar tidak dapat dijalankan secara bersamaan dengan Bidang Usaha Perdagangan Eceran, sebagaimana diatur di dalam Peraturan Pemerintah No. 29 Tahun 2021 tentang Penyelenggaraan Bidang Perdagangan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4882b7795640efd3ef038",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-062",
+      "question": "Apakah penanaman modal asing di PP 28/2025 masih di angka Rp10 Miliar? Apakah ada perubahan tentang BUJKA PMA di PP 28/2025? Bagaimana ketentuan fiktif positif persyaratan dasar dalam PP 28/2025? Apakah PP 5 Tahun 2021 masih berlaku? Kapan PP 28 Tahun 2025 diterapkan pada sistem OSS? Terkait PP 28 tahun 2025 peraturan apa saja yang berubah di OSS?",
+      "answer": "Untuk saat ini, proses perizinan berusaha di Sistem OSS masih mengacu kepada ketentuan PP 5 Tahun 2021 dan peraturan turunan lainnya, termasuk Peraturan BKPM Nomor 3 Tahun 2021, Nomor 4 Tahun 2021, dan Nomor 5 Tahun 2021. Pemberlakuan PP 28 Tahun 2025 secara sistem akan diterapkan pada bulan Oktober tahun 2025 (empat bulan setelah diberlakukannya PP 28 Tahun 2025). Oleh karena itu, mengenai pembatasan nilai investasi ataupun ketentuan lainnya masih mengacu kepada peraturan yang lama. Untuk informasi lebih lanjut, Bapak/Ibu dapat menghubungi Direktorat Deregulasi Penanaman Modal melalui email berikut: info@bkpm.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48851711547977a0df2a9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-063",
+      "question": "Kenapa KBLI pada Cetakan NIB Tidak Muncul Tingkat Risiko?",
+      "answer": "Tingkat risiko dalam cetakan NIB (Nomor Induk Berusaha) hanya akan terlihat untuk kegiatan usaha yang perizinan berusahanya diterbitkan setelah berlakunya Undang-Undang Cipta Kerja (UU No. 11 Tahun 2020). Di dalam lampiran NIB, akan ada dua tabel yang menampilkan daftar jenis usaha berdasarkan kode KBLI (Klasifikasi Baku Lapangan Usaha Indonesia): - Tabel A berisi daftar bidang usaha yang sudah memiliki perizinan berusaha sebelum Undang-Undang Cipta Kerja diberlakukan - Tabel B berisi daftar bidang usaha yang perizinan berusahanya diajukan setelah Undang-Undang Cipta Kerja diberlakukan",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48837711547977a0df29b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-064",
+      "question": "Apakah PMA bisa mengajukan KBLI 47 (perdagangan eceran)?",
+      "answer": "Penanam Modal Asing (PMA) dapat mengajukan KBLI 47xxx (Perdagangan Eceran) selama tidak ada pembatasan kegiatan usaha tersebut yang saat ini diatur dalam Peraturan Presiden mengenai Bidang Usaha Penanaman Modal (BUPM). Untuk detil kegiatan usaha yang tidak diperbolehkan untuk PMA, Bapak/Ibu dapat mengakses tautan berikut: https://oss.go.id/informasi/bupm?tab=budk&sub_tab=budka&page=1",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4883a711547977a0df29d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-065",
+      "question": "Bisakah KPPA Mengajukan KBLI?",
+      "answer": "Dalam proses permohonan perizinan untuk Kantor Perwakilan Perusahaan Asing (KPPA) tidak diperlukan KBLI. Mengenai ketentuan pembatasan kegiatan pada KPPA, pemohon dapat mengacu kepada Peraturan Badan Koordinasi Penanaman Modal Nomor 4 Tahun 2021 tentang Pedoman dan Tata Cara Pelayanan Perizinan Berusaha Berbasis Risiko dan Fasilitas Penanaman Modal",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4884e711547977a0df2a7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-066",
+      "question": "Bagaimana cara mengecek bahwa KBLI yang akan dijalankan termasuk ke dalam KBLI single purpose?",
+      "answer": "KBLI single purpose adalah KBLI yang tidak dapat digabungkan dan dijalankan dengan KBLI lain dalam satu NIB. Untuk mengetahui KBLI Single Purpose, Bapak/Ibu dapat melakukan pengecekan secara mandiri dengan mengikuti langkah berikut: 1. Kunjungi oss.go.id 2. Lihat menu Informasi - Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) 2020 3. Tulis kata kunci sesuai dengan kegiatan usaha yang akan dijalankan 4. Jika termasuk KBLI Single Purpose, maka akan muncul notifikasi pada kotak berwarna biru paling atas seperti berikut: 'Seluruh Bidang Usaha dalam Ruang Lingkup kegiatan KBLI ini, berlaku ketentuan kegiatan dilakukan oleh Badan Usaha yang didirikan khusus (Single Purpose)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4881e7795640efd3ef032",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-067",
+      "question": "Apakah Ketentuan Modal dalam Peraturan BKPM Nomor 4 Tahun 2021 Berlaku untuk Perubahan Akta Perusahaan PMA yang Sudah Memiliki Izin Sebelum OSS RBA?",
+      "answer": "Ketentuan permodalan dalam Peraturan BKPM Nomor 4 Tahun 2021 tetap berlaku bagi perusahaan PMA yang telah memiliki izin usaha sebelum penerapan OSS RBA yang melakukan perubahan apapun pada Akta Perusahaan. Jadi, perusahaan sudah berjalan dengan izin yang diperoleh sebelum OSS RBA, ketika terdapat perubahan dalam akta maka ketentuan permodalan saat ini tetap harus dipenuhi sesuai peraturan yang berlaku Dalam hal tidak ada penambahan atas kegiatan usaha baru, ketentuan permodalan dalam Peraturan BKPM Nomor 4 Tahun 2021 tidak berlaku. Perusahaan dapat tetap melakukan kegiatan usaha sesuai dengan perizinan berusaha sebelumnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4881b7795640efd3ef030",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-068",
+      "question": "Bagaimana cara cek NIB? Apakah NIB ini valid/terdaftar? Apakah NIB ini aktif?",
+      "answer": "Untuk pengecekan NIB dapat dilakukan melalui fitur Pencarian NIB pada situs web OSS sesuai langkah berikut: 1. Kunjungi https://oss.go.id/ 2. Cari fitur 'Pencarian NIB' di bagian kanan agak bawah 3. Masukkan NIB yang ingin dicari. Kemudian sistem akan menampilkan informasi terkait Detail Data Pelaku Usaha yang menunjukkan apakah NIB masih aktif atau sudah tidak aktif.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48827711547977a0df295",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-069",
+      "question": "Apakah nama perusahaan dapat dicantumkan pada NIB perorangan?",
+      "answer": "Bapak/Ibu, nama perusahaan tidak dapat dicantumkan dalam NIB perorangan. Pasalnya, pada cetakan NIB perorangan yang tercantum adalah nama pelaku usaha sesuai NIK yang terdaftar.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488247795640efd3ef036",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-070",
+      "question": "Berapa ketentuan modal untuk skala usaha UMK dan Non UMK?",
+      "answer": "Ketentuan permodalan untuk skala Usaha Mikro dan Kecil (UMK) terbagi atas: Mikro: Modal usaha paling banyak Rp1.000.000.000,00 (satu miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha. Kecil: Modal usaha lebih dari Rp1.000.000.000,00 (satu miliar rupiah) sampai dengan paling banyak Rp5.000.000.000,00 (lima miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha. Sedangkan, untuk skala usaha Non-UMK terbagi atas: Menengah: Modal usaha lebih dari Rp5.000.000.000,00 (lima miliar rupiah) sampai dengan paling banyak Rp10.000.000.000,00 (sepuluh miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha. Besar: Modal usaha lebih dari Rp10.000.000.000,00 (sepuluh miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha, baik yang berasal dari Penanaman Modal Dalam Negeri (PMDN) maupun Penanaman Modal Asing (PMA).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4880f711547977a0df291",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-071",
+      "question": "Bagaimana cara cek NIB? Apakah NIB ini valid/terdaftar? Apakah NIB ini aktif?",
+      "answer": "Untuk pengecekan NIB dapat dilakukan melalui fitur Pencarian NIB pada situs web OSS sesuai langkah berikut: 1. Kunjungi https://oss.go.id/ 2. Cari fitur 'Pencarian NIB' di bagian kanan agak bawah 3. Masukkan NIB yang ingin dicari. Kemudian sistem akan menampilkan informasi terkait Detail Data Pelaku Usaha yang menunjukkan apakah NIB masih aktif atau sudah tidak aktif.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48827711547977a0df295",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-072",
+      "question": "Apakah satu NIB bisa dua perusahaan?",
+      "answer": "1 NIB (Nomor Induk Berusaha) berlaku hanya untuk 1 perusahaan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48802711547977a0df28d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-073",
+      "question": "Apa perbedaan KBLI pada Tabel A dan Tabel B di lampiran NIB?",
+      "answer": "Tabel A berisi list KBLI yang telah memiliki perizinan berusaha yang berlaku efektif sebelum implementasi Undang-Undang Nomor 11 Tahun 2020 tentang Cipta Kerja. Tabel B berisi list KBLI yang perizinan berusahanya diajukan melalui sistem OSS RBA.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487ff711547977a0df28b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-074",
+      "question": "Apakah semua KBLI 2017 wajib diubah menjadi 2020?",
+      "answer": "'Tidak semua' KBLI 2017 'perlu diubah' menjadi KBLI 2020. Perubahan hanya berlaku bagi KBLI 2017 yang mengalami perubahan di KBLI 2020, baik pada kode maupun judul KBLI. Jika terdapat perubahan, maka perlu dilakukan penyesuaian KBLI 2020 pada : 'Data Maksud dan Tujuan' di akta dan AHU (khusus untuk badan usaha).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e488097795640efd3ef028",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-075",
+      "question": "Bagaimana cara menentukan KBLI yang sesuai untuk kegiatan usaha saya?",
+      "answer": "Untuk melakukan pengecekan KBLI yang tepat untuk kegiatan usaha, Bapak/Ibu dapat cek 'secara mandiri' dengan cara: 1. Kunjungi https://oss.go.id/ 2. Klik Informasi > klik Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) 2020. 3. Tuliskan kata kunci sesuai kegiatan usaha pada kolom Pencarian Berdasarkan Semua KBLI. 4. Sistem akan menampilkan KBLI yang sesuai atau paling mendekati dengan kata kunci.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e48806711547977a0df28f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-076",
+      "question": "Berapa ketentuan modal untuk skala usaha UMK dan Non UMK?",
+      "answer": "Ketentuan permodalan untuk skala Usaha Mikro dan Kecil (UMK) terbagi atas: Mikro: Modal usaha paling banyak Rp1.000.000.000,00 (satu miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha. Kecil: Modal usaha lebih dari Rp1.000.000.000,00 (satu miliar rupiah) sampai dengan paling banyak Rp5.000.000.000,00 (lima miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha. Sedangkan, untuk skala usaha Non-UMK terbagi atas: Menengah: Modal usaha lebih dari Rp5.000.000.000,00 (lima miliar rupiah) sampai dengan paling banyak Rp10.000.000.000,00 (sepuluh miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha. Besar: Modal usaha lebih dari Rp10.000.000.000,00 (sepuluh miliar rupiah) tidak termasuk tanah dan bangunan tempat usaha, baik yang berasal dari Penanaman Modal Dalam Negeri (PMDN) maupun Penanaman Modal Asing (PMA).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e4880f711547977a0df291",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-077",
+      "question": "Apakah pembuatan NIB berbayar?",
+      "answer": "Pengajuan NIB tidak dipungut biaya alias gratis.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487f6711547977a0df287",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-078",
+      "question": "Apakah PMA bisa mendirikan CV/Yayasan/Koperasi di Indonesia?",
+      "answer": "Penanaman modal asing / PMA 'wajib' dalam bentuk 'Perseroan Terbatas'.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487f3711547977a0df285",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-079",
+      "question": "Kenapa KBLI pada Cetakan NIB Tidak Muncul Tingkat Risiko?",
+      "answer": "Tingkat risiko pada cetakan NIB hanya akan muncul pada kegiatan usaha yang perizinan berusahanya terbit setelah berlakunya Undang-Undang Nomor 11 Tahun 2020 tentang Cipta Kerja",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487fb711547977a0df289",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-080",
+      "question": "Apakah saya harus menambahkan KBLI Perdagangan untuk distribusi jika sudah memiliki KBLI Industri?",
+      "answer": "Bapak/Ibu 'tidak perlu' menambahkan KBLI Perdagangan untuk melakukan distribusi produk, apabila produk tersebut adalah hasil dari produksi sendiri.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487ef711547977a0df283",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-081",
+      "question": "Apa perbedaan KBLI pada Tabel A dan Tabel B di lampiran NIB?",
+      "answer": "Tabel A berisi list KBLI yang telah memiliki perizinan berusaha yang berlaku efektif sebelum implementasi Undang-Undang Nomor 11 Tahun 2020 tentang Cipta Kerja. Tabel B berisi list KBLI yang perizinan berusahanya diajukan melalui sistem OSS RBA.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487ff711547977a0df28b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-082",
+      "question": "Kenapa KBLI pada Cetakan NIB Tidak Muncul Tingkat Risiko?",
+      "answer": "Tingkat risiko pada cetakan NIB hanya akan muncul pada kegiatan usaha yang perizinan berusahanya terbit setelah berlakunya Undang-Undang Nomor 11 Tahun 2020 tentang Cipta Kerja",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487fb711547977a0df289",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-083",
+      "question": "Apakah pembuatan NIB berbayar?",
+      "answer": "Pengajuan NIB tidak dipungut biaya alias gratis.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487f6711547977a0df287",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-084",
+      "question": "Berapa Minimal Nominal Saham Bagi Setiap Pemegang Saham?",
+      "answer": "Tidak ada ketentuan minimal nilai nominal saham untuk masing-masing pemegang saham dalam suatu perusahaan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487e0711547977a0df279",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-085",
+      "question": "Apakah satu direktur bisa menjadi direktur dibeberapa perusahaan?",
+      "answer": "Silakan Bapak/Ibu pastikan email, NPWP dan nama perusahaan berbeda dengan perusahaan lainnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487dc711547977a0df277",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-086",
+      "question": "Apakah saya harus menambahkan KBLI Perdagangan untuk distribusi jika sudah memiliki KBLI Industri?",
+      "answer": "Bapak/Ibu 'tidak perlu' menambahkan KBLI Perdagangan untuk melakukan distribusi produk, apabila produk tersebut adalah hasil dari produksi sendiri.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487ef711547977a0df283",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-087",
+      "question": "Kenapa NIB Saya Tidak Ada Skala Usaha?",
+      "answer": "Skala usaha pada cetakan NIB hanya muncul pada akun usaha : mikro dan usaha kecil (UMK). Pada akun Non-UMK, skala usaha 'tidak dicantumkan dalam NIB'.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487e6711547977a0df27d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-088",
+      "question": "Bagaimana cara melakukan perubahan nama perusahaan pada izin usaha yang sudah efektif?",
+      "answer": "Perubahan nama perusahaan pada izin usaha yang sudah efektif tidak dapat dilakukan. Silahkan Bapak/Ibu mengajukan perizinan berusaha kembali atas KBLI yang sama dengan memilih 'Tidak' pada pertanyaan 'Apakah Sudah Memiliki Izin yang Berlaku Sebelum OSS Berbasis Risiko' agar perizinan berusaha yang terbit dapat berbentuk produk perizinan berusaha berbasis risiko dengan nama perusahaan baru yang tercantum.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487d9711547977a0df275",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-089",
+      "question": "Apakah PMA bisa mendirikan CV/Yayasan/Koperasi di Indonesia?",
+      "answer": "Penanaman modal asing / PMA 'wajib' dalam bentuk 'Perseroan Terbatas'.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487f3711547977a0df285",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-090",
+      "question": "Berapa jumlah maksimal KBLI yang dapat diajukan pada OSS?",
+      "answer": "Tidak ada ketentuan maksimal KBLI yang diajukan di OSS.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487e3711547977a0df27b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-091",
+      "question": "Jika saya sudah memiliki BPJS Kesehatan, apakah saya tidak bisa mendaftarkan NIB?",
+      "answer": "Untuk kepemilikan BPJS Kesehatan tidak berpengaruh terhadap penerbitan NIB melalui OSS, karna BPJS Kesehatan bukan merupakan syarat dalam pengajuan perizinan berusaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487d5711547977a0df273",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-092",
+      "question": "Bagaimana ketentuan penggunaan nomor telepon yang dapat didaftarkan pada akun OSS apabila 1 penanggung jawab memiliki lebih dari 1 perusahaan?",
+      "answer": "Nomor ponsel hanya dapat didaftarkan 1x untuk 1 akun OSS. Apabila Bapak/Ibu memiliki lebih dari 1 perusahaan dengan 1 penanggung jawab yang sama, mohon Bapak/Ibu untuk menggunakan nomor ponsel aktif lainnya. Pastikan nomor ponsel terhubung dengan aplikasi Whatsapp.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487d2711547977a0df271",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-093",
+      "question": "Kenapa Belum Ada Pihak OSS Padahal Saya Sudah Tersambung dengan Klinik LKPM?",
+      "answer": "Apabila belum ada petugas yang muncul saat sedang mencoba tersambung dengan Klinik LKPM, pastikan bahwa Bapak/Ibu telah tersambung pada waktu yang sesuai, yaitu pukul 09:00 hingga 12:00 WIB. Jika telah tersambung pada waktu yang telah ditentukan, silakan menunggu hingga petugas LKPM memberikan akses masuk ke ruang Zoom.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487b9711547977a0df263",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-094",
+      "question": "Apakah layanan ini tersedia di luar jam kerja atau hari libur? Apakah ada nomor telepon yang bisa saya hubungi? Di mana saya bisa konsultasi offline? Apakah jam operasional berlaku sama untuk semua kanal? Apakah layanan buka saat cuti bersama? Apakah saya bisa telepon pada hari sabtu atau minggu?",
+      "answer": "Kami informasikan bahwa layanan kami tersedia setiap: Senin–Jumat Pukul 08.00 – 16.00 WIB Layanan tidak tersedia pada akhir pekan, hari libur nasional, dan cuti bersama. Berikut adalah kanal layanan contact center Kementerian Investasi dan Hilirisasi/BKPM. WhatsApp: +628116774642 Email: kontak@oss.go.id Instagram: @oss.go.id Telepon: 169 Panggilan Video: https://vc-bkpm.omnix.co.id/ Tatap Muka: Lantai 1 Gedung Ismail Saleh",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487b6711547977a0df261",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-095",
+      "question": "Bagaimana cara daftar konsultasi tatap muka?",
+      "answer": "Berikut tata cara pendaftaran konsultasi tatap muka perizinan berusaha: 1. Login akun OSS menggunakan hak akses yang sudah dimiliki, lalu setelah berhasil login klik tombol 'Tatap Muka' di bagian pojok kanan bawah. 2. Klik fitur 'Perizinan Berusaha' kemudian ikuti langkah selanjutnya sesuai petunjuk yang tertera pada layar. 3. Pilih menu 'Teknik Sistem OSS' kemudian klik tombol 'Pilih Layanan'. 4. Selanjutnya, pilih tanggal untuk melaksanakan konsultasi tatap muka. 5. Setelah memilih tanggal, pastikan mengklik tombol 'Pilih Jadwal' agar jadwal tersimpan. 6. Selanjutnya, tuliskan kendala atau pertanyaan yang ingin dikonsultasikan lalu klik tombol 'Selanjutnya'. 7. Di akhir pendaftaran, Bapak/Ibu akan memperoleh barcode. Tunjukkan QR Code kepada petugas atau masukkan kode booking untuk mendapatkan nomor antrean. Ringkasan reservasi juga akan dikirimkan melalui email terdaftar.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487b0711547977a0df25d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-096",
+      "question": "Apakah diperbolehkan dalam 1 NIB terdapat lebih dari 1 KBLI dengan kode yang sama namun lokasi yang berbeda?",
+      "answer": "Penggunaan KBLI dengan lokasi usaha yang berbeda menggunakan KBLI yang sama diperbolehkan. Perizinan berusaha yang terbit sesuai dengan tingkat risiko untuk masing-masing KBLI dan untuk setiap lokasi kegiatan usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487ce711547977a0df26f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-libp-097",
+      "question": "Apakah saya bisa telepon untuk menjelaskan secara detail? Apa bisa saya telpon? Berapa kontak OSS yang bisa saya hubungi?",
+      "answer": "Untuk konsultasi via telepon dapat dilakukan dengan menghubungi 169 setiap hari Senin - Jum'at, pukul 08:00 - 16:00 WIB. Bapak/Ibu juga dapat menghubungi kami melalui kanal berikut: Email: kontak@oss.go.id Video Call: https://vc-bkpm.omnix.co.id/ Instagram: @oss.go.id Tatap Muka: Lantai 1 Gedung Ismail Saleh",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4789e711547977a0deb07&id=68e487b3711547977a0df25f",
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}

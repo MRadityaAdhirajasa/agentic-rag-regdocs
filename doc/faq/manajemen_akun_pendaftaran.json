@@ -1,0 +1,388 @@
+{
+  "source": {
+    "name": "OSS BKPM",
+    "base_url": "https://oss.go.id",
+    "type": "faq",
+    "category": "Manajemen Akun dan Pendaftaran",
+    "input_method": "manual",
+    "last_updated": "2025-12-22"
+  },
+  "items": [
+    {
+      "id": "faq-maa-001",
+      "question": "Bagaimana cara pencabutan likuidasi akun BUJKA?",
+      "answer": "Bapak/Ibu dapat melakukan pencabutan likuidasi akun Badan Usaha Jasa Konstruksi Asing (BUJKA) secara mandiri melalui OSS sesuai langkah berikut: 1. Kunjungi https://oss.go.id/. 2. Masuk menggunakan username/email/nomor handphone dan password. 3. Pilih menu Kantor Perwakilan » Pencabutan » BUJKA. Panduan lebih lengkap silakan mengunjungi tautan berikut pada bagian Pencabutan Likuidasi: https://oss.go.id/panduan/6527bb4e048d98beaf14036c",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e489017795640efd3ef082",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-002",
+      "question": "Bagaimana cara pencabutan KPPA?",
+      "answer": "Pengajuan permohonan pencabutan Kantor Perwakilan Perusahaan Asing (KPPA) dapat dilakukan dengan mengikuti langkah-langkah di bawah ini: 1. Kunjungi https://oss.go.id/ 2. Login ke akun perusahaan menggunakan username dan password yang telah terdaftar 3. Pilih menu KANTOR PERWAKILAN, pilih PENCABUTAN kemudian klik KPPA 4. Selanjutnya, klik AJUKAN PERMOHONAN untuk melakukan proses pencabutan KPPA. 5. Periksa data kantor perwakilan dan dokumen perizinan seperti AoA, LoA, LoI, LoR dan LoS. Lengkapi surat pernyataan dari kepala kantor perwakilan atau direksi perusahaan di negara asal yang menyatakan tidak memiliki hutang piutang 6. Berikutnya, lengkapi data lainnya yang diperlukan dalam proses pencabutan KPPA kemudian centang kotak DISCLAIMER yang berisi Pernyataan Pencabutan KPPA. Klik SAYA SUDAH MEMBACA DAN MENYETUJUI, lalu klik PROSES untuk mengirimkan permohonan pencabutan KPPA Panduan lengkap pencabutan KPPA dapat dilihat pada tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144cc",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e488fc7795640efd3ef080",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-003",
+      "question": "Saya Tidak Bisa Cabut KPPA karena Muncul Notifikasi Masa Berlaku LOA Belum Terisi",
+      "answer": "Jika terkendala tidak bisa melakukan pencabutan Kantor Perwakilan Perusahaan Asing (KPPA) karena masa berlaku dokumen Letter of Appoinment (LoA) belum terisi, silakan mengikuti langkah-langkah berikut: 1. Klik nama perusahaan di kanan atas lalu klik tombol Lihat Profil. 2. Pilih sub-menu Ubah Kepala Kantor Perwakilan kemudian klik tombol Ubah. 3. Lengkapi data profil kepala kantor perwakilan lalu klik tombol Selanjutnya. 4. Selanjutnya, isi data LOA dan masa berlaku LoA kemudian simpan. Pastikan masa berlaku telah terisi agar tidak muncul notifikasi serupa saat hendak mencabut KPPA.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e488fa7795640efd3ef07e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-004",
+      "question": "Bisakah Mengubah Akun Perorangan Jadi Badan Usaha?",
+      "answer": "Akun perorangan tidak dapat diubah menjadi badan usaha. Namun, Jika Bapak/Ibu sudah memiliki akun OSS dan belum memiliki NIB, silakan lakukan pendaftaran akun baru dengan memilih jenis badan usaha yang sesuai. Untuk akun yang sudah dimiliki, Bapak/Ibu dapat mengajukan penonaktifan akun. Apabila NIB sudah terbit, Bapak/Ibu tetap dapat melakukan pendaftaran akun baru dengan memilih jenis badan usaha yang sesuai. Jika NIB sudah tidak ingin digunakan, silakan lakukan pencabutan NIB secara mandiri melalui menu Pencabutan - Pencabutan Likuidasi - klik Permohonan Pelaku Usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e488f77795640efd3ef07c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-005",
+      "question": "Bisakah satu NIK memiliki lebih dari satu akun OSS?",
+      "answer": "Satu NIK dapat digunakan untuk mendaftar: - Satu akun OSS perorangan - Badan usaha bisa lebih dari satu akun OSS dengan email/nomor ponsel hak akses yang berbeda. Khusus badan usaha PT Perorangan, satu NIK tidak dapat digunakan untuk mendaftar lebih dari satu akun OSS. Satu NIK hanya bisa untuk satu akun OSS PT Perorangan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e487177795640efd3ef00a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-006",
+      "question": "Bagaimana Cara Mengajukan Perizinan Berusaha KP3A PMSE?",
+      "answer": "Pengajuan perizinan berusaha untuk KP3A PMSE wajib didahului dengan pengajuan perizinan berusaha PSE Asing. Bapak/Ibu juga wajib memiliki NIB yang sudah terbit, TDPSE, dan telah memenuhi kriteria sebagai Penyelenggara Perdagangan melalui Sistem Elektronik (PPMSE). Kantor Perwakilan Perusahaan Perdagangan Asing (KP3A) di bidang Perdagangan melalui Sistem Elektronik (KP3A PMSE) yang ingin mengajukan perizinan berusaha dapat mengikuti langkah-langkah berikut: 1. Pastikan telah memiliki hak akses OSS RBA. 2. Kunjungi https://oss.go.id/ lalu masuk menggunakan username serta password. 3. Setelah berhasil login, pilih menu Kantor Perwakilan kemudian pilih Permohonan Baru. 4. Pada menu Permohonan KP3A-PMSE, masukkan NIB PSE Asing yang sudah dimiliki, lalu klik tombol Cek NIB. 5. Pilih nomor TDPSE yang sudah terbit dan yang akan diajukan untuk KP3A-PMSE. 6. Selanjutnya, sistem akan menampilkan Data Prinsipal secara otomatis berdasarkan nomor TDPSE yang dipilih. 7. Lengkapi Data Kantor Perwakilan, Data Kegiatan Kantor, dan Data Dokumen Persyaratan. 8. Lanjutkan dengan mengisi data TDPSE lainnya, lalu klik tombol Pilih Dokumen untuk mengunggah dokumen persyaratan sesuai instruksi. 9. Centang kotak disclaimer lalu klik tombol Kirim Pengajuan. Pastikan seluruh data sudah diisi dengan benar karena data pada menu Permohonan tidak bisa diubah setelah NIB terbit. 10. Untuk memantau pengajuan SIUP3A PMSE, klik menu Kantor Perwakilan lalu pilih Daftar Permohonan. Jika permohonan yang diajukan membutuhkan perbaikan dokumen, Bapak/Ibu dapat menyuntingnya dengan membuka menu Kantor Perwakilan lalu pilih Permohonan. Setelah diperbaiki, status akan berubah menjadi Belum Diproses. 11. Jika status permohonan telah berubah menjadi Telah terverifikasi, artinya SIUP3A PMSE telah terbit dan dapat dicetak dengan mengklik tombol Cetak SIUP3A PMSE. Panduan lebih lengkap, Bapak/Ibu dapat mengunjungi tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144da",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4855e711547977a0df191",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-007",
+      "question": "Haruskah Memiliki NPWP untuk Daftar Akun OSS?",
+      "answer": "Wajib tidaknya memiliki Nomor Pokok Wajib Pajak (NPWP) untuk mendaftar akun OSS tergantung pada jenis akun yang akan didaftarkan. Jika pelaku usaha mendaftar sebagai Badan Usaha, maka NPWP merupakan persyaratan wajib yang harus disertakan. Namun, jika pelaku usaha mendaftar sebagai orang perseorangan, maka tidak diwajibkan untuk memiliki NPWP karena tidak ada kolom penginputan NPWP pada saat pendaftaran.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4854a711547977a0df181",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-008",
+      "question": "Bagaimana cara memperoleh Surat Tanda Pendaftaran Waralaba bagi Badan Usaha Luar Negeri (BULN)?",
+      "answer": "Berikut langkah menerbitkan perizinan Badan Usaha Luar Negeri (BULN) guna memperoleh Surat Tanda Pendaftaran Waralaba (STPW) bagi pemberi waralaba dari luar negeri: 1. Pastikan telah memiliki hak akses OSS RBA; 2. Kunjungi https://oss.go.id/ lalu masuk menggunakan username dan password; 3. Setelah berhasil login, pilih menu Perizinan Berusaha kemudian pilih Permohonan; 4. Lengkapi formulir Data Penanggung Jawab dengan teliti. Pastikan seluruh informasi telah terisi sesuai data yang diminta; 5. Selanjutnya, lengkapi formulir Data Domisil Penanggung Jawab. Jika data domisili sama dengan alamat saat registrasi, maka negara domisili akan terisi otomatis. Jika memilih Indonesia sebagai negara domisili, Bapak/Ibu harus mengisi data provinsi, kabupaten/kota, kecamatan, dan kelurahan/desa; 6. Berikutnya, lengkapi formulir Data Perusahaan Luar Negeri termasuk informasi yang berkaitan dengan perusahaan luar negeri; 7. Lengkapi formulir Data Kegiatan Usaha dengan mengklik tombol Tambah Data untuk menginput seluruh kegiatan usaha yang akan diwaralabakan. Data kegiatan usaha dapat ditambahkan lebih dari satu dalam satu pengajuan; 8. Lengkapi Data Usaha dengan menginputkan nomor KBLI, jenis usaha, merek usaha yang diwaralabakan kemudian unggah dokumen persyaratan; 9. Periksa kembali formulir Data Kegiatan Usaha, kemudian jika telah sesuai klik kotak centang/checkbox pada disclaimer. Selanjutnya, klik tombol Proses Perizinan Berusaha; Panduan lebih lengkap dapat dilihat pada tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144bd",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48556711547977a0df18b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-009",
+      "question": "Haruskah Nomor HP yang Didaftarkan Hak Akses OSS Terhubung ke WhatsApp?",
+      "answer": "Nomor ponsel yang didaftarkan pada hak akses OSS wajib terhubung ke WhatsApp. Hal ini karena sistem OSS akan melakukan verifikasi data melalui WhatsApp dengan mengirimkan kode verifikasi. Kode tersebut nantinya digunakan pada saat pendaftaran atau jika suatu saat melakukan perubahan nomor ponsel. Sebagai informasi, pendaftaran akun OSS menggunakan nomor ponsel hanya berlaku bagi usaha skala UMK dengan jenis pelaku usaha perseorangan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48560711547977a0df193",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-010",
+      "question": "Kenapa Muncul Notifikasi Nomor Legalitas Tidak Terdaftar Saat Ubah Email?",
+      "answer": "Notifikasi Nomor legalitas tidak terdaftar muncul karena Nama Badan Usaha, Nomor SK Pengesahan Akta Terakhir, atau Nomor Induk Kependudukan penanggung jawab tidak sesuai dengan yang terdaftar dalam sistem OSS. Mohon pastikan input data tersebut sesuai dengan yang terdaftar di sistem OSS.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4853d7795640efd3eef54",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-011",
+      "question": "Bagaimana cara ubah nomor ponsel melalui profil di akun OSS?",
+      "answer": "Perubahan nomor ponsel pada akun OSS dapat dilakukan dengan mengikuti langkah berikut: 1. klik tanda panah ke bawah pada nama pelaku usaha/badan usaha pada pojok kanan atas akun OSS 2. klik Info Akun 3. pilih Profil Pengguna 4. klik tombol 'Ubah' pada kolom No Telp 5. masukkan password untuk konfirmasi 6. kemudian kode verifikasi akan terkirim ke nomor lama melalui pesan WhatsApp 7. input kode verifikasi dan masukkan nomor ponsel baru 8. kemudian kode verifikasi akan terkirim ke nomor baru melalui pesan WhatsApp 9. input kode verifikasi dan perubahan berhasil disimpan. Panduan lebih lengkap dapat dilihat melalui tautan berikut: Badan usaha: https://oss.go.id/panduan/635970086345c7d71a8144d1 Perorangan: https://oss.go.id/panduan/635970086345c7d71a8144d0",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48568711547977a0df195",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-012",
+      "question": "Bagaimana Cara Ubah Penanggung Jawab Kantor Perwakilan?",
+      "answer": "Penanggung jawab atau kepala kantor perwakilan (KPPA, KP3A, KP3A PMSE, BUJKA, KPJPTLA) dapat diubah melalui menu Lihat Profil akun OSS Bapak/Ibu: 1. Klik tanda panah ke bawah pada nama pelaku usaha/badan usaha di pojok kanan atas dan pilih Info Akun. 2. Pilih Ubah Kepala Kantor Perwakilan lalu klik tombol Ubah kemudian lengkapi kolom Pilih Warga Negara. 3. Selanjutnya, lengkapi Data Profil Kepala Kantor Perwakilan. 4. Berikutnya, lengkapi Data LoA dan LoS Kepala Kantor Perwakilan. 5. Sistem akan menampilkan notifikasi setelah pengguna berhasil melakukan perubahan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485637795640efd3eef56",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-013",
+      "question": "Kenapa muncul notifikasi email sudah terdaftar saat daftar OSS?",
+      "answer": "Kendala tersebut terjadi karena email yang Bapak/Ibu gunakan sudah pernah didaftarkan sebelumnya dan sudah memiliki akun OSS. Silakan mendaftar kembali dengan menggunakan email lain yang belum pernah didaftarkan OSS. Apabila Bapak/Ibu lupa akun OSS yang terdaftar dengan email tersebut, Silakan menggunakan fitur Butuh Bantuan lalu klik Lupa Akun. Panduan lebih lengkap perihal Lupa Akun dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a58161758775dcf7164dc9",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48559711547977a0df18d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-014",
+      "question": "Bagaimana Cara Menerbitkan Izin KP3A?",
+      "answer": "Perizinan Kantor Perwakilan Perusahaan Perdagangan Asing (KP3A) dapat diterbitkan melalui sistem OSS. Apabila Bapak/Ibu belum memiliki hak akses, silakan melakukan pendaftaran akun OSS terlebih dahulu dengan memilih jenis pelaku usaha Kantor Perwakilan dan jenis kantor perwakilan KP3A. Silakan mengunjungi tautan berikut untuk panduan pendaftaran: https://oss.go.id/panduan/635970086345c7d71a8144b5 Jika telah memiliki hak akses, silakan mengunjungi tautan berikut untuk mengajukan permohonan perizinan KP3A: https://oss.go.id/panduan/635970086345c7d71a8144d8",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4855b711547977a0df18f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-015",
+      "question": "Bagaimana cara ubah password melalui profil di akun OSS?",
+      "answer": "Perubahan password pada akun OSS dapat dilakukan dengan mengikuti langkah berikut: 1. klik tanda panah ke bawah pada nama perusahaan/pelaku usaha pada pojok kanan atas akun OSS 2. klik Info Akun 3. pilih Ubah Password 4. masukkan password lama 5. masukkan password baru. Password harus berupa minimal 8 karakter, huruf kapital, huruf kecil, angka, dan karakter spesial (seperti !,#,@) 6. konfirmasi password baru (ulangi pengisian password baru) 7. klik tombol Simpan. Panduan lebih lengkap dapat dilihat melalui tautan berikut: Badan usaha: https://oss.go.id/panduan/635970086345c7d71a8144d1 Perorangan: https://oss.go.id/panduan/635970086345c7d71a8144d0",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485667795640efd3eef58",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-016",
+      "question": "Bagaimana Cara Dapat NIB Kantor Perwakilan Perusahaan Asing (KPPA)?",
+      "answer": "Jika Bapak/Ibu belum memiliki akun OSS, silakan mendaftar akun OSS terlebih dahulu dengan mengikuti panduan berikut: https://oss.go.id/panduan/635970086345c7d71a8144b5 Jika Bapak/Ibu telah memiliki akun OSS, maka perizinan untuk KPPA dapat diajukan dengan cara berikut: 1. Kunjungi https://oss.go.id/ lalu login ke akun perusahaan menggunakan username dan password. 2. Pada beranda akun OSS, klik menu Kantor Perwakilan kemudian pilih Permohonan. 3. Lengkapi Data Kantor Prinsipal KPPA dan data lainnya hingga sampai pada Pernyataan Mandiri. Klik tombol Proses Perizinan Berusaha. 4. Selanjutnya, sistem akan menampilkan NIB untuk KPPA. Centang kotak checklist kemudian klik tombol Terbitkan Perizinan Berusaha untuk mencetak NIB. Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144d9",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48540711547977a0df179",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-017",
+      "question": "Berapa lama proses perubahan email yang sudah tidak aktif?",
+      "answer": "Perubahan email pada akun OSS akan ditindaklanjuti maksimal 3 kali 24 jam pada hari kerja. Silakan menunggu email balasan maksimal 3 kali 24 jam pada hari kerja sejak permohonan berhasil terkirim.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48547711547977a0df17f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-018",
+      "question": "Kenapa Data Tidak Ditemukan Saat Ingin Ubah Penanggung Jawab?",
+      "answer": "Munculnya notifikasi Data tidak ditemukan saat ingin mengubah penanggung jawab bisa disebabkan oleh kesalahan penginputan nomor SK pengesahaan terakhir atau ketidaksesuaian penginputan data identitas penanggung jawab. Mohon pastikan kembali nomor SK pengesahan terakhir yang diinput sudah sesuai dan data identitas penanggung jawab diisi dengan lengkap dan benar sesuai yang tercantum pada data AHU terbaru. Perhatikan ketepatan dalam penginputan nama, NIK/nomor paspor, alamat, dan data lainnya. Jika terdapat ketidaksesuaian pada data AHU, silakan menghubungi kembali notaris.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4854f711547977a0df185",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-019",
+      "question": "Apakah kantor perwakilan wajib memiliki NPWP?",
+      "answer": "Pada saat pendaftaran akun OSS, Pelaku usaha dengan jenis akun Kantor Perwakilan dan Badan Usaha Luar Negeri tidak wajib menginput NPWP",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4854c711547977a0df183",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-020",
+      "question": "Kenapa Permohonan Ubah Email Ditolak Pemilik Akun?",
+      "answer": "Atas permohonan ubah email melalui fitur Butuh Bantuan, sistem OSS akan mengirimkan notifikasi berupa konfirmasi ke email lama yang terdaftar di OSS. Permohonan perubahan email ditolak karena pemilik email lama yang terdaftar di OSS menolak melakukan perubahan. Jika mengalami kendala tersebut, silakan Bapak/Ibu berkoordinasi dengan pemilik email lama untuk tidak mengklik 'Batalkan' pada email notifikasi. Jika pemilik email lama mengklik tombol 'Batalkan', maka permohonan ubah email tidak dapat dilanjutkan dan akan berstatus Ditolak pemilik akun.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4853b711547977a0df177",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-021",
+      "question": "Bagaimana Cara Mengajukan Perizinan Berusaha KPJPTLA?",
+      "answer": "Berikut langkah-langkah pengajuan perizinan berusaha bagi Kantor Perwakilan Jasa Penunjang Tenaga Listrik Asing (KPJPTLA) melalui OSS: 1. Pastikan telah memiliki hak akses OSS RBA. 2. Kunjungi https://oss.go.id, lalu masuk menggunakan username dan password. 3. Setelah berhasil login, pilih menu Kantor Perwakilan, kemudian pilih Permohonan. 4. Lengkapi data Kantor Prinsipal dan Article of Association (AoA)/Registrasi Pendirian. Jika sudah, klik tombol Simpan Data. 'Article of Association (AoA)/Registrasi Pendirian dari negara asal harus dalam bahasa asli dan dilengkapi dengan akta terjemahan dalam bahasa Indonesia oleh penerjemah tersumpah.' 5. Lengkapi formulir Data Kantor Perwakilan di Indonesia, lalu jika sudah, klik tombol Simpan Data. 6. Lengkapi formulir Data Kegiatan Usaha, termasuk nama penanggung jawab badan usaha (PJBU) dan bidang usaha. PJBU wajib memiliki kewarganegaraan Indonesia (WNI). 7. Periksa formulir Daftar Kegiatan Usaha, lalu klik tombol Proses Perizinan Berusaha. Centang setiap kotak Pernyataan Mandiri dan kotak disclaimer, lalu klik tombol Lanjut, kemudian klik Terbitkan Perizinan Berusaha (status NIB Terbit). 8. Untuk mendapatkan Sertifikat Standar (SS) yang terverifikasi dan/atau izin terbit, lakukan pemenuhan persyaratan perizinan berusaha dengan memilih menu Kantor Perwakilan, kemudian pilih Pemenuhan Persyaratan. Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144bf",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48551711547977a0df187",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-022",
+      "question": "Bagaimana cara mengajukan perizinan berusaha PSE Asing?",
+      "answer": "Berikut langkah-langkah mengajukan perizinan penyelenggara sistem elektronik (PSE) asing melalui OSS: 1. Pastikan Bapak/Ibu telah mendaftarkan hak akses OSS RBA sebagai Badan usaha Luar Negeri 2. Kunjungi https://oss.go.id/ lalu masuk menggunakan username serta password 3. Setelah berhasil login, pilih menu Perizinan Berusaha kemudian pilih Permohonan Baru 4. Selanjutnya, lengkapi Data Prinsipal 5. Lengkapi formulir Data Penanggung Jawab (WNI/WNA) 6. Klik tombol TAMBAH SISTEM untuk melengkapi formulir Sistem Elektronik. Pengguna dapat menambahkan lebih dari satu sistem elektronik yang masing-masing akan memperoleh TDPSE (PB-UMKU) 7. Pastikan pengguna telah mengisi formulir dengan lengkap lalu jika sudah, klik tombol TAMBAH 8. Selanjutnya, klik tombol Tambah kemudian centang disclaimer lalu klik Proses Perizinan Berusaha. Panduan lebih lengkap dapat dilihat pada tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144be",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48554711547977a0df189",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-023",
+      "question": "Kenapa saya tidak bisa log in ke akun OSS? Kenapa akun OSS saya tidak bisa dibuka?",
+      "answer": "Apabila Bapak/Ibu mengalami kendala login karena lupa email/nomor ponsel terdaftar, silakan menggunakan fitur Butuh Bantuan >> Lupa Akun. Panduan lupa akun dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a57fce758775dcf7164cd8 Jika Bapak/Ibu mengalami kendala login karena lupa kata sandi, silakan menggunakan fitur Butuh Bantuan >> Lupa Kata Sandi. Panduan lupa kata sandi dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a5ae56c406b3c60dc5c757",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48527711547977a0df16f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-024",
+      "question": "Apa saja dokumen persyaratan perizinan berusaha KPPA?",
+      "answer": "Berikut adalah dokumen yang diperlukan untuk perizinan berusaha KPPA: 1. Pengesahan akta (article of association/ incorporation) yang mengacu pada ketentuan perundang-undangan negara asal KPPA; 2. Akta pendirian (deeds of establishment) yang mengacu pada ketentuan perundang-undangan negara asal KPPA; 3. Letter of Appointment yang ditandatangani oleh pimpinan KPPA di negara asal atau ditandatangani oleh pihak yang memperoleh kuasa dari pimpinan KPPA di negara asal yang dilegalisasi oleh: a. Otoritas yang berkompeten bagi negara peserta Konvensi Penghapusan Persyaratan Legalisasi Terhadap Dokumen Publik Asing; atau b.Pejabat perwakilan Republik Indonesia di negara asal bagi negara bukan peserta Konvensi Penghapusan Persyaratan Legalisasi Terhadap Dokumen Publik Asing; 4. Perjanjian sewa-menyewa antara KPPA dengan pengelola atau pemilik gedung perkantoran yang masih berlaku dan sah secara hukum; 5. Surat keterangan dari pejabat kantor perwakilan Republik Indonesia di negara asal kantor perwakilan badan usaha dari luar negeri; 6. Data kegiatan usaha; dan 7. Pernyataan mandiri keamanan, keselamatan, kesehatan, dan pelestarian fungsi lingkungan (K3L).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48542711547977a0df17b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-025",
+      "question": "Lupa NIB dan Hak Akses yang Terdaftar Saya sudah punya akun OSS, namun saya Lupa NIB dan username akunnya. Bagaimana solusinya?",
+      "answer": "Apabila sudah memiliki akun OSS namun lupa NIB dan username akun, silakan mengikuti langkah berikut: 1. Kunjungi https://oss.go.id/ lalu pilih tombol Masuk pada pojok kanan atas 2. Lanjutkan dengan memilih fitur Butuh Bantuan » Lupa Akun untuk mengetahui alamat email atau nomor ponsel yang terdaftar 3. Apabila lupa NIB, silakan memilih 'Belum' pada pertanyaan 'Apakah sudah memiliki NIB?' Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a58161758775dcf7164dc9 (UMK) https://oss.go.id/panduan/63a57fce758775dcf7164cd8 (Non UMK)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48545711547977a0df17d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-026",
+      "question": "Apakah UD (Usaha Dagang) bisa daftar OSS dan menerbitkan NIB ?",
+      "answer": "Pendaftaran dengan jenis akun Usaha Dagang (UD) tidak tersedia dalam sistem OSS. Bapak/Ibu dapat mendaftarkan akun OSS dengan memilih jenis akun sebagai orang perseorangan. Jika bentuk usahanya berupa PT/CV atau jenis lainnya yang memiliki pengesahan dari instansi terkait, maka silakan pilih jenis akun sebagai badan usaha. Panduan pendaftaran dapat dilihat melalui tautan berikut: Panduan Pendaftaran Hak Akses UMK: https://oss.go.id/panduan/635970086345c7d71a814496 Panduan Pendaftaran Hak Akses Non-UMK: https://oss.go.id/panduan/635970086345c7d71a8144b5",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48525711547977a0df16d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-027",
+      "question": "Bagaimana Cara Ubah Email Jika Direktur Sudah Ganti dan Tidak Dapat Dihubungi?",
+      "answer": "Jika ingin mengubah email karena tidak bisa login dan direktur/penanggung jawab yang terdaftar di akun OSS sebelumnya sudah berganti dan tidak dapat dihubungi, maka Bapak/Ibu dapat mengajukan surat permohonan perubahan penanggung jawab dan perubahan email. Untuk melakukan perubahan tersebut, Bapak/Ibu dapat datang langsung ke kantor Kementerian Investasi dan Hilirisasi/BKPM. Proses ini tidak dapat dikuasakan dan harus dilakukan oleh penanggung jawab yang baru. Dokumen yang harus dibawa: 1. Surat permohonan perubahan penanggung jawab dan perubahan email yang diTandatangani di atas meterai Rp10.000 2. KTP asli penanggung jawab baru (Berwarna) 3. Akta perusahaan terbaru 4. SK AHU terbaru",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4852e7795640efd3eef4e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-028",
+      "question": "Apakah perkumpulan bisa membuat NIB?",
+      "answer": "Badan usaha perkumpulan dapat mendaftarkan akun OSS dan menerbitkan NIB. Silakan melakukan pendaftaran dengan memilih jenis badan usaha Persekutuan dan Perkumpulan. Panduan pendaftaran dapat dilihat melalui tautan berikut: Panduan Pendaftaran Hak Akses UMK: https://oss.go.id/panduan/635970086345c7d71a814496 Panduan Pendaftaran Hak Akses Non-UMK: https://oss.go.id/panduan/635970086345c7d71a8144b5",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4852c711547977a0df171",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-029",
+      "question": "Bagaimana Cara Tambah Email pada Akun Perseorangan yang Daftar Pakai Nomor HP?",
+      "answer": "Untuk menambahkan email pada akun perseorangan silakan mengikuti langkah-langkah berikut: 1. kunjungi website https://oss.go.id/ ; 2. klik Masuk; 3. masukkan username dan password, lalu klik tombol MASUK; 4. klik tanda panah ke bawah pada nama pelaku usaha/badan usaha di pojok kanan atas akun OSS; 5. pilih Info Akun 6. klik tombol Tambah pada kolom email 7. Pada saat mengisi email baru, pastikan menghapus simbol strip (-) kemudian isi alamat email lalu klik tombol Kirim Kode Verifikasi melalui Email Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144ac",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485367795640efd3eef52",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-030",
+      "question": "Saya Tidak Bisa Ubah Email lewat Profil karena Kode Verifikasi Dikirim ke Email Lama",
+      "answer": "Jika email terdaftar sudah tidak dapat diakses, maka Bapak/ibu dapat melakukan perubahan email melalui fitur Butuh Bantuan dan pilih Email Sudah Tidak Aktif. Panduan lengkap perubahan email sudah tidak aktif dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a58b94c406b3c60dc5c5ea (Orang Perorangan) https://oss.go.id/panduan/63a5bf21c406b3c60dc5c7c5 (Badan Usaha)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485337795640efd3eef50",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-031",
+      "question": "Mengapa muncul notifikasi NIK telah terdaftar saat daftar akun",
+      "answer": "Berikut langkah-langkah yang dapat Bapak/Ibu lakukan jika muncul notifikasi NIK telah terdaftar saat daftar akun OSS 1. Jika muncul notifikasi NIK sudah terdaftar, Bapak/Ibu dapat melakukan pengecekan atas data yang terdaftar melalui fitur Butuh Bantuan > Lupa Akun 2. Jika Bapak/Ibu mengingat email/nomor ponsel yang terdaftar pada akun OSS, silakan melakukan Reset Password. 3. Jika Bapak/Ibu tidak mengingat email/nomor ponsel dan tidak merasa pernah melakukan pendaftaran, silakan melakukan perubahan email hak akses agar Bapak/Ibu dapat log in ke akun OSS.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4851f711547977a0df169",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-032",
+      "question": "Kenapa saat melakukan pendaftaran badan usaha muncul notifikasi 'Data Registrasi Tidak Sesuai dengan Data Pengurus'? Kenapa saat melakukan perubahan penanggung jawab muncul notifikasi 'Data penangung jawab Tidak Sesuai dengan Data Pengurus'?",
+      "answer": "Data Registrasi Tidak Sesuai dengan Data Pengurus' muncul dikarenakan data penanggung jawab yang diinput tidak sesuai dengan data pengurus yang tercantum di akta pendirian/perubahan yang sudah didaftarkan di AHU Online. Pastikan Bapak/Ibu menginput nama, NIK/paspor, dan alamat sesuai dengan yang tercantum di akta pendirian/perubahan yang sudah didaftarkan di AHU Online.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485297795640efd3eef4c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-033",
+      "question": "Kenapa saat ubah email akun perorangan muncul notifikasi 'Terjadi kesalahan dalam mengirim notifikasi email'?",
+      "answer": "Notifikasi tersebut muncul karena pada akun OSS Bapak/Ibu tidak memiliki email yang terdaftar dalam sistem OSS. Silakan melakukan tahapan berikut: 1. Perubahan nomor telepon melalui fitur Butuh Bantuan lalu pilih Nomor Ponsel Sudah Tidak Aktif. Panduan lebih lengkap perubahan nomor ponsel dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a5a891c406b3c60dc5c71d 2. Setelah nomor ponsel berhasil diubah, silakan login akun OSS dan melakukan perubahan email melalui menu Lihat Profil. Panduan perubahan email pada Profil dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144ac",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48538711547977a0df175",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-034",
+      "question": "Apakah terdapat ketentuan dalam pembuatan password akun OSS?",
+      "answer": "Ya, terdapat ketentuan dalam pembuatan password akun OSS. Password akun OSS harus memenuhi ketentuan berikut: 1. Minimal 8 karakter 2. Menggunakan huruf 3. Menggunakan angka 4. Menggunakan salah satu atau lebih karakter spesial: !@#$%^&*_-",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48522711547977a0df16b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-035",
+      "question": "Saya Tidak Bisa Ubah Nomor HP perorangan melalui Profil karena Kode Verifikasi Dikirim ke Nomor HP Lama yang sudah tidak aktif",
+      "answer": "Apabila akun Bapak/Ibu adalah akun perorangan dan nomor ponsel sudah tidak dapat diakses, silakan melakukan perubahan nomor ponsel melalui fitur Butuh Bantuan lalu pilih Nomor Ponsel Sudah Tidak Aktif. Panduan perubahan nomor ponsel lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a5a5dbc406b3c60dc5c6d7",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48530711547977a0df173",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-036",
+      "question": "Saya terkendala pendaftaran akun OSS muncul notifikasi 'Sudah melewati Batas Registrasi NIK harian",
+      "answer": "Pendaftaran akun OSS dibatasi hingga lima kali percobaan per satu NIK dalam satu hari. Silakan melakukan pendaftaran kembali setelah 1 kali 24 jam.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485077795640efd3eef44",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-037",
+      "question": "Saya terkendala gagal input NPWP 16 digit",
+      "answer": "Dapat kami informasikan, saat ini fitur pemadanan NPWP dari 15 digit menjadi 16 digit kini tersedia di sistem OSS. Berikut Panduan Perubahan NPWP: 1. Masuk ke website OSS 2. Klik 'Perizinan Berusaha' 3. Pilih 'Kelola Usaha' 4. Pilih 'Perubahan' 5. Pilih 'Perubahan Badan Usaha' 6. Atau bisa melalui tautan: https://ui-login.oss.go.id/login",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48504711547977a0df15d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-038",
+      "question": "Bagaimana cara melakukan perubahan penanggung jawab akun OSS?",
+      "answer": "Data penanggung jawab akun OSS dapat diubah dengan cara berikut: 1. Kunjungi oss.go.id 2. Login akun perusahaan menggunakan username dan password. 3. Setelah berhasil login, klik tanda panah ke bawah pada nama pelaku usaha/badan usaha di bagian pojok kanan atas. 4. Selanjutnya, pilih Info Akun. 5. Lalu pilih Ubah Penanggung Jawab. 6. Sistem akan menampilkan Data Profil Penanggung Jawab lalu klik tombol Ubah di bagian pojok kanan bawah. 7. Lengkapi data profil penanggung jawab yang baru, pastikan nama dan NIK/Paspor telah terdaftar dalam data pengurus atau penanggung jawab dalam data Badan Usaha Perusahaan. Panduan perubahan penanggung jawab melalui profil: https://oss.go.id/panduan/635970086345c7d71a8144ad",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48514711547977a0df161",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-039",
+      "question": "Nomor ponsel saya sudah tidak aktif",
+      "answer": "Khusus untuk akun perorangan, jika nomor ponsel akses akun OSS sudah tidak aktif, silakan melakukan perubahan nomor ponsel melalui oss.go.id, pilih Masuk, kemudian pilih Butuh Bantuan, dan pilih Nomor Ponsel Sudah Tidak Aktif. Panduan ubah nomor ponsel akun OSS perseorangan sudah tidak aktif: https://oss.go.id/panduan/63a5a891c406b3c60dc5c71d",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485127795640efd3eef4a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-040",
+      "question": "Saya terkendala pendaftaran akun OSS muncul notifikasi data tidak sesuai KTP",
+      "answer": "Pastikan Bapak/Ibu telah menginput nama, jenis kelamin, tanggal lahir, dan alamat sesuai dengan data di KTP. Untuk pendaftaran akun perorangan, pastikan KTP yang digunakan sudah berupa E-KTP atau KTP Elektronik.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485017795640efd3eef42",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-041",
+      "question": "Mengapa muncul notifikasi 'Akun sudah tidak aktif, tidak dapat melakukan pengajuan perubahan email?'",
+      "answer": "Notifikasi akun sudah tidak aktif muncul saat melakukan perubahan email tanpa login karena akun OSS berstatus tidak aktif. Bapak/Ibu dapat mengajukan permohonan akun OSS kembali pada menu 'Daftar'",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4851a711547977a0df165",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-042",
+      "question": "Saya terkendala pendaftaran akun OSS muncul notifikasi data tidak ditemukan",
+      "answer": "Pastikan Bapak/Ibu telah menginput nama perusahaan, NPWP, Nomor SK Pengesahan, serta data penanggung jawab yang sesuai dengan informasi yang terdaftar di AHU Online.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e484ff711547977a0df15b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-043",
+      "question": "Saya lupa password akun OSS",
+      "answer": "Jika Bapak/Ibu lupa kata sandi, silakan mengunjungi oss.go.id, pilih Masuk, kemudian pilih Butuh Bantuan, dan pilih Lupa Kata Sandi. Panduan lupa password Akun OSS: https://oss.go.id/panduan/63a5ae56c406b3c60dc5c757",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4850c7795640efd3eef48",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-044",
+      "question": "Saya lupa akun OSS",
+      "answer": "Jika Bapak/Ibu lupa kata sandi, silakan mengunjungi oss.go.id, pilih Masuk, kemudian pilih Butuh Bantuan, dan pilih Lupa Kata Sandi. Panduan lupa password Akun OSS: https://oss.go.id/panduan/63a5ae56c406b3c60dc5c757",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e485097795640efd3eef46",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-045",
+      "question": "Bagaimana cara melakukan perubahan status usaha saya?",
+      "answer": "Untuk melakukan perubahan skala usaha dari UMK ke NON UMK ataupun sebaliknya, Bapak/Ibu dapat mengikuti langkah berikut: 1. Kunjungi oss.go.id 2. Masuk menggunakan username dan password. 3. Pada pojok kanan atas, klik tanda panah ke bawah pada nama pelaku usaha/badan usaha kemudian pilih Info Akun. 4. Klik tombol Ubah Status Usaha. 5. Klik Simpan untuk melakukan perubahan. Panduan perubahan skala usaha melalui profil: https://oss.go.id/panduan/635970086345c7d71a8144ad",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e48517711547977a0df163",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-046",
+      "question": "Email saya sudah tidak aktif",
+      "answer": "Jika email akses akun OSS perseorangan sudah tidak aktif, Bapak/Ibu dapat melakukan perubahan alamat email melalui oss.go.id, pilih Masuk, kemudian pilih Butuh Bantuan, dan pilih Email Sudah Tidak Aktif. Panduan ubah email akun OSS perseorangan sudah tidak aktif: https://oss.go.id/panduan/63a58b94c406b3c60dc5c5ea Panduan ubah email akun OSS badan usaha sudah tidak aktif: https://oss.go.id/panduan/63a5bf21c406b3c60dc5c7c5",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e4850f711547977a0df15f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-maa-047",
+      "question": "Bagaimana cara melakukan pendaftaran akun OSS?",
+      "answer": "Berikut langkah-langkah untuk mendaftar akun OSS: 1. Buka situs oss.go.id 2. Klik menu Daftar 3. Pilih skala usaha Anda, apakah UMK atau Non UMK 4. Isi data sesuai dengan yang diminta. Untuk panduan lebih lanjut, silakan akses: Panduan Pendaftaran Hak Akses UMK: https://oss.go.id/panduan/635970086345c7d71a814496 Panduan Pendaftaran Hak Akses Non-UMK: https://oss.go.id/panduan/635970086345c7d71a8144b5",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4783c7795640efd3ee258&id=68e484fc711547977a0df159",
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "source": {
+    "name": "OSS BKPM",
+    "base_url": "https://oss.go.id",
+    "type": "faq",
+    "category": "Sistem dan Kendala Teknis",
+    "input_method": "manual",
+    "last_updated": "2025-12-24"
+  },
+  "items": [
+    {
+      "id": "faq-skt-001",
+      "question": "Kenapa Saat Daftar Akun OSS Muncul Notifikasi Gagal Update ke Database?",
+      "answer": "Notifikasi Gagal update ke database muncul pada saat melakukan pendaftaran karena terdapat kendala pada sistem AHU. Silakan menghubungi pihak AHU Online terkait kendala tersebut.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e47891a7983d314bbae5f6&id=68e488e27795640efd3ef074",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-skt-002",
+      "question": "Kenapa ID Izin PB-UMKU hilang?",
+      "answer": "Jika Bapak/Ibu pernah menghapus KBLI yang terdaftar PB-UMKU, maka dapat kami informasikan bahwa penghapusan KBLI akan menyebabkan PB-UMKU yang terdaftar ikut terhapus. Silakan mengajukan permohonan baru PB-UMKU pada KBLI yang terdaftar. Jika Bapak/Ibu pernah menghapus PB-UMKU dengan mengklik ikon keranjang sampah, silakan mengajukan permohonan baru PB-UMKU dikarenakan ID Izin tidak dapat dikembalikan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e47891a7983d314bbae5f6&id=68e48750711547977a0df221",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-skt-003",
+      "question": "Kenapa data Akta Pendirian tidak muncul di LKPP SIKaP?",
+      "answer": "Data akta dan pengesahan yang dikirim dari sistem OSS ke sistem SIKaP adalah data akta dan pengesahan terakhir yang telah perusahaan update di sistem OSS. Perusahaan yang sudah pernah melakukan perubahan akta di sistem OSS, maka data pada sistem SIKaP adalah Akta Perubahan. Bagi yang belum pernah, maka data pada sistem SIKaP adalah Akta Pendirian.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e47891a7983d314bbae5f6&id=68e48754711547977a0df223",
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+  "source": {
+    "name": "OSS BKPM",
+    "base_url": "https://oss.go.id",
+    "type": "faq",
+    "category": "Fasilitas, Kemitraan, dan Fitur Pendukung",
+    "input_method": "manual",
+    "last_updated": "2025-12-22"
+  },
+  "items": [
+    {
+      "id": "faq-fkfp-001",
+      "question": "Bagaimana Cara Mengajukan Kemitraan bagi UMKM?",
+      "answer": "Pelaku UMKM dapat menggunakan fitur kemitraan yang telah tersedia di OSS dengan cara berikut: 1. Kunjungi https://oss.go.id/ 2. Masuk menggunakan username/email/nomor telepon dan password 3. Setelah berhasil login, sistem akan menampilkan banner terkait fitur kemitraan pada akun OSS. Klik tombol 'Lihat Penawaran' pada banner Panduan lebih lengkap dapat dilihat pada tautan berikut: https://oss.go.id/panduan/64954236d033753dd77d8ba1",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e487aa711547977a0df259",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-fkfp-002",
+      "question": "Apa Saja KBLI yang Diwajibkan Bermitra dengan UMKM?",
+      "answer": "KBLI yang diwajibkan bermitra dengan Koperasi dan UMKM dapat dicek secara mandiri melalui OSS sesuai langkah-langkah berikut: 1. Kunjungi https://oss.go.id kemudian pilih menu Informasi lalu klik Bidang Usaha Penanaman Modal (BUPM). 2. Pilih opsi Bidang Usaha Dialokasikan dan Kemitraan Dengan Koperasi dan UMKM, lalu klik Bidang Usaha Kemitraan dengan Koperasi dan UMKM. Sistem akan menampilkan daftar KBLI yang diwajibkan untuk bermitra dengan Koperasi dan UMKM.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e487ad711547977a0df25b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-fkfp-003",
+      "question": "Bagaimana cara mengajukan Tax Holiday?",
+      "answer": "Bapak/Ibu dapat mengajukan fasilitas berusaha seperti Tax Holiday, Tax Allowance, Investment Allowance, Vokasi, Penelitian dan Pengembangan, Fasilitas Impor, dan Fasilitas Kawasan Ekonomi Khusus (KEK) melalui sistem OSS. Untuk informasi lebih lanjut mengenai fasilitas, silakan kunjungi oss.go.id >> pilih menu Informasi >> pilih Dukungan Usaha >> pilih Fasilitas Berusaha. Untuk pengajuan Tax Holiday, silakan melihat panduan secara lengkap melalui oss.go.id, kemudian pilih menu Panduan, lalu lakukan pencarian dengan kata kunci 'Pengajuan dan Pemanfaatan Tax Holiday'. Panduan Pengajuan dan Pemanfaatan Tax Holiday: https://oss.go.id/panduan/635970086345c7d71a8144c0 Panduan Pengajuan dan Pemanfaatan Tax Holiday di KEK https://oss.go.id/panduan/635970086345c7d71a8144c5",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e487ad711547977a0df25b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-fkfp-004",
+      "question": "Bagaimana cara mengajukan Investment Allowance?",
+      "answer": "Bapak/Ibu dapat mengajukan fasilitas berusaha seperti Tax Holiday, Tax Allowance, Investment Allowance, Vokasi, Penelitian dan Pengembangan, Fasilitas Impor, dan Fasilitas Kawasan Ekonomi Khusus (KEK) melalui sistem OSS. Untuk informasi lebih lanjut mengenai fasilitas, silakan kunjungi oss.go.id >> pilih menu Informasi >> pilih Dukungan Usaha >> pilih Fasilitas Berusaha. Untuk pengajuan Investment Allowance, silakan melihat panduan secara lengkap melalui oss.go.id, kemudian pilih menu Panduan, lalu lakukan pencarian dengan kata kunci 'Pengajuan dan Pemanfaatan Tax Allowance'. Panduan pengajuan dan pemanfaatan Investment Allowance: https://oss.go.id/panduan/635970086345c7d71a8144a0",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e4856e711547977a0df197",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-fkfp-005",
+      "question": "Bagaimana cara pengajuan Fasilitas Impor Bahan Baku?",
+      "answer": "Untuk mengajukan fasilitas impor bahan baku, Bapak/Ibu harus memiliki perizinan berusaha yang telah diterbitkan. Untuk usaha risiko tinggi, izin harus sudah terbit. Sedangkan, untuk risiko menengah tinggi, Sertifikat Standar (SS) harus telah terverifikasi. Untuk usaha risiko rendah serta menengah rendah, usaha harus sudah beroperasi secara komersial yang dibuktikan dengan penerbitan faktur penjualan pertama. Berikut langkah-langkah pengajuan fasilitas impor bahan baku melalui sistem OSS: 1. Pastikan kegiatan usaha atau KBLI yang diajukan sudah memiliki perizinan berusaha yang telah diterbitkan. 2. Jika belum mengajukan fasilitas impor mesin dan belum memiliki Keputusan Menteri Keuangan (KMK) mesin, silakan mengikuti panduan berikut untuk Permohonan Masterlist Bahan Baku TKDN: https://oss.go.id/panduan/64afa813558597eba57ea62f 3. Jika sudah memiliki fasilitas impor mesin dan telah mendapatkan Keputusan Menteri Keuangan (KMK) mesin, silakan mengikuti panduan berikut untuk Pengajuan Fasilitas Impor Bahan Baku: https://oss.go.id/panduan/635970086345c7d71a8144c8 Untuk informasi lebih lanjut, Bapak/Ibu dapat berkonsultasi melalui email konsultasi.fasilitas@bkpm.go.id atau melakukan konsultasi tatap muka fasilitas.",
+      "reference_url": "hhttps://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e48576711547977a0df19b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-fkfp-006",
+      "question": "Bagaimana cara mengajukan Tax Allowance?",
+      "answer": "Bapak/Ibu dapat mengajukan fasilitas berusaha seperti Tax Holiday, Tax Allowance, Investment Allowance, Vokasi, Penelitian dan Pengembangan, Fasilitas Impor, dan Fasilitas Kawasan Ekonomi Khusus (KEK) melalui sistem OSS. Untuk informasi lebih lanjut mengenai fasilitas, silakan kunjungi oss.go.id >> pilih menu Informasi >> pilih Dukungan Usaha >> pilih Fasilitas Berusaha. Untuk pengajuan Tax Allowance, silakan melihat panduan secara lengkap melalui oss.go.id, kemudian pilih menu Panduan, lalu lakukan pencarian dengan kata kunci 'Pengajuan dan Pemanfaatan Tax Allowance'. Panduan pengajuan Tax Allowance KBLI Terintegrasi: https://oss.go.id/panduan/650abeb3048d98beafe8517e Panduan pengajuan dan pemanfaatan Tax Allowance (UMK): https://oss.go.id/panduan/635970086345c7d71a81449f Panduan pengajuan dan pemanfaatan Tax Allowance (NON UMK): https://oss.go.id/panduan/635970086345c7d71a8144c1 Panduan pengajuan dan pemanfaatan Tax Allowance di KEK (UMK) https://oss.go.id/panduan/63a3457ba828cd73c7ab4cfd Panduan Pengajuan dan Pemanfaatan Tax Allowance di KEK (Non UMK): https://oss.go.id/panduan/635970086345c7d71a8144c6 Panduan Pengajuan dan Pemanfaatan Tax Allowance dengan KBLI Ramah Lingkungan: https://oss.go.id/panduan/64c768dc2ed3890d00648978 Panduan Pengajuan dan Pemanfaatan Tax Allowance dengan KBLI Alih Teknologi: https://oss.go.id/panduan/650ab6a5048d98beafe83e71",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e4856b7795640efd3eef5a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-fkfp-007",
+      "question": "Apa itu masterlist?",
+      "answer": "Masterlist adalah Keputusan Menteri Keuangan mengenai Pembebasan Bea Masuk yang diterbitkan oleh Kementerian Investasi/Badan Koordinasi Penanaman Modal yang berisi daftar Mesin dan Peralatan yang mendapatkan fasilitas pembebasan Bea Masuk.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e4857c711547977a0df19d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-fkfp-008",
+      "question": "Bisakah perseorangan mengajukan Fasilitas Impor?",
+      "answer": "Untuk jenis pelaku usaha orang perseorangan tidak dapat mengajukan fasilitas impor, karena fasilitas ini hanya diberikan kepada badan usaha (perusahaan) yang memenuhi kriteria tertentu. Untuk informasi lebih lanjut silakan mengacu pada Peraturan Menteri Keuangan Nomor 176 Tahun 2009.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4786d7795640efd3ee292&id=68e485797795640efd3eef5c",
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}

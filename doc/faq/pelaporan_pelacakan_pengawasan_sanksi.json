@@ -1,0 +1,420 @@
+{
+  "source": {
+    "name": "OSS BKPM",
+    "base_url": "https://oss.go.id",
+    "type": "faq",
+    "category": "Pelaporan, Pelacakan, Pengawasan dan Sanksi",
+    "input_method": "manual",
+    "last_updated": "2025-12-24"
+  },
+  "items": [
+    {
+      "id": "faq-ppps-001",
+      "question": "Bagaimana cara melihat sanksi LKPM yang saya terima?",
+      "answer": "Untuk melihat jenis sanksi dan status sanksi, silakan mengikuti langkah-langkah berikut: 1. Buka situs web resmi 2. Masuk menggunakan email/username dan password 3. Lihat menu SANKSI di barisan kanan pada akun OSS 4. Klik tombol DAFTAR SANKSI LKPM",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e488f57795640efd3ef07a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-002",
+      "question": "Sanksi apa yang dikenakan jika saya tidak lapor LKPM?",
+      "answer": "Apabila tidak menyampaikan LKPM, sebagaimana diatur dalam Peraturan BKPM Nomor 5 tahun 2021, Pelaku Usaha akan dikenai sanksi administratif berupa: 1. Peringatan tertulis: Diberikan secara berjenjang (pertama, kedua, dan ketiga) jika Anda tidak menyampaikan LKPM selama dua periode berturut-turut 2. Penghentian sementara kegiatan usaha: Diberikan jika Anda tidak memenuhi kewajiban LKPM setelah menerima sanksi peringatan tertulis 3. Pencabutan perizinan berusaha: Diberikan jika Anda mengabaikan sanksi penghentian sementara kegiatan usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e488f2711547977a0df2d7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-003",
+      "question": "Kenapa PKKPR Saya Masih Menunggu Verifikasi Persyaratan?",
+      "answer": "Apabila PKKPR masih menunggu verifikasi persyaratan, silakan menunggu proses verifikasi hingga status PKKPR berubah menjadi Dokumen Lengkap dan muncul Surat Perintah Setor (SPS). Informasi lebih lengkap perihal proses verifikasi PKKPR dapat menghubungi pihak terkait yang tercantum pada kolom Kewenangan melalui menu Pelacakan di akun OSS. Perlu kami sampaikan bahwa KBLI yang bersumber dari data migrasi tidak dapat dikirim ke kementerian terkait sehingga harus dilakukan penambahan KBLI baru. Silakan melakukan penambahan KBLI baru melalui menu Perizinan Berusaha >> Pengembangan. Panduan lengkap penambahan KBLI dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144ae (UMK) https://oss.go.id/panduan/635970086345c7d71a8144d2 (Non UMK)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e487c7711547977a0df26b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-004",
+      "question": "Kenapa Status LKPM Saya Masih Terkirim?",
+      "answer": "Status LKPM terkirim menandakan LKPM masih dalam proses verifikasi. Jika masih dalam periode pelaporan, silakan menunggu hingga status berubah menjadi disetujui/perlu perbaikan. Apabila status LKPM terkirim dan sudah melewati periode pelaporan, maka status tidak akan berubah. Silakan menyampaikan LKPM pada periode selanjutnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e487c4711547977a0df269",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-005",
+      "question": "Bukti Pembayaran PNBP PKKPR Laut Bisa Diunggah Dimana? Bagaimana cara upload bukti pembayaran PNBP PKKPR Laut?",
+      "answer": "Bukti pembayaran PNBP atas pengajuan Persetujuan Kesesuaian Kegiatan Pemanfaatan Ruang Laut (PKKPR Laut) dapat diunggah melalui OSS pada menu Pemenuhan Persyaratan dengan cara berikut: 1. Pilih menu Perizinan Berusaha >> Pemenuhan Persyaratan 2. Pada kolom Filter gunakan filter berdasarkan KBLI lalu masukkan kode KBLI untuk melakukan pencarian. 3. Selanjutnya, sistem akan menampilkan informasi terkait KBLI yang dimaksud. Klik tombol Proses Pemenuhan Persyaratan PKKPR Laut untuk melanjutkan. 4. Berikutnya, sistem akan menampilkan formulir Pemenuhan Persyaratan PKKPR Laut. Pada kolom Isian Data Teknis/Unggah Dokumen, klik tombol Pilih Dokumen untuk menggunggah bukti bayar PNBP.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e487ca711547977a0df26d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-006",
+      "question": "Bagaimana cara melacak progress pengajuan perizinan berusaha saya?",
+      "answer": "Tata Cara Pengecekan Status Permohonan Perizinan Berusaha: > Login ke akun OSS Bapak/Ibu. > Pilih menu Pelacakan. > Pilih Perizinan Berusaha. > Klik dropdown pada KBLI yang ingin Bapak/Ibu lacak > Pilih Lacak Status Permohonan untuk mengetahui perkembangan permohonan Bapak/Ibu. Perizinan Berusaha dengan risiko Menengah Tinggi dan Tinggi membutuhkan verifikasi dan persetujuan dari Kementerian/Lembaga atau Pemerintah Daerah.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e487bc711547977a0df265",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-007",
+      "question": "Berapa Lama Proses Verifikasi Perizinan Berusaha",
+      "answer": "Lamanya proses verifikasi perizinan berusaha, Bapak/Ibu dapat melihat pada lampiran PP 5 Tahun 2021 atau pada situs web OSS, lihat menu Informasi lalu pilih Informasi Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) 2020. Jangka waktu dihitung sejak pelaku usaha melakukan pemenuhan persyaratan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e487bf711547977a0df267",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-008",
+      "question": "Apa yang Dimaksud Tenaga Kerja Lokal Setempat Saat Pengisian LKPM?",
+      "answer": "Tenaga kerja lokal setempat adalah tenaga kerja yang berdomisili di kabupaten/kotamadya sesuai lokasi kegiatan usaha. Penginputan tenaga kerja lokal setempat dituliskan ketika mengisi LKPM Tahap Konstruksi dan LKPM Tahap Produksi pada kolom Realisasi Tenaga Kerja.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485fa7795640efd3eef9c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-009",
+      "question": "Bagaimana Cara Isi LKPM untuk Mesin yang Menghasilkan Produk pada Beberapa KBLI?",
+      "answer": "Bagi pelaku usaha yang memiliki mesin/peralatan produksi yang dapat menghasilkan produk lebih dari satu dan pada beberapa KBLI, maka nilai realisasi investasi mesin/peralatan diinput pada salah satu KBLI (yang dianggap sebagai produksi utama). Sedangkan, pada KBLI lain, nilai realisasi investasi mesin/peralatan diinput nol/nihil. Atas hal ini, pelaku usaha wajib menjelaskan pada kolom Keterangan Masalah bahwa nilai realisasi atas mesin/peralatan tersebut telah diinput pada KBLI yang lain serta mencantumkan Nomor Kegiatan Usaha (NKU).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485de7795640efd3eef88",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-010",
+      "question": "Kenapa saat Lapor LKPM Muncul Notifikasi Migrasi Data? Notifikasi: 'Apabila Data Kegiatan Berusaha tidak muncul pada halaman LKPM ini, maka Pelaku Usaha silahkan melakukan migrasi atau melengkapi Data Kegiatan Usaha di Menu Perizinan Berusaha'",
+      "answer": "Dapat kami informasikan bahwa notifikasi tersebut muncul hanya sebagai pengingat saja. Silakan klik tombol 'OK' untuk melanjutkan penyampaian LKPM. Apabila Data Kegiatan Usaha tidak muncul, maka pastikan Bapak/Ibu sudah melakukan migrasi data usaha pada menu Perizinan Berusaha > Kelola Usaha > Pengembangan. Panduan lengkap migrasi dapat dilihat melalui tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a814497 Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144b6",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485da7795640efd3eef86",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-011",
+      "question": "Bagaimana Cara Isi LKPM untuk Mesin yang Menghasilkan Produk pada Beberapa KBLI?",
+      "answer": "Bagi pelaku usaha yang memiliki mesin/peralatan produksi yang dapat menghasilkan produk lebih dari satu dan pada beberapa KBLI, maka nilai realisasi investasi mesin/peralatan diinput pada salah satu KBLI (yang dianggap sebagai produksi utama). Sedangkan, pada KBLI lain, nilai realisasi investasi mesin/peralatan diinput nol/nihil. Atas hal ini, pelaku usaha wajib menjelaskan pada kolom Keterangan Masalah bahwa nilai realisasi atas mesin/peralatan tersebut telah diinput pada KBLI yang lain serta mencantumkan Nomor Kegiatan Usaha (NKU).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485de7795640efd3eef88",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-012",
+      "question": "Kenapa saat Lapor LKPM Muncul Notifikasi Migrasi Data? Notifikasi: 'Apabila Data Kegiatan Berusaha tidak muncul pada halaman LKPM ini, maka Pelaku Usaha silahkan melakukan migrasi atau melengkapi Data Kegiatan Usaha di Menu Perizinan Berusaha'",
+      "answer": "Dapat kami informasikan bahwa notifikasi tersebut muncul hanya sebagai pengingat saja. Silakan klik tombol 'OK' untuk melanjutkan penyampaian LKPM. Apabila Data Kegiatan Usaha tidak muncul, maka pastikan Bapak/Ibu sudah melakukan migrasi data usaha pada menu Perizinan Berusaha > Kelola Usaha > Pengembangan. Panduan lengkap migrasi dapat dilihat melalui tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a814497 Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144b6",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485da7795640efd3eef86",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-013",
+      "question": "Kenapa KBLI Tidak Muncul Saat Penyampaian LKPM?",
+      "answer": "KBLI tidak muncul saat penyampaian LKPM dapat disebabkan oleh KBLI yang belum dilakukan migrasi, pastikan KBLI Bapak/Ibu sudah dilakukan migrasi atau belum selesai proses penerbitan pada NIB sehingga belum terbit pada lampiran NIB. Panduan lengkap migrasi dapat dilihat melalui tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a814497 Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144b6 Apabila KBLI sudah dilakukan migrasi namun tetap tidak muncul, maka silakan memeriksa proyek inline. Proyek inline dapat dilihat di bagian sudut kiri bawah pada KBLI yang muncul di laman pertama LKPM. Jika terdapat proyek inline, klik YA kemudian akan muncul Tabel Inline. Jika KBLI dan Nomor Kegiatan Usaha muncul pada Tabel Inline, Bapak/Ibu dapat menyampaikan KBLI pada nomor Kegiatan usaha utamanya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485d57795640efd3eef84",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-014",
+      "question": "Apa yang diisi pada kolom Realisasi tenaga Kerja?",
+      "answer": "Realisasi tenaga kerja diisi dengan tambahan dan pengurangan tenaga kerja pada periode pelaporan saja, bukan akumulasi total tenaga kerja perusahaan. Jika tidak ada penambahan atau pengurangan tenaga kerja pada periode pelaporan, maka dapat diisi nol. Untuk usaha menengah dan besar, terdapat tiga kolom Realisasi Tenaga Kerja yang perlu diisi, yakni tenaga kerja Indonesia, tenaga kerja lokal setempat, dan tenaga kerja asing. Sementara untuk usaha kecil, hanya ada satu kolom, yakni kolom tenaga kerja Indonesia.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485d3711547977a0df1b3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-015",
+      "question": "Apakah tenaga kerja harian dilaporkan dalam LKPM?",
+      "answer": "Tenaga kerja harian atau buruh harian lepas tidak perlu dilaporkan pada saat penyampaian LKPM.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485e87795640efd3eef90",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-016",
+      "question": "Di mana saya dapat memberi tanggapan atas surat peringatan ketiga karena tidak lapor LKPM?",
+      "answer": "Surat peringatan tertulis ketiga dapat ditanggapi dengan melakukan pelaporan LKPM pada periode berikutnya. Sanksi akan gugur cukup dengan melaporkan LKPM tanpa memerlukan dokumen pendukung lainnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485e57795640efd3eef8e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-017",
+      "question": "Bagaimana Cara Lapor Realisasi Impor Mesin dan Barang?",
+      "answer": "Pelaporan realisasi impor mesin dan barang masih dilakukan secara manual/belum melalui sistem OSS dan dapat disampaikan melalui tata usaha direktorat wilayah masing-masing sebagai berikut: Dalaks 1: Aceh, Sumatera Utara, Sumatera Barat, Riau, Kep. Riau, Sumatera Selatan, Lampung: tu.ditwil1@bkpm.go.id Dalaks 2: Jambi, DKI Jakarta, DI Yogyakarta, Kalimantan Barat, Kalimantan Tengah, Kalimantan Selatan, Kalimantan Timur: tu.ditwil2@bkpm.go.id Dalaks 3: Banten, Jawa Barat, Jawa Tengah, Sulawesi Utara, Sulawesi Tengah, Sulawesi Selatan, Sulawesi Tenggara: tu.ditwil3@bkpm.go.id Dalaks 4: Jawa Timur, Bali, Nusa Tenggara Timur, Nusa Tenggara Barat, Papua, Maluku, Maluku Utara, Pemekaran Papua: tu.ditwil4@bkpm.go.id Dalaks 5: Kep. Bangka Belitung, Bengkulu, Kalimantan Utara, Gorontalo, Sulawesi Barat, Papua Barat, Pemekaran Papua Barat: tu.ditwil5@bkpm.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485eb7795640efd3eef92",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-018",
+      "question": "Kenapa Kolom Modal Kerja Abu-abu Saat Lapor LKPM Tahap Konstruksi?",
+      "answer": "Kolom modal kerja tidak dapat diisi (berwarna abu-abu) saat masih dalam tahap konstruksi karena masih dalam persiapan usaha. Kolom modal kerja hanya dapat diisi saat kegiatan usaha sudah siap beroperasi (tahap operasional/komersial, ditandai dengan dipenuhinya persyaratan dasar dan terbitnya perizinan berusaha) dan persentase realisasi modal tetap sudah mencapai 90% dari rencana. Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144e3",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485d8711547977a0df1b5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-019",
+      "question": "Mengapa Diminta Mengisi Kategori Permasalahan Padahal Sudah Saya Isi?",
+      "answer": "Jika Anda gagal mengirim LKPM karena muncul notifikasi 'Silakan isi Penjelasan Progress Kegiatan Usaha pada Kategori Permasalahan', mohon periksa kembali isian kolom 'Permasalahan yang Dihadapi Pelaku Usaha' secara lengkap, termasuk kategori, detail, dan keterangan masalah. Pastikan juga tombol SIMPAN PERMASALAHAN sudah diklik agar data tersimpan dan laporan bisa dikirim. Kolom permasalahan juga dapat digunakan sebagai media komunikasi untuk menyampaikan penjelasan atas realisasi investasi yang dilaporkan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485e37795640efd3eef8c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-020",
+      "question": "Berapa kali inspeksi lapangan dilaksanakan?",
+      "answer": "Berikut adalah ketentuan pelaksanaan inspeksi lapangan sesuai peraturan: 1. Untuk usaha risiko rendah dan menengah rendah, inspeksi dilakukan satu kali per tahun untuk setiap lokasi usaha. 2. Untuk usaha risiko menengah tinggi dan tinggi, inspeksi dilakukan dua kali per tahun untuk setiap lokasi usaha. Jika hasil pengawasan rutin sebelumnya menunjukkan kepatuhan, inspeksi tidak perlu dilakukan untuk usaha risiko rendah dan menengah rendah. Namun, untuk usaha risiko menengah tinggi dan tinggi, inspeksi tetap dilakukan satu kali per tahun untuk setiap lokasi usaha. Pelaksanaan pengawasan dapat disesuaikan sesuai dengan kebutuhan, ketersediaan sumber daya, pengaduan, dan hal-hal lain.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485f07795640efd3eef96",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-021",
+      "question": "Apakah pengisian realisasi modal tetap dan modal kerja harus sama dengan rencana nilai penanaman modal?",
+      "answer": "Tidak harus, karena pengisian realisasi modal tetap disesuaikan dengan kondisi realisasi perusahaan selama periode pelaporan. Sedangkan rencana nilai penanaman modal hanya sebagai prediksi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485cd7795640efd3eef82",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-022",
+      "question": "Kenapa Kolom Modal Kerja Abu-abu Saat Lapor LKPM Tahap Konstruksi?",
+      "answer": "Kolom modal kerja tidak dapat diisi (berwarna abu-abu) saat masih dalam tahap konstruksi karena masih dalam persiapan usaha. Kolom modal kerja hanya dapat diisi saat kegiatan usaha sudah siap beroperasi (tahap operasional/komersial, ditandai dengan dipenuhinya persyaratan dasar dan terbitnya perizinan berusaha) dan persentase realisasi modal tetap sudah mencapai 90% dari rencana. Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144e3",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485d8711547977a0df1b5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-023",
+      "question": "Kenapa KBLI Tidak Muncul Saat Penyampaian LKPM?",
+      "answer": "KBLI tidak muncul saat penyampaian LKPM dapat disebabkan oleh KBLI yang belum dilakukan migrasi, pastikan KBLI Bapak/Ibu sudah dilakukan migrasi atau belum selesai proses penerbitan pada NIB sehingga belum terbit pada lampiran NIB. Panduan lengkap migrasi dapat dilihat melalui tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a814497 Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144b6 Apabila KBLI sudah dilakukan migrasi namun tetap tidak muncul, maka silakan memeriksa proyek inline. Proyek inline dapat dilihat di bagian sudut kiri bawah pada KBLI yang muncul di laman pertama LKPM. Jika terdapat proyek inline, klik YA kemudian akan muncul Tabel Inline. Jika KBLI dan Nomor Kegiatan Usaha muncul pada Tabel Inline, Bapak/Ibu dapat menyampaikan KBLI pada nomor Kegiatan usaha utamanya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485d57795640efd3eef84",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-024",
+      "question": "Kalau usaha belum berjalan atau tidak ada tambahan realisasi investasi, apakah tetap wajib menyampaikan LKPM?",
+      "answer": "Pada kondisi tersebut, Pelaku Usaha tetap wajib menyampaikan LKPM dengan memasukkan nilai realisasi nol. Namun, dapat kami sampaikan bahwa seluruh biaya yang dikeluarkan oleh perusahaan dalam tahap persiapan atau kontruksi dapat disampaikan sebagai realisasi investasi pada komponen lain-lain. Misalnya biaya survei, biaya mengurus surat di notaris, atau kegiatan lain. Sebagai informasi tambahan, sebagaimana diatur di dalam Peraturan BKPM Nomor 5 Tahun 2021, jika dalam 4 (empat) kali berturut-turut melaporkan realisasi investasi nol, Pelaku Usaha akan mendapatkan sanksi administratif.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485c37795640efd3eef7c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-025",
+      "question": "Mengapa Diminta Mengisi Kategori Permasalahan Padahal Sudah Saya Isi?",
+      "answer": "Pastikan Bapak/Ibu sudah mengisi lengkap kolom permasalahan yang dihadapi pelaku usaha mulai dari kategori permasalahan, detail permasalahan dan keterangan masalah. Jangan lupa untuk klik Simpan Permasalahan sampai permasalahan yang disampaikan muncul di tabel permasalahan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485c07795640efd3eef7a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-026",
+      "question": "Tidak Bisa Mengirimkan LKPM",
+      "answer": "Jika Bapak/Ibu mengalami kendala dalam pengisian LKPM: 1. Pastikan Bapak/Ibu mengisi dalam periode pelaporan yang telah ditentukan 2. Pastikan sudah mengisi form LKPM dengan lengkap hingga akhir 3. Jika poin 1 dan 2 sudah dilakukan namun tetap gagal klik lapor LKPM, silakan berkonsultasi pada klinik LKPM yang tersedia, kanal digital OSS atau petugas Front Office Kementerian Investasi dan Hilirisasi/BKPM.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485bb7795640efd3eef76",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-027",
+      "question": "Peraturan apa yang mengatur tentang pengawasan penanaman modal?",
+      "answer": "Pengawasan pelaksanaan Penanaman Modal dilakukan berdasarkan tingkat risiko bagi Pelaku Usaha yang telah mendapatkan 'Perizinan Berusaha'. Pengawasan bagi Pelaku Usaha mikro dan Pelaku Usaha kecil dilakukan melalui pembinaan, pendampingan atau penyuluhan terkait kegiatan usaha. Peraturan yang mengatur terkait pengawasan penanaman modal ada pada Undang-Undang Nomor 11 Tahun 2020 tentang Cipta Kerja dan diatur di dalam Peraturan Badan Koordinasi Penanaman Modal Nomor 5 Tahun 2021 tentang Pengawasan Perizinan Berusaha Berbasis Risiko.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485b87795640efd3eef74",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-028",
+      "question": "Kalau usaha sudah berjalan (operasi produksi) dan tidak ada tambahan realisasi investasi, apakah tetap wajib menyampaikan LKPM?",
+      "answer": "Pada kondisi tersebut, Pelaku Usaha tetap wajib menyampaikan LKPM dengan memasukkan nilai realisasi nol.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485c67795640efd3eef7e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-029",
+      "question": "Apa yang harus dilakukan jika realisasi modal tetap melebihi rencana nilai penanaman modal?",
+      "answer": "Rencana nilai penanaman modal adalah prediksi modal yang diperlukan untuk membiayai kegiatan usaha selama beberapa tahun ke depan. Maka wajar jika terdapat perbedaan antara realisasi modal tetap dengan rencana nilai penanaman modal. Realisasi modal tetap yang dilaporkan dalam LKPM adalah nilai yang sebenarnya. Sedangkan rencana nilai penanaman modal adalah prediksi. Jika terdapat perbedaan yang signifikan, Bapak/Ibu dapat melakukan perubahan rencana nilai penanaman modal pada menu Perizinan Berusaha > Kelola Usaha > Perubahan > Perubahan Data Usaha",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485c97795640efd3eef80",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-030",
+      "question": "Apa yang diisi pada kolom Realisasi tenaga Kerja?",
+      "answer": "Realisasi tenaga kerja diisi dengan tambahan dan pengurangan tenaga kerja pada periode pelaporan saja, bukan akumulasi total tenaga kerja perusahaan. Jika tidak ada penambahan atau pengurangan tenaga kerja pada periode pelaporan, maka dapat diisi nol. Untuk usaha menengah dan besar, terdapat tiga kolom Realisasi Tenaga Kerja yang perlu diisi, yakni tenaga kerja Indonesia, tenaga kerja lokal setempat, dan tenaga kerja asing. Sementara untuk usaha kecil, hanya ada satu kolom, yakni kolom tenaga kerja Indonesia.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485d3711547977a0df1b3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-031",
+      "question": "Kalau usaha belum berjalan atau tidak ada tambahan realisasi investasi, apakah tetap wajib menyampaikan LKPM?",
+      "answer": "Pada kondisi tersebut, Pelaku Usaha tetap wajib menyampaikan LKPM dengan memasukkan nilai realisasi nol. Namun, dapat kami sampaikan bahwa seluruh biaya yang dikeluarkan oleh perusahaan dalam tahap persiapan atau kontruksi dapat disampaikan sebagai realisasi investasi pada komponen lain-lain. Misalnya biaya survei, biaya mengurus surat di notaris, atau kegiatan lain. Sebagai informasi tambahan, sebagaimana diatur di dalam Peraturan BKPM Nomor 5 Tahun 2021, jika dalam 4 (empat) kali berturut-turut melaporkan realisasi investasi nol, Pelaku Usaha akan mendapatkan sanksi administratif.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485c37795640efd3eef7c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-032",
+      "question": "Kalau usaha sudah berjalan (operasi produksi) dan tidak ada tambahan realisasi investasi, apakah tetap wajib menyampaikan LKPM?",
+      "answer": "Pada kondisi tersebut, Pelaku Usaha tetap wajib menyampaikan LKPM dengan memasukkan nilai realisasi nol.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485c67795640efd3eef7e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-033",
+      "question": "Jika saya tidak menyampaikan LKPM pada periode sebelumnya, apakah saya bisa menggabungkan nilai realisasi periode tersebut dengan periode yang sedang berjalan?",
+      "answer": "Ya, realisasi penanaman modal pada periode sebelumnya dapat digabung dengan periode berjalan. Penggabungan masih dapat dilakukan selama masih dalam satu tahun berjalan. Contoh: Realisasi penanaman modal pada Triwulan I masih bisa digabung dengan Triwulan II, begitu juga dengan realisasi penanaman modal pada Triwulan II masih bisa digabung dengan Triwulan III. Tidak bisa dilakukan ketika realisasi penanaman modal pada Triwulan IV digabung dengan Triwulan I tahun berikutnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485d0711547977a0df1b1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-034",
+      "question": "Mengapa LKPM saya belum disetujui?",
+      "answer": "Pelaku usaha yang telah menyampaikan LKPM pada triwulan ini dan belum disetujui (status terkirim atau perlu perbaikan) menandakan masih dalam proses verifikasi oleh Verifikator LKPM. Sekiranya proses verifikasi belum selesai sampai dengan periode LKPM selesai, Bapak/Ibu dapat menyampaikan LKPM pada triwulan selanjutnya. Jika LKPM perlu perbaikan, harap gunakan catatan perbaikan tersebut untuk evaluasi pelaporan selanjutnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485b17795640efd3eef70",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-035",
+      "question": "Tidak Bisa Mengirimkan LKPM",
+      "answer": "Jika Bapak/Ibu mengalami kendala dalam pengisian LKPM: 1. Pastikan Bapak/Ibu mengisi dalam periode pelaporan yang telah ditentukan 2. Pastikan sudah mengisi form LKPM dengan lengkap hingga akhir 3. Jika poin 1 dan 2 sudah dilakukan namun tetap gagal klik lapor LKPM, silakan berkonsultasi pada klinik LKPM yang tersedia, kanal digital OSS atau petugas Front Office Kementerian Investasi dan Hilirisasi/BKPM.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485bb7795640efd3eef76",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-036",
+      "question": "Mengapa saya tidak bisa memperbaiki LKPM?",
+      "answer": "Data LKPM tidak dapat diperbaiki di luar periode pelaporan dan/atau saat LKPM 'terkirim' ataupun 'disetujui'. Silakan gunakan tombol 'penyesuaian akumulasi realisasi investasi' pada periode selanjutnya jika tombol tersebut belum pernah digunakan. Mengingat, fitur ini hanya dapat digunakan sekali.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485a07795640efd3eef64",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-037",
+      "question": "Bagaimana cara cek riwayat pelaporan LKPM?",
+      "answer": "Riwayat pelaporan LKPM dapat dilihat pada akun OSS dengan membuka menu Pelaporan kemudian pilih Laporan Kegiatan Penanaman Modal (LKPM). Halaman pertama yang muncul setelahnya adalah halaman riwayat Pelaporan LKPM.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e4859d7795640efd3eef62",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-038",
+      "question": "Apakah KBLI Pendukung Wajib Dilaporkan?",
+      "answer": "Untuk kegiatan pendukung tidak wajib dilaporkan. Namun dapat dilaporkan baik melalui data proyek pendukung tersebut ataupun dilaporkan pada data proyek utama.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485967795640efd3eef5e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-039",
+      "question": "Apa yang harus saya lakukan jika mendapatkan surat peringatan karna tidak lapor LKPM?",
+      "answer": "Jika pelaku usaha menerima surat peringatan karena tidak menyampaikan Laporan Kegiatan Penanaman Modal (LKPM), silakan lakukan penyampaian LKPM pada periode pelaporan selanjutnya sesuai dengan skala usaha. Pencabutan sanksi tidak dapat dilakukan dengan permohonan/bersurat.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e48593711547977a0df1af",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-040",
+      "question": "Apakah ada tanda terima setelah saya lapor LKPM?",
+      "answer": "Setelah Bapak/Ibu selesai menyampaikan LKPM, baik dengan status Terkirim, Perlu Perbaikan, maupun Disetujui, pelaku usaha akan mendapatkan tanda terima. Tanda terima dapat dilihat pada riwayat pelaporan LKPM pada menu Pelaporan lalu pilih Laporan LKPM.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e48591711547977a0df1ad",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-041",
+      "question": "Apakah bisa jika KBLI yang belum melengkapi Persyaratan Perizinan Berusaha menyampaikan LKPM?",
+      "answer": "Bagi pelaku usaha dengan KBLI yang belum melengkapi persyaratan dasar (persetujuan lingkungan, PBG ataupun SLF) maupun perizinan berusaha seperti Sertifikat Standar (SS) dan Izin, pelaporan LKPM hanya dapat dilakukan pada tahap persiapan/konstruksi. LKPM hanya wajib dilaporkan atas data proyek/NKU atas kegiatan utama yang telah terbit pada lampiran NIB.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e4858e711547977a0df1ab",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-042",
+      "question": "Apakah KBLI dengan Status NIB Terbit Namun PKKPR Ditolak Tetap Lapor LKPM?",
+      "answer": "Jika Pelaku Usaha dengan KBLI berstatus NIB terbit namun PKKPR ditolak, Bapak/Ibu tidak diwajibkan untuk menyampaikan LKPM. Untuk melanjutkan penyampaian LKPM, Bapak/Ibu harus mengajukan kembali perizinan berusaha dengan Nomor Kegiatan Usaha (NKU) terbaru kemudian menghapus KBLI yang berstatus PKKPR ditolak. LKPM hanya wajib dilaporkan atas data proyek/NKU atas kegiatan utama yang telah terbit pada lampiran NIB.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e4858c711547977a0df1a9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-043",
+      "question": "Apa yang dimaksud dengan LKPM tahap konstruksi/persiapan dan LKPM tahap operasional/komersial?",
+      "answer": "LKPM Tahap Konstruksi/Persiapan diperuntukkan bagi kegiatan usaha yang belum menjalankan kegiatan produksi dan/atau beroperasi secara komersial. LKPM Tahap Operasional/Komersial diperuntukkan bagi kegiatan usaha yang sudah menjalankan kegiatan produksi dan/atau beroperasi secara komersial dan memenuhi seluruh persyaratan dasar dan memperoleh perizinan berusaha sesuai dengan kegiatan usaha yang dijalankan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485a37795640efd3eef66",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-044",
+      "question": "Kenapa Status LKPM Perlu Perbaikan?",
+      "answer": "Status “Perlu Perbaikan” menandakan bahwa data LKPM dikembalikan oleh verifikator karena terdapat data yang salah atau kurang. Status yang semula “Disetujui” berubah menjadi “Perlu Perbaikan” dapat terjadi selama periode pelaporan karena data LKPM masih dapat dikaji ulang oleh verifikator. Silakan cek catatan perbaikan dari verifikator untuk mengetahui alasan perbaikan. Jika masih dalam periode pelaporan, silakan memperbaiki data LKPM. Jika sudah melewati periode pelaporan, silakan untuk menyampaikan LKPM pada periode selanjutnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485a87795640efd3eef6a",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-045",
+      "question": "Apakah Setelah NIB Terbit Perlu Lapor LKPM?",
+      "answer": "Setiap pelaku usaha wajib menyampaikan LKPM, baik pelaku usaha kecil, menengah, maupun besar. Setelah Nomor Induk Berusaha (NIB) terbit, maka terdapat kewajiban untuk menyampaikan LKPM atas seluruh kegiatan usaha/KBLI/NKU yang sudah terbit pada lampiran NIB. Pelaku usaha yang tidak menyampaikan LKPM selama 2 (dua) periode berturut-turut akan diberikan sanksi administratif berbentuk 'peringatan tertulis'.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e485a57795640efd3eef68",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-046",
+      "question": "Bagaimana cara memperbaiki LKPM?",
+      "answer": "Pelaku usaha hanya dapat memperbaiki data LKPM selama masih dalam periode pelaporan. Perbaikan dapat dilakukan apabila status LKPM berstatus Draft, apabila Pelaku Usaha ingin melakukan perbaikan bisa dilakukan dengan klik menu Pelaporan > Laporan Kegiatan Penanaman Modal (LKPM) > UBAH",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e4859a7795640efd3eef60",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-047",
+      "question": "Kapan saja periode penyampaian LKPM?",
+      "answer": "Jadwal Penyampaian LKPM: Pelaku Usaha Kecil: LKPM disampaikan setiap 6 bulan (semester): o Semester I: 1-10 Juli o Semester II: 1-10 Januari tahun berikutnya Pelaku Usaha Menengah dan Besar: LKPM disampaikan setiap 3 bulan (triwulan): o Triwulan I: 1-10 April o Triwulan II: 1-10 Juli o Triwulan III: 1-10 Oktober o Triwulan IV: 1-10 Januari tahun berikutnya",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e48581711547977a0df1a1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-048",
+      "question": "Apa itu LKPM?",
+      "answer": "LKPM (Laporan Kegiatan Penanaman Modal) adalah laporan perkembangan kegiatan usaha, baik yang belum (masih tahap persiapan) maupun yang sudah berproduksi atau beroperasi komersial. LKPM mencakup : • realisasi nilai penanaman modal • tenaga kerja • produksi termasuk nilai ekspor (dilaporkan hanya pada triwulan IV) • kewajiban kemitraan dan kewajiban lainnya (dilaporkan hanya pada triwulan IV). LKPM disampaikan secara daring melalui sistem OSS. Bagi pelaku usaha kecil, LKPM disampaikan setiap 6 bulan (semester). Sedangkan bagi pelaku usaha menengah dan besar, LKPM disampaikan setiap 3 bulan (triwulan).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e4857f711547977a0df19f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-049",
+      "question": "Siapa saja yang tidak wajib menyampaikan LKPM?",
+      "answer": "LKPM tidak wajib bagi: - Pelaku usaha mikro - Pelaku usaha di bidang hulu migas - Pelaku usaha bidang perbankan, lembaga keuangan non-bank, dan asuransi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e48584711547977a0df1a3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-050",
+      "question": "Apakah Data Penanggung Jawab LKPM Bisa Diisi Data Direktur?",
+      "answer": "Data penanggung jawab LKPM dapat diisi dengan data direktur maupun selain direktur seperti karyawan atau staf yang mewakili perusahaan. Selama orang tersebut adalah pihak yang ditugaskan untuk menyampaikan LKPM. Selanjutnya, penanggung jawab LKPM akan dihubungi oleh pihak verifikator apabila terdapat data LKPM yang memerlukan penjelasan lebih lanjut.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e48589711547977a0df1a7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppps-051",
+      "question": "Bagaimana jika saya tidak lapor LKPM?",
+      "answer": "Jika Bapak/Ibu belum lapor LKPM, silakan menyampaikan LKPM sesuai periode dan skala usaha pada akun OSS. Pelaku usaha yang tidak menyampaikan LKPM selama 2 (dua) periode berturut-turut akan diberikan 'peringatan tertulis'. Untuk menggugurkan sanksi tersebut, pelaku usaha harus melaporkan LKPM pada periode LKPM selanjutnya",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e478aba7983d314bbae62a&id=68e48587711547977a0df1a5",
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}

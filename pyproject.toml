@@ -1,0 +1,43 @@
+[project]
+name = "agentic-rag-regdocs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "radit", email = "radityaadhirajasaa@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "python-dotenv>=1.2.3",
+    "qdrant-client>=1.19.0",
+]
+
+[project.scripts]
+agentic-rag-regdocs = "agentic_rag_regdocs:main"
+
+[build-system]
+requires = ["uv_build>=0.12.3,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "mypy>=2.3.1",
+    "pytest>=9.1.1",
+    "ruff>=0.16.6",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

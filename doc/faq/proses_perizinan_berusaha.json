@@ -1,0 +1,1188 @@
+{
+  "source": {
+    "name": "OSS BKPM",
+    "base_url": "https://oss.go.id",
+    "type": "faq",
+    "category": "Proses Perizinan Berusaha",
+    "input_method": "manual",
+    "last_updated": "2025-12-22"
+  },
+  "items": [
+    {
+      "id": "faq-ppb-001",
+      "question": "Apakah diperlukan izin apabila suatu Badan Usaha ingin memberikan bantuan sumur bor kepada masyarakat dalam bentuk program CSR ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, badan usaha dapat bertindak untuk dan atas nama calon penerima program CSR tersebut untuk mengurus izin melalui mekanisme Persetujuan Penggunaan Air Tanah (non usaha).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48799711547977a0df24f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-002",
+      "question": "Bagaimana jika terjadi perubahan pengguna air tanah yang tercantum dalam SIPA, misalnya terjadi perubahan pemilik perusahaan?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, perubahan nama pengguna air tanah terjadi secara otomatis apabila terdapat perubahan kepemilikan badan usaha di dalam aplikasi OSS.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48797711547977a0df24d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-003",
+      "question": "Bagaimana Cara Memperbaiki Persyaratan PB-UMKU?",
+      "answer": "Status Perlu perbaikan persyaratan pada PB-UMKU muncul dikarenakan ada dokumen pemenuhan persyaratan yang tidak sesuai. Silakan klik tombol Proses Perbaikan Persyaratan pada menu Perizinan Berusaha > Kelola Usaha lalu pilih PB UMKU kemudian mengunggah persyaratan dengan dokumen yang sesuai.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487a4711547977a0df255",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-004",
+      "question": "Bisakah SBU yang Sudah Terbit Digunakan untuk Pemenuhan Persyaratan di KBLI yang Berbeda?",
+      "answer": "Sertifikat Badan Usaha (SBU) yang sudah terbit tidak bisa langsung digunakan untuk pemenuhan persyaratan di KBLI yang berbeda. SBU hanya berlaku untuk bidang usaha dan lingkup yang tercantum di dalamnya yang sesuai dengan kode KBLI yang diakui pada saat sertifikat tersebut diterbitkan. Jika perusahaan ingin menambahkan KBLI yang berbeda dari KBLI yang telah tercantum pada SBU, maka perusahaan harus mengajukan permohonan SBU yang baru melalui sistem OSS. Permohonan ini bisa diajukan melalui menu PB-UMKU sesuai dengan KBLI dan NKU yang terbaru. Panduan lengkap pengajuan PB-UMKU dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a81449e",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487a1711547977a0df253",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-005",
+      "question": "Apakah semua perizinan berusaha butuh PB-UMKU?",
+      "answer": "Tidak semua perizinan berusaha membutuhkan PB-UMKU. Untuk melihat jenis PB-UMKU yang dapat diajukan di sistem OSS, Pelaku Usaha dapat mengakses tautan berikut: https://oss.go.id/informasi/pb-umku Pada tautan tersebut: 1. Jika ditemukan informasi mengenai 'KBLI terkait: Semua KBLI', maka semua kegiatan dapat mengajukan PB-UMKU tersebut. Sebagai contoh, Aktivitas Penyediaan Sertifikat Elektronik dan Layanan yang Menggunakan Sertifikat Elektronik. 2. Jika ditemukan informasi mengenai 'KBLI terkait: muncul beberapa KBLI', maka hanya kegiatan usaha dengan KBLI tersebut yang dapat mengajukan PB-UMKU. Sebagai contoh, Sertifikat laik sehat - di wilayah yang hanya dapat diajukan untuk KBLI 90011, 93219, 55194, 55192, 93294, 93113, 93114, 55110, 55120, 93292, 68120, 56302, 93291, 55191, 55199, 55900, 55130, 93211, 93293, dan 55193. PB-UMKU diajukan hanya jika diperlukan oleh Pelaku Usaha untuk menunjang kegiatan usaha pada tahap operasional dan/atau komersial.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487a7711547977a0df257",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-006",
+      "question": "Apakah pengurusan izin sumur bor/gali yang sebelumnya tidak memiliki izin akan dikenakan denda ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, sumur bor/gali eksisting tidak berizin yang diproses melalui mekanisme Penataan Izin Pengusahaan Air Tanah atau Persetujuan Penggunaan Air Tanah akan dikenakan denda administratif sesuai ketentuan peraturan-perundangan yang berlaku.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48791711547977a0df249",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-007",
+      "question": "Berapa lama masa berlaku Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024: - Surat Izin Pengusahaan Air Tanah (SIPA) berlaku selama 5 (lima) tahun - Surat Persetujuan Penggunaan Air Tanah, untuk selain pemenuhan kebutuhan pokok sehari-hari, berlaku paling lama 7 (tujuh) tahun - Persetujuan Dewatering berlaku paling lama 1 (satu) tahun",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4879c7795640efd3ef026",
+      "confidence": "high",
+      "notes": ""
+    }, 
+    {
+      "id": "faq-ppb-008",
+      "question": "Apakah terdapat informasi detail format pemenuhan persyaratan Izin Pengusahaan Air Tanah (SIPA)?",
+      "answer": "Untuk informasi mengenai format dokumen pemenuhan persyaratan SIPA, silakan mengunjungi tautan berikut: https://linktr.ee/infopag , kemudian pilih 'Perizinan Air Tanah'. Selain itu, format dokumen juga dapat dilihat dalam lamprian Permen ESDM No. 14 Tahun 2024.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4879f711547977a0df251",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-009",
+      "question": "Apakah diperbolehkan menambah debit yang tercantum dalam SIPA ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, pemegang SIPA diperbolehkan menambah debit pengambilan air tanah melalui mekanisme Perubahan pada aplikasi OSS dengan memenuhi beberapa persyaratan dan dengan catatan kondisi air tanah di wilayah tersebut masih memadai.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48794711547977a0df24b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-010",
+      "question": "Apakah sumur bor/gali yang sebelumnya tidak memilki izin atau izinnya kadaluarsa dapat diurus izinnya?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, sumur bor/gali yang sebelumnya tidak memilki izin dapat diproses pembuatan izinnya sesuai ketentuan UU Nomor 6 Tahun 2023 tentang Cipta Kerja dan Permen ESDM Nomor 14 Tahun 2024 melalui mekanisme Penataan Izin Pengusahaan Air Tanah Dan Persetujuan Penggunaan Air Tanah. Pengajuan Penataan Izin Pengusahaan Air Tanah (SIPA) dapat dilakukan melalui aplikasi OSS sedangkan pengajuan Penataan Persetujuan Penggunaan Air Tanah dapat dilakukan melalui aplikasi perizinan.esdm.go.id.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4878e711547977a0df247",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-011",
+      "question": "Berapa lama waktu yang dibutuhkan untuk mengurus Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah diterbitkan paling lama 14 (empat belas) hari kerja sejak permohonan diajukan apabila berdasarkan hasil verifikasi dan evaluasi persyaratan dan data teknis dinyatakan telah lengkap dan sesuai.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4878b711547977a0df245",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-012",
+      "question": "Apakah pengeboran air tanah memerlukan izin ?",
+      "answer": "Sesuai Peraturan Menteri ESDM Nomor 14 Tahun 2024 tentang Penyelenggaraan Izin Pengusahaan Air Tanah Dan Persetujuan Penggunaan Air Tanah maka pengeboran air tanah baru boleh dilakukan setelah mendapatkan Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah. Jadi tidak ada lagi Surat Izin Pengeboran (SIP) atau Persetujuan Pengeboran Eksplorasi (PPE) sebagaimana diatur di regulasi sebelumnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48782711547977a0df23f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-013",
+      "question": "Bagaimana cara mengurus izin baru Pengusahaan Air Tanah (SIPA) dan Persetujuan Penggunaan Air Tanah ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin Pengusahaan Air Tanah (SIPA) dapat diproses melalui aplikasi OSS (oss.go.id) sedangkan Persetujuan Penggunaan Air Tanah dapat diproses melalui aplikasi perizinan.esdm.go.id, baik untuk izin baru, perpanjangan, atau perubahan. Perlu diperhatikan bahwa Pemegang Izin Pengusahaan Air Tanah dapat mengajukan permohonan perpanjangan Izin Pengusahaan Air Tanah yang akan habis masa berlakunya melalui Sistem OSS paling cepat 6 (enam) bulan dan paling lambat 2 (dua) bulan sebelum jangka waktu Izin Pengusahaan Air Tanah berakhir.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4877f711547977a0df23d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-014",
+      "question": "Apakah pihak Badan Geologi c.q. Pusat Air Tanah Dan Geologi Tata Lingkungan (PATGTL) akan tetap melakukan pengawasan konstruksi dan pumping test seperti mekanisme sebelumnya?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Pengawasan konstruksi sumur bor dan pumping test pada prinsipnya tetap diperlukan dalam rangka memperoleh data yang valid dan sesuai dengan ketentuan teknis dalam SIPA. Oleh karena itu, pemegang Izin Pengusahaan Air Tanah atau Persetujuan Penggunaan Air Tanah diharapkan melakukan pemberitahuan terlebih dahulu kepada PATGTL apabila akan melakukan kegiatan konstruksi sumur atau pumping test.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48786711547977a0df241",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-015",
+      "question": "Apa saja jenis perizinan air tanah?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin pengambilan atau penggunaan air tanah untuk kegiatan usaha disebut dengan istilah Izin Pengusahaan Air Tanah (SIPA), sedangkan untuk kegiatan bukan usaha disebut Persetujuan Penggunaan Air Tanah (PPAT).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48777711547977a0df237",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-016",
+      "question": "Mengapa pengambilan atau penggunaan air tanah memerlukan izin?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin pengambilan atau penggunaan air tanah diperlukan agar pengambilan atau penggunaan air tanah dapat dikendalikan, menyesuaikan kemampuan dan kondisi air tanah di suatu wilayah, sehingga keberadaan air tanah dapat dijaga keberlangsungannya untuk generasi selanjutnya, dan juga mencegah terjadinya kerusakan lingkungan, seperti kerusakan air tanah, pencemaran air tanah, land subsidence, dan intrusi air laut.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487757795640efd3ef024",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-017",
+      "question": "Apakah semua pengambilan atau penggunaan air tanah memerlukan izin?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024 bahwa semua bentuk pengambilan atau penggunaan air tanah harus memiliki izin, baik untuk keperluan usaha maupun bukan usaha, kecuali untuk: a. Penggunaan air tanah untuk kegiatan pemenuhan kebutuhan pokok sehari-hari kurang dari 100 m3/hari/bulan (seratus meter kubik per bulan) per kepala keluarga atau per kelompok; b. Penggunaan air tanah oleh instansi pemerintah untuk kegiatan operasional perkantoran; c. Penggunaan air tanah untuk rumah ibadah; d. Pertanian rakyat yang bukan merupakan kegiatan usaha; dan e. Penggunaan dan penggunaan air ikutan dan/atau pengeringan (dewatering) untuk kegiatan yang terkait langsung dengan eksplorasi dan eksploitasi pertambangan, minyak dan gas bumi, atau panas bumi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48772711547977a0df235",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-018",
+      "question": "Apakah semua Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah hanya diselenggarakan oleh Kementerian ESDM ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah diselenggarakan oleh Kementerian ESDM (Pemerintah Pusat) hanya untuk lokasi yang berada pada Wilayah Sungai (WS) yang menjadi kewenangan Pemerintah Pusat, sedangkan untuk WS kewenangan Pemerintah Provinsi maka izinnya diselenggarakan oleh pemerintah provinsi, dan untuk WS kewenangan kabupaten/kota diselenggarakan oleh pemerintah kabupaten/kota.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4877d711547977a0df23b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-019",
+      "question": "Apakah mengurus izin atau persetujuan air tanah membutuhkan biaya ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, pengurusan Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah tidak dikenakan biaya (gratis).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48788711547977a0df243",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-020",
+      "question": "Siapakah penyelenggara Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah diselenggarakan oleh Kementerian Energi Dan Sumber Daya Mineral (ESDM) melalui Badan Geologi c.q. Pusat Air Tanah Dan Geologi Tata Lingkungan (PATGTL) yang dilakukan secara daring (online).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4877a711547977a0df239",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-021",
+      "question": "Apakah semua pengambilan atau penggunaan air tanah memerlukan izin?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024 bahwa semua bentuk pengambilan atau penggunaan air tanah harus memiliki izin, baik untuk keperluan usaha maupun bukan usaha, kecuali untuk: a. Penggunaan air tanah untuk kegiatan pemenuhan kebutuhan pokok sehari-hari kurang dari 100 m3/hari/bulan (seratus meter kubik per bulan) per kepala keluarga atau per kelompok; b. Penggunaan air tanah oleh instansi pemerintah untuk kegiatan operasional perkantoran; c. Penggunaan air tanah untuk rumah ibadah; d. Pertanian rakyat yang bukan merupakan kegiatan usaha; dan e. Penggunaan dan penggunaan air ikutan dan/atau pengeringan (dewatering) untuk kegiatan yang terkait langsung dengan eksplorasi dan eksploitasi pertambangan, minyak dan gas bumi, atau panas bumi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48772711547977a0df235",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-022",
+      "question": "Apakah semua Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah hanya diselenggarakan oleh Kementerian ESDM ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah diselenggarakan oleh Kementerian ESDM (Pemerintah Pusat) hanya untuk lokasi yang berada pada Wilayah Sungai (WS) yang menjadi kewenangan Pemerintah Pusat, sedangkan untuk WS kewenangan Pemerintah Provinsi maka izinnya diselenggarakan oleh pemerintah provinsi, dan untuk WS kewenangan kabupaten/kota diselenggarakan oleh pemerintah kabupaten/kota.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4877d711547977a0df23b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-023",
+      "question": "Kenapa Tidak Bisa Mengajukan SPP-IRT?",
+      "answer": "Sertifikat Pemenuhan Komitmen Produksi Pangan Olahan Industri Rumah Tangga (SPP-IRT) hanya dapat diajukan oleh pelaku usaha UMK dengan jenis akun Perorangan, PT Perseorangan, Yayasan, Koperasi, Firma, dan Persekutuan Komanditer/CV. Pastikan juga KBLI yang diajukan termasuk dalam daftar KBLI yang dapat mengajukan PB-UMKU SPP-IRT. Silakan melakukan pengecekan KBLI yang dapat mengajukan SPP-IRT melalui tautan berikut: https://oss.go.id/informasi/pb-umku/602b4431-2bba-4679-8a04-dca79ec26b32",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4876f711547977a0df233",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-024",
+      "question": "Siapakah penyelenggara Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah ?",
+      "answer": "Sebagaimana diatur dalam Peraturan Menteri ESDM Nomor 14 Tahun 2024, Izin Pengusahaan Air Tanah (SIPA) atau Persetujuan Penggunaan Air Tanah diselenggarakan oleh Kementerian Energi Dan Sumber Daya Mineral (ESDM) melalui Badan Geologi c.q. Pusat Air Tanah Dan Geologi Tata Lingkungan (PATGTL) yang dilakukan secara daring (online).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4877a711547977a0df239",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-025",
+      "question": "Bagaimana cara menghapus PB UMKU?",
+      "answer": "Penghapusan PB UMKU hanya dapat dilakukan jika PB UMKU yang diajukan belum melakukan pemenuhan persyaratan yaitu dengan klik pada icon tempat sampah. Sedangkan untuk PB UMKU yang sudah melakukan pemenuhan persyaratan baik yang sudah disetujui maupun belum disetujui, penghapusan PB UMKU belum dapat dilakukan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4875f711547977a0df22b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-026",
+      "question": "Bagaimana Cara Pembuatan Peta Polygon?",
+      "answer": "Berikut adalah langkah-langkah pembuatan peta polygon: 1. Kunjungi https://earth.google.com/web/ lalu pilih Search 2. Selanjutnya, pilih Project kemudian klik Create lalu pilih Create KMS File kemudian klik New Feature 3. Pilih Draw Line or Shape untuk mulai menandai area lokasi usaha dan membentuk polygon sesuai dengan lokasi usaha 4. Klik icon titik tiga untuk mengunduh file polygon format KML 5. Lakukan konversi file polygon format KML menjadi file dengan format SHP. Kunjungi https://products.aspose.app/gis/en/conversion/kml-to-shapefile untuk melakukan konversi secara online Ketentuan upload peta polygon: 1. Saat dibuka, pastikan file zip berisi minimal lima file SHP (CPG, SHP, SHX, DBF, dan PRJ) dan tidak perlu disatukan dalam folder, dengan ukuran maksimal lima MB 2. Periksa seluruh file SHP dan pastikan semua jenis extention file sudah lengkap 3. Pastikan file SHP hanya memuat data untuk satu lokasi 4. Pastikan luas lahan pada file polygon sesuai dengan luas yang dimohonkan",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4873f7795640efd3ef022",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-027",
+      "question": "Kenapa Saat Cek RDTR Muncul Notifikasi Kegiatan Usaha Tidak Sesuai RDTR? dan Kenapa saat tambah KBLI muncul notifikasi kegiatan usaha tidak sesuai Rencana Detail Tata Ruang?",
+      "answer": "Notifikasi tersebut muncul karena kegiatan usaha yang diajukan tidak sesuai dengan Rencana Detail Tata Ruang di wilayah tersebut. Untuk informasi lebih lanjut, Bapak/Ibu dapat melakukan pengecekan secara mandiri terkait RDTR melalui: https://oss.go.id/rdtr-interaktif",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4873c7795640efd3ef020",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-028",
+      "question": "Kenapa status di OSS masih 'Proses penapisan' padahal saya sudah menyelesaikan penapisan di Amdalnet?",
+      "answer": "Untuk permasalahan tersebut, pastikan bahwa proses penapisan kewajiban dokumen lingkungan yang dilakukan di Amdalnet menggunakan referensi atau permohonan yang diakses melalui sistem OSS (ID Izin) dan tidak membuat permohonan baru di Amdalnet. Jika proses di Amdalnet sudah selesai, atas ID Izin tersebut seharusnya statusnya sudah berubah sehingga Pelaku Usaha dapat melanjutkan permohonan perizinan berusaha. Panduan penapisan kewajiban dokumen lingkungan dapat diakses melalui tautan berikut: https://oss.go.id/panduan/6673ac626d6923024fc61558",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4874d711547977a0df21f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-029",
+      "question": "Kenapa muncul notifikasi KKPR Tumpang Tindih saat unggah file polygon?",
+      "answer": "Notifikasi tersebut muncul karena poligon tumpang tindih dengan KKPR lain yang telah terbit. Silakan perbaiki poligon atau meneruskan dengan konsekuensi permohonan akan ditolak seluruhnya (jika tumpang tindih persis dengan KKPR lain yang telah terbit) atau disetujui sebagian (jika tumpang tindih sebagian dengan KKPR lain yang telah terbit).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48748711547977a0df21b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-030",
+      "question": "Kenapa Saat Cek RDTR Muncul Keterangan 'RDTR yang Anda Pilih Tidak Ada'?",
+      "answer": "Keterangan tersebut muncul karena RDTR belum tersedia di wilayah yang dimohonkan atau RDTR belum terintegrasi dengan sistem OSS sehingga permohonan PKKPR akan diteruskan ke Kementerian ATR/BPN atau Organisasi Perangkat Daerah Bidang Tata Ruang. Untuk mengecek wilayah yang telah memiliki RDTR, Bapak/Ibu dapat mengakses tautan berikut: https://oss.go.id/informasi/lokasi-usaha?tab=rtr&page=1",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48745711547977a0df219",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-031",
+      "question": "Bagaimana cara melakukan perpanjangan PB UMKU?",
+      "answer": "Bapak/Ibu dapat mengajukan permohonan Perpanjangan Perizinan Berusaha untuk Menunjang Kegiatan Usaha (PB-UMKU) melalui sistem OSS sesuai langkah berikut: 1. Kunjungi https://oss.go.id/. 2. Masuk menggunakan username dan password yang telah dimiliki. 3. Selanjutnya, pilih menu Perizinan Berusaha, pilih Kelola Usaha lalu Perpanjangan kemudian Perpanjangan PB UMKU. 4. Pilih KBLI yang akan diajukan PB-UMKU kemudian klik Proses Perpanjangan Perizinan Berusaha UMKU. 5. Pastikan PB-UMKU yang akan diperpanjang masih berlaku. Jika masa berlaku sudah habis, maka perpanjangan tidak dapat dilakukan dan Bapak/Ibu dapat melakukan permohonan baru PB UMKU Panduan Perpanjangan PB UMKU: https://oss.go.id/panduan/6740308a916660e38c0928d0",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48759711547977a0df227",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-032",
+      "question": "Bagaimana cara mengajukan PB UMKU?",
+      "answer": "Bapak/Ibu dapat mengajukan permohonan Perizinan Berusaha untuk Menunjang Kegiatan Usaha (PB-UMKU) melalui sistem OSS sesuai langkah berikut: 1. Kunjungi https://oss.go.id/. 2. Masuk menggunakan username dan password yang telah dimiliki. 3. Selanjutnya, pilih menu Perizinan Berusaha, pilih Kelola Usaha lalu PB UMKU. 4. Pilih KBLI yang akan diajukan PB-UMKU kemudian klik Proses Perizinan Berusaha UMKU. Panduan permohonan PB UMKU: https://oss.go.id/panduan/635970086345c7d71a8144bc",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48757711547977a0df225",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-033",
+      "question": "Akun Saya UMK, Kenapa Muncul Verifikasi KKPR Darat Saat Tambah KBLI 47111?",
+      "answer": "Pelaku UMK yang mengajukan KBLI 47111 untuk ruang lingkup minimarket memang akan memperoleh KKPR Darat UMK yang harus diverifikasi oleh Dinas Tata Ruang Daerah dan DPMPTSP. Silakan menunggu hasil verifikasi terlebih dahulu dalam estimasi waktu 5 (lima) hari kerja. Panduan lengkap pengajuan KBLI 47111 dapat dilihat pada tautan berikut: https://oss.go.id/panduan/66becb1430ebc9a53660a91d",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4874a711547977a0df21d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-034",
+      "question": "Bagaimana cara melakukan perubahan PB UMKU?",
+      "answer": "Bapak/Ibu dapat mengajukan Perubahan Perizinan Berusaha untuk Menunjang Kegiatan Usaha (PB-UMKU) melalui sistem OSS sesuai langkah berikut: 1. Kunjungi oss.go.id 2. Masuk menggunakan username dan password yang telah dimiliki. 3. Selanjutnya, pilih menu Perizinan Berusaha lalu pilih Kelola Usaha kemudian Perubahan lalu Perubahan UMKU. 4. Pilih KBLI yang akan diajukan PB-UMKU kemudian klik Proses Perubahan Perizinan Berusaha UMKU. Panduan perubahan PB UMKU: https://oss.go.id/panduan/64a27d22558597eba57ea550",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4875c711547977a0df229",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-035",
+      "question": "Kenapa PKKPR Saya Ditolak?",
+      "answer": "Bapak/Ibu dapat melakukan pengecekan secara mandiri untuk mengetahui alasan penolakan dengan mengakses menu Perizinan Berusaha » Kelola Usaha » pilih Pelacakan Perizinan Berusaha. Untuk KBLI dengan PKKPR status Ditolak, silakan mengajukan permohonan PKKPR baru dengan cara Tambah Bidang Usaha pada menu Pengembangan lalu input data sesuai dengan catatan penolakan dari verifikator. Panduan lengkap pengembangan dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144d2",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48742711547977a0df217",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-036",
+      "question": "Bagaimana cara mengajukan PBG dan SLF?",
+      "answer": "Permohonan PBG/SLF dapat diajukan dengan cara: 1. Kunjungi oss.go.id 2. Kemudian masuk menggunakan username/email/nomor telepon dan password. 3. Pilih menu Perizinan Berusaha, pilih Kelola Usaha lalu pilih Permohonan Baru. 4. Jika KKPR sudah disetujui dan pelaku usaha sudah klik Proses Perizinan Berusaha maka akan muncul tombol Ajukan PBG/SLF. 4. Klik tombol Ajukan PBG/SLF yang ada di bagian paling bawah. 5. Untuk informasi lebih lanjut, Bapak/Ibu dapat cek panduan lengkap pada website oss.go.id, kemudian pilih menu Panduan, lalu ketik Permohonan Persetujuan Bangunan Gedung (PBG) atau Sertifikat Laik Fungsi (SLF) Panduan pengajuan PBG dan SLF melalui OSS: https://oss.go.id/panduan/63e5813f444b945ab0f74615",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4872c7795640efd3ef018",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-037",
+      "question": "Apa yang dimaksud dengan PBG dan SLF?",
+      "answer": "PBG adalah perizinan yang diberikan kepada pemilik bangunan gedung untuk membangun baru, mengubah, memperluas, mengurangi, dan/atau merawat bangunan gedung sesuai dengan teknis bangunan gedung. Sementara SLF adalah sertifikat yang diberikan oleh pemerintah daerah untuk menyatakan kelaikan fungsi bangunan gedung sebelum dapat dimanfaatkan. Apabila kegiatan usaha membutuhkan pembangunan gedung, sistem OSS memberikan notifikasi keperluan Persetujuan Bangunan Gedung (PBG) dan Sertifikat Laik Fungsi (SLF) kepada Sistem Informasi Manajemen Bangunan Gedung (SIMBG) yang dikelola oleh Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR). Notifikasi juga akan diberikan kepada pelaku usaha untuk menindaklanjuti permohonan PBG dan SLF melalui SIMBG. Pemrosesan permohonan perizinan berusaha tetap dapat dilakukan dalam waktu yang bersamaan dengan permohonan PBG dan SLF.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487297795640efd3ef016",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-038",
+      "question": "Bagaimana cara mendapatkan KKPR untuk pelaku usaha UMK?",
+      "answer": "Terdapat pengecualian bagi pelaku UMK yang diberikan kemudahan dengan hanya menyampaikan :'Pernyataan Mandiri yang dapat diperoleh pada sistem OSS.' Dalam pernyataan tersebut, pelaku usaha menyatakan bahwa : lokasi usaha telah sesuai dengan tata ruang dan bersedia mendapat sanksi sesuai peraturan yang berlaku apabila ditemukan ketidaksesuaian.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4871d7795640efd3ef00c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-039",
+      "question": "Apa pengertian dari KKPR?",
+      "answer": "Kesesuaian Kegiatan Pemanfaatan Ruang (KKPR) yang sebelumnya bernama izin lokasi adalah salah satu persyaratan dasar yang wajib dipenuhi oleh seluruh pelaku usaha, baik perorangan maupun Badan Usaha, dalam rangka memperoleh perizinan berusaha. Permohonan KKPR untuk kegiatan berusaha dilakukan melalui sistem OSS KKPR terdiri dari dua jenis yaitu: 1. Konfirmasi Kesesuaian Kegiatan Pemanfaatan Ruang (KKKPR); dan 2. Persetujuan Kesesuaian Kegiatan Pemanfaatan Ruang (PKKPR). Pelaku usaha perlu memahami perbedaannya untuk mengetahui jenis KKPR yang dibutuhkan. Perbedaannya sebagai berikut: KKKPR a. Diterbitkan apabila RDTR pada suatu kabupaten/kota telah terintegrasi dengan sistem OSS; b. Tidak wajib membayar Penerimaan Negara Bukan Pajak (PNBP); c. Berlaku selama tiga tahun sejak diterbitkan. PKKPR Diberikan apabila belum tersedia RDTR pada suatu Kabupaten/Kota atau RDTR sudah tersedia tapi belum terintegrasi dengan sistem OSS. Informasi mengenai KKPR dapat diakses melalui: https://oss.go.id/informasi/persyaratan-dasar?tab=kesesuaian-ruang&page=1",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4871a711547977a0df211",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-040",
+      "question": "Kenapa peta/map tidak muncul saat pengisian data usaha? dan Kami tidak bisa mengisi kolom garis lintang dan bujur",
+      "answer": "Apabila peta/map tidak muncul saat pengisian data usaha, silakan lakukan pengisian garis lintang dan bujur secara manual dengan cara: 1. Masukan lokasi usaha melalui Google Maps; 2. Kemudian copy/salin titik koordinat lintang dan bujur; 3. Selanjutnya paste/tempel titik koordinat pada masing-masing kolom garis lintang dan bujur.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4873a7795640efd3ef01e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-041",
+      "question": "Kenapa PKKPR Saya Ditolak?",
+      "answer": "Bapak/Ibu dapat melakukan pengecekan secara mandiri untuk mengetahui alasan penolakan dengan mengakses menu Perizinan Berusaha » Kelola Usaha » pilih Pelacakan Perizinan Berusaha. Untuk KBLI dengan PKKPR status Ditolak, silakan mengajukan permohonan PKKPR baru dengan cara Tambah Bidang Usaha pada menu Pengembangan lalu input data sesuai dengan catatan penolakan dari verifikator. Panduan lengkap pengembangan dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144d2",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48742711547977a0df217",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-042",
+      "question": "Apa yang Harus Dilakukan Jika Tidak Bisa Likuidasi karena Tidak Punya NPWP? Bagaimana cara pencabutan likuidasi jika belum memiliki NPWP?",
+      "answer": "Bagi pelaku usaha yang terlanjur mencabut NPWP sebelum pencabutan likuidasi via OSS agar bersurat untuk difasilitasi sesuai wilayah ke alamat sebagai berikut karena dibutuhkan validasi NPWP untuk pencabutan likuidasi: Dalaks 1: Aceh, Sumatera Utara, Sumatera Barat, Riau, Kep. Riau, Sumatera Selatan, Lampung: tu.ditwil1@bkpm.go.id Dalaks 2: Jambi, DKI Jakarta, DI Yogyakarta, Kalimantan Barat, Kalimantan Tengah, Kalimantan Selatan, Kalimantan Timur: tu.ditwil2@bkpm.go.id Dalaks 3: Banten, Jawa Barat, Jawa Tengah, Sulawesi Utara, Sulawesi Tengah, Sulawesi Selatan, Sulawesi Tenggara: tu.ditwil3@bkpm.go.id Dalaks 4: Jawa Timur, Bali, Nusa Tenggara Timur, Nusa Tenggara Barat, Papua, Maluku, Maluku Utara, Pemekaran Papua: tu.ditwil4@bkpm.go.id Dalaks 5: Kep. Bangka Belitung, Bengkulu, Kalimantan Utara, Gorontalo, Sulawesi Barat, Papua Barat, Pemekaran Papua Barat: tu.ditwil5@bkpm.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487127795640efd3ef006",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-043",
+      "question": "Bagaimana Proses Pengajuan Izin Prinsip?",
+      "answer": "Untuk Izin Prinsip Penanaman Modal sudah tidak diterbitkan lagi sejak diberlakukannya PP 24 Tahun 2018 yang mengatur mengenai penerbitan NIB sebagai pendaftaran awal dalam memulai kegiatan usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487107795640efd3ef004",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-044",
+      "question": "Bagaimana cara melakukan perubahan data badan usaha? Bagaimana cara update data AHU terbaru di akun OSS?",
+      "answer": "Perubahan data badan usaha dapat dilakukan dengan mengikuti langkah berikut: 1. Masuk ke website oss.go.id; 2. Klik 'Perizinan Berusaha'; 3. Pilih 'Kelola Usaha'; 4. Pilih 'Perubahan'; 5. Pilih 'Perubahan Badan Usaha'; Panduan lengkap perubahan data badan usaha dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144aa",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4870b7795640efd3ef000",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-045",
+      "question": "Bagaimana cara menerbitkan TDP?",
+      "answer": "Tanda Daftar Perusahaan (TDP) adalah dokumen resmi yang sebelumnya digunakan untuk menyatakan bahwa suatu perusahaan telah terdaftar dan diakui secara hukum oleh pemerintah Indonesia. Namun, sejak diterapkannya perizinan berusaha berbasis risiko, TDP telah digantikan oleh Nomor Induk Berusaha (NIB). NIB berfungsi sebagai bukti pendaftaran dan identitas resmi yang diberikan kepada pelaku usaha untuk menjalankan kegiatan usahanya. NIB berlaku sepanjang pelaku usaha tetap melaksanakan kegiatan usahanya. NIB dapat diperoleh secara online melalui OSS. Kunjungi https://oss.go.id/ untuk informasi lebih lanjut seputar NIB.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487087795640efd3eeffe",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-046",
+      "question": "Kenapa PKKPR Saya Masih Menunggu Verifikasi 181?",
+      "answer": "Verifikasi kesesuaian dokumen PKKPR pasal 181 dilakukan oleh Kementerian Investasi/BKPM selama 5 hari kerja",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487227795640efd3ef010",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-047",
+      "question": "Apa saja kriteria untuk mengajukan PKKPR pasal 181?",
+      "answer": "KKPR bisa diterbitkan tanpa melalui penilaian apabila telah sesuai ketentuan Pasal 181 Peraturan Pemerintah Nomor 5 Tahun 2021 Kriteria PKKPR Pasal 181: 1. lokasi usaha dan/atau kegiatan terletak di lokasi KEK atau kawasan industri; 2. lokasi usaha dan/atau kegiatan diperlukan untuk perluasan usaha yang sudah berjalan dan letak tanahnya berbatasan dengan lokasi usaha dan/atau kegiatan yang bersangkutan dengan peruntukan tata ruang yang sama; 3. lokasi usaha dan/atau kegiatan merupakan tanah yang sudah dikuasai oleh Pelaku Usaha lain yang telah mendapatkan kesesuaian kegiatan pemanfaatan ruang dan akan digunakan oleh Pelaku Usaha; 4. lokasi usaha dan/atau kegiatan yang terletak pada wilayah usaha minyak dan gas bumi yang sudah ditetapkan oleh pemerintah; dan/atau 5. lokasi usaha dan/atau kegiatan berasal dari otorita atau badan penyelenggara pengembangan suatu kawasan sesuai dengan rencana tata ruang kawasan pengembangan tersebut. Verifikasi dokumen persyaratan permohonan PKKPR 181 dilakukan oleh Kementerian Investasi/BKPM",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487207795640efd3ef00e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-048",
+      "question": "Apa pengertian dari KKPR?",
+      "answer": "Kesesuaian Kegiatan Pemanfaatan Ruang (KKPR) yang sebelumnya bernama izin lokasi adalah salah satu persyaratan dasar yang wajib dipenuhi oleh seluruh pelaku usaha, baik perorangan maupun Badan Usaha, dalam rangka memperoleh perizinan berusaha. Permohonan KKPR untuk kegiatan berusaha dilakukan melalui sistem OSS KKPR terdiri dari dua jenis yaitu: 1. Konfirmasi Kesesuaian Kegiatan Pemanfaatan Ruang (KKKPR); dan 2. Persetujuan Kesesuaian Kegiatan Pemanfaatan Ruang (PKKPR). Pelaku usaha perlu memahami perbedaannya untuk mengetahui jenis KKPR yang dibutuhkan. Perbedaannya sebagai berikut: KKKPR a. Diterbitkan apabila RDTR pada suatu kabupaten/kota telah terintegrasi dengan sistem OSS; b. Tidak wajib membayar Penerimaan Negara Bukan Pajak (PNBP); c. Berlaku selama tiga tahun sejak diterbitkan. PKKPR Diberikan apabila belum tersedia RDTR pada suatu Kabupaten/Kota atau RDTR sudah tersedia tapi belum terintegrasi dengan sistem OSS. Informasi mengenai KKPR dapat diakses melalui: https://oss.go.id/informasi/persyaratan-dasar?tab=kesesuaian-ruang&page=1",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4871a711547977a0df211",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-049",
+      "question": "Apa yang dimaksud dengan PBG dan SLF?",
+      "answer": "PBG adalah perizinan yang diberikan kepada pemilik bangunan gedung untuk membangun baru, mengubah, memperluas, mengurangi, dan/atau merawat bangunan gedung sesuai dengan teknis bangunan gedung. Sementara SLF adalah sertifikat yang diberikan oleh pemerintah daerah untuk menyatakan kelaikan fungsi bangunan gedung sebelum dapat dimanfaatkan. Apabila kegiatan usaha membutuhkan pembangunan gedung, sistem OSS memberikan notifikasi keperluan Persetujuan Bangunan Gedung (PBG) dan Sertifikat Laik Fungsi (SLF) kepada Sistem Informasi Manajemen Bangunan Gedung (SIMBG) yang dikelola oleh Kementerian Pekerjaan Umum dan Perumahan Rakyat (PUPR). Notifikasi juga akan diberikan kepada pelaku usaha untuk menindaklanjuti permohonan PBG dan SLF melalui SIMBG. Pemrosesan permohonan perizinan berusaha tetap dapat dilakukan dalam waktu yang bersamaan dengan permohonan PBG dan SLF.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487297795640efd3ef016",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-050",
+      "question": "Apakah diperbolehkan jika luas tanah lebih besar dibanding luas bangunan untuk pengajuan PKKPR?",
+      "answer": "Luas tanah yang diajukan dalam permohonan KKPR tidak boleh lebih besar dari yang ditentukan atau dibatasi oleh dokumen resmi terkait, seperti bukti kepemilikan tanah atau perencanaan tata ruang. Permohonan harus sesuai dengan : 1. luas wilayah pada Rencana Teknis Bangunan (RTB) atau; 2. Rencana Induk Kawasan (RIK).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487277795640efd3ef014",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-051",
+      "question": "Bisakah jenis penanaman modal PMA diubah ke PMDN?",
+      "answer": "Jenis penanaman modal asing (PMA) dapat diubah menjadi penanaman modal dalam negeri (PMDN) atau yang dikenal dengan perubahan alih status. Perubahan alih status dapat dilakukan dengan cara: 1. Pastikan perubahan tersebut telah tercatat dalam data pemegang saham pada Akta Perusahaan dan AHU Online. 2. Setelah akta dan AHU terbaru sebagai PMDN telah disahkan, Bapak/Ibu dapat memperbarui data badan usaha pada sistem OSS 3. Pilih menu Perizinan Berusaha lalu pilih Kelola Usaha, klik Perubahan kemudian pilih Perubahan Badan Usaha. 4. Centang Ubah Data Pada Profil. Panduan lengkap perubahan data badan usaha dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/66ecda24e09d998f717cb9f5",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4870d7795640efd3ef002",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-052",
+      "question": "Bagaimana cara mendapatkan KKPR untuk pelaku usaha UMK?",
+      "answer": "Terdapat pengecualian bagi pelaku UMK yang diberikan kemudahan dengan hanya menyampaikan :'Pernyataan Mandiri yang dapat diperoleh pada sistem OSS.' Dalam pernyataan tersebut, pelaku usaha menyatakan bahwa : lokasi usaha telah sesuai dengan tata ruang dan bersedia mendapat sanksi sesuai peraturan yang berlaku apabila ditemukan ketidaksesuaian.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4871d7795640efd3ef00c",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-053",
+      "question": "Apa yang Termasuk Nilai Investasi Mesin?",
+      "answer": "Dalam perizinan berusaha berbasis risiko, nilai investasi mesin mencakup biaya yang dikeluarkan untuk pembelian mesin atau peralatan, termasuk suku cadang (sparepart), baik yang diimpor maupun dibeli secara lokal, serta peralatan untuk pencegahan pencemaran lingkungan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487157795640efd3ef008",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-054",
+      "question": "Berapa lama masa berlaku PKKPR?",
+      "answer": "Masa berlaku PKKPR adalah 3 tahun sejak diterbitkan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487257795640efd3ef012",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-055",
+      "question": "Bagaimana alur permohonan sertifikat halal self declare?",
+      "answer": "Berikut adalah alur sertifikasi halal self declare: 1. Pastikan Bapak/Ibu sudah memiliki email aktif dan NIB sebelum mendaftar. Jika belum memiliki NIB, silakan mendaftar melalui https://oss.go.id/. Pastikan juga KBLI sudah terbit di NIB 2. Membuat akun dan melengkapi data di ptsp.halal.go.id 3. Pendamping Proses Produk Halal (PPH) melakukan verifikasi dan validasi permohonan 4. BPJPH melakukan verifikasi dan validasi secara sistem dan menerbitkan Surat Tanda Terima Dokumen (STTD) 5. Komite Fatwa Produk Halal menerima laporan hasil pendampingan dan melakukan sidang fatwa 6. BPJPH menerima ketetapan kehalalan produk dan menerbitkan sertifikat halal 7. Setelah status 'Terbit SH', Bapak/Ibu dapat mengunduh sertifikat halal di website SIHALAL dan mengunduh label halal nasional untuk dicantumkan pada produk. Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486ee711547977a0df20d",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-056",
+      "question": "Bagaimana alur permohonan sertifikat halal reguler?",
+      "answer": "Berikut adalah alur sertifikasi halal reguler: 1. Pastikan Bapak/Ibu sudah memiliki email aktif dan NIB sebelum mendaftar. Jika belum memiliki NIB, silakan mendaftar melalui https://oss.go.id/. Pastikan juga KBLI sudah terbit di NIB 2. Mengajukan permohonan melalui ptsp.halal.go.id 3. BPJPH melakukan verifikasi atas data dan dokumen yang diajukan 4. Lembaga Pemeriksa Halal (LPH) menghitung dan menginput biaya pemeriksaan pada sistem SIHALAL 5. Pelaku usaha melakukan pembayaran dan mengunggah bukti bayar di SIHALAL 6. BPJPH melakukan verifikasi pembayaran dan menerbitkan Surat Tanda Terima Dokumen (STTD) 7. LPH melakukan proses pemeriksaan dan mengunggah laporan pemeriksaan 8. Komisi Fatwa MUI melakukan sidang fatwa dan mengunggah ketetapan halal di SIHALAL 9. BPJPH menerbitkan Sertifikat Halal 10. Setelah status 'Terbit SH', Bapak/Ibu dapat mengunduh sertifikat halal di website SIHALAL. Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486eb7795640efd3eefec",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-057",
+      "question": "Apa saja syarat penerbitan perizinan berusaha yang saya ajukan?",
+      "answer": "Persyaratan perizinan berusaha dapat bervariasi untuk setiap KBLI dan tingkat risiko. Pelaku usaha dapat melakukan pengecekan secara mandiri dengan mengikuti langkah-langkah berikut: 1. Kunjungi https://oss.go.id/. 2. Pilih menu Informasi lalu pilih Memulai Usaha kemudian Klasifikasi Baku Lapangan Usaha Indonesia (KBLI). 3. Lakukan pencarian KBLI atas kegiatan yang akan diajukan. Jika sudah menemukan KBLI yang dimaksud, lihat bagian Ruang Lingkup pada KBLI tersebut 4. Pada Ruang Lingkup, lakukan pengecekan skala usaha dan tingkat risiko kemudian lihat informasi Persyaratan Perizinan Berusaha. Sistem akan menampilkan persyaratan yang harus dipenuhi untuk memperoleh perizinan berusaha sesuai skala usaha terutama pada tingkat risiko menengah tinggi dan tinggi. Setelah mengetahui persyaratan perizinan berusaha, Bapak/Ibu dapat melengkapi persyaratan tersebut melalui menu Perizinan Berusaha lalu pilih Pemenuhan Persyaratan pada akun OSS. Untuk acuan lebih detail, Bapak/Ibu dapat mengacu pada peraturan kementerian/lembaga terkait.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486f3711547977a0df20f",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-058",
+      "question": "Apakah pengajuan sertifikat halal dapat diajukan melalui OSS?",
+      "answer": "Saat ini, pengajuan sertifikasi halal belum dapat diajukan melalui OSS. Untuk proses di OSS hanya berupa penerbitan NIB. Proses detail teknis sertifikasi halal dilakukan melalui ptsp.halal.go.id. Untuk informasi lebih lanjut, silakan menghubungi Badan Penyelenggara Jaminan Produk Halal melalui website bpjph.halal.go.id",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486f07795640efd3eefee",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-059",
+      "question": "Apakah perluasan bisa dilakukan di semua KBLI?",
+      "answer": "Perluasan kegiatan usaha pada sistem OSS tidak dapat dilakukan di semua KBLI. Saat ini, perluasan kegiatan usaha masih terbatas hanya pada pada sektor industri dan bidang jasa seperti KBLI Hotel, KBLI Restoran, dan KBLI Rumah Sakit. Perluasan kegiatan usaha di bidang jasa meliputi: 1. Penambahan jumlah kamar 2. Penambahan jumlah kamar yang berpengaruh terhadap luas lahan 3. Penambahan bangunan 4. Penambahan bangunan yang berpengaruh terhadap luas bangunan 5. Penambahan sarana prasarana 6. Penambahan sarana prasarana yang berpengaruh terhadap luas lahan 7. Sektor kesehatan yang naik kelas Jika yang dimaksud adalah penambahan kegiatan usaha di lokasi yang sama atau lokasi berbeda, Pelaku Usaha dapat mengakses menu Perizinan Berusaha >> Pengembangan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487037795640efd3eeffa",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-060",
+      "question": "Bagaimana Cara Menerbitkan Izin Komersial/Operasional?",
+      "answer": "Saat ini, nomenklatur Izin Komersial/Operasional sudah tidak diberlakukan sebagaimana PP 5 Tahun 2021. Jenis perizinan yang sama dapat diajukan dalam bentuk Perizinan Berusaha untuk Menunjang Kegiatan Usaha (PB-UMKU) yang diberikan kepada pelaku usaha untuk menjalankan kegiatan penunjang usaha yang mendukung kegiatan utamanya. Untuk melihat jenis PB-UMKU yang dapat diajukan di sistem OSS, Pelaku Usaha dapat mengakses tautan berikut: https://oss.go.id/informasi/pb-umku Panduan lengkap pengajuan PB-UMKU dapat dilihat pada tautan berikut: https://oss.go.id/panduan/65b0910d98f8907e5aa9891a",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487007795640efd3eeff8",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-061",
+      "question": "Jika menambahkan KBLI baru, apakah KBLI lama harus dihapus?",
+      "answer": "Jika KBLI lama masih digunakan untuk menjalankan kegiatan usaha, maka KBLI lama tidak perlu dihapus/dicabut karena masih menjalankan kegiatan usaha. Namun, jika KBLI lama sudah tidak digunakan, maka KBLI tersebut dapat dihapus melalui menu Perizinan Berusaha >> Pencabutan >> Non Likuidasi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486fb7795640efd3eeff4",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-062",
+      "question": "Bagaimana Cara Tambah Cabang di OSS?",
+      "answer": "Jika penambahan cabang yang dimaksud bersifat komersial, Bapak/Ibu dapat menambahkan KBLI pada pada menu Perizinan Berusaha > pilih Kelola Usaha > klik Pengembangan > klik tombol Tambah Bidang Usaha > pilih Bidang Usaha > pilih jenis kegiatan usaha Utama. Jika penambahan cabang yang dimaksud tidak bersifat komersial, Bapak/Ibu dapat menambahkan KBLI pada pada menu Perizinan Berusaha > pilih Kelola Usaha > klik Pengembangan > klik tombol Tambah Bidang Usaha > pilih Bidang Usaha > masukkan jenis kegiatan usaha Pendukung. Jika penambahan cabang yang dimaksud hanya untuk kegiatan administratif, Bapak/Ibu dapat menambahkan KBLI pada menu Perizinan Berusaha > pilih Kelola Usaha > klik Pengembangan > klik tombol Tambah Bidang Usaha > pilih Bidang Usaha > pilih jenis Kantor Cabang Administrasi. Panduan lengkap cara penambahan bidang usaha baru dapat diakses pada tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a8144ae Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144d2",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486f97795640efd3eeff2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-063",
+      "question": "Bagaimana Cara Tambah KBLI Satu Lini Produksi?",
+      "answer": "Bapak/Ibu dapat menambahkan KBLI dengan jenis kegiatan usaha satu lini produksi sesuai langkah berikut: 1. Kunjungi https://oss.go.id/ 2. Login akun OSS menggunakan username/email/nomor handphone dan password 3. Setelah berhasil login, pilih menu Perizinan Berusaha lalu pilih Kelola Usaha lalu pilih Pengembangan kemudian klik tombol Tambah Bidang Usaha 4. Selanjutnya, klik tombol Pilih Bidang Usaha 5. Pilih jenis kegiatan usaha Satu Lini Produksi lalu pilih KBLI Utama yang sudah diajukan kemudian klik tombol Pilih Dokumen untuk mengunggah flowchart produksi. Selanjutnya, pilih KBLI Satu Lini yang akan diajukan lalu pilih Ruang Lingkup kemudian klik tombol Simpan 6. Lengkapi data usaha hingga proses perizinan berusaha selesai. Panduan lengkap cara penambahan bidang usaha baru dapat diakses pada tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a8144ae Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144d2",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e487067795640efd3eeffc",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-064",
+      "question": "Bagaimana Cara Mengajukan Perizinan Penyelenggaraan Event?",
+      "answer": "Perizinan penyelenggaraan event dapat diajukan secara mandiri melalui OSS dengan mengikuti langkah-langkah berikut: 1. Kunjungi https://oss.go.id/ lalu login menggunakan username dan password. 2. Setelah berhasil login, akan muncul banner terkait perizinan penyelenggaraan event. Klik tombol 'Ajukan Sekarang' pada banner. Banner akan muncul setelah Bapak/Ibu selesai melakukan proses perizinan berusaha pada KBLI 82301, 82302, dan 90090 (KBLI terbit di NIB). 3. Selanjutnya, Bapak/Ibu akan masuk ke Dashboard Pengajuan Penyelenggaraan Event kemudian klik tombol 'Buat Pengajuan Baru' untuk mengajukan permohonan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486e9711547977a0df20b",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-065",
+      "question": "Bagaimana cara lihat cetakan izin lama KBLI data migrasi?",
+      "answer": "Untuk melihat cetakan izin lama silakan mengikuti langkah berikut: 1. Kunjungi https://oss.go.id/ kemudian masuk menggunakan nomor ponsel/email/username dan password. 2. Setelah berhasil login, buka menu Pelacakan lalu pilih Perizinan Berusaha. 3. Pilih KBLI dengan mengklik (^) untuk menampilkan tombol Cetakan Lama kemudian klik tombol tersebut. 4. Sistem akan menampilkan Daftar Izin Usaha. Selanjutnya, pilih Lihat Cetakan pada dokumen yang dibutuhkan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486f67795640efd3eeff0",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-066",
+      "question": "Apa yang terjadi jika tidak melakukan pemenuhan persyaratan dalam 90 hari?",
+      "answer": "Pelaku Usaha wajib melakukan pemenuhan persyaratan paling lambat 90 (sembilan puluh) Hari sebelum waktu perkiraan mulai beroperasi/produksi. Hal ini sebagaimana diatur dalam Peraturan Badan Koordinasi Penanaman Modal Nomor 4 Tahun 2021. Dalam hal pemenuhan persyaratan tidak dilakukan, sebagaimana diatur di dalam Peraturan Badan Koordinasi Penanaman Modal Nomor 5 Tahun 2021, Pelaku Usaha akan dikenai sanksi administratif.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486fe7795640efd3eeff6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-067",
+      "question": "Kenapa Akta Lama Masih Muncul di SIKaP Padahal Sudah Punya Akta Terbaru?",
+      "answer": "Data akta terbaru belum muncul pada sistem SIKap dapat disebabkan karena akun OSS belum terupdate dengan data akta terbaru. Silakan melakukan sinkronisasi data AHU terbaru melalui menu Perizinan Berusaha >> Kelola Usaha >> Perubahan >> Perubahan Badan Usaha. Panduan perubahan data badan usaha: https://oss.go.id/panduan/635970086345c7d71a8144aa Setelah berhasil memperbarui data pada akun OSS sesuai dengan akta perubahan terbaru, silakan melakukan tarik data akta pada sistem SIKaP.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486dd7795640efd3eefe4",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-068",
+      "question": "Sudah Ubah di Akta, Bagaimana Cara Ubah Data Maksud dan Tujuan di OSS?",
+      "answer": "Setelah dilakukan pembaruan pada akta perusahaan dan dilakukan update pada data AHU, selanjutnya perubahan data maksud dan tujuan pada sistem OSS dapat dilakukan dengan cara berikut: 1. Kunjungi https://oss.go.id/ 2. Masuk menggunakan username/email/nomor telepon dan password 3. Pilih menu Perizinan Berusaha » lalu pilih Kelola Usaha kemudian pilih sub-menu Perubahan » pilih Perubahan Badan Usaha 4. Sistem akan menampilkan halaman Konfirmasi Perubahan Data Badan Usaha. Selanjutnya, centang kotak Perubahan pada Maksud dan Tujuan » lalu klik tombol Ubah Sekarang 5. Sistem akan menampilkan Data Maksud dan Tujuan lama sesuai OSS (bagian kiri) maupun Data Maksud dan Tujuan baru sesuai AHU Online (bagian kanan) 6. Klik kotak centang/checkbox untuk persetujuan perubahan data profil dan data maksud dan tujuan yang dilakukan 7. Klik tombol SIMPAN. Sebagai informasi tambahan, untuk jenis perusahaan Yayasan, Persekutuan dan Perkumpulan, Perusahaan Umum/Perum, Badan Layanan Umum, dan Badan Hukum lainnya, data yang ditampilkan pada Daftar Maksud dan Tujuan dapat diisi secara manual. Panduan lengkap perubahan data badan usaha dapat dilihat pada tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144aa",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486db7795640efd3eefe2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-069",
+      "question": "Apakah Perubahan Data Usaha Menyebabkan PB-UMKU yang Telah Terbit Hilang?",
+      "answer": "PB-UMKU yang telah terbit tidak akan hilang ataupun berubah ketika Bapak/Ibu mengubah data usaha. PB-UMKU yang telah terbit akan tetap muncul meskipun telah dilakukan perubahan data usaha pada KBLI.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486d6711547977a0df209",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-070",
+      "question": "Adakah Format untuk Pemenuhan Persyaratan?",
+      "answer": "Untuk mengetahui format pemenuhan persyaratan, Bapak/Ibu dapat berkoordinasi dengan kementerian, lembaga, atau pemerintah daerah yang memiliki kewenangan untuk melakukan verifikasi. Informasi mengenai pihak yang berwenang dapat dilihat melalui menu Perizinan Berusaha >> Kelola Usaha > Pelacakan Perizinan Berusaha di akun OSS Bapak/Ibu.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486d27795640efd3eefde",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-071",
+      "question": "Kenapa Status Izin UMKU Saya Terbit Sementara?",
+      "answer": "Status PB-UMKU Terbit Sementara muncul pada sektor obat dan makanan seperti SPP-IRT dikarenakan belum memenuhi komitmen. Silakan melakukan pemenuhan komitmen PB-UMKU sesuai langkah berikut: 1. Pilih menu Perizinan Berusaha lalu Kelola Usaha kemudian PB UMKU 2. Klik tombol Proses Perizinan Berusaha UMKU pada KBLI yang dipilih 3. Sistem akan menampilan nama perizinan UMKU yang telah diajukan dengan status Izin Terbit Sementara 4. Klik tombol 'Pemenuhan Komitmen PB-UMKU di Sistem K/L' agar dapat diarahkan ke sistem BPOM untuk pemenuhan komitmen.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486e67795640efd3eefea",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-072",
+      "question": "Tidak Bisa Tambah KBLI Perdagangan Besar karena Harus Isi NIPM",
+      "answer": "Nomor Izin Penanaman Modal (NIPM) akan muncul saat menambahkan KBLI Perdagangan Besar sedangkan Bapak/Ibu memiliki KBLI Perdagangan Eceran pada akun OSS ataupun sebaliknya. Bidang usaha Perdagangan Besar tidak dapat digabung/dijalankan bersamaan dengan Perdagangan Eceran sesuai dengan Peraturan Menteri Perdagangan RI Nomor 66 Tahun 2019, Pasal 19 Ayat 1. Silakan menghapus KBLI Perdagangan Eceran sebelum menambahkan KBLI Perdagangan Besar.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486e37795640efd3eefe8",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-073",
+      "question": "Mengapa Muncul Notifikasi 'Kesalahan Sistem' Saat Akses Menu Permohonan Baru?",
+      "answer": "Notifikasi tersebut muncul dikarenakan jaringan internet tidak stabil sehingga sistem gagal mengambil data. Silakan mencoba kembali dengan memastikan jaringan internet stabil agar sistem dapat berjalan dengan lancar.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486d87795640efd3eefe0",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-074",
+      "question": "Apa saja jenis badan usaha yang termasuk badan hukum?",
+      "answer": "Jenis-jenis badan usaha yang termasuk dalam kategori badan hukum antara lain: 1. Perseroan Terbatas (PT); 2. Perseroan perorangan; 3. Yayasan; 4. Koperasi; 5. Perkumpulan. Untuk informasi lebih detail, silakan mengacu pada ketentuan perundang-undangan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486e17795640efd3eefe6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-075",
+      "question": "Kenapa Saat Isi Form Data Usaha Muncul Keterangan 'Error dalam memproses data proyek'?",
+      "answer": "Munculnya notifikasi Error dalam pemrosesan data proyek biasanya terjadi karena Bapak/Ibu belum mengisi data usaha dengan lengkap. Untuk mengatasi masalah ini, mohon pastikan kembali bahwa seluruh formulir termasuk penginputan kode KBLI lima digit telah dilengkapi sebelum melanjutkan proses.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486d07795640efd3eefdc",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-076",
+      "question": "Apakah perubahan penanggung jawab teknis mempengaruhi persyaratan dasar yang sudah terbit?",
+      "answer": "Perubahan penanggung jawab dalam lampiran data teknis sebagaimana tercantum pada perizinan berusaha yang dimiliki tidak akan mempengaruhi persyaratan dasar yang telah terbit. Untuk perubahan ini Bapak/Ibu dapat mengakses tautan berikut: https://oss.go.id/panduan/647d9145d033753dd77d8a0d",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486c9711547977a0df205",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-077",
+      "question": "Bagaimana cara cetak NIB berbahasa inggris?",
+      "answer": "Saat ini NIB belum tersedia dalam cetakan berbahasa Inggris.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486cd711547977a0df207",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-078",
+      "question": "Apa saja dokumen yang perlu disiapkan untuk perpanjangan Surat Izin Operasional Badan Usaha Jasa Pengamanan (SIO BUJP)?",
+      "answer": "Dokumen yang perlu dilampirkan untuk permohonan perpanjangan Surat Izin Operasional Badan Usaha Jasa Pengamanan (SIO BUJP) adalah sebagai berikut: 1. NIB yang telah diterbitkan oleh sistem OSS 2. Salinan Surat Izin Operasional (SIO) lama 3. Struktur organisasi yang dilengkapi dengan foto, nama lengkap, dan diTandatangani oleh pimpinan atau direktur badan usaha serta distempel oleh perusahaan 4. Daftar personel sesuai struktur organisasi, lengkap dengan daftar riwayat hidup masing-masing, yang diTandatangani oleh setiap personel 5. Surat pernyataan bermeterai yang menyatakan tidak menggunakan tenaga kerja asing. Jika menggunakan tenaga kerja asing, lampirkan izin dari Kemenaker, Kemenkumham, dan Baintelkam Polri 6. Surat pernyataan bermeterai yang menyatakan akan menggunakan seragam satpam sesuai ketentuan Polri 7. Badan usaha harus berbentuk PT 8. Sertifikasi keanggotaan asosiasi bidang pengamanan yang terdaftar di Polri 9. Bukti pembayaran Penerimaan Negara Bukan Pajak (PNBP) 10. Sertifikasi atau ijazah pelatihan kompetensi gada utama bagi direktur utama, direktur, dan manajer operasional di kantor pusat dan cabang 11. Laporan semester empat periode 12. Konfirmasi Status Wajib Pajak (KSWP) yang dinyatakan valid",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486b57795640efd3eefd0",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-079",
+      "question": "Bagaimana Cara Melakukan Perpanjangan Surat Izin Operasional Badan Usaha Jasa Pengamanan (SIO BUJP)?",
+      "answer": "Perpanjangan Surat Izin Operasional Badan Usaha Jasa Pengamanan (SIO BUJP) dapat dilakukan dengan mendaftar antrean tatap muka terlebih dahulu. Pilih layanan konsultasi untuk perpanjangan SIO BUJP kemudian tentukan tanggal yang tersedia. Proses permohonan perpanjangan dilakukan secara tatap muka di Kantor Kementerian Investasi dan Hilirisasi/BKPM. Jl. Gatot Subroto No.44, Kelurahan Senayan, Kecamatan Kebayoran Baru, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12190 https://maps.app.goo.gl/MGgmSYEKw8Kcg42t9",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486b2711547977a0df203",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-080",
+      "question": "Bagaimana Cara Ubah Jenis Penanaman Modal dari PMDN ke PMA?",
+      "answer": "Jenis penanaman modal dalam negeri (PMDN) dapat diubah menjadi penanaman modal asing (PMA) ketika perusahaan PMDN mengubah struktur kepemilikan saham, yakni investor domestik menjual atau mengalihkan sahamnya sebagian atau seluruhnya kepada perseorangan warga negara asing, badan usaha asing (termasuk PT PMA), dan/atau pemerintah asing yang melakukan penanaman modal di wilayah negara Republik Indonesia. Pastikan perubahan tersebut telah tercatat dalam data pemegang saham pada akta perusahaan dan AHU Online. Setelah akta dan AHU terbaru sebagai PMA telah disahkan, Bapak/Ibu dapat memperbarui data badan usaha pada sistem OSS dengan mengikuti langkah berikut: 1. Kunjungi https://oss.go.id/ lalu masuk menggunakan username dan password 2. Setelah berhasil login, pilih menu Perizinan Berusaha, Pilih Kelola Usaha lalu pilih Perubahan kemudian pilih Perubahan Badan Usaha 3. Pilih perubahan yang ingin dilakukan lalu centang Alih Status 4. Setelah seluruh proses perubahan selesai, perusahaan akan resmi tercatat sebagai PMA pada sistem OSS sehingga tidak lagi dianggap sebagai entitas dengan modal dalam negeri Panduan lebih lengkap dapat dilihat melalui tatutan berikut: https://oss.go.id/panduan/66ecd54ce09d998f717cb9f3",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486ab7795640efd3eefce",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-081",
+      "question": "Kenapa Data NIB Tidak Ditemukan di INSW?",
+      "answer": "Nomor Induk Berusaha (NIB) tidak ditemukan pada sistem Indonesia National Single Window (INSW) dapat disebabkan oleh NIB yang belum mencantumkan jenis aktivitas impor seperti API-U atau API-P. Mohon pastikan kembali telah memilih aktivitas impor pada kolom Jenis Angka Pengenal Importir (API). Jika belum, silakan mengisi kolom aktivitas impor melalui menu Perizinan Berusaha » Kelola Usaha » Perubahan » Perubahan Data Usaha (bagi akun Badan Usaha) atau Perubahan Data Pelaku Usaha (bagi akun perorangan).",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486a77795640efd3eefcc",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-082",
+      "question": "Bagaimana mengisi data negara asal yang kosong dari data AHU?",
+      "answer": "Panduan lengkap pengisian data negara asal yang kosong dari data AHU dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/66ea7a96e09d998f717cb9f0",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4869b7795640efd3eefc4",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-083",
+      "question": "Bagaimana Cara Ubah Negara Asal pada Data Pengurus dan Pemegang Saham?",
+      "answer": "Kewarganegaraan pada data pengurus dan pemegang saham dapat diubah dengan cara berikut: 1. Pastikan sudah melakukan perubahan pada akta perusahaan dan memperbarui keterangan di sistem AHU Online oleh notaris 2. Selanjutnya, lakukan perubahan pada akun OSS melalui menu Perizinan Berusaha lalu Kelola Usaha kemudian pilih Perubahan lalu pilih Perubahan Badan Usaha 3. Centang pada Ubah Data Permodalan dan Data Pengurus & Pemegang Saham kemudian klik tombol Lanjut 4. Cek kesesuaian data terbaru pada Data Pengurus dan Pemegang Saham. Data negara asal akan muncul sesuai dengan yang tercantum pada AHU 5. Centang pada Perubahan Pengurus dan Pemegang Saham lalu klik tombol Simpan Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144ce",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486997795640efd3eefc2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-084",
+      "question": "Bagaimana Cara Menerbitkan SKU?",
+      "answer": "Sejak diberlakukannya Undang-Undang Cipta Kerja, pelaku usaha tidak perlu lagi mengurus Surat Keterangan Usaha (SKU) untuk keperluan legalitas. Proses perizinan usaha telah disederhanakan melalui penerbitan Nomor Induk Berusaha (NIB) oleh sistem OSS. Sistem yang berlaku saat ini adalah sistem perizinan berusaha berbasis risiko dimana penerbitan perizinan berusaha dilihat berdasarkan tingkat risikonya dengan ketentuan sebagai berikut: 1. Kegiatan usaha dengan tingkat risiko rendah, perizinan berusaha yang terbit adalah NIB yang berlaku sebagai perizinan tunggal, yakni sebagai identitas dan legalitas, SNI, dan sertifikasi jaminan produk halal 2. Kegiatan usaha dengan tingkat risiko menengah rendah, perizinan berusaha yang terbit adalah NIB dan Sertifikat Standar (SS) yang terbit secara otomatis 3. Kegiatan usaha dengan tingkat risiko menengah tinggi, perizinan berusaha yang terbit adalah NIB dan SS yang perlu diverifikasi 4. Kegiatan usaha dengan tingkat risiko tinggi, perizinan berusaha yang terbit adalah NIB dan izin yang perlu diverifikasi",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486be7795640efd3eefd6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-085",
+      "question": "NIB Tidak Bisa Dicetak karena KBLI Null",
+      "answer": "Munculnya notifikasi 'Harap validasi kembali data proyek Bapak/Ibu, data proyek dengan KBLI null tidak ditemukan risikonya' disebabkan karena adanya kegiatan usaha yang belum memiliki KBLI. Silakan melakukan pengecekan kegiatan usaha yang belum memiliki KBLI di menu Perizinan Berusaha >> Kelola Usaha >> Pengembangan. Jika kegiatan usaha tersebut ingin dihapus, silakan klik ikon hapus/tempat sampah di bagian paling kanan pada kegiatan usaha. Jika kegiatan usaha tersebut ingin dilanjutkan, silakan klik ikon pensil/edit.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486bb7795640efd3eefd4",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-086",
+      "question": "Bagaimana Cara Ubah Nama Perusahaan?",
+      "answer": "Pelaku usaha dapat melakukan perubahan nama perusahaan secara mandiri pada akun OSS melalui menu Perizinan Berusaha » Kelola Usaha » Perubahan » Perubahan Nama Perusahaan. Panduan lebih lengkap dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/64c734fd2ed3890d0062fc3e",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486c57795640efd3eefda",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-087",
+      "question": "Kenapa ada notifikasi Data Modal Disetor (Dalam Bentuk Lain) harus diisi saat melakukan perubahan data badan usaha?",
+      "answer": "Jika muncul validasi Data modal disetor (dalam bentuk lain) harus diisi saat melakukan perubahan data badan usaha, silakan Bapak/Ibu mengisi data modal disetor (dalam bentuk lain) terlebih dahulu sebagaimana tercantum dalam akta (jika ada). Caranya dengan mengklik kolom tabel Konfirmasi Perubahan Data Badan Usaha lalu pada bagian Pilih Perubahan yang Ingin dilakukan, lalu centang Ubah Data Profil dan Ubah Data Permodalan dan Data Pengurus & Pemegang Saham.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486c27795640efd3eefd8",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-088",
+      "question": "Bagaimana Cara Mengubah Jenis API?",
+      "answer": "Untuk melakukan perubahan jenis Angka Pengenal Importir (API) secara mandiri dapat mengikuti langkah-langkah berikut: 1. Kunjungi oss.go.id 2. Masuk menggunakan username dan password 3. Pilih menu Perizinan Berusaha » Kelola Usaha » Perubahan » Perubahan Data Usaha 4. Pada bagian Aktivitas Impor, klik kolom Jenis Angka Pengenal Importir (API). Pilih jenis API sesuai dengan kegiatan yang dilakukan 5. Centang disclaimer kemudian klik tombol Selanjutnya. Catatan: Perubahan jenis API hanya dapat dilakukan pada akun Badan Usaha. Akun perorangan hanya dapat mengajukan jenis API-P sehingga tidak dapat mengubah jenis API.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486a17795640efd3eefc8",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-089",
+      "question": "Berapa lama proses pencabutan Likuidasi?",
+      "answer": "Pencabutan likuidasi akan diproses dalam 5 (lima) hari kerja sejak Pelaku Usaha menyelesaikan permohonan pencabutan likuidasi. Sekiranya pencabutan belum dilakukan setelah batas waktu dilewati, Bapak/Ibu dapat menghubungi contact center OSS untuk pengecekan progress lebih lanjut.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4869e7795640efd3eefc6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-090",
+      "question": "Kenapa Muncul Notifikasi 'Data SBU Tidak Sesuai' Saat Pemenuhan Persyaratan Sertifikat Standar KBLI Konstruksi?",
+      "answer": "Pastikan Bapak/Ibu telah menginputkan nomor Sertifikat Badan Usaha (SBU) sesuai cetakan SBU. Silakan menginput ulang nomor sertifikat badan usaha sesuai dengan yang tercantum pada cetakan SBU.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486b87795640efd3eefd2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-091",
+      "question": "Jangka Waktu Produksi Diisi Berdasarkan Apa?",
+      "answer": "Jangka waktu perkiraan produksi diisi dengan perkiraan waktu (bulan dan tahun) kapan Pelaku Usaha akan memulai proses produksi/komersial, seperti saat bahan baku mulai diolah atau saat mesin produksi mulai beroperasi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486a47795640efd3eefca",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-092",
+      "question": "Apakah Perkumpulan Wajib Memiliki NIB?",
+      "answer": "Perkumpulan wajib memiliki Nomor Induk Berusaha (NIB) jika melakukan kegiatan usaha yang menghasilkan profit. Namun, bagi perkumpulan yang tidak menjalankan kegiatan usaha apapun maka tidak wajib memiliki NIB. Adapun kegiatan yang diwajibkan memiliki perizinan berusaha, Bapak/Ibu dapat mengacu kepada Peraturan Pemerintah Nomor 5 Tahun 2021. NIB berfungsi sebagai identitas bagi pelaku usaha dan sebagai bukti registrasi/pendaftaran untuk melakukan kegiatan usaha. Selain itu, NIB juga berlaku sebagai: 1. Angka Pengenal Impor (API) 2. Hak Akses Kepabeanan 3. Pendaftaran kepesertaan atas jaminan sosial kesehatan dan ketenagakerjaan 4. Wajib lapor ketenagakerjaan untuk periode pertama",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486ae711547977a0df201",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-093",
+      "question": "Kenapa saat validasi risiko muncul notifikasi 'Skala usaha Anda adalah mikro, Anda tidak dapat melanjutkan pengisian data usaha ini'?",
+      "answer": "Notifikasi 'Skala usaha Bapak/Ibu adalah mikro, Bapak/Ibu tidak dapat melanjutkan pengisian data usaha ini' muncul karena modal yang Bapak/Ibu isikan termasuk skala usaha mikro. Sedangkan, KBLI yang diajukan tidak diperuntukkan bagi pelaku usaha dengan skala usaha mikro. Bapak/Ibu harus menyesuaikan modal usaha menjadi di atas 1 miliar rupiah untuk skala usaha kecil dan modal usaha di atas 5 miliar (di luar nilai tanah dan bangunan) untuk skala usaha menengah agar dapat melanjutkan permohonan perizinan berusaha pada KBLI yang dimaksud. Silakan melakukan pengecekan informasi skala usaha yang dapat diajukan oleh KBLI yang Bapak/Ibu pilih melalui tautan berikut dan lihat pada Ruang Lingkup >> Skala Usaha: https://oss.go.id/informasi/kbli-berbasis-risiko",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486927795640efd3eefbe",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-094",
+      "question": "1. Bagaimana cara ubah NPWP? 2. Saya mau merubah/mengubah data NPWP",
+      "answer": "NPWP dapat dilakukan perubahan dengan cara: 1. Masuk ke website OSS; 2. Klik 'Perizinan Berusaha'; 3. Pilih 'Kelola Usaha'; 4. Pilih 'Perubahan'; 5. Pilih 'Perubahan Badan Usaha'; 6. Atau bisa melalui tautan: https://ui-login.oss.go.id/login. Panduan umum perubahan data badan usaha/pelaku usaha dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144aa (Badan Usaha) https://oss.go.id/panduan/635970086345c7d71a8144a9 (Orang Perorangan)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486907795640efd3eefbc",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-095",
+      "question": "Bagaimana cara mendapatkan sertifikat halal?",
+      "answer": "Sertifikat Halal dapat diajukan melalui website SIHALAL milik Badan Penyelenggara Jaminan Produk Halal, Kementerian Agama. Silakan Bapak/Ibu mengunjungi https://ptsp.halal.go.id/ untuk melakukan pendaftaran dan pemrosesan Sertifikat Halal. Untuk mengajukan sertifikat halal, pastikan Bapak/Ibu memiliki NIB dengan KBLI yang sesuai untuk permohonan karena SIHALAL terintegrasi dengan sistem OSS dalam hal ketetapan legal dan data pelaku usaha. Data NIB pada sistem OSS akan terbaca di SIHALAL. Untuk informasi detil, silakan Bapak/Ibu mengakses tautan berikut: https://bpjph.halal.go.id/detail/sertifikasi-halal",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48682711547977a0df1ff",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-096",
+      "question": "Bagaimana cara melakukan perubahan Apoteker Penanggung Jawab?",
+      "answer": "Untuk perubahan apoteker penanggung jawab pada izin yang sudah terbit dapat dilakukan melalui menu Perizinan Berusaha » Kelola Usaha » Perubahan » Perubahan Data Teknis. Panduan umum perubahan data teknis dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/647d93c8d033753dd77d8a46",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48680711547977a0df1fd",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-097",
+      "question": "Kenapa saya tidak bisa perubahan data usaha? Tidak muncul ikon/tombol pensil",
+      "answer": "KBLI yang tidak muncul ikon/tombol pensil pada menu Perubahan Data Usaha dikarenakan ada persyaratan dasar, perizinan berusaha, atau PB-UMKU yang masih dalam proses pengajuan dan masih dalam tahap verifikasi Kementerian/Lembaga/Pemda. Silakan cek proses pengajuan di menu Pelacakan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4867d711547977a0df1fb",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-098",
+      "question": "Apa saja persyaratan mengajukan PB-UMKU?",
+      "answer": "Persyaratan PB-UMKU dapat berbeda untuk setiap PB-UMKU yang diajukan. Bapak/Ibu dapat melakukan pengecekan secara mandiri dengan mengikuti langkah-langkah berikut: 1. Akses laman https://oss.go.id 2. Pilih menu Informasi, Pilih Dukungan Usaha kemudian pilih Perizinan Berusaha Untuk Menunjang Kegiatan Usaha (PB UMKU) 3. Cari PB-UMKU yang akan diajukan di kolom Pencarian PB-UMKU 4. Pada bagian Persyaratan dapat dilihat informasi mengenai Persyaratan PB-UMKU. Untuk informasi persyaratan PB-UMKU yang akan diajukan, Bapak/Ibu dapat mengakses tautan berikut: https://oss.go.id/informasi/pb-umku",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4867a711547977a0df1f9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-099",
+      "question": "Bagaimana cara cabut NIB karena sudah tidak menjalankan kegiatan usaha? Bagaimana cara hapus NIB saya karena perusahaan sudah bubar?",
+      "answer": "Pencabutan NIB karena sudah tidak menjalankan kegiatan usaha/pembubaran dapat dilakukan melalui menu Perizinan Berusaha lalu pilih Pencabutan kemudian pilih Likuidasi. Panduan lebih lanjut dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144a8 (UMK) https://oss.go.id/panduan/635970086345c7d71a8144cb (NON UMK)",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486957795640efd3eefc0",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-100",
+      "question": "Bagaimana cara melakukan perubahan jenis kegiatan usaha dari pendukung ke utama?",
+      "answer": "Jenis kegiatan usaha tidak dapat dilakukan perubahan. Jika terdapat perubahan jenis kegiatan usaha, silakan menambahkan KBLI baru dengan jenis kegiatan usaha yang sesuai melalui menu Perizinan Berusaha > Kelola Usaha > Pengembangan. Panduan lengkap cara penambahan bidang usaha baru dapat diakses pada tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a8144ae Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144d2",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486857795640efd3eefb4",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-101",
+      "question": "Bagaimana cara melakukan perubahan kapasitas produksi?",
+      "answer": "Untuk perubahan kapasitas produk/jasa dapat dilakukan melalui menu Perizinan Berusaha >> Kelola Usaha >> Perubahan >> Perubahan Data Usaha >> centang pada Ubah Data Produk/Jasa. Peringatan: Perubahan kapasitas produk/jasa akan mengakibatkan Pemenuhan Persyaratan atau Verifikasi Ulang terhadap perizinan berusaha yang sudah terbit. Panduan lengkap terkait perubahan data usaha dapat dicek melalui link berikut: https://oss.go.id/panduan/635970086345c7d71a8144ab",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486887795640efd3eefb6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-102",
+      "question": "Bagaimana cara mengisi Data Modal Disetor (dalam bentuk lain)?",
+      "answer": "Data modal disetor (dalam bentuk lain) dapat dilakukan pengisian melalui menu Perizinan Berusaha >> Kelola Usaha >> Perubahan >> Perubahan Badan Usaha >> centang/checklist pada 'Ubah Data Permodalan dan Data Pengurus & Pemegang Saham'. Panduan lebih lanjut mengenai perubahan data badan usaha dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/635970086345c7d71a8144aa",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4868a7795640efd3eefb8",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-103",
+      "question": "Bagaimana cara cetak PB-UMKU yang sudah terbit?",
+      "answer": "Mencetak PB-UMKU yang sudah terbit dapat dilakukan dengan cara berikut: 1. Kunjungi https://oss.go.id/. 2. Login menggunakan username dan password. 3. Setelah berhasill login, klik menu Perizinan Berusaha lalu pilih Kelola Usaha, kemudian Permohonan PB UMKU, lalu pilih KBLI yang diajukan UMKU kemudian klik 'Proses Perizinan Berusaha UMKU'. 4. Selanjutnya, PB-UMKU yang telah terbit dapat dicetak dengan mengklik tombol Unduh 'PB-UMKU'.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4868d7795640efd3eefba",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-104",
+      "question": "Jenis kegiatan usaha apa saja yang muncul pada cetakan NIB?",
+      "answer": "Kami informasikan jenis kegiatan usaha yang muncul pada cetakan NIB adalah sebagai berikut: 1. Utama 2. Pendukung 3. Perluasan 4. Satu Lini 5. Kantor Cabang Administrasi",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48665711547977a0df1eb",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-105",
+      "question": "Perbedaan antara jenis kegiatan usaha utama, pendukung, Kantor Cabang Administrasi, dan Satu Lini Produksi.",
+      "answer": "Berikut kami sampaikan informasi mengenai perbedaan jenis kegiatan usaha: 1. Utama: Kegiatan usaha yang bersifat komersial dan menghasilkan keuntungan bagi pelaku usaha, serta menjadi sumber pendapatan utama. 2. Pendukung: Kegiatan usaha yang tidak menjadi sumber pendapatan utama bagi pelaku usaha dan hanya berfungsi sebagai pendukung. Contoh: Gudang 3. Kantor Cabang Administrasi: Unit atau bagian dari perusahaan induk yang berlokasi di tempat lain dan menjalankan kegiatan yang bersifat administratif. 4. Satu Lini Produksi: Kegiatan usaha yang menghasilkan lebih dari satu produk atau jasa, serta memiliki kode KBLI yang berbeda dari kegiatan usaha utama, tetapi berada di lokasi yang sama.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48662711547977a0df1e9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-106",
+      "question": "Bagaimana cara mendapatkan cetakan NIB yang hilang?",
+      "answer": "Apabila NIB hilang, Bapak/Ibu dapat melakukan pengunduhan kembali NIB di akun OSS. Silakan login ke akun OSS kemudian klik menu NIB di beranda akun OSS Bapak/Ibu dan klik 'Unduh NIB'. Jika lupa hak akses akun OSS, silakan menggunakan fitur Butuh Bantuan >> Lupa Akun. Panduan lupa akun dapat dilihat melalui tautan berikut: https://oss.go.id/panduan/63a57fce758775dcf7164cd8",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48675711547977a0df1f5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-107",
+      "question": "Bagaimana cara mengubah jumlah tenaga kerja pada data usaha?",
+      "answer": "Pelaku usaha dapat melakukan perubahan jumlah tenaga kerja secara mandiri pada akun OSS melalui menu Perubahan Data Usaha sesuai langkah berikut: 1. Kunjungi https://oss.go.id/ 2. Masuk menggunakan username dan password. 3. Buka menu Perizinan Berusaha » Kelola Usaha » Perubahan » Perubahan Data Usaha. 4. Pilih KBLI yang akan dilakukan perubahan, lalu klik icon Pensil untuk mulai menyunting. 5. Untuk jenis akun UMK, perubahan jumlah tenaga kerja dapat dilakukan pada kolom Jumlah Tenaga Kerja Indonesia. Jika sudah, klik Selesai. 6. Untuk jenis akun Non-UMK, terdapat kolom Jumlah Tenaga Kerja Indonesia dan Tenaga Kerja Asing. Jumlah tenaga kerja Indonesia akan terisi otomatis setelah mengisi kolom Tenaga Kerja Indonesia (Laki-laki) dan Tenaga Kerja Indonesia (Perempuan) Panduan lengkap terkait perubahan data usaha dapat dicek melalui link berikut: https://oss.go.id/panduan/67c7d741199a2e26318cd299",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48672711547977a0df1f3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-108",
+      "question": "Bagaimana cara menerbitkan SIUP di OSS?",
+      "answer": "Perizinan dengan nomenklatur 'Surat Izin Usaha Perdagangan (SIUP)' tidak lagi diterbitkan sejak Undang-Undang Cipta Kerja disahkan (Undang-Undang No.6 Tahun 2023). Saat ini jenis perizinana berusaha diterbitkan sesuai basis risiko atas kegiatan yang diajukan. Adapun perizinan berusaha berdasarkan tingkatan risikonya adalah sebagai berikut: 1. Usaha risiko rendah, perizinan berusaha yang terbit adalah Nomor Induk Berusaha (NIB). 2. Usaha risiko menengah rendah, perizinan berusaha yang terbit adalah NIB dan Sertifikat Standar yang terbit secara otomatis. 3. Usaha risiko menengah tinggi, perizinan berusaha yang terbit adalah NIB dan Sertifikat Standar yang perlu diverifikasi oleh Kementerian/Lembaga/Pemda. 4. Usaha risiko tinggi, perizinan berusaha yang terbit adalah NIB dan Izin yang perlu diverifikasi oleh Kementerian/Lembaga/Pemda. Untuk informasi KBLI dan tingkat risiko, Bapak/Ibu dapat mengakses tautan berikut: https://oss.go.id/informasi/kbli-berbasis-risiko",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48677711547977a0df1f7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-109",
+      "question": "Apakah KBLI yang sudah terbit di NIB dapat diubah dengan KBLI lain?",
+      "answer": "KBLI yang telah terbit di NIB tidak dapat dilakukan perubahan. Jika ingin menggunakan KBLI baru, silakan melakukan penambahan KBLI melalui menu Perizinan Berusaha lalu Kelola Usaha kemudian pilih Pengembangan dan pilih Tambah Bidang Usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4865e711547977a0df1e7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-110",
+      "question": "Apa syarat Penerbitan Perizinan Berusaha?",
+      "answer": "Persyaratan perizinan berusaha dapat berbeda untuk setiap Klasifikasi Baku Lapangan Usaha Indonesia (KBLI). Pelaku usaha dapat melakukan pengecekan secara mandiri dengan mengikuti langkah-langkah berikut: 1. Akses laman https://oss.go.id. 2. Pilih menu Informasi, lalu Memulai Usaha kemudian pilih Klasifikasi Baku Lapangan Usaha Indonesia (KBLI) 2020. 3. Cari KBLI yang akan diajukan. Setelah menemukan KBLI yang dimaksud, periksa bagian Ruang Lingkup. 4. Pada bagian Ruang Lingkup, sesuaikan dengan skala usaha, kemudian lihat informasi mengenai Persyaratan Perizinan Berusaha. Sistem akan menampilkan daftar persyaratan yang harus dipenuhi untuk memperoleh perizinan berusaha sesuai skala usaha. Untuk lebih lanjut, Bapak/Ibu dapat merujuk pada lampiran I dan lampiran II PP 5 Tahun 2021, serta peraturan menteri teknis sesuai KBLI yang diajukan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4866f711547977a0df1f1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-111",
+      "question": "Apakah KBLI yang sudah terbit di NIB dapat diubah dengan KBLI lain?",
+      "answer": "KBLI yang telah terbit di NIB tidak dapat dilakukan perubahan. Jika ingin menggunakan KBLI baru, silakan melakukan penambahan KBLI melalui menu Perizinan Berusaha lalu Kelola Usaha kemudian pilih Pengembangan dan pilih Tambah Bidang Usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4865e711547977a0df1e7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-112",
+      "question": "Mengapa saya tidak dapat mengisi kolom deskripsi kegiatan usaha?",
+      "answer": "Kendala kolom Deskripsi Kegiatan Usaha yang tidak muncul dapat disebabkan oleh data usaha yang belum terisi lengkap dan belum melakukan validasi risiko. Pastikan Bapak/Ibu telah mengisi formulir data usaha, termasuk memilih KBLI, dan melakukan validasi risiko hingga muncul notifikasi berhasil. Setelah itu, silakan memilih kriteria kegiatan pada kolom Deskripsi Kegiatan Usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486687795640efd3eefb2",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-113",
+      "question": "Jenis kegiatan usaha apa saja yang muncul pada cetakan NIB?",
+      "answer": "Kami informasikan jenis kegiatan usaha yang muncul pada cetakan NIB adalah sebagai berikut: 1. Utama 2. Pendukung 3. Perluasan 4. Satu Lini 5. Kantor Cabang Administrasi",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48665711547977a0df1eb",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-114",
+      "question": "Bagaimana cara mengubah jenis kegiatan usaha?",
+      "answer": "Saat ini, perubahan jenis kegiatan usaha sudah tidak bisa dilakukan. Jika terdapat perubahan jenis kegiatan usaha, silakan menambahkan KBLI melalui menu Perizinan Berusaha lalu Kelola Usaha kemudian pilih Pengembangan dan pilih jenis kegiatan usaha yang sesuai. Panduan lengkap cara penambahan bidang usaha baru dapat diakses pada tautan berikut: UMK: https://oss.go.id/panduan/635970086345c7d71a8144ae Non UMK: https://oss.go.id/panduan/635970086345c7d71a8144d2",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48658711547977a0df1e3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-115",
+      "question": "Bagaimana cara memperbaiki dokumen persyaratan?",
+      "answer": "Perbaikan dokumen persyaratan dapat dilakukan melalui menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Pemenuhan Persyaratan lalu perbaiki sesuai catatan dari verifikator.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48656711547977a0df1e1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-116",
+      "question": "Bagaimana cara melakukan penapisan perizinan lingkungan?",
+      "answer": "Proses penapisan lingkungan dapat dilakukan melalui menu pemenuhan persyaratan setelah pelaku usaha melakukan proses perizinan berusaha dan pernyataan mandiri. Panduan lengkap proses penapisan lingkungan Risiko Menengah Tinggi dan Tinggi dapat dicek melalui link berikut: https://oss.go.id/panduan/6673ac626d6923024fc61558",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48647711547977a0df1d7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-117",
+      "question": "Apa yang dimaksud dengan proses penapisan perizinan lingkungan?",
+      "answer": "Penapisan adalah proses untuk menentukan apakah suatu rencana kegiatan usaha wajib menyusun Amdal atau tidak. Penapisan hanya untuk usaha dengan tingkat risiko menengah tinggi dan tinggi.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48644711547977a0df1d5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-118",
+      "question": "Bagaimana Cara Mengubah Nilai Investasi?",
+      "answer": "Bapak/Ibu dapat melakukan perubahan nilai investasi melalui menu Perizinan Berusaha - pilih Kelola Usaha lalu pilih Perubahan - Perubahan Data Usaha kemudian klik tombol pensil pada KBLI yang ingin diubah. Selanjutnya, lengkapi formulir Data Usaha. Panduan lengkap terkait perubahan data usaha dapat dicek melalui link berikut: https://oss.go.id/panduan/67c7d741199a2e26318cd299",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48650711547977a0df1dd",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-119",
+      "question": "Mengapa NIB saya belum terbit?",
+      "answer": "NIB yang belum terbit dapat disebabkan oleh beberapa faktor berikut: 1. Data bidang usaha masih kosong. Pastikan Bapak/Ibu sudah menambahkan KBLI pada akun OSS terdaftar saat permohonan baru. Penambahan KBLI dapat dilakukan melalui menu Perizinan Berusaha, Pilih Kelola Usaha lalu Permohonan Baru, kemudian lanjutkan dengan melengkapi formulir data usaha. 2. Jika data bidang usaha sudah ada namun NIB belum kunjung terbit, pastikan Bapak/Ibu sudah melakukan pernyataan mandiri. Kolom pernyataan mandiri dapat dilakukan melalui menu beranda - NIB lalu klik proses perizinan berusaha. Silakan centang kolom pernyataan mandiri yang muncul dan lengkapi seluruh langkah hingga selesai. 3. Untuk akun NON UMK, pastikan proses pengajuan PKKPR sudah terbit/disetujui. Jika PKKPR sudah terbit/disetujui, Bapak/Ibu dapat melanjutkan proses perizinan berusaha dengan melengkapi seluruh langkah hingga selesai.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4864d711547977a0df1db",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-120",
+      "question": "Bagaimana cara menambahkan Angka Pengenal Impor (API) pada NIB?",
+      "answer": "Bapak/Ibu dapat menambahkan jenis Angka Pengenal Impor (API) secara mandiri dengan mengikuti langkah-langkah berikut: 1. Kunjungi situs oss.go.id. 2. Masuk menggunakan username dan password. 3. Pilih menu Perizinan Berusaha » Kelola Usaha » Perubahan » Perubahan Data Usaha. 4. Pada bagian Aktivitas Impor, klik kolom Jenis Angka Pengenal Importir (API) dan pilih jenis API yang diinginkan. 5. Centang disclaimer, kemudian klik tombol Selanjutnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4865b711547977a0df1e5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-121",
+      "question": "Bagaimana Cara Ubah Alamat Kegiatan Usaha?",
+      "answer": "Untuk melakukan perubahan alamat kegiatan usaha, dapat dilakukan melalui menu Perizinan Berusaha - Pilih Kelola Usaha lalu pilih Perubahan - Perubahan data usaha lalu klik tombol pensil pada KBLI yang ingin diubah alamatnya kemudian lengkapi formulir data usaha nya. Dapat kami informasikan juga, bahwa perubahan alamat hanya dapat dilakukan oleh pelaku UMK. Panduan perubahan data usaha juga dapat dicek melalui link berikut: https://oss.go.id/panduan/67c7d741199a2e26318cd299",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4864b711547977a0df1d9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-122",
+      "question": "Kenapa Muncul Notifikasi Data Lokasi Anda Tidak Ditemukan Saat Pemenuhan Persyaratan?",
+      "answer": "Notifikasi Data lokasi Bapak/Ibu muncul karena belum tercantum alamat pada KBLI yang akan dilakukan pemenuhan persyaratan. SIlakan Bapak/Ibu melakukan pengisian alamat secara lengkap lalu lakukan validasi risiko ulang melalui menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Perubahan lalu pilih Perubahan Data Usaha. Setelah melakukan perubahan data usaha, Bapak/Ibu dapat mencoba mengulangi pemenuhan persyaratan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486417795640efd3eefb0",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-123",
+      "question": "Kenapa Pilihan Jenis API Tidak Muncul pada Menu Perubahan Data Usaha?",
+      "answer": "Jenis API tidak muncul pada menu perubahan data usaha karena jenis kegiatan usaha yang dimiliki tidak dapat digunakan untuk memperoleh izin aktivitas impor seperti API-U atau API-P.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4863f711547977a0df1d3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-124",
+      "question": "Bagaimana Ketentuan Pengisian Kapasitas Produk/Jasa?",
+      "answer": "Dalam pengisian form data usaha, kapasitas produk/jasa harus diisi berdasarkan jenis produk atau jasa yang dihasilkan. Pengisian ini juga harus menggunakan satuan kapasitas yang sesuai dengan kegiatan usaha yang dilakukan. Ketentuannya adalah sebagai berikut: 1. Jika usaha menghasilkan produk, kolom jenis kegiatan diisi dengan nama produk akhir yang dihasilkan. 2. Untuk usaha yang bergerak di bidang jasa atau perdagangan, kolom produk/jasa diisi dengan jenis jasa atau perdagangan yang dilakukan. 3. Jika usaha merupakan perdagangan besar, maka kegiatannya mencakup ekspor, impor, dan/atau menjadi distributor. Kemudian, satuan kapasitas produk/jasa yang harus digunakan: 1. Untuk usaha yang menghasilkan produk, satuan kapasitasnya dapat berupa volume, berat, unit, atau buah, tergantung pada jenis produknya. 2. Untuk usaha di bidang jasa atau perdagangan, satuannya diisi dalam bentuk mata uang (rupiah). 3. Untuk usaha yang berkaitan dengan prasarana, satuan kapasitasnya dapat diisi dengan unit, lantai, atau kamar, sesuai jenis prasarana yang disediakan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4862f711547977a0df1cb",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-125",
+      "question": "Apa yang Termasuk Nilai Investasi Bangunan atau Gedung?",
+      "answer": "Berikut yang termasuk nilai investasi untuk bangunan/gedung: • Pembangunan bangunan pabrik; • Pembangunan gudang; • Prasarana yang ada dalam lokasi proyek; • Biaya konsultan desain; • Pembangunan jalan permanen di dalam lokasi proyek; • Fasilitas umum; • Fasilitas khusus; • Sarana pendukung lainnya.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4862c711547977a0df1c9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-126",
+      "question": "Kenapa Saat Tambah Data Usaha Muncul Notifikasi Data Tidak Sesuai AHU?",
+      "answer": "1. KBLI yang diinput dalam sistem OSS tidak terdaftar di sistem AHU Online. Jika KBLI yang diinput pada sistem OSS belum terdaftar pada sistem AHU Online, Bapak/Ibu harus melakukan update data AHU melalui notaris 2. KBLI sudah terdaftar di AHU namun belum dilakukan sinkronisasi data AHU pada sistem OSS Jika KBLI sudah terdaftar pada AHU namun belum muncul pada sistem OSS, Bapak/Ibu dapat melakukan sinkronisasi data AHU melalui menu Perizinan Berusaha. Pilih Kelola Usaha kemudian Pilih Perubahan lalu pilih Perubahan Badan Usaha kemudian centang Perubahan pada maksud dan tujuan lalu klik tombol Ubah Sekarang.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48637711547977a0df1cf",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-127",
+      "question": "Kenapa KBLI Saya Tidak Muncul di Menu Pemenuhan Persyaratan? Kenapa KBLI saya tidak muncul pada lampiran NIB?",
+      "answer": "Penyebab umum mengapa KBLI tidak muncul pada menu pemenuhan persyaratan dan pada lampiran NIB karna proses perizinan berusaha belum diselesaikan hingga tahap pernyataan mandiri. Bapak/Ibu dapat melakukan pernyataan mandiri melalui menu Perizinan Berusaha kemudian Pilih Kelola Usaha lalu pilih Pengembangan kemudian centang disclaimer lalu pilih Lanjut kemudian klik tombol Proses Perizinan Berusaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48634711547977a0df1cd",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-128",
+      "question": "Bagaimana cara melakukan cetak Sertifikat Standar? Bagaimana cara melakukan cetak izin?",
+      "answer": "Untuk mencetak perizinan berusaha, silakan akses menu NIB di akun OSS Bapak/Ibu. Jika Bapak/Ibu ingin mencetak dokumen perizinan seperti Sertifikat Standar atau Izin, klik tombol 'Cetak Sertifikat Standar' atau 'Cetak Izin' pada KBLI yang tercantum di daftar kegiatan usaha.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48626711547977a0df1c5",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-129",
+      "question": "Bagaimana cara melakukan cetak NIB?",
+      "answer": "Untuk mencetak NIB, silakan scroll layar ke bagian paling bawah dan klik tombol 'Unduh NIB'.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48623711547977a0df1c3",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-130",
+      "question": "Kenapa OSS Minta 16 Digit Nomor BPJS Kesehatan Padahal Hanya Ada 13?",
+      "answer": "Bagi Pelaku usaha yang telah terdaftar sebagai peserta jaminan sosial kesehatan wajib mengisi 16 digit nomor, yang terdiri dari tiga digit nomor virtual account dan 13 digit nomor kartu BPJS Kesehatan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486317795640efd3eefac",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-131",
+      "question": "Saat Ubah Data Badan Usaha, Kenapa Muncul Notifikasi Korporasi Dalam Kondisi Diblokir?",
+      "answer": "Notifikasi Korporasi dalam kondisi diblokir di sistem AHU muncul karena perusahaan belum mencatatkan Beneficial Ownership (BO) pada sistem AHU Online atau sedang dalam permasalahan. Bapak/Ibu dapat melaporkan Beneficial Ownership (BO) di sistem AHU Online dengan mengunjungi https://bo.ahu.go.id kemudian bersurat ke subdit Badan Hukum Kementerian Hukum dan HAM untuk pembukaan blokir",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4863a7795640efd3eefae",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-132",
+      "question": "Bagaimana cara melakukan pemenuhan persyaratan pada OSS?",
+      "answer": "Untuk melakukan pemenuhan persyaratan perizinan berusaha, silakan pilih menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Pemenuhan Persyaratan. Klik tombol Proses Pemenuhan Persyaratan Izin untuk tingkat risiko tinggi. Klik tombol Proses Pemenuhan Persyaratan SS untuk tingkat risiko menengah tinggi. Klik tombol Proses Pemenuhan Persyaratan di Sistem K/L untuk pemenuhan persyaratan pada sistem K/L yang terintegrasi dengan OSS. Setelah melengkapi dokumen pemenuhan persyaratan, status akan berubah menjadi Menunggu Verifikasi Persyaratan. Dokumen Pemenuhan Persyaratan akan diverifikasi oleh Kementerian/Lembaga/Pemerintah Daerah yang berwenang.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48620711547977a0df1c1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-133",
+      "question": "Apa Saja yang Termasuk Investasi Lain-lain dalam Data Usaha?",
+      "answer": "Nilai investasi lain-lain adalah biaya lainnya yang dikeluarkan oleh perusahaan, termasuk biaya operasional (modal kerja) selama masa pembangunan/konstruksi ketika perusahaan belum siap produksi secara komersil selain tanah, bangunan/gedung, dan mesin/peralatan yang meliputi: • Kendaraan Operasional Perusahaan; • Peralatan Kantor; • Studi Kelayakan; • Biaya Sewa Lahan/Gedung; • Biaya Survey; • Biaya Perizinan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48629711547977a0df1c7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-134",
+      "question": "Kenapa OSS Hanya Minta 8 Digit Nomor BPJS Ketenagakerjaan Padahal Nomor Saya 11 Digit?",
+      "answer": "Kolom yang tersedia di sistem OSS tidak diisi dengan nomor BPJS Ketenagakerjaan, melainkan Nomor Pendaftaran Perusahaan (NPP) BPJS Ketenagakerjaan. Untuk mengetahui NPP, Bapak/Ibu dapat menghubungi Call Center BPJS Ketenagakerjaan di nomor 175 atau melalui email di care@bpjsketenagakerjaan.go.id.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4863c711547977a0df1d1",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-135",
+      "question": "Bagaimana Cara Validasi Risiko Ulang?",
+      "answer": "Bapak/Ibu dapat melakukan validasi risiko ulang melalui menu Perizinan Berusaha - pilih Kelola Usaha lalu pilih Perubahan - Perubahan Data Usaha kemudian klik tombol pensil pada KBLI yang ingin diubah. Selanjutnya, lengkapi formulir Data Usaha lalu klik validasi risiko. Panduan lengkap terkait perubahan data usaha dapat dicek melalui link berikut:: https://oss.go.id/panduan/67c7d741199a2e26318cd299",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48653711547977a0df1df",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-136",
+      "question": "Bagaimana cara melakukan penghapusan bidang usaha? Bagaimana cara melakukan penghapusan KBLI? Bagaimana cara mencabut KBLI? Bagaimana cara mencabut izin?",
+      "answer": "Untuk KBLI dengan status draft atau belum menyelesaikan pengisian form data usaha, pelaku usaha dapat melakukan penghapusan melalui menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Pengembangan, lalu pilih ikon Tempat Sampah pada KBLI yang akan dilakukan penghapusan. Untuk KBLI dengan risiko menengah tinggi dan tinggi yang belum terverifikasi atau KBLI dengan status SS/izin terbit dalam rangka percepatan yang belum memenuhi persyaratan, pelaku usaha dapat melakukan penghapusan KBLI melalui menu Perizinan Berusaha, kemudian pilih Pembatalan. Untuk KBLI risiko rendah, risiko menengah rendah, risiko menengah tinggi dengan Sertifikat Standar sudah terverifikasi, dan risiko tinggi dengan izin yang sudah terverifikasi, pelaku usaha dapat melakukan penghapusan melalui menu Perizinan Berusaha, kemudian pilih Pencabutan dan pilih Non Likuidasi Panduan Pembatalan Perizinan Berusaha (UMK) https://oss.go.id/panduan/635970086345c7d71a8144a6 Panduan Pembatalan Perizinan Berusaha (NON UMK) https://oss.go.id/panduan/635970086345c7d71a8144c9 Panduan Pencabutan Non Likuidasi Perizinan Berusaha (UMK) https://oss.go.id/panduan/635970086345c7d71a8144a7 Panduan Pencabutan Non Likuidasi Perizinan Berusaha (NON UMK) https://oss.go.id/panduan/635970086345c7d71a8144ca",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4861e711547977a0df1bf",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-137",
+      "question": "Bagaimana cara melakukan perpanjangan perizinan berusaha pada OSS?",
+      "answer": "Menu perpanjangan perizinan berusaha digunakan untuk memperbarui masa berlaku perizinan berusaha yang akan berakhir. Untuk melakukan perpanjangan, silakan pilih menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Tambah Bidang Usaha jika bidang usaha tidak muncul pada table data usaha. Jika perizinan berusaha yang masa berlakunya sudah habis merupakan produk yang diterbitkan pada sistem OSS, silakan klik Ajukan Perpanjangan untuk melakukan perpanjangan. Panduan Perpanjangan perizinan berusaha: https://oss.go.id/panduan/635970086345c7d71a8144b0",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4861b711547977a0df1bd",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-138",
+      "question": "Bagaimana cara menambahkan Angka Pengenal Impor (API) pada NIB?",
+      "answer": "Untuk melakukan penambahan atau perubahan Angka Pengenal Importir (API) dapat dilakukan dengan cara berikut: 1. Pilih menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Perubahan dan pilih Perubahan Data Usaha 2. Pada bagian Aktivitas Impor, klik kolom Jenis Angka Pengenal Importir (API). Pilih sesuai jenis API yang diinginkan 3. Centang disclaimer kemudian klik tombol Selanjutnya Sebagai informasi: Perubahan jenis API hanya dapat dilakukan pada akun Badan Usaha. Akun perorangan hanya dapat mengajukan jenis API-P sehingga tidak dapat mengubah jenis API. Perubahan jenis API hanya dapat dilakukan dari API-U ke API-P.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4860d7795640efd3eefa4",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-139",
+      "question": "Bagaimana cara melakukan perubahan email yang ada pada cetakan NIB?",
+      "answer": "Perubahan alamat email pada cetakan NIB dapat dilakukan pada menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Perubahan, lalu pilih Perubahan Badan Usaha (untuk akun badan usaha) atau Perubahan Data Pelaku Usaha (untuk akun perorangan) Untuk perubahan email akses OSS badan usaha, pilih Perubahan pada Profil, lalu klik tombol Ubah Sekarang kemudian tuliskan alamat email terbaru pada kolom Email Perusahaan. Untuk perorangan, silakan melakukan perubahan pada kolom email kemudian klik tombol SIMPAN DATA. Panduan lebih lanjut dapat dilihat melalui oss.go.id, kemudian pilih menu Panduan dan lakukan pencarian 'Perubahan Perizinan Berusaha'.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e4860a711547977a0df1b9",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-140",
+      "question": "Bagaimana cara menerbitkan NIB melalui OSS?",
+      "answer": "Setelah berhasil mendaftarkan akun OSS, Bapak/Ibu dapat menerbitkan NIB melalui menu Perizinan Berusaha, kemudian Pilih Kelola Usaha lalu Pilih Permohonan Baru, lalu tambah bidang usaha dan lengkapi data pelaku usaha atau data badan usaha. Lanjutkan pengisian data usaha hingga selesai dan klik tombol Proses Perizinan Berusaha. Silakan melihat panduan lebih lengkap melalui oss.go.id, kemudian pilih menu Panduan dan lakukan pencarian dengan kata kunci 'Perizinan Berusaha risiko rendah/menengah rendah/menengah tinggi/tinggi'. Panduan permohonan perizinan berusaha UMK Risiko Rendah dan Menengah Rendah - Orang Perseorangan https://oss.go.id/panduan/63a1f170acc5d4cf2fbdc139 Panduan permohonan perizinan berusaha UMK Risiko Rendah dan Menengah Rendah - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a81449b Panduan permohonan perizinan berusaha UMK Risiko Menengah Tinggi dan Tinggi - Orang Perseorangan https://oss.go.id/panduan/635970086345c7d71a81449c Panduan permohonan perizinan berusaha UMK Risiko Menengah Tinggi dan Tinggi - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a81449d Panduan permohonan perizinan berusaha NON UMK Risiko Rendah dan Menengah Rendah - Orang Perseorangan https://oss.go.id/panduan/635970086345c7d71a81449a Panduan permohonan perizinan berusaha NON UMK Risiko Rendah dan Menengah Rendah - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a8144b9 Panduan permohonan perizinan berusaha NON UMK Risiko Menengah Tinggi dan Tinggi - Orang Perseorangan https://oss.go.id/panduan/635970086345c7d71a8144ba Panduan permohonan perizinan berusaha NON UMK Risiko Menengah Tinggi dan Tinggi - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a8144bb",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e485fd7795640efd3eef9e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-141",
+      "question": "Bagaimana cara menerbitkan NIB melalui OSS?",
+      "answer": "Setelah berhasil mendaftarkan akun OSS, Bapak/Ibu dapat menerbitkan NIB melalui menu Perizinan Berusaha, kemudian Pilih Kelola Usaha lalu Pilih Permohonan Baru, lalu tambah bidang usaha dan lengkapi data pelaku usaha atau data badan usaha. Lanjutkan pengisian data usaha hingga selesai dan klik tombol Proses Perizinan Berusaha. Silakan melihat panduan lebih lengkap melalui oss.go.id, kemudian pilih menu Panduan dan lakukan pencarian dengan kata kunci 'Perizinan Berusaha risiko rendah/menengah rendah/menengah tinggi/tinggi'. Panduan permohonan perizinan berusaha UMK Risiko Rendah dan Menengah Rendah - Orang Perseorangan https://oss.go.id/panduan/63a1f170acc5d4cf2fbdc139 Panduan permohonan perizinan berusaha UMK Risiko Rendah dan Menengah Rendah - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a81449b Panduan permohonan perizinan berusaha UMK Risiko Menengah Tinggi dan Tinggi - Orang Perseorangan https://oss.go.id/panduan/635970086345c7d71a81449c Panduan permohonan perizinan berusaha UMK Risiko Menengah Tinggi dan Tinggi - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a81449d Panduan permohonan perizinan berusaha NON UMK Risiko Rendah dan Menengah Rendah - Orang Perseorangan https://oss.go.id/panduan/635970086345c7d71a81449a Panduan permohonan perizinan berusaha NON UMK Risiko Rendah dan Menengah Rendah - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a8144b9 Panduan permohonan perizinan berusaha NON UMK Risiko Menengah Tinggi dan Tinggi - Orang Perseorangan https://oss.go.id/panduan/635970086345c7d71a8144ba Panduan permohonan perizinan berusaha NON UMK Risiko Menengah Tinggi dan Tinggi - Badan Usaha https://oss.go.id/panduan/635970086345c7d71a8144bb",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e485fd7795640efd3eef9e",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-142",
+      "question": "Badan usaha kami ingin menambah KBLI, apakah harus terdaftar di akta?",
+      "answer": "Jika Bapak/Ibu ingin menambah KBLI dengan jenis kegiatan usaha utama, maka KBLI wajib terdaftar pada Akta dan sistem AHU. Silakan berkoordinasi dengan notaris Bapak/Ibu untuk menambahkan KBLI yang diinginkan pada Akta dan AHU online karena sistem OSS terintegrasi dengan sistem AHU online.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486127795640efd3eefa8",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-143",
+      "question": "Bagaimana cara melakukan penambahan KBLI? Bagaimana cara tambah bidang usaha?",
+      "answer": "Apabila Bapak/Ibu sudah memiliki NIB dan akan menambahkan bidang usaha baru, Bapak/Ibu dapat melakukan tambah bidang usaha melalui menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Pengembangan. Lalu pilih Tambah Bidang Usaha dan isi formulir Data Usaha. Panduan lebih lanjut dapat dilihat pada oss.go.id, kemudian pilih menu Panduan dan lakukan pencarian 'Pengembangan Perizinan Berusaha'. Panduan pengembangan perizinan berusaha: https://oss.go.id/panduan/635970086345c7d71a8144ae",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486107795640efd3eefa6",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-144",
+      "question": "Bagaimana cara melakukan migrasi kegiatan data usaha?",
+      "answer": "Bapak/Ibu dapat melakukan migrasi data usaha yang sudah dimiliki pada OSS 1.1 melalui menu Perizinan Berusaha, Pilih Kelola Usaha kemudian pilih Pengembangan. Lalu pilih data usaha yang dimiliki pada OSS 1.1, kemudian tambah bidang usaha dan lengkapi data pelaku usaha atau data badan usaha. Lanjutkan pengisian data usaha hingga selesai. Panduan lebih lanjut mengenai migrasi data usaha dapat dilihat pada oss.go.id, kemudian pilih menu Panduan dan lakukan pencarian 'Panduan Migrasi OSS 1.1 (UMK/Non UMK). Panduan Migrasi OSS 1.1 (UMK) https://oss.go.id/panduan/635970086345c7d71a814497 Panduan Migrasi OSS 1.1 (NON UMK) https://oss.go.id/panduan/635970086345c7d71a8144b6'",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e48603711547977a0df1b7",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-145",
+      "question": "Bagaimana cara melakukan migrasi hak akses?",
+      "answer": "Untuk melakukan migrasi akun dari OSS 1.1 ke OSS RBA, silakan kunjungi oss.go.id, kemudian pilih Masuk menggunakan hak akses yang terdaftar pada OSS 1.1. Bapak/Ibu dapat melihat panduan lebih lanjut melalui oss.go.id, kemudian pilih menu Panduan dan lakukan pencarian dengan kata kunci 'Panduan Migrasi Data Ke OSS RBA' Panduan migrasi hak akses: https://oss.go.id/panduan/651e12db048d98beaf024b3f",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486007795640efd3eefa0",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-146",
+      "question": "Bagaimana cara menambah KBLI pendukung?",
+      "answer": "Penambahan KBLI pendukung dapat dilakukan melalui menu Perizinan Berusaha > Pilih Kelola Usaha > Pilih Pengembangan. Pilih opsi Tambah Bidang Usaha, kemudian pilih jenis kegiatan usaha Pendukung.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486157795640efd3eefaa",
+      "confidence": "high",
+      "notes": ""
+    },
+    {
+      "id": "faq-ppb-147",
+      "question": "Kenapa Icon Pensil Tidak Muncul di Menu Pengembangan Saat Migrasi KBLI?",
+      "answer": "Ikon pensil tidak muncul pada menu pengembangan karena Bapak/Ibu memiliki cetakan izin lama dari OSS versi 1.1 yang sudah efektif. Untuk melakukan migrasi kegiatan usaha dengan cetakan izin lama OSS versi 1.1, silakan masuk ke menu Perizinan Berusaha > Kelola Usaha > Perubahan > Perubahan Data Usaha dan klik Icon Pensil pada KBLI yang ingin dimigrasikan.",
+      "reference_url": "https://oss.go.id/id/faq/kategori?category=68e4787ca7983d314bbae5c4&id=68e486067795640efd3eefa2",
+      "confidence": "high",
+      "notes": ""
+    }
+  ]
+}
