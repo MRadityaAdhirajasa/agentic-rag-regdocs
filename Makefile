@@ -1,6 +1,5 @@
-.PHONY: up down logs smoke check ingest chat lint fmt test all
+.PHONY: up down logs smoke check ingest ingest-reset chat lint fmt test all
 
-PDF ?= dokumen/PDF/Peraturan Menteri Investasi dan Hilirisasi Kepala Badan Koordinasi Penanaman Modal Nomor 5 Tahun 2025.pdf
 
 up:
 	docker compose up -d
@@ -18,7 +17,10 @@ check:
 	uv run python scripts/smoke_qdrant.py check
 
 ingest:
-	uv run python -m app.ingestion.ingest_pdf "$(PDF)"
+	uv run python -m scripts.ingest
+
+ingest-reset:
+	uv run python -m scripts.ingest --reset
 
 chat:
 	uv run python -m scripts.chat

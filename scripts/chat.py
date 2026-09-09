@@ -5,10 +5,17 @@ terbaca dari root proyek:
 
     uv run python -m scripts.chat
     uv run python -m scripts.chat "apa itu perizinan berusaha berbasis risiko"
+    uv run python -m scripts.chat --faq "kenapa ID izin PB-UMKU hilang"
+    uv run python -m scripts.chat --regulasi "kewajiban pelaku usaha risiko tinggi"
+
+Sejak Tahap 2 jawaban selalu datang bersama sitasi yang bisa kamu buka
+sendiri: nomor halaman untuk regulasi, kategori dan tanggal untuk FAQ.
+Itu satu-satunya cara membuktikan sistem ini tidak mengarang.
 """
 
 import logging
 import sys
+from typing import Any
 
 from google import genai
 
@@ -29,10 +36,29 @@ Pertanyaan: {question}
 Jawaban:"""
 
 
-def answer(question: str) -> str:
-    hits = search(question)
+def citation(payload: dict[str, Any]) -> str:
+    """Sitasi dibentuk berbeda per jenis sumber, karena yang bisa diverifikasi berbeda.
+
+    Regulasi bisa dibuka di halaman tertentu. FAQ tidak punya halaman, yang
+    relevan justru kategori dan kapan halamannya diakses — isinya bisa berubah.
+    """
+    if payload.get("source_type") == "faq":
+        return (
+            f"FAQ OSS — {payload['faq_category']}, diakses {payload['tanggal_akses']}"
+            f"\n      {payload['question']}"
+        )
+    status = payload.get("status", "")
+    tanda = "" if status == "berlaku" else f" [status: {status}]"
+    return (
+        f"{payload['jenis']} {payload['nomor']}/{payload['tahun']}, "
+        f"hal. {payload['halaman']}{tanda}"
+    )
+
+
+def answer(question: str, source_type: str | None = None) -> str:
+    hits = search(question, source_type=source_type)
     if not hits:
-        return "Tidak ada dokumen di collection. Jalankan ingestion dulu."
+        return "Tidak ada dokumen yang cocok. Sudah jalankan `make ingest`?"
 
     context = "\n\n---\n\n".join(str(h.payload["text"]) for h in hits if h.payload)
     client = genai.Client(api_key=require("GOOGLE_API_KEY", GOOGLE_API_KEY))
@@ -41,16 +67,23 @@ def answer(question: str) -> str:
         contents=PROMPT.format(context=context, question=question),
     )
     sumber = "\n".join(
-        f"  [{i + 1}] {h.payload['chunk_id']} (skor {h.score:.3f})"
+        f"  [{i + 1}] {citation(h.payload)}  (skor {h.score:.3f})"
         for i, h in enumerate(hits)
         if h.payload
     )
     return f"{resp.text}\n\nSumber:\n{sumber}"
 
 
-def main() -> None:
-    if len(sys.argv) > 1:
-        print(answer(" ".join(sys.argv[1:])))
+def main(argv: list[str]) -> None:
+    source_type = None
+    if "--faq" in argv:
+        source_type = "faq"
+    elif "--regulasi" in argv:
+        source_type = "regulasi"
+    sisa = [a for a in argv if not a.startswith("--")]
+
+    if sisa:
+        print(answer(" ".join(sisa), source_type))
         return
 
     print("Ketik pertanyaan. Enter kosong atau Ctrl+C untuk keluar.\n")
@@ -62,8 +95,8 @@ def main() -> None:
             return
         if not question:
             return
-        print(f"\n{answer(question)}\n")
+        print(f"\n{answer(question, source_type)}\n")
 
 
 if __name__ == "__main__":
-    main()
+    main(sys.argv[1:])

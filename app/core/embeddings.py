@@ -7,7 +7,8 @@ Dua hal yang gampang salah dan mahal akibatnya:
    yang turun diam-diam. Karena itu prefix dipasang di sini, bukan diserahkan
    ke pemanggil.
 2. Free tier OpenRouter dibatasi 50 request/hari. Satu request bisa membawa
-   banyak teks sekaligus, jadi batching itu keharusan, bukan optimasi.
+   banyak teks sekaligus — maksimum 256 — jadi batching itu keharusan,
+   bukan optimasi. Korpus 2900 chunk jadi 12 request, bukan 2900.
 """
 
 import httpx
@@ -15,7 +16,7 @@ import httpx
 from app.core.config import EMBED_MODEL, OPENROUTER_API_KEY, require
 
 URL = "https://openrouter.ai/api/v1/embeddings"
-BATCH = 128
+BATCH = 256  # batas keras server OpenRouter; 512 ditolak 400
 TIMEOUT = 120.0
 
 Vector = list[float]
