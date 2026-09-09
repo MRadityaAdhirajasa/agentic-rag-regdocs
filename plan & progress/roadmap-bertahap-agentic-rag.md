@@ -143,7 +143,6 @@ Tahap 11-13 produksi.
 
 **Yang baru:** qdrant-client, konsep collection dan payload.
 
-Ambil `rag_langchain_2.py` kamu. Ganti Chroma jadi Qdrant. Selesai. Jangan ubah apa pun yang lain.
 
 - Masih 1-2 PDF
 - Masih `RecursiveCharacterTextSplitter`

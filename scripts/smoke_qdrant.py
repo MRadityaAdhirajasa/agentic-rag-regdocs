@@ -68,9 +68,13 @@ def check() -> None:
         print("GAGAL: collection kosong. Volume kemungkinan tidak persist.")
         sys.exit(1)
 
+    # Dimensi dibaca dari collection, bukan ditebak. Sejak Tahap 1 isinya
+    # vektor 2048 dari nemotron, bukan lagi dummy 768.
+    params = client.get_collection(COLLECTION).config.params.vectors
+    size = params.size if isinstance(params, VectorParams) else VECTOR_SIZE
     hits = client.query_points(
         collection_name=COLLECTION,
-        query=[0.1] * VECTOR_SIZE,
+        query=[0.1] * size,
         limit=1,
     )
     print(f"Hasil pencarian: {hits.points}")
