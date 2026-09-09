@@ -42,10 +42,11 @@ Identitas dokumen ada di `data/metadata.csv`, bukan diambil dari nama file.
 - **Lapisan teks UU 28/2025 salah membaca huruf kapital I sebagai l** — 70 dari
   95 kata "Izin" tertulis "lzin". Dikoreksi lewat daftar eksplisit di
   `app/ingestion/pdf.py`; kalimat lain tidak terdampak.
-- **Kolom `status` di `data/metadata.csv` belum diisi.** Harus lewat cek silang
-  manual ke `peraturan.bpk.go.id`, bukan ditebak dari tahun terbit.
-- **Baru 3 dari 5 dokumen inti.** PP 5/2021 dan Perban BKPM 4/2021 & 5/2021
-  belum diunduh.
+- **Korpus regulasi sengaja berhenti di 3 dokumen ini.** Ketiganya berstatus
+  berlaku. Beberapa peraturan yang disebut di rencana awal (PP 5/2021, Perban
+  BKPM 4/2021 & 5/2021) sudah tidak berlaku dan sengaja tidak dimasukkan.
+- **Kolom `url_sumber` di `data/metadata.csv` belum diisi**, jadi sitasi belum
+  bisa ditautkan langsung ke JDIH.
 - **Jawaban FAQ teknis cepat basi** — banyak yang menyebut elemen antarmuka
   ("klik ikon keranjang sampah"). Tanggal akses ikut disimpan di payload.
 
