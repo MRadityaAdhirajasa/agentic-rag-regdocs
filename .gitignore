@@ -29,3 +29,6 @@ qdrant_storage/
 .DS_Store
 .vscode/
 .idea/
+
+# Cache embedding — 25 MB, bisa dibangun ulang, tidak masuk repo
+data/embed_cache.sqlite

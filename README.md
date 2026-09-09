@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 2 dari 13.
+> Status: dalam pengembangan. Tahap 3 dari 13.
 
 ## Menjalankan
 
@@ -25,6 +25,22 @@ Butuh `.env` berisi `OPENROUTER_API_KEY` (embedding) dan `GOOGLE_API_KEY`
 
 Embedding: `nvidia/nemotron-3-embed-1b:free` lewat OpenRouter, 2048 dimensi,
 prefix `query:` / `document:`. Retrieval masih dense-only, k=3.
+
+## Ingestion
+
+Embedding di-cache di `data/embed_cache.sqlite`, dikunci hash dari isi teks
+plus nama model. Akibatnya ingest ulang seluruh korpus **tidak memanggil API
+sama sekali**: 7 detik, nol request, bahkan saat kuota harian habis.
+
+Cache ditulis dan di-commit per batch, jadi proses yang mati di tengah —
+Ctrl+C, koneksi putus, kuota habis — melanjutkan dari titik terakhir, bukan
+mengulang dari nol. Itu sekaligus checkpoint-nya; tidak ada file progress
+terpisah.
+
+Dua jenis rate limit ditangani berbeda: limit per-menit ditunggu dengan
+exponential backoff plus jitter, limit per-hari langsung dihentikan dengan
+pesan yang menyebut kapan pulih. Menunggu limit harian berarti menggantung
+berjam-jam sambil pura-pura bekerja.
 
 ## Korpus
 
