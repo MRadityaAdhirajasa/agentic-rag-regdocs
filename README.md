@@ -44,11 +44,11 @@ berjam-jam sambil pura-pura bekerja.
 
 ## Korpus
 
-2.903 chunk dalam satu collection, dibedakan lewat payload `source_type`:
+1.096 chunk dalam satu collection, dibedakan lewat payload `source_type`:
 
 | Sumber | Chunk | Sitasi |
 |---|---|---|
-| `regulasi` — 3 PDF | 2.550 | jenis, nomor/tahun, halaman |
+| `regulasi` — UU 28/2025 | 743 | jenis, nomor/tahun, halaman |
 | `faq` — 6 file JSON OSS | 353 | kategori, tanggal akses |
 
 Identitas dokumen ada di `data/metadata.csv`, bukan diambil dari nama file.
@@ -58,9 +58,17 @@ Identitas dokumen ada di `data/metadata.csv`, bukan diambil dari nama file.
 - **Lapisan teks UU 28/2025 salah membaca huruf kapital I sebagai l** — 70 dari
   95 kata "Izin" tertulis "lzin". Dikoreksi lewat daftar eksplisit di
   `app/ingestion/pdf.py`; kalimat lain tidak terdampak.
-- **Korpus regulasi sengaja berhenti di 3 dokumen ini.** Ketiganya berstatus
-  berlaku. Beberapa peraturan yang disebut di rencana awal (PP 5/2021, Perban
-  BKPM 4/2021 & 5/2021) sudah tidak berlaku dan sengaja tidak dimasukkan.
+- **Korpus regulasi sengaja dibatasi satu dokumen: UU 28/2025.** Ini proyek
+  belajar; korpus besar tidak menambah pelajaran, hanya memperlambat siklus
+  coba-ukur-perbaiki dan menghabiskan kuota embedding. UU 28/2025 dipilih
+  karena topiknya paling bertemu dengan FAQ OSS (243 sebutan "OSS", 441
+  "Pelaku Usaha") dan strukturnya rapi per pasal.
+- **Ke-97 item FAQ "Layanan Informasi" sengaja dipertahankan** meski nilainya
+  rendah. Mereka berfungsi sebagai pengecoh; korpus tanpa pengecoh membuat
+  recall@5 terlihat bagus hanya karena tidak ada saingan.
+- **Permen 5/2025 dan UU 6/2023 masih ada di `dokumen/PDF/`**, tinggal tambah
+  barisnya di `data/metadata.csv` kalau suatu saat diperlukan. PDF UU 6/2023
+  ternyata nyaris tidak menyebut OSS, NIB, atau tingkat risiko sama sekali.
 - **Kolom `url_sumber` di `data/metadata.csv` belum diisi**, jadi sitasi belum
   bisa ditautkan langsung ke JDIH.
 - **Jawaban FAQ teknis cepat basi** — banyak yang menyebut elemen antarmuka
