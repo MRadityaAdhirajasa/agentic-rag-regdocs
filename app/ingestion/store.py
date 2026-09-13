@@ -1,14 +1,28 @@
 """Bagian Qdrant yang dipakai bareng oleh loader PDF maupun FAQ.
 
-Dipisah supaya kedua loader tidak menyalin logika yang sama: pembuatan
-collection, penjagaan dimensi, dan pemecahan upsert.
+Sejak Tahap 6 satu titik membawa **dua vektor bernama**: `dense` dari model
+embedding, dan `sparse` dari BM25. Keduanya di collection yang sama supaya
+Qdrant bisa menggabungkan hasil keduanya sendiri lewat RRF, tanpa kita
+menyatukan dua daftar hasil secara manual di Python.
+
+Indeks sparse dipasangi `Modifier.IDF`: bobot kata langka dihitung Qdrant
+berdasarkan seluruh korpus. Kalau dihitung di sisi kita, dasarnya cuma batch
+yang sedang diproses, dan bobotnya jadi salah.
 """
 
 import uuid
 from typing import Any
 
 from qdrant_client import QdrantClient
-from qdrant_client.models import Distance, PointStruct, VectorParams
+from qdrant_client.models import (
+    Distance,
+    Modifier,
+    PointStruct,
+    SparseIndexParams,
+    SparseVector,
+    SparseVectorParams,
+    VectorParams,
+)
 
 from app.core.config import QDRANT_COLLECTION, QDRANT_URL
 
@@ -16,6 +30,8 @@ from app.core.config import QDRANT_COLLECTION, QDRANT_URL
 # menembusnya, jadi upsert selalu dipecah.
 UPSERT_BATCH = 256
 
+NAMA_DENSE = "dense"
+NAMA_SPARSE = "sparse"
 NAMESPACE = uuid.UUID("00000000-0000-0000-0000-000000000001")
 
 
@@ -24,10 +40,11 @@ def connect() -> QdrantClient:
 
 
 def ensure_collection(client: QdrantClient, size: int, reset: bool = False) -> None:
-    """Bikin collection kalau belum ada; tolak keras kalau dimensinya beda.
+    """Bikin collection kalau belum ada; tolak keras kalau bentuknya tidak cocok.
 
-    Dimensi collection tidak bisa diubah setelah dibuat. Tanpa penjagaan ini,
-    yang gagal adalah upsert-nya, dengan pesan yang jauh lebih membingungkan.
+    Dimensi maupun susunan vektor tidak bisa diubah setelah collection dibuat.
+    Tanpa penjagaan ini, yang gagal adalah upsert-nya, dengan pesan yang jauh
+    lebih membingungkan.
     """
     existing = {c.name for c in client.get_collections().collections}
 
@@ -39,32 +56,42 @@ def ensure_collection(client: QdrantClient, size: int, reset: bool = False) -> N
     if QDRANT_COLLECTION not in existing:
         client.create_collection(
             collection_name=QDRANT_COLLECTION,
-            vectors_config=VectorParams(size=size, distance=Distance.COSINE),
+            vectors_config={NAMA_DENSE: VectorParams(size=size, distance=Distance.COSINE)},
+            sparse_vectors_config={
+                NAMA_SPARSE: SparseVectorParams(index=SparseIndexParams(), modifier=Modifier.IDF)
+            },
         )
-        print(f"Collection '{QDRANT_COLLECTION}' dibuat, dimensi {size}.")
+        print(f"Collection '{QDRANT_COLLECTION}' dibuat: dense {size} + sparse BM25.")
         return
 
     current = client.get_collection(QDRANT_COLLECTION).config.params.vectors
-    if not isinstance(current, VectorParams):
-        # named vectors baru dipakai mulai Tahap 6 (hybrid search)
-        raise SystemExit(f"Collection '{QDRANT_COLLECTION}' pakai named vectors, bukan tunggal.")
-    if current.size != size:
+    if not isinstance(current, dict) or NAMA_DENSE not in current:
         raise SystemExit(
-            f"Collection '{QDRANT_COLLECTION}' berdimensi {current.size}, "
+            f"Collection '{QDRANT_COLLECTION}' masih berbentuk vektor tunggal (sebelum Tahap 6).\n"
+            f"Susunan vektor tidak bisa diubah. Jalankan ulang dengan --reset."
+        )
+    if current[NAMA_DENSE].size != size:
+        raise SystemExit(
+            f"Vektor '{NAMA_DENSE}' di collection berdimensi {current[NAMA_DENSE].size}, "
             f"model embedding menghasilkan {size}.\n"
-            f"Dimensi collection tidak bisa diubah. Jalankan ulang dengan --reset."
+            f"Dimensi tidak bisa diubah. Jalankan ulang dengan --reset."
         )
 
 
-def upsert(client: QdrantClient, records: list[dict[str, Any]], vectors: list[list[float]]) -> None:
+def upsert(
+    client: QdrantClient,
+    records: list[dict[str, Any]],
+    vectors: list[list[float]],
+    sparse: list[SparseVector],
+) -> None:
     points = [
         PointStruct(
             # id deterministik dari chunk_id: ingest ulang menimpa, bukan menggandakan
             id=str(uuid.uuid5(NAMESPACE, r["payload"]["chunk_id"])),
-            vector=vector,
+            vector={NAMA_DENSE: dense, NAMA_SPARSE: jarang},
             payload=r["payload"],
         )
-        for r, vector in zip(records, vectors, strict=True)
+        for r, dense, jarang in zip(records, vectors, sparse, strict=True)
     ]
     for start in range(0, len(points), UPSERT_BATCH):
         client.upsert(

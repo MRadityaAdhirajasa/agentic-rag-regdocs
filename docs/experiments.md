@@ -88,3 +88,85 @@ samaran. Sekitar 22 nomor masih belum terdeteksi sebagai judul. Sesuai
 anjuran roadmap, usaha di sini dibatasi waktunya dan sisanya dibiarkan —
 kegagalan yang tercatat lebih berguna daripada parser yang dikejar
 sempurna.
+
+---
+
+## Eksperimen #2 — Hybrid search: dense + BM25 lewat RRF (Tahap 6)
+
+**Pertanyaan:** apakah menggabungkan pencarian makna (dense) dengan
+pencocokan kata harfiah (BM25) mengalahkan dense saja?
+
+**Yang diubah:** hanya cara mencari. Korpus, pemotongan, model embedding,
+dan pertanyaan golden tidak disentuh. Ketiga mode diukur pada collection
+yang sama persis, jadi perbandingannya bersih.
+
+| Metrik | dense saja | sparse saja | **hybrid (RRF)** |
+|---|---|---|---|
+| recall@5 | 0,550 | 0,550 | 0,550 |
+| recall@10 | **0,667** | 0,550 | 0,650 |
+| MRR | 0,346 | 0,425 | **0,535** |
+| nDCG@10 | 0,440 | 0,428 | **0,537** |
+
+Mode `dense` menghasilkan angka yang sama persis dengan Tahap 5 — bukti
+pemindahan ke named vectors tidak mengubah perilaku sisi dense.
+
+### Kesimpulan: hybrid menang telak untuk peringkat
+
+**MRR naik 0,346 → 0,535 (+55%).** nDCG@10 naik +22%. Dan yang lebih penting
+secara cerita: **hybrid (0,535) melampaui baseline Tahap 4 (0,420)**, jadi
+kemunduran peringkat akibat pemotongan per pasal tidak cuma pulih, tapi
+terbayar lebih.
+
+**Ongkosnya recall@10 turun tipis** (0,667 → 0,650). RRF menukar sedikit
+cakupan di peringkat dalam dengan perbaikan besar di peringkat atas. Untuk
+sistem yang menampilkan 3-5 hasil ke pengguna, itu pertukaran yang benar.
+
+### Per pertanyaan: siapa menolong siapa
+
+| qid | dense | sparse | hybrid | |
+|---|---|---|---|---|
+| g_003 | 4 | 1 | **1** | sparse menolong |
+| g_007 | 2 | 1 | **1** | sparse menolong |
+| g_008 | — | 1 | **1** | **dense tidak pernah menemukannya sejak Tahap 4** |
+| g_002, g_006 | 1 | 2 | 1 | dense menahan posisi |
+| g_004 | 3 | 4 | 4 | seri |
+| g_005 | 8 | — | — | **sparse menenggelamkannya** |
+| g_010 | 4 | — | 10 | **sparse menenggelamkannya** |
+| g_001, g_009 | — | — | — | tidak tertolong |
+
+Tiga membaik, dua memburuk. Yang membaik naik ke peringkat 1, yang memburuk
+turun dari peringkat menengah — itu sebabnya MRR melonjak meski jumlah yang
+memburuk hampir sebanyak yang membaik.
+
+**g_008 adalah kasus contoh dari roadmap.** Pertanyaannya menyebut "PB UMKU"
+secara harfiah. Dense tidak pernah menemukannya di Tahap 4, 5, maupun 6.
+BM25 menaruhnya di peringkat 1 pada percobaan pertama. Penanda yang harus
+cocok persis — nomor pasal, singkatan, kode KBLI — memang bukan wilayah
+pencarian makna.
+
+### Catatan teknis
+
+- **RRF, bukan penjumlahan skor.** Skor cosine (0-1) dan BM25 (tak terbatas)
+  tidak sebanding; menjumlahkannya butuh normalisasi yang selalu jadi
+  tebakan. RRF membuang skor dan hanya memakai peringkat, jadi tidak ada
+  bobot yang perlu disetel.
+- **Penggabungan dikerjakan Qdrant**, bukan Python. Kalau digabung di sisi
+  kita, dua daftar harus ditarik penuh lewat jaringan dan filter
+  `source_type` diterapkan dua kali.
+- **IDF dihitung Qdrant** lewat `Modifier.IDF`, supaya dasarnya seluruh
+  korpus, bukan batch yang sedang diproses.
+- **Ingest ulang: nol request embedding.** Susunan collection berubah
+  (vektor tunggal jadi dua vektor bernama), tapi teks chunk-nya tidak, jadi
+  seluruh sisi dense diambil dari cache Tahap 3. Ini panen yang dijanjikan
+  roadmap.
+
+### Batasan yang disadari
+
+**BM25 kita berjalan tanpa stemming.** Bahasa Indonesia tidak ada di
+py-rust-stemmers — bukan kekurangan fastembed. Akibatnya "perizinan" dan
+"izin" dianggap kata berbeda. Itu melemahkan sisi sparse untuk pertanyaan
+bahasa sehari-hari, tapi tidak mengganggu tugas utamanya: mencocokkan
+penanda yang memang harus persis.
+
+Kalau suatu saat perlu diperbaiki, jalurnya Sastrawi (stemmer Bahasa
+Indonesia) di tahap tokenisasi — bukan mengganti BM25.

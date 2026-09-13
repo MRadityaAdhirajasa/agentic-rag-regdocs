@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 5 dari 13.
+> Status: dalam pengembangan. Tahap 6 dari 13.
 
 ## Menjalankan
 
@@ -24,7 +24,12 @@ Butuh `.env` berisi `OPENROUTER_API_KEY` (embedding) dan `GOOGLE_API_KEY`
 (LLM). Contohnya ada di `.env.example`.
 
 Embedding: `nvidia/nemotron-3-embed-1b:free` lewat OpenRouter, 2048 dimensi,
-prefix `query:` / `document:`. Retrieval masih dense-only, k=3.
+prefix `query:` / `document:`. Sisi sparse: BM25 lewat fastembed, dihitung
+lokal tanpa API. Keduanya digabung Qdrant dengan RRF.
+
+```bash
+uv run python -m scripts.eval --mode dense    # bandingkan satu sisi saja
+```
 
 ## Ingestion
 
@@ -46,8 +51,9 @@ berjam-jam sambil pura-pura bekerja.
 
 Perbandingan sebelum/sesudah tiap perubahan retrieval ada di
 [`docs/experiments.md`](docs/experiments.md). Eksperimen #1 (pemotongan per
-pasal) menaikkan recall@10 sebesar 0,100 tapi menurunkan MRR sebesar 0,074 —
-sebabnya dibahas di sana.
+pasal) menaikkan recall@10 sebesar 0,100 tapi menurunkan MRR sebesar 0,074.
+Eksperimen #2 (hybrid dense + BM25 lewat RRF) menaikkan MRR sebesar 0,189 —
+lebih dari cukup untuk menebus kemunduran itu.
 
 ## Evaluasi
 
@@ -58,9 +64,9 @@ make eval
 | Metrik (10 pertanyaan, `expected_source_type=regulasi`) | |
 |---|---|
 | recall@5 | **0,550** |
-| recall@10 | 0,667 |
-| MRR | 0,346 |
-| nDCG@10 | 0,440 |
+| recall@10 | 0,650 |
+| MRR | **0,535** |
+| nDCG@10 | **0,537** |
 
 Ground truth memakai **nomor halaman**, bukan `chunk_id`. `chunk_id` berubah
 setiap cara memotong berubah — dan Tahap 5 memang mengubahnya — sehingga

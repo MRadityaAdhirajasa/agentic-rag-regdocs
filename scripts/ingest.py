@@ -17,6 +17,7 @@ import sys
 
 from app.core.config import QDRANT_COLLECTION
 from app.core.embeddings import embed
+from app.core.sparse import encode_dokumen
 from app.ingestion import faq, pdf, store
 
 
@@ -47,9 +48,13 @@ def main(argv: list[str]) -> None:
     store.ensure_collection(client, len(probe[0]), reset)
 
     vectors = probe + embed([r["text"] for r in records[1:]], kind="document")
-    print(f"{len(vectors)} vektor, dimensi {len(vectors[0])}.")
+    print(f"{len(vectors)} vektor dense, dimensi {len(vectors[0])}.")
 
-    store.upsert(client, records, vectors)
+    # sisi sparse dihitung lokal — tidak menyentuh kuota sama sekali
+    sparse = encode_dokumen([r["text"] for r in records])
+    print(f"{len(sparse)} vektor sparse (BM25, lokal).")
+
+    store.upsert(client, records, vectors, sparse)
 
     total = client.count(collection_name=QDRANT_COLLECTION).count
     print(f"Selesai. Total titik di '{QDRANT_COLLECTION}': {total}")

@@ -1,6 +1,7 @@
 """Ukur kualitas retrieval terhadap eval/golden.jsonl.
 
     uv run python -m scripts.eval
+    uv run python -m scripts.eval --mode dense      # bandingkan satu sisi saja
     uv run python -m scripts.eval --simpan-baseline
 
 Angka dipecah per `expected_source_type`. Ini bukan formalitas: kelompok
@@ -56,11 +57,12 @@ def tabel(judul: str, angka: dict[str, float]) -> None:
 
 
 def main(argv: list[str]) -> None:
+    mode = argv[argv.index("--mode") + 1] if "--mode" in argv else "hybrid"
     soal = muat()
-    print(f"{len(soal)} pertanyaan, ambil {AMBIL} teratas per pertanyaan.")
+    print(f"{len(soal)} pertanyaan, ambil {AMBIL} teratas per pertanyaan. mode={mode}")
 
     # satu request embedding untuk semua pertanyaan sekaligus
-    hasil_cari = search_many([s["question"] for s in soal], limit=AMBIL)
+    hasil_cari = search_many([s["question"] for s in soal], limit=AMBIL, mode=mode)
 
     per_kelompok: dict[str, list[tuple[set[str], list[set[str]]]]] = defaultdict(list)
     baris = []
@@ -92,7 +94,8 @@ def main(argv: list[str]) -> None:
             json.dumps(
                 {
                     "catatan": "Angka utama = expected_source_type regulasi. Patokan halaman.",
-                    "tahap": 4,
+                    "tahap": 6,
+                    "mode": mode,
                     "top_k_evaluasi": AMBIL,
                     "metrik_regulasi": utama,
                 },
