@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 6 dari 13.
+> Status: dalam pengembangan. Tahap 7 dari 13.
 
 ## Menjalankan
 
@@ -27,8 +27,12 @@ Embedding: `nvidia/nemotron-3-embed-1b:free` lewat OpenRouter, 2048 dimensi,
 prefix `query:` / `document:`. Sisi sparse: BM25 lewat fastembed, dihitung
 lokal tanpa API. Keduanya digabung Qdrant dengan RRF.
 
+Penyusunan ulang akhir: cross-encoder `jina-reranker-v2-base-multilingual`,
+20 kandidat, juga lokal. Ongkosnya besar — lihat eksperimen #3.
+
 ```bash
-uv run python -m scripts.eval --mode dense    # bandingkan satu sisi saja
+uv run python -m scripts.eval --mode dense       # bandingkan satu sisi saja
+uv run python -m scripts.eval --tanpa-rerank     # matikan cross-encoder
 ```
 
 ## Ingestion
@@ -53,7 +57,9 @@ Perbandingan sebelum/sesudah tiap perubahan retrieval ada di
 [`docs/experiments.md`](docs/experiments.md). Eksperimen #1 (pemotongan per
 pasal) menaikkan recall@10 sebesar 0,100 tapi menurunkan MRR sebesar 0,074.
 Eksperimen #2 (hybrid dense + BM25 lewat RRF) menaikkan MRR sebesar 0,189 —
-lebih dari cukup untuk menebus kemunduran itu.
+lebih dari cukup untuk menebus kemunduran itu. Eksperimen #3 (reranking
+cross-encoder) menaikkan recall@10 sebesar 0,117, tapi waktunya 26 ms jadi
+4.526 ms per pertanyaan.
 
 ## Evaluasi
 
@@ -63,10 +69,10 @@ make eval
 
 | Metrik (10 pertanyaan, `expected_source_type=regulasi`) | |
 |---|---|
-| recall@5 | **0,550** |
-| recall@10 | 0,650 |
-| MRR | **0,535** |
-| nDCG@10 | **0,537** |
+| recall@5 | **0,583** |
+| recall@10 | **0,767** |
+| MRR | **0,567** |
+| nDCG@10 | **0,564** |
 
 Ground truth memakai **nomor halaman**, bukan `chunk_id`. `chunk_id` berubah
 setiap cara memotong berubah — dan Tahap 5 memang mengubahnya — sehingga

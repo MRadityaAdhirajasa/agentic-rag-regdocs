@@ -12,7 +12,9 @@ jaringan, dan filter `source_type` harus diterapkan dua kali.
 
 `mode` ada supaya eksperimen #2 bisa dijalankan tiga arah tanpa ingest ulang.
 
-Reranking baru masuk Tahap 7.
+Sejak Tahap 7 hasil gabungan disusun ulang cross-encoder: ambil 20 kandidat,
+kembalikan k teratas setelah dibaca ulang. `rerank=False` mematikannya,
+supaya eksperimen #3 bisa diukur dua arah tanpa ingest ulang.
 """
 
 from qdrant_client import QdrantClient
@@ -30,10 +32,13 @@ from app.core.config import QDRANT_COLLECTION, QDRANT_URL
 from app.core.embeddings import embed
 from app.core.sparse import encode_query
 from app.ingestion.store import NAMA_DENSE, NAMA_SPARSE
+from app.retrieval.rerank import rerank as susun_ulang
 
 TOP_K = 3
 # tiap sisi menyumbang kandidat sebanyak ini sebelum digabung
 AMBIL_PER_SISI = 20
+# jumlah kandidat yang dibaca ulang cross-encoder sebelum dipangkas jadi k
+KANDIDAT_RERANK = 20
 
 
 def _filter(source_type: str | None) -> Filter | None:
@@ -47,6 +52,7 @@ def search_many(
     limit: int = TOP_K,
     source_type: str | None = None,
     mode: str = "hybrid",
+    rerank: bool = True,
 ) -> list[list[ScoredPoint]]:
     """Cari untuk banyak pertanyaan sekaligus.
 
@@ -61,6 +67,9 @@ def search_many(
 
     client = QdrantClient(url=QDRANT_URL)
     kondisi = _filter(source_type)
+    # saat reranking aktif, ambil lebih banyak dulu — cross-encoder hanya bisa
+    # menyusun ulang apa yang sudah terambil, tidak bisa memunculkan yang hilang
+    ambil = max(limit, KANDIDAT_RERANK) if rerank else limit
     hasil = []
     for d, s in zip(dense, jarang, strict=True):
         if mode == "dense":
@@ -68,7 +77,7 @@ def search_many(
                 collection_name=QDRANT_COLLECTION,
                 query=d,
                 using=NAMA_DENSE,
-                limit=limit,
+                limit=ambil,
                 query_filter=kondisi,
                 with_payload=True,
             )
@@ -77,7 +86,7 @@ def search_many(
                 collection_name=QDRANT_COLLECTION,
                 query=s,
                 using=NAMA_SPARSE,
-                limit=limit,
+                limit=ambil,
                 query_filter=kondisi,
                 with_payload=True,
             )
@@ -89,14 +98,21 @@ def search_many(
                     Prefetch(query=s, using=NAMA_SPARSE, limit=AMBIL_PER_SISI, filter=kondisi),
                 ],
                 query=FusionQuery(fusion=Fusion.RRF),
-                limit=limit,
+                limit=ambil,
                 with_payload=True,
             )
         hasil.append(jawab.points)
-    return hasil
+
+    if rerank:
+        return [susun_ulang(q, h, limit) for q, h in zip(queries, hasil, strict=True)]
+    return [h[:limit] for h in hasil]
 
 
 def search(
-    query: str, limit: int = TOP_K, source_type: str | None = None, mode: str = "hybrid"
+    query: str,
+    limit: int = TOP_K,
+    source_type: str | None = None,
+    mode: str = "hybrid",
+    rerank: bool = True,
 ) -> list[ScoredPoint]:
-    return search_many([query], limit=limit, source_type=source_type, mode=mode)[0]
+    return search_many([query], limit=limit, source_type=source_type, mode=mode, rerank=rerank)[0]

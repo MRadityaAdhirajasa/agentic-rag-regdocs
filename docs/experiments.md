@@ -170,3 +170,81 @@ penanda yang memang harus persis.
 
 Kalau suatu saat perlu diperbaiki, jalurnya Sastrawi (stemmer Bahasa
 Indonesia) di tahap tokenisasi — bukan mengganti BM25.
+
+---
+
+## Eksperimen #3 — Reranking cross-encoder (Tahap 7)
+
+**Pertanyaan:** apakah membaca ulang 20 kandidat teratas dengan cross-encoder
+memperbaiki hasil, dan berapa ongkos waktunya?
+
+**Yang diubah:** hanya langkah terakhir. Korpus, pemotongan, dan pencarian
+hybrid tidak disentuh — kandidat yang sama persis, cuma disusun ulang.
+
+| | recall@5 | recall@10 | MRR | nDCG@10 | ms/pertanyaan |
+|---|---|---|---|---|---|
+| hybrid saja (Tahap 6) | 0,550 | 0,650 | 0,535 | 0,537 | **26** |
+| **+ rerank 20 kandidat** | **0,583** | **0,767** | **0,567** | **0,564** | **4.526** |
+
+Memuat model: 1,4 detik, sekali per proses. Sisanya murni waktu hitung.
+
+### Kesimpulan: mutu naik, ongkosnya 175 kali lipat
+
+**recall@10 naik 0,117** — kenaikan terbesar dari ketiga eksperimen sejauh
+ini. MRR dan nDCG juga naik. Tidak ada metrik yang turun.
+
+**Tapi waktunya 26 ms jadi 4.526 ms.** Pencariannya sendiri cuma 26 ms;
+reranking memakan 99,4% dari total. Untuk 20 kandidat sepanjang ~1.100
+karakter di CPU, itu sekitar 225 ms per pasangan pertanyaan-dokumen.
+
+### Mencoba menekan ongkos — dan gagal
+
+| kandidat | teks | recall@5 | recall@10 | MRR | ms |
+|---|---|---|---|---|---|
+| 20 | penuh | 0,583 | **0,767** | **0,567** | 4.526 |
+| 20 | 600 char | 0,533 | 0,667 | 0,378 | 1.773 |
+| 10 | penuh | **0,650** | 0,650 | 0,520 | 2.037 |
+| 10 | 600 char | 0,450 | 0,650 | 0,387 | 887 |
+| 20 | 300 char | 0,500 | 0,600 | 0,346 | 1.086 |
+
+**Memotong teks merusak, bukan menghemat.** Ketiga varian potong punya MRR
+jauh di bawah tanpa rerank sama sekali (0,535). Cross-encoder bekerja justru
+karena membaca pertanyaan dan dokumen utuh berbarengan; memotong dokumennya
+membuang persis kemampuan yang kita bayar mahal.
+
+Mengurangi kandidat jadi 10 memangkas waktu separuh dan recall@5-nya
+tertinggi — tapi lihat peringatan di bawah sebelum menyimpulkan itu menang.
+
+### Peringatan: 10 pertanyaan terlalu sedikit untuk membedakan ini
+
+Satu pertanyaan menyumbang sampai 0,1 pada recall. Jadi selisih 0,583 vs
+0,650 itu **kurang dari satu pertanyaan** — tidak bisa dibedakan dari
+kebetulan. Yang cukup besar untuk dipercaya cuma dua: kenaikan recall@10
+(+0,117, lebih dari satu pertanyaan) dan kerusakan akibat memotong teks
+(MRR anjlok ~0,15 di ketiga varian, konsisten arahnya).
+
+Golden dataset dinaikkan jadi 50 pertanyaan di Tahap 13. Sampai saat itu,
+angka dengan selisih di bawah 0,1 dibaca sebagai "kira-kira sama".
+
+### Keputusan
+
+**Reranking dinyalakan secara bawaan, dengan 20 kandidat dan teks penuh** —
+sesuai roadmap, dan karena tidak ada metrik yang turun.
+
+Tapi ongkos 4,5 detik dicatat sebagai utang yang harus dibayar di
+**Tahap 11**: di situ ada budget dan degraded mode, dan reranking adalah
+kandidat pertama untuk dimatikan saat sistem perlu cepat. Saklarnya sudah
+ada sekarang (`rerank=False` / `--tanpa-rerank`), jadi Tahap 11 tinggal
+memakainya, bukan membangunnya.
+
+### Catatan model
+
+Roadmap meminta `BAAI/bge-reranker-v2-m3`. Model itu tidak tersedia lewat
+fastembed, dan memasangnya berarti menambah PyTorch (~2 GB) demi satu
+fungsi. Yang dipakai `jinaai/jina-reranker-v2-base-multilingual` (1,1 GB,
+ONNX) — sama-sama multilingual, dan fastembed sudah terpasang sejak Tahap 6.
+`BAAI/bge-reranker-base` yang juga tersedia sengaja dilewati: dia dilatih
+untuk Mandarin dan Inggris, bukan multilingual.
+
+Skornya logit dan wajar bernilai negatif. Yang berarti selisih antar
+kandidat, bukan nilai mutlaknya.

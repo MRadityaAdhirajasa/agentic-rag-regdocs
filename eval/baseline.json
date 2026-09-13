@@ -1,13 +1,15 @@
 {
   "catatan": "Angka utama = expected_source_type regulasi. Patokan halaman.",
-  "tahap": 6,
+  "tahap": 7,
   "mode": "hybrid",
+  "rerank": true,
+  "ms_per_pertanyaan": 4729,
   "top_k_evaluasi": 10,
   "metrik_regulasi": {
-    "recall@5": 0.55,
-    "recall@10": 0.65,
-    "mrr": 0.5349999999999999,
-    "ndcg@10": 0.5370662539244424,
+    "recall@5": 0.5833333333333333,
+    "recall@10": 0.7666666666666667,
+    "mrr": 0.5666666666666667,
+    "ndcg@10": 0.5637278261895957,
     "jumlah_pertanyaan": 10
   }
 }
