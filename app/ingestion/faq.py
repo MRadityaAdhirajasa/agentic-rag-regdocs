@@ -8,6 +8,11 @@ parameter `title` milik Gemini, yang tidak ada di endpoint OpenRouter.
 
 Field `notes`, `input_method`, dan `base_url` sengaja dibuang: tidak dipakai
 untuk retrieval maupun sitasi.
+
+Item kembar juga dibuang. 27 dari 353 item FAQ punya teks identik dengan item
+lain — biasanya pertanyaan yang sama didaftar di dua kategori. Kalau
+dibiarkan, keduanya muncul di hasil pencarian dan memakan dua dari lima
+slot teratas untuk satu jawaban yang sama.
 """
 
 import json
@@ -23,6 +28,8 @@ def records(directory: Path = FAQ_DIR) -> list[dict[str, Any]]:
         raise SystemExit(f"Tidak ada file JSON di {directory}.")
 
     out: list[dict[str, Any]] = []
+    terlihat: set[str] = set()
+    kembar = 0
     for path in files:
         data = json.loads(path.read_text(encoding="utf-8"))
         sumber = data["source"]
@@ -30,6 +37,10 @@ def records(directory: Path = FAQ_DIR) -> list[dict[str, Any]]:
         items = data["items"]
         for item in items:
             teks = f"{item['question']}\n\n{item['answer']}"
+            if teks in terlihat:
+                kembar += 1
+                continue
+            terlihat.add(teks)
             out.append(
                 {
                     "text": teks,
@@ -48,5 +59,9 @@ def records(directory: Path = FAQ_DIR) -> list[dict[str, Any]]:
                 }
             )
         print(f"  {path.name}: {len(items)} item — {kategori}")
+    if kembar:
+        print(f"  {kembar} item kembar dibuang")
+    if kembar:
+        print(f"  {kembar} item kembar dibuang")
     print(f"  FAQ total: {len(out)} chunk")
     return out

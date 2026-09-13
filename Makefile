@@ -1,4 +1,4 @@
-.PHONY: up down logs smoke check ingest ingest-reset chat lint fmt test all
+.PHONY: up down logs smoke check ingest ingest-reset chat eval eval-baseline lint fmt test all
 
 
 up:
@@ -24,6 +24,12 @@ ingest-reset:
 
 chat:
 	uv run python -m scripts.chat
+
+eval:
+	uv run python -m scripts.eval
+
+eval-baseline:
+	uv run python -m scripts.eval --simpan-baseline
 
 lint:
 	uv run ruff check .

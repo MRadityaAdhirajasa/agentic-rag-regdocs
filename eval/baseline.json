@@ -1,0 +1,12 @@
+{
+  "catatan": "Angka utama = expected_source_type regulasi. Patokan halaman.",
+  "tahap": 4,
+  "top_k_evaluasi": 10,
+  "metrik_regulasi": {
+    "recall@5": 0.5,
+    "recall@10": 0.5666666666666667,
+    "mrr": 0.42000000000000004,
+    "ndcg@10": 0.45821330422951145,
+    "jumlah_pertanyaan": 10
+  }
+}

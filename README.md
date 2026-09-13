@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 3 dari 13.
+> Status: dalam pengembangan. Tahap 4 dari 13.
 
 ## Menjalankan
 
@@ -42,14 +42,38 @@ exponential backoff plus jitter, limit per-hari langsung dihentikan dengan
 pesan yang menyebut kapan pulih. Menunggu limit harian berarti menggantung
 berjam-jam sambil pura-pura bekerja.
 
+## Evaluasi
+
+```bash
+make eval
+```
+
+| Metrik (10 pertanyaan, `expected_source_type=regulasi`) | |
+|---|---|
+| recall@5 | **0,500** |
+| recall@10 | 0,567 |
+| MRR | 0,420 |
+| nDCG@10 | 0,458 |
+
+Ground truth memakai **nomor halaman**, bukan `chunk_id`. `chunk_id` berubah
+setiap cara memotong berubah — dan Tahap 5 memang mengubahnya — sehingga
+golden dataset akan rusak. Halaman tetap, dan tetap bisa diverifikasi manual
+dengan membuka PDF. Patokan ini sedikit longgar: satu halaman berisi sekitar
+dua chunk.
+
+Pertanyaan yang berasal dari FAQ **wajib diparafrase** dengan struktur dan
+kosakata berbeda. `origin.faq_id` disimpan supaya kebocoran bisa diaudit
+belakangan. Semua pertanyaan di-embed dalam satu request, bukan satu per
+satu — 50 pertanyaan berarti 1 request, bukan 50.
+
 ## Korpus
 
-1.096 chunk dalam satu collection, dibedakan lewat payload `source_type`:
+1.069 chunk dalam satu collection, dibedakan lewat payload `source_type`:
 
 | Sumber | Chunk | Sitasi |
 |---|---|---|
 | `regulasi` — UU 28/2025 | 743 | jenis, nomor/tahun, halaman |
-| `faq` — 6 file JSON OSS | 353 | kategori, tanggal akses |
+| `faq` — 6 file JSON OSS | 326 | kategori, tanggal akses |
 
 Identitas dokumen ada di `data/metadata.csv`, bukan diambil dari nama file.
 
