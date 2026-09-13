@@ -7,6 +7,18 @@ retrieval memakai item yang sama dan angkanya jadi tidak independen.
 Pertanyaan di sini sengaja TIDAK diparafrase: yang diuji keputusan routing,
 bukan retrieval.
 
+**Label `expected_intent` diturunkan dari isi jawaban, bukan dari kategori.**
+Versi pertama memetakan kategori langsung ke intent, dan itu salah: kategori
+FAQ menandai *topik*, bukan *maksud*. Kategori "Proses Perizinan Berusaha"
+ternyata berisi 81 dari 147 item yang isinya langkah-langkah aplikasi,
+sedangkan "Layanan Informasi" yang tadinya dilabeli troubleshooting justru
+paling sedikit menyentuh antarmuka (79 dari 97 tidak menyebutnya sama sekali).
+
+Aturannya sekarang: jawaban yang menyebut elemen antarmuka dua kali atau
+lebih (klik, menu, tombol, ikon, tautan) dianggap `troubleshooting`, sisanya
+`lookup`. Aturan ini lexical dan tidak melibatkan LLM, jadi tetap sah dipakai
+menilai LLM. Tapi ini label perak, bukan emas — laporkan begitu.
+
     uv run python -m scripts.buat_holdout
 """
 
@@ -17,14 +29,26 @@ from pathlib import Path
 JUMLAH = 50
 BENIH = 28  # tetap, supaya hasilnya sama tiap dijalankan
 
-INTENT = {
-    "Manajemen Akun dan Pendaftaran": "troubleshooting",
-    "Sistem dan Kendala Teknis": "troubleshooting",
-    "Layanan Informasi dan Bantuan Pengguna": "troubleshooting",
-    "Proses Perizinan Berusaha": "lookup",
-    "Pelaporan, Pelacakan, Pengawasan dan Sanksi": "lookup",
-    "Fasilitas, Kemitraan, dan Fitur Pendukung": "lookup",
-}
+# kata yang menandakan jawaban berisi langkah di aplikasi, bukan isi aturan
+KATA_ANTARMUKA = [
+    "klik",
+    "menu ",
+    "tautan",
+    "https://",
+    "pilih ",
+    "tombol",
+    "ikon",
+    "panduan",
+    "laman",
+    "kolom",
+    "unggah",
+]
+AMBANG_ANTARMUKA = 2
+
+
+def intent_dari_jawaban(answer: str) -> str:
+    skor = sum(answer.lower().count(k) for k in KATA_ANTARMUKA)
+    return "troubleshooting" if skor >= AMBANG_ANTARMUKA else "lookup"
 
 
 def main() -> None:
@@ -57,7 +81,7 @@ def main() -> None:
                     "faq_id": it["id"],
                     "question": it["question"],
                     "true_category": kategori,
-                    "expected_intent": INTENT[kategori],
+                    "expected_intent": intent_dari_jawaban(it["answer"]),
                     "expected_source_type": "faq",
                 }
             )

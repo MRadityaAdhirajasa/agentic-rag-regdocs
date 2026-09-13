@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 8 dari 13.
+> Status: dalam pengembangan. Tahap 9 dari 13.
 
 ## Menjalankan
 
@@ -91,7 +91,31 @@ pasal) menaikkan recall@10 sebesar 0,100 tapi menurunkan MRR sebesar 0,074.
 Eksperimen #2 (hybrid dense + BM25 lewat RRF) menaikkan MRR sebesar 0,189 —
 lebih dari cukup untuk menebus kemunduran itu. Eksperimen #3 (reranking
 cross-encoder) menaikkan recall@10 sebesar 0,117, tapi waktunya 26 ms jadi
-4.526 ms per pertanyaan.
+4.526 ms per pertanyaan. Tahap 9 memindahkan semuanya ke LangGraph tanpa
+mengubah satu pun angka — itu memang kriterianya.
+
+## Routing
+
+Pertanyaan diklasifikasi ke empat maksud sebelum dicari. `troubleshooting`
+("kenapa ikon pensil tidak muncul") disaring ke FAQ; pasal tidak akan pernah
+menjawabnya, dan membiarkannya bersaing hanya mengisi slot teratas dengan
+hasil yang tidak relevan.
+
+**Akurasi routing: 70,0%** pada 50 item FAQ yang disisihkan sejak Tahap 4.
+
+| seharusnya \ tebakan | lookup | troubleshooting |
+|---|---|---|
+| lookup (28) | 26 | 2 |
+| troubleshooting (22) | 13 | 9 |
+
+```bash
+uv run python -m scripts.eval_routing
+```
+
+Angka ini diukur terhadap **label perak**: `expected_intent` diturunkan dari
+isi jawaban FAQ lewat aturan lexical, bukan dilabeli manual. Sebagian
+kesalahan tidak mungkin dimenangkan — label melihat jawaban, router hanya
+melihat pertanyaan. Rinciannya di `docs/experiments.md`.
 
 ## Evaluasi
 

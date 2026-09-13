@@ -3,6 +3,7 @@
     uv run python -m scripts.eval
     uv run python -m scripts.eval --mode dense      # bandingkan satu sisi saja
     uv run python -m scripts.eval --tanpa-rerank   # matikan cross-encoder
+    uv run python -m scripts.eval --graph          # lewat LangGraph (rewrite + routing)
     uv run python -m scripts.eval --simpan-baseline
 
 Angka dipecah per `expected_source_type`. Ini bukan formalitas: kelompok
@@ -19,6 +20,7 @@ from collections import defaultdict
 from pathlib import Path
 from typing import Any
 
+from app.core.entities import normalisasi
 from app.eval.metrics import ringkas
 from app.retrieval.search import search_many
 
@@ -61,13 +63,32 @@ def tabel(judul: str, angka: dict[str, float]) -> None:
 def main(argv: list[str]) -> None:
     mode = argv[argv.index("--mode") + 1] if "--mode" in argv else "hybrid"
     pakai_rerank = "--tanpa-rerank" not in argv
+    lewat_graph = "--graph" in argv
     soal = muat()
-    print(f"{len(soal)} pertanyaan, ambil {AMBIL} teratas. mode={mode} rerank={pakai_rerank}")
+    print(
+        f"{len(soal)} pertanyaan, ambil {AMBIL} teratas. "
+        f"mode={mode} rerank={pakai_rerank} graph={lewat_graph}"
+    )
+
+    kalimat = [s["question"] for s in soal]
+    saring: list[str | None] | None = None
+    if lewat_graph:
+        # Dua langkah awal graph dijalankan di sini supaya embedding tetap
+        # bisa dikirim sekali untuk semua pertanyaan. Node generate dilewati:
+        # yang diukur retrieval, bukan mutu kalimat jawabannya.
+        from app.agents.nodes import klasifikasi_intent
+
+        kalimat = [normalisasi(q)[0] for q in kalimat]
+        intents = [klasifikasi_intent(s["question"]) for s in soal]
+        from app.agents.nodes import PARAMETER
+
+        saring = [PARAMETER[i][0] for i in intents]
+        print("  intent:", ", ".join(f"{s['qid']}={i}" for s, i in zip(soal, intents, strict=True)))
 
     # satu request embedding untuk semua pertanyaan sekaligus
     mulai = time.perf_counter()
     hasil_cari = search_many(
-        [s["question"] for s in soal], limit=AMBIL, mode=mode, rerank=pakai_rerank
+        kalimat, limit=AMBIL, mode=mode, rerank=pakai_rerank, source_types=saring
     )
     lama = (time.perf_counter() - mulai) / len(soal) * 1000
     print(f"rata-rata {lama:.0f} ms per pertanyaan")
@@ -105,6 +126,7 @@ def main(argv: list[str]) -> None:
                     "tahap": 7,
                     "mode": mode,
                     "rerank": pakai_rerank,
+                    "graph": lewat_graph,
                     "ms_per_pertanyaan": round(lama),
                     "top_k_evaluasi": AMBIL,
                     "metrik_regulasi": utama,

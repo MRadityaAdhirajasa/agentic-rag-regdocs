@@ -248,3 +248,97 @@ untuk Mandarin dan Inggris, bukan multilingual.
 
 Skornya logit dan wajar bernilai negatif. Yang berarti selisih antar
 kandidat, bukan nilai mutlaknya.
+
+---
+
+## Tahap 9 — Pindah ke graph, dan akurasi routing
+
+### Pemindahan ke LangGraph: tidak ada yang hilang
+
+Kriteria roadmap untuk tahap ini bukan "angkanya naik", melainkan **"angkanya
+setara Tahap 7. Kalau turun, ada yang salah dalam pemindahan."**
+
+| Metrik | Tahap 7/8 (pemanggilan fungsi) | Tahap 9 (lewat graph) |
+|---|---|---|
+| recall@5 | 0,583 | 0,583 |
+| recall@10 | 0,767 | 0,767 |
+| MRR | 0,567 | 0,567 |
+| nDCG@10 | 0,564 | 0,564 |
+
+Identik. Pemindahan bersih.
+
+Catatan jujur: tak satu pun dari 10 pertanyaan golden diklasifikasi
+`troubleshooting`, jadi filter routing tidak pernah aktif selama evaluasi ini.
+Yang terbukti di sini cuma bahwa graph tidak merusak apa pun — bukan bahwa
+routing membantu. Routing diukur terpisah di bawah.
+
+### Akurasi routing: 70,0% (35/50)
+
+| seharusnya \ tebakan | lookup | troubleshooting |
+|---|---|---|
+| **lookup** (28) | **26** | 2 |
+| **troubleshooting** (22) | 13 | **9** |
+
+`lookup` hampir tidak pernah salah (93%). `troubleshooting` terlewat 13 dari
+22 — model terlalu enggan menyebut sesuatu sebagai keluhan aplikasi.
+
+### Label "gratis" ternyata tidak gratis
+
+Roadmap menyebut holdout ini test set yang sudah jadi, karena tiap item FAQ
+sudah berlabel kategori. Ternyata tidak.
+
+**Percobaan pertama menghasilkan akurasi 16,7%** — dan yang salah label kita,
+bukan modelnya. Kategori FAQ menandai **topik**, bukan **maksud**. Kategori
+"Proses Perizinan Berusaha" ternyata berisi 81 dari 147 item yang isinya
+langkah-langkah aplikasi, sedangkan "Layanan Informasi" yang tadinya dilabeli
+`troubleshooting` justru paling sedikit menyentuh antarmuka (79 dari 97 tidak
+menyebutnya sama sekali). Pemetaan awal salah di kedua arah.
+
+Label lalu diturunkan ulang dari isi jawaban: yang menyebut elemen antarmuka
+dua kali atau lebih (klik, menu, tombol, ikon, tautan) dianggap
+`troubleshooting`. Aturan ini lexical dan tidak melibatkan LLM, jadi tetap sah
+dipakai menilai LLM — tapi ini **label perak, bukan emas**.
+
+### Sebagian kesalahan tidak mungkin dimenangkan
+
+Label diturunkan dari **jawaban**, sedangkan router hanya melihat
+**pertanyaan**. Dua contoh dari daftar ketidaksepakatan:
+
+- `faq-fkfp-003` "Bagaimana cara mengajukan Tax Holiday?" — dilabeli
+  `troubleshooting` semata karena jawabannya berisi langkah di aplikasi. Dari
+  pertanyaannya saja, `lookup` adalah jawaban yang wajar. **Tidak mungkin
+  ditebak benar.**
+- `faq-maa-037` "Saya terkendala gagal input NPWP 16 digit" — jelas keluhan
+  dari pertanyaannya saja. Ini **kesalahan model yang sebenarnya.**
+
+Jadi 70% itu mencampur dua hal berbeda: batas atas yang ditentukan cara
+melabeli, dan kekurangan prompt. Memisahkan keduanya butuh pelabelan manual
+22 item, dan itu ditunda.
+
+### Perbaikan yang sudah terdiagnosis, belum dikerjakan
+
+Prompt mendefinisikan `troubleshooting` sebagai "keluhan pemakaian aplikasi".
+Sebagian besar yang terlewat berbentuk "bagaimana cara [melakukan X di
+sistem]" — prosedural di aplikasi, bukan keluhan. Definisi di prompt lebih
+sempit daripada definisi di label.
+
+Tidak diperbaiki sekarang dengan sengaja: menyetel prompt sambil melihat
+daftar kesalahannya adalah cara tercepat membuat angka naik tanpa sistemnya
+membaik. Perbaikan ini dikerjakan saat golden dataset dilengkapi di Tahap 13,
+bersama pelabelan manual yang layak.
+
+### Ongkos yang baru muncul
+
+Routing menambah **satu panggilan LLM per pertanyaan**. Kuota harian Gemini
+habis di tengah pengukuran pertama — 28 dari 50 item. Sejak itu `route_intent`
+punya jalur mundur: kalau LLM gagal, intent jatuh ke `lookup` tanpa filter,
+dan permintaan tetap dilayani. Degraded mode yang sebenarnya dibangun di
+Tahap 11.
+
+### Bug yang ditemukan: alias diperluas dua kali
+
+`normalisasi()` awalnya mengganti alias satu per satu. Hasilnya, "PB-UMKU"
+berubah jadi "PB UMKU (Perizinan Berusaha untuk Menunjang Kegiatan Usaha)",
+lalu potongan "PB UMKU" di dalamnya tertangkap alias berikutnya dan diperluas
+lagi. Sekarang seluruh penggantian dilakukan dalam satu kali jalan, sehingga
+teks yang baru disisipkan tidak ikut terpindai.

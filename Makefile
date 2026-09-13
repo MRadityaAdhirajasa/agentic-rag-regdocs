@@ -35,7 +35,10 @@ eval:
 	uv run python -m scripts.eval
 
 eval-baseline:
-	uv run python -m scripts.eval --simpan-baseline
+	uv run python -m scripts.eval --graph --simpan-baseline
+
+eval-routing:
+	uv run python -m scripts.eval_routing
 
 lint:
 	uv run ruff check .

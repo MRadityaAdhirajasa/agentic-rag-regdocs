@@ -53,11 +53,17 @@ def search_many(
     source_type: str | None = None,
     mode: str = "hybrid",
     rerank: bool = True,
+    source_types: list[str | None] | None = None,
 ) -> list[list[ScoredPoint]]:
     """Cari untuk banyak pertanyaan sekaligus.
 
     Embedding dense-nya satu request untuk semua pertanyaan; sisi sparse
     dihitung lokal.
+
+    `source_types` memberi filter berbeda per pertanyaan — dibutuhkan sejak
+    Tahap 9, karena routing bisa memutuskan lain untuk tiap pertanyaan.
+    Tanpa ini, evaluasi harus memanggil embedding satu per satu dan 10
+    pertanyaan berubah dari 1 request jadi 10.
     """
     if mode not in ("hybrid", "dense", "sparse"):
         raise ValueError(f"mode harus hybrid/dense/sparse, bukan {mode!r}")
@@ -66,12 +72,13 @@ def search_many(
     jarang = encode_query(queries) if mode in ("hybrid", "sparse") else [None] * len(queries)
 
     client = QdrantClient(url=QDRANT_URL)
-    kondisi = _filter(source_type)
+    saring = source_types if source_types is not None else [source_type] * len(queries)
     # saat reranking aktif, ambil lebih banyak dulu — cross-encoder hanya bisa
     # menyusun ulang apa yang sudah terambil, tidak bisa memunculkan yang hilang
     ambil = max(limit, KANDIDAT_RERANK) if rerank else limit
     hasil = []
-    for d, s in zip(dense, jarang, strict=True):
+    for d, s, st in zip(dense, jarang, saring, strict=True):
+        kondisi = _filter(st)
         if mode == "dense":
             jawab = client.query_points(
                 collection_name=QDRANT_COLLECTION,

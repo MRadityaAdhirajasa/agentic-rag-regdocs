@@ -3,7 +3,8 @@
   "tahap": 7,
   "mode": "hybrid",
   "rerank": true,
-  "ms_per_pertanyaan": 4729,
+  "graph": true,
+  "ms_per_pertanyaan": 4849,
   "top_k_evaluasi": 10,
   "metrik_regulasi": {
     "recall@5": 0.5833333333333333,

@@ -1,53 +1,53 @@
-"""Chat loop CLI. Ambil 3 chunk, suruh Gemini menjawab hanya dari situ.
+"""Chat loop CLI. Sejak Tahap 9 seluruhnya dijalankan lewat LangGraph.
 
 Dijalankan sebagai modul (`-m`), bukan sebagai file, supaya `app/` ikut
 terbaca dari root proyek:
 
     uv run python -m scripts.chat
     uv run python -m scripts.chat "apa itu perizinan berusaha berbasis risiko"
-    uv run python -m scripts.chat --faq "kenapa ID izin PB-UMKU hilang"
-    uv run python -m scripts.chat --regulasi "kewajiban pelaku usaha risiko tinggi"
+    uv run python -m scripts.chat "kenapa ID izin PB-UMKU hilang"
 
-Sejak Tahap 2 jawaban selalu datang bersama sitasi yang bisa kamu buka
-sendiri: nomor halaman untuk regulasi, kategori dan tanggal untuk FAQ.
-Itu satu-satunya cara membuktikan sistem ini tidak mengarang.
+Jawaban selalu datang bersama sitasi yang bisa kamu buka sendiri: pasal dan
+halaman untuk regulasi, kategori dan tanggal untuk FAQ. Itu satu-satunya cara
+membuktikan sistem ini tidak mengarang.
+
+Intent hasil routing ikut dicetak, supaya keputusan sistem bisa dinilai —
+bukan cuma hasil akhirnya.
 """
 
 import sys
 
+from app.agents.graph import tanya
 from app.core.citation import citation
-from app.core.generate import jawab
-from app.retrieval.search import search
 
 
-def answer(question: str, source_type: str | None = None) -> str:
-    hits = search(question, source_type=source_type)
+def answer(question: str) -> str:
+    """Sejak Tahap 9 semuanya lewat graph, termasuk routing dan penulisan ulang."""
+    state = tanya(question)
+    hits = state["reranked_chunks"]
     if not hits:
         return "Tidak ada dokumen yang cocok. Sudah jalankan `make ingest`?"
 
-    baris = []
+    baris = [f"  intent: {state['intent']}  ->  saring: {state['source_type'] or 'semua'}"]
+    if state.get("alias_terpakai"):
+        baris.append(f"  alias dinormalkan: {', '.join(state['alias_terpakai'])}")
     for i, h in enumerate(hits, 1):
         if not h.payload:
             continue
         baris.append(f"  [{i}] {citation(h.payload)}  (skor {h.score:.3f})")
-        # pertanyaan asli FAQ ditampilkan di CLI supaya sitasinya bisa dinilai
-        # sekilas; di API dia jadi field tersendiri, bukan bagian teks sitasi
         if h.payload.get("question"):
             baris.append(f"      {h.payload['question']}")
     sumber = "\n".join(baris)
-    return f"{jawab(question, hits)}\n\nSumber:\n{sumber}"
+    return f"{state['answer']}\n\nSumber:\n{sumber}"
 
 
 def main(argv: list[str]) -> None:
-    source_type = None
-    if "--faq" in argv:
-        source_type = "faq"
-    elif "--regulasi" in argv:
-        source_type = "regulasi"
+    # --faq / --regulasi dihapus di Tahap 9: routing yang memilih sendiri,
+    # dan intent yang dipilih ikut dicetak supaya keputusannya bisa dinilai
     sisa = [a for a in argv if not a.startswith("--")]
 
     if sisa:
-        print(answer(" ".join(sisa), source_type))
+        print(answer(" ".join(sisa)))
         return
 
     print("Ketik pertanyaan. Enter kosong atau Ctrl+C untuk keluar.\n")
@@ -59,7 +59,7 @@ def main(argv: list[str]) -> None:
             return
         if not question:
             return
-        print(f"\n{answer(question, source_type)}\n")
+        print(f"\n{answer(question)}\n")
 
 
 if __name__ == "__main__":
