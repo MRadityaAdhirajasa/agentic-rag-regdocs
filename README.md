@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 4 dari 13.
+> Status: dalam pengembangan. Tahap 5 dari 13.
 
 ## Menjalankan
 
@@ -42,6 +42,13 @@ exponential backoff plus jitter, limit per-hari langsung dihentikan dengan
 pesan yang menyebut kapan pulih. Menunggu limit harian berarti menggantung
 berjam-jam sambil pura-pura bekerja.
 
+## Eksperimen
+
+Perbandingan sebelum/sesudah tiap perubahan retrieval ada di
+[`docs/experiments.md`](docs/experiments.md). Eksperimen #1 (pemotongan per
+pasal) menaikkan recall@10 sebesar 0,100 tapi menurunkan MRR sebesar 0,074 —
+sebabnya dibahas di sana.
+
 ## Evaluasi
 
 ```bash
@@ -50,10 +57,10 @@ make eval
 
 | Metrik (10 pertanyaan, `expected_source_type=regulasi`) | |
 |---|---|
-| recall@5 | **0,500** |
-| recall@10 | 0,567 |
-| MRR | 0,420 |
-| nDCG@10 | 0,458 |
+| recall@5 | **0,550** |
+| recall@10 | 0,667 |
+| MRR | 0,346 |
+| nDCG@10 | 0,440 |
 
 Ground truth memakai **nomor halaman**, bukan `chunk_id`. `chunk_id` berubah
 setiap cara memotong berubah — dan Tahap 5 memang mengubahnya — sehingga
@@ -68,23 +75,32 @@ satu — 50 pertanyaan berarti 1 request, bukan 50.
 
 ## Korpus
 
-1.069 chunk dalam satu collection, dibedakan lewat payload `source_type`:
+829 chunk dalam satu collection, dibedakan lewat payload `source_type`:
 
 | Sumber | Chunk | Sitasi |
 |---|---|---|
-| `regulasi` — UU 28/2025 | 743 | jenis, nomor/tahun, halaman |
+| `regulasi` — PP 28/2025 | 503 | jenis, nomor/tahun, **pasal**, halaman |
 | `faq` — 6 file JSON OSS | 326 | kategori, tanggal akses |
 
 Identitas dokumen ada di `data/metadata.csv`, bukan diambil dari nama file.
 
 ## Batasan korpus yang disadari
 
-- **Lapisan teks UU 28/2025 salah membaca huruf kapital I sebagai l** — 70 dari
+- **Nama berkas PDF-nya menyesatkan dan sempat menyesatkan proyek ini.**
+  Berkas bernama `UU 28 2025 - ...pdf`, tetapi halaman judulnya berbunyi
+  *Peraturan Pemerintah Republik Indonesia Nomor 28 Tahun 2025* — dan di
+  dalamnya "Peraturan Pemerintah ini" muncul 42 kali, "Undang-Undang ini"
+  nol kali. Sampai Tahap 5 seluruh sitasi tertulis `UU 28/2025` dan itu
+  salah. Identitas di `data/metadata.csv` sekarang diambil dari halaman
+  judul dokumen, bukan dari nama berkas. Berkasnya sendiri sengaja tidak
+  diganti nama supaya jejak kesalahannya tetap terlihat.
+
+- **Lapisan teks PP 28/2025 salah membaca huruf kapital I sebagai l** — 70 dari
   95 kata "Izin" tertulis "lzin". Dikoreksi lewat daftar eksplisit di
   `app/ingestion/pdf.py`; kalimat lain tidak terdampak.
-- **Korpus regulasi sengaja dibatasi satu dokumen: UU 28/2025.** Ini proyek
+- **Korpus regulasi sengaja dibatasi satu dokumen: PP 28/2025.** Ini proyek
   belajar; korpus besar tidak menambah pelajaran, hanya memperlambat siklus
-  coba-ukur-perbaiki dan menghabiskan kuota embedding. UU 28/2025 dipilih
+  coba-ukur-perbaiki dan menghabiskan kuota embedding. PP 28/2025 dipilih
   karena topiknya paling bertemu dengan FAQ OSS (243 sebutan "OSS", 441
   "Pelaku Usaha") dan strukturnya rapi per pasal.
 - **Ke-97 item FAQ "Layanan Informasi" sengaja dipertahankan** meski nilainya

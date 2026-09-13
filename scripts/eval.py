@@ -28,15 +28,17 @@ def kunci_halaman(doc_id: str, halaman: int | str) -> str:
     return f"{doc_id}#h{halaman}"
 
 
-def kunci_hasil(payload: dict[str, Any]) -> str:
-    """Kunci pembanding: halaman untuk regulasi, id item untuk FAQ.
+def kunci_hasil(payload: dict[str, Any]) -> set[str]:
+    """Kunci pembanding satu hasil: himpunan, karena satu chunk bisa lintas halaman.
 
     Dua jenis sumber punya penanda stabil yang berbeda. FAQ sudah punya id
     sendiri yang tidak berubah; regulasi tidak, jadi dipakai halamannya.
     """
     if payload.get("source_type") == "faq":
-        return str(payload["chunk_id"])
-    return kunci_halaman(str(payload["doc_id"]), payload["halaman"])
+        return {str(payload["chunk_id"])}
+    doc_id = str(payload["doc_id"])
+    span = payload.get("halaman_span") or [payload["halaman"]]
+    return {kunci_halaman(doc_id, h) for h in span}
 
 
 def muat() -> list[dict[str, Any]]:
@@ -60,7 +62,7 @@ def main(argv: list[str]) -> None:
     # satu request embedding untuk semua pertanyaan sekaligus
     hasil_cari = search_many([s["question"] for s in soal], limit=AMBIL)
 
-    per_kelompok: dict[str, list[tuple[set[str], list[str]]]] = defaultdict(list)
+    per_kelompok: dict[str, list[tuple[set[str], list[set[str]]]]] = defaultdict(list)
     baris = []
     for s, hits in zip(soal, hasil_cari, strict=True):
         relevan = {kunci_halaman(p["doc_id"], p["halaman"]) for p in s["relevant_pages"]}
@@ -68,7 +70,7 @@ def main(argv: list[str]) -> None:
         per_kelompok[s["expected_source_type"]].append((relevan, terambil))
         per_kelompok["SEMUA"].append((relevan, terambil))
 
-        peringkat = next((i for i, k in enumerate(terambil, 1) if k in relevan), None)
+        peringkat = next((i for i, h in enumerate(terambil, 1) if h & relevan), None)
         baris.append((s["qid"], peringkat, s["question"][:52]))
 
     print("\nPeringkat hasil benar pertama per pertanyaan:")

@@ -10,8 +10,10 @@ Tiga hal yang berubah dari Tahap 1:
    metrik di Tahap 4. Lebih baik ditolak keras di depan.
 3. Identitas dokumen datang dari `data/metadata.csv`, bukan dari nama file.
 
-Pemotongan masih `RecursiveCharacterTextSplitter`. Parsing berbasis pasal
-baru masuk Tahap 5.
+Sejak Tahap 5 pemotongan mengikuti batas Pasal (lihat `app/ingestion/pasal.py`).
+Kalau struktur pasal tidak terdeteksi, dokumen tetap masuk lewat pemotong
+karakter dan ditandai `parse_failed` di payload — kegagalan yang tercatat
+lebih berguna daripada dokumen yang diam-diam hilang dari korpus.
 """
 
 import csv
@@ -21,6 +23,8 @@ from typing import Any
 
 import pymupdf
 from langchain_text_splitters import RecursiveCharacterTextSplitter
+
+from app.ingestion import pasal
 
 CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 150
@@ -79,7 +83,7 @@ def quality_gate(pages: list[str], doc_id: str) -> None:
 
 
 def records(meta: dict[str, str]) -> list[dict[str, Any]]:
-    """Satu PDF -> daftar record siap embed, tiap record tahu halamannya."""
+    """Satu PDF -> daftar record siap embed, tiap record tahu pasal dan halamannya."""
     path = Path(meta["file_path"])
     if not path.exists():
         raise SystemExit(f"File tidak ada: {path} (dari metadata.csv baris {meta['doc_id']})")
@@ -96,34 +100,57 @@ def records(meta: dict[str, str]) -> list[dict[str, Any]]:
     if perbaikan:
         print(f"  normalisasi: {perbaikan} salah baca huruf diperbaiki")
 
-    splitter = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
+    potongan = pasal.pecah(pages)
+    if potongan is None:
+        print(f"  {meta['doc_id']}: struktur pasal TIDAK terdeteksi, pakai pemotong karakter")
+        potongan = _potong_karakter(pages)
+        parse_status = "parse_failed"
+    else:
+        rata = sum(len(p["halaman"]) for p in potongan) / len(potongan)
+        print(f"  struktur pasal terdeteksi: {len(potongan)} chunk, {rata:.2f} halaman/chunk")
+        parse_status = "ok"
+
     out: list[dict[str, Any]] = []
-    for nomor_halaman, teks in enumerate(pages, start=1):
-        for potongan in splitter.split_text(teks):
-            if not potongan.strip():
-                continue
-            # nomor urut ikut halaman, supaya chunk_id stabil walau halaman lain berubah
-            chunk_id = f"{meta['doc_id']}:h{nomor_halaman}:{len(out)}"
-            out.append(
-                {
-                    "text": potongan,
-                    "payload": {
-                        "chunk_id": chunk_id,
-                        "doc_id": meta["doc_id"],
-                        "source_type": "regulasi",
-                        "text": potongan,
-                        "halaman": nomor_halaman,
-                        "judul": meta["judul"],
-                        "jenis": meta["jenis"],
-                        "nomor": meta["nomor"],
-                        "tahun": meta["tahun"],
-                        "status": meta["status"] or "belum_dicek",
-                        "url_sumber": meta["url_sumber"],
-                    },
-                }
-            )
+    for i, pot in enumerate(potongan):
+        halaman = pot["halaman"]
+        out.append(
+            {
+                "text": pot["teks"],
+                "payload": {
+                    # chunk_id ikut nomor pasal, bukan nomor urut karakter
+                    "chunk_id": f"{meta['doc_id']}:p{pot['pasal']}:{i}",
+                    "doc_id": meta["doc_id"],
+                    "source_type": "regulasi",
+                    "text": pot["teks"],
+                    "bab": pot["bab"],
+                    "pasal": pot["pasal"],
+                    "halaman": halaman[0],
+                    "halaman_span": halaman,
+                    "parse_status": parse_status,
+                    "judul": meta["judul"],
+                    "jenis": meta["jenis"],
+                    "nomor": meta["nomor"],
+                    "tahun": meta["tahun"],
+                    "status": meta["status"] or "belum_dicek",
+                    "url_sumber": meta["url_sumber"],
+                },
+            }
+        )
     print(f"  {meta['doc_id']}: {len(out)} chunk")
     return out
+
+
+def _potong_karakter(pages: list[str]) -> list[dict[str, Any]]:
+    """Jalur cadangan Tahap 2: potong per halaman, tanpa nomor pasal."""
+    pemotong = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
+    keluar = []
+    for nomor_halaman, teks in enumerate(pages, start=1):
+        for bagian in pemotong.split_text(teks):
+            if bagian.strip():
+                keluar.append(
+                    {"teks": bagian, "pasal": None, "bab": None, "halaman": [nomor_halaman]}
+                )
+    return keluar
 
 
 def all_records(doc_ids: list[str] | None = None) -> list[dict[str, Any]]:

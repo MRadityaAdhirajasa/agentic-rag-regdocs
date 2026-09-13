@@ -49,10 +49,18 @@ def citation(payload: dict[str, Any]) -> str:
         )
     status = payload.get("status", "")
     tanda = "" if status == "berlaku" else f" [status: {status}]"
-    return (
-        f"{payload['jenis']} {payload['nomor']}/{payload['tahun']}, "
-        f"hal. {payload['halaman']}{tanda}"
-    )
+
+    # Sejak Tahap 5 sitasi menyebut pasalnya. Chunk dari bagian PENJELASAN
+    # atau dari dokumen yang gagal diparse tidak punya nomor pasal, jadi
+    # tetap disitasi dengan halaman saja — jangan mengarang nomor.
+    pasal = payload.get("pasal")
+    letak = f"Pasal {pasal}, " if pasal else ""
+    if payload.get("bab") == "PENJELASAN":
+        letak = "Penjelasan, "
+
+    span = payload.get("halaman_span") or [payload["halaman"]]
+    halaman = f"hal. {span[0]}" if len(span) == 1 else f"hal. {span[0]}-{span[-1]}"
+    return f"{payload['jenis']} {payload['nomor']}/{payload['tahun']}, {letak}{halaman}{tanda}"
 
 
 def answer(question: str, source_type: str | None = None) -> str:
