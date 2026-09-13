@@ -20,7 +20,11 @@ import sqlite3
 from array import array
 from pathlib import Path
 
-DB_PATH = Path("data/embed_cache.sqlite")
+from app.core.config import EMBED_CACHE_PATH
+
+# Bisa diarahkan lewat env: di dalam container letaknya beda, dan kalau
+# ikut hilang tiap container diganti, kuota harian terbakar percuma.
+DB_PATH = Path(EMBED_CACHE_PATH)
 
 Vector = list[float]
 

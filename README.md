@@ -3,15 +3,47 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 7 dari 13.
+> Status: dalam pengembangan. Tahap 8 dari 13.
 
 ## Menjalankan
 
 ```bash
-docker compose up -d                      # Qdrant
-make ingest                               # regulasi + FAQ -> Qdrant
-make chat                                 # tanya-jawab CLI dengan sitasi
+docker compose up -d      # Qdrant + API sekaligus
+make ingest               # regulasi + FAQ -> Qdrant
 ```
+
+Swagger siap dipakai di <http://localhost:8000/docs>.
+
+| Endpoint | Isi |
+|---|---|
+| `POST /api/v1/query` | `answer`, `citations`, `execution_time_seconds` |
+| `GET /health` | status Qdrant dan jumlah titik; tetap menjawab saat Qdrant mati |
+| `GET /documents` | sumber yang ada di korpus |
+
+```bash
+curl -X POST http://localhost:8000/api/v1/query   -H "Content-Type: application/json"   -d '{"question":"instansi mana yang berwenang menerbitkan PB UMKU"}'
+```
+
+Masih ada CLI-nya juga:
+
+```bash
+make chat
+```
+
+**Jaringan antar container:** API memanggil Qdrant lewat nama service
+(`http://qdrant:6333`), bukan `localhost` — di dalam container, `localhost`
+berarti container itu sendiri. Nilai ini di-set di `docker-compose.yml` dan
+menimpa `QDRANT_URL` dari `.env` yang menunjuk localhost untuk dipakai CLI.
+
+**Waktu tanggap** (diukur di dalam container):
+
+| | detik |
+|---|---|
+| panggilan pertama, model reranker diunduh | 129 |
+| dengan rerank | 8,8 |
+| `"rerank": false` | 2,2 |
+
+Model 1,1 GB disimpan di volume `api_cache`, jadi hanya diunduh sekali.
 
 Ingest per bagian, berguna karena kuota embedding harian terbatas:
 

@@ -1,4 +1,4 @@
-.PHONY: up down logs smoke check ingest ingest-reset chat eval eval-baseline lint fmt test all
+.PHONY: up down logs smoke check ingest ingest-reset chat api api-logs eval eval-baseline lint fmt test all
 
 
 up:
@@ -24,6 +24,12 @@ ingest-reset:
 
 chat:
 	uv run python -m scripts.chat
+
+api:
+	uv run uvicorn app.api.main:app --reload --port 8000
+
+api-logs:
+	docker compose logs -f api
 
 eval:
 	uv run python -m scripts.eval

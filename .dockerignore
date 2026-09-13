@@ -1,0 +1,18 @@
+.venv/
+.git/
+.github/
+.mypy_cache/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+dokumen/PDF/
+data/embed_cache.sqlite
+data/raw/
+data/processed/
+eval/
+docs/
+tests/
+scripts/
+plan & progress/
+*.pdf
+.env

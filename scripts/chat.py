@@ -13,54 +13,11 @@ sendiri: nomor halaman untuk regulasi, kategori dan tanggal untuk FAQ.
 Itu satu-satunya cara membuktikan sistem ini tidak mengarang.
 """
 
-import logging
 import sys
-from typing import Any
 
-from google import genai
-
-from app.core.config import GEMINI_MODEL, GOOGLE_API_KEY, require
+from app.core.citation import citation
+from app.core.generate import jawab
 from app.retrieval.search import search
-
-# SDK menyarankan Chat.send_message untuk function calling; kita tidak pakai
-# function calling sama sekali, jadi peringatannya cuma bising.
-logging.getLogger("google_genai.models").setLevel(logging.ERROR)
-
-PROMPT = """Jawab pertanyaan HANYA berdasarkan konteks di bawah.
-Kalau konteksnya tidak memuat jawabannya, bilang tidak tahu. Jangan mengarang.
-
-Konteks:
-{context}
-
-Pertanyaan: {question}
-Jawaban:"""
-
-
-def citation(payload: dict[str, Any]) -> str:
-    """Sitasi dibentuk berbeda per jenis sumber, karena yang bisa diverifikasi berbeda.
-
-    Regulasi bisa dibuka di halaman tertentu. FAQ tidak punya halaman, yang
-    relevan justru kategori dan kapan halamannya diakses — isinya bisa berubah.
-    """
-    if payload.get("source_type") == "faq":
-        return (
-            f"FAQ OSS — {payload['faq_category']}, diakses {payload['tanggal_akses']}"
-            f"\n      {payload['question']}"
-        )
-    status = payload.get("status", "")
-    tanda = "" if status == "berlaku" else f" [status: {status}]"
-
-    # Sejak Tahap 5 sitasi menyebut pasalnya. Chunk dari bagian PENJELASAN
-    # atau dari dokumen yang gagal diparse tidak punya nomor pasal, jadi
-    # tetap disitasi dengan halaman saja — jangan mengarang nomor.
-    pasal = payload.get("pasal")
-    letak = f"Pasal {pasal}, " if pasal else ""
-    if payload.get("bab") == "PENJELASAN":
-        letak = "Penjelasan, "
-
-    span = payload.get("halaman_span") or [payload["halaman"]]
-    halaman = f"hal. {span[0]}" if len(span) == 1 else f"hal. {span[0]}-{span[-1]}"
-    return f"{payload['jenis']} {payload['nomor']}/{payload['tahun']}, {letak}{halaman}{tanda}"
 
 
 def answer(question: str, source_type: str | None = None) -> str:
@@ -68,18 +25,17 @@ def answer(question: str, source_type: str | None = None) -> str:
     if not hits:
         return "Tidak ada dokumen yang cocok. Sudah jalankan `make ingest`?"
 
-    context = "\n\n---\n\n".join(str(h.payload["text"]) for h in hits if h.payload)
-    client = genai.Client(api_key=require("GOOGLE_API_KEY", GOOGLE_API_KEY))
-    resp = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=PROMPT.format(context=context, question=question),
-    )
-    sumber = "\n".join(
-        f"  [{i + 1}] {citation(h.payload)}  (skor {h.score:.3f})"
-        for i, h in enumerate(hits)
-        if h.payload
-    )
-    return f"{resp.text}\n\nSumber:\n{sumber}"
+    baris = []
+    for i, h in enumerate(hits, 1):
+        if not h.payload:
+            continue
+        baris.append(f"  [{i}] {citation(h.payload)}  (skor {h.score:.3f})")
+        # pertanyaan asli FAQ ditampilkan di CLI supaya sitasinya bisa dinilai
+        # sekilas; di API dia jadi field tersendiri, bukan bagian teks sitasi
+        if h.payload.get("question"):
+            baris.append(f"      {h.payload['question']}")
+    sumber = "\n".join(baris)
+    return f"{jawab(question, hits)}\n\nSumber:\n{sumber}"
 
 
 def main(argv: list[str]) -> None:

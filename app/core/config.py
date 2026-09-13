@@ -12,6 +12,8 @@ QDRANT_COLLECTION = os.getenv("QDRANT_COLLECTION", "regdocs")
 OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 EMBED_MODEL = os.getenv("EMBED_MODEL", "nvidia/nemotron-3-embed-1b:free")
 
+EMBED_CACHE_PATH = os.getenv("EMBED_CACHE_PATH", "data/embed_cache.sqlite")
+
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
