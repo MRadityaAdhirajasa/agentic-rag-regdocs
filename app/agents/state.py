@@ -51,3 +51,7 @@ class GraphState(TypedDict, total=False):
     retry_count: int
     strategy_history: list[dict[str, Any]]
     query_dipakai: str
+
+    # degraded mode (Tahap 11)
+    degraded_mode: bool
+    degraded_reason: list[str]

@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 10 dari 13.
+> Status: dalam pengembangan. Tahap 11 dari 13.
 
 ## Menjalankan
 
@@ -93,6 +93,25 @@ lebih dari cukup untuk menebus kemunduran itu. Eksperimen #3 (reranking
 cross-encoder) menaikkan recall@10 sebesar 0,117, tapi waktunya 26 ms jadi
 4.526 ms per pertanyaan. Tahap 9 memindahkan semuanya ke LangGraph tanpa
 mengubah satu pun angka — itu memang kriterianya.
+
+## Tahan banting
+
+Sistem tetap menjawab saat layanan luar mati — dengan `degraded_mode: true`
+dan alasan yang disebutkan, bukan error 500.
+
+| Yang mati | Akibat | Yang tetap jalan |
+|---|---|---|
+| Embedding (OpenRouter) | sisi dense hilang | BM25 + reranker lokal, pasal tetap keluar |
+| Routing (Gemini) | intent jatuh ke `lookup` tanpa filter | seluruh korpus tetap dicari |
+| Penyusun jawaban (Gemini) | kalimat jawaban hilang | sitasi dan kutipan mentah tetap dikembalikan |
+
+Dibuktikan dengan mengosongkan **kedua** API key lalu membuat ulang container:
+jawabannya `HTTP 200`, dan Pasal 227 — jawaban yang memang benar — tetap
+muncul di peringkat satu tanpa embedding sama sekali.
+
+Pagar lain: rate limit **10 permintaan/menit per IP**, budget LLM harian di
+level aplikasi (`BUDGET_LLM_HARIAN`, sisa terlihat di `/health`), dan batas
+keras `max_output_tokens`.
 
 ## Verifikasi dan percobaan ulang
 

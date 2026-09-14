@@ -8,11 +8,14 @@ retrieval yang sama, hanya dengan parameter berbeda.
 import logging
 
 from google import genai
+from qdrant_client.models import ScoredPoint
 
 from app.agents.state import GraphState
+from app.core import budget
 from app.core.citation import citation
 from app.core.config import GEMINI_MODEL, GOOGLE_API_KEY, require
 from app.core.entities import normalisasi
+from app.core.errors import LayananTidakTersedia
 from app.core.generate import jawab
 from app.retrieval.rerank import rerank
 from app.retrieval.search import KANDIDAT_RERANK, search
@@ -56,6 +59,8 @@ Tulis ulang:"""
 
 
 def _llm(prompt: str) -> str:
+    if budget.habis():
+        raise LayananTidakTersedia("Gemini", "budget LLM harian aplikasi habis")
     client = genai.Client(api_key=require("GOOGLE_API_KEY", GOOGLE_API_KEY))
     resp = client.models.generate_content(
         model=GEMINI_MODEL,
@@ -64,6 +69,7 @@ def _llm(prompt: str) -> str:
         # embedding tetap kena dan routing bisa diukur ulang dengan hasil sama
         config={"temperature": 0.0},
     )
+    budget.pakai()
     return str(resp.text).strip()
 
 
@@ -84,11 +90,18 @@ def route_intent(state: GraphState) -> GraphState:
     try:
         jawaban = _llm(PROMPT_ROUTE.format(question=state["original_query"])).lower()
     except Exception as e:  # noqa: BLE001
-        # Kuota LLM habis atau layanan mati. Routing yang gagal tidak boleh
-        # mematikan permintaan — mundur ke lookup tanpa filter, yang paling
-        # tidak merugikan. Degraded mode yang sebenarnya dibangun di Tahap 11.
+        # Routing yang gagal tidak boleh mematikan permintaan. Mundur ke
+        # lookup tanpa filter — pilihan yang paling tidak merugikan, karena
+        # tidak membuang satu pun sumber dari pencarian.
         print(f"  route_intent mundur ke lookup: {type(e).__name__}")
-        jawaban = "lookup"
+        source_type, top_k = PARAMETER["lookup"]
+        return {
+            "intent": "lookup",
+            "source_type": source_type,
+            "top_k": top_k,
+            "degraded_mode": True,
+            "degraded_reason": [*state.get("degraded_reason", []), f"routing: {e}"],
+        }
     intent = next((i for i in INTENT_VALID if i in jawaban), "lookup")
     source_type, top_k = PARAMETER[intent]
     return {"intent": intent, "source_type": source_type, "top_k": top_k}
@@ -100,12 +113,22 @@ def retrieve(state: GraphState) -> GraphState:
     # `query_dipakai` bisa diganti mutate_strategy saat percobaan ulang;
     # pada percobaan pertama isinya sama dengan hasil rewrite
     kalimat = state.get("query_dipakai") or state["rewritten_query"]
-    hits = search(
-        kalimat,
-        limit=jumlah,
-        source_type=state["source_type"],
-        rerank=False,
-    )
+    try:
+        hits = search(kalimat, limit=jumlah, source_type=state["source_type"], rerank=False)
+    except LayananTidakTersedia as e:
+        # Tanpa embedding, sisi dense mati total. Yang tersisa BM25 — dan itu
+        # jalan sepenuhnya di komputer sendiri, jadi pencarian tetap bisa.
+        # Mutunya turun, tapi pasal yang relevan tetap keluar.
+        print(f"  retrieve turun ke sparse-only: {e}")
+        hits = search(
+            kalimat, limit=jumlah, source_type=state["source_type"], rerank=False, mode="sparse"
+        )
+        return {
+            "retrieved_chunks": hits,
+            "query_dipakai": kalimat,
+            "degraded_mode": True,
+            "degraded_reason": [*state.get("degraded_reason", []), f"embedding: {e}"],
+        }
     return {"retrieved_chunks": hits, "query_dipakai": kalimat}
 
 
@@ -117,10 +140,43 @@ def rerank_node(state: GraphState) -> GraphState:
     return {"reranked_chunks": hasil}
 
 
+def _ringkas_tanpa_llm(hits: list[ScoredPoint]) -> str:
+    """Jawaban pengganti saat LLM mati: kutipan mentah, tanpa dirangkai.
+
+    Sengaja tidak menyusun kalimat sendiri. Merangkai tanpa model justru
+    berisiko menyiratkan kesimpulan yang tidak ada di teksnya.
+    """
+    if not hits:
+        return "Layanan penyusun jawaban sedang tidak tersedia, dan tidak ada potongan yang cocok."
+    baris = [
+        "Layanan penyusun jawaban sedang tidak tersedia. Berikut potongan aturan "
+        "yang paling relevan, silakan baca langsung:",
+        "",
+    ]
+    for i, h in enumerate(hits, 1):
+        if h.payload:
+            baris.append(f"[{i}] {citation(h.payload)}")
+            baris.append(f"    {str(h.payload['text'])[:400]}")
+    return "\n".join(baris)
+
+
 def generate(state: GraphState) -> GraphState:
     hits = state["reranked_chunks"]
+    try:
+        teks = jawab(state["original_query"], hits)
+        turun: GraphState = {}
+    except Exception as e:  # noqa: BLE001
+        # Inti Tahap 11: tanpa LLM, sistem tetap mengembalikan pasal yang
+        # relevan. Yang hilang cuma perangkaian kalimatnya.
+        print(f"  generate turun ke kutipan mentah: {type(e).__name__}")
+        teks = _ringkas_tanpa_llm(hits)
+        turun = {
+            "degraded_mode": True,
+            "degraded_reason": [*state.get("degraded_reason", []), f"generate: {e}"],
+        }
     return {
-        "answer": jawab(state["original_query"], hits),
+        **turun,
+        "answer": teks,
         "citations": [
             {**h.payload, "citation": citation(h.payload), "score": h.score}
             for h in hits

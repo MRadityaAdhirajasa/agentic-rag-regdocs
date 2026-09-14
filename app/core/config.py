@@ -4,6 +4,8 @@ import os
 
 from dotenv import load_dotenv
 
+from app.core.errors import LayananTidakTersedia
+
 load_dotenv()
 
 QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
@@ -19,7 +21,11 @@ GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
 
 def require(name: str, value: str) -> str:
-    """Gagal keras dan jelas kalau key belum diisi, bukan 401 misterius dari server."""
+    """Gagal keras dan jelas kalau key belum diisi, bukan 401 misterius dari server.
+
+    Sejak Tahap 11 jenis error-nya khusus, supaya pemanggil bisa memilih
+    menurunkan mutu layanan alih-alih mati.
+    """
     if not value:
-        raise RuntimeError(f"{name} kosong. Isi di file .env lalu jalankan lagi.")
+        raise LayananTidakTersedia(name, "key kosong di .env")
     return value

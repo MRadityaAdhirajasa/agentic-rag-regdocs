@@ -6,13 +6,18 @@ tetap untuk membandingkan hasil sebelum dan sesudah. Kontrak di bawah ini
 sengaja dikunci sekarang, saat isinya masih sederhana.
 """
 
+import os
 import time
 from typing import Any
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel, Field
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.errors import RateLimitExceeded
+from slowapi.util import get_remote_address
 
 from app.agents.graph import tanya
+from app.core import budget
 from app.core.citation import citation
 from app.core.config import QDRANT_COLLECTION
 from app.ingestion.faq import FAQ_DIR
@@ -25,8 +30,17 @@ app = FastAPI(
         "Tanya-jawab atas peraturan perizinan berusaha berbasis risiko, "
         "dengan sitasi tingkat pasal yang bisa diverifikasi."
     ),
-    version="0.10.0",
+    version="0.11.0",
 )
+
+# Rate limit per alamat IP. Tanpa ini, satu klien yang mengulang-ulang bisa
+# menghabiskan kuota LLM harian untuk semua orang dalam hitungan menit.
+BATAS_QUERY = os.getenv("RATE_LIMIT_QUERY", "10/minute")
+limiter = Limiter(key_func=get_remote_address)
+app.state.limiter = limiter
+# tanda abaikan tipe: slowapi menuliskan handler-nya untuk RateLimitExceeded,
+# sedangkan Starlette mengharapkan Exception yang lebih umum
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)  # type: ignore[arg-type]
 
 
 class Citation(BaseModel):
@@ -85,6 +99,11 @@ class QueryResponse(BaseModel):
     strategy_history: list[dict[str, Any]] = Field(
         default_factory=list, description="Parameter yang diubah di tiap percobaan ulang"
     )
+    # Tahap 11. True kalau ada layanan luar yang mati dan sistem turun mutu.
+    degraded_mode: bool = False
+    degraded_reason: list[str] = Field(
+        default_factory=list, description="Apa yang mati, dan akibatnya pada jawaban ini"
+    )
 
 
 class DocumentInfo(BaseModel):
@@ -109,7 +128,7 @@ def _ke_citation(payload: dict[str, Any], score: float) -> Citation:
     )
 
 
-@app.get("/health", summary="Cek Qdrant hidup dan collection terisi")
+@app.get("/health", summary="Cek Qdrant hidup, collection terisi, dan sisa budget")
 def health() -> dict[str, Any]:
     from app.ingestion.store import connect
 
@@ -121,6 +140,7 @@ def health() -> dict[str, Any]:
         "status": "ok" if jumlah else "kosong",
         "collection": QDRANT_COLLECTION,
         "jumlah_titik": jumlah,
+        "budget_llm": budget.status(),
     }
 
 
@@ -148,7 +168,8 @@ def documents() -> list[DocumentInfo]:
 
 
 @app.post("/api/v1/query", response_model=QueryResponse, summary="Tanya korpus")
-def query(req: QueryRequest) -> QueryResponse:
+@limiter.limit(BATAS_QUERY)
+def query(request: Request, req: QueryRequest) -> QueryResponse:
     mulai = time.perf_counter()
     state = tanya(req.question, rerank=req.rerank, top_k=req.top_k, verify=req.verify)
     hits = state["reranked_chunks"]
@@ -164,4 +185,6 @@ def query(req: QueryRequest) -> QueryResponse:
         reasoning=state.get("reasoning"),
         retry_count=state.get("retry_count", 0),
         strategy_history=state.get("strategy_history", []),
+        degraded_mode=state.get("degraded_mode", False),
+        degraded_reason=state.get("degraded_reason", []),
     )

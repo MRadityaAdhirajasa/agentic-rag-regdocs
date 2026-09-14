@@ -412,3 +412,97 @@ penjelasan tidak punya nomor pasal, dan `None`-nya ikut tercetak sejak Tahap 5
 — tidak terlihat selama id itu hanya dipakai di dalam sistem. Sekarang
 penanda babnya yang dipakai: `pp-28-2025:pembukaan:0`. Ingest ulang nol
 request, karena teksnya tidak berubah.
+
+---
+
+## Tahap 11 — Tahan banting
+
+Tidak ada eksperimen bernomor: angka retrieval tidak berubah (0,583 / 0,767 /
+0,567 / 0,564). Yang ditambahkan perilaku saat sesuatu rusak.
+
+### Kriteria roadmap: terpenuhi
+
+> Cabut API key dari `.env`, restart, kirim query — sistem tetap mengembalikan
+> pasal yang relevan tanpa error.
+
+Kedua key dikosongkan, container dibuat ulang:
+
+```
+HTTP 200
+degraded_mode : true
+degraded_reason:
+  - routing:   GOOGLE_API_KEY tidak tersedia: key kosong di .env
+  - embedding: OPENROUTER_API_KEY tidak tersedia: key kosong di .env
+  - generate:  GOOGLE_API_KEY tidak tersedia: key kosong di .env
+
+[1] PP 28/2025, Pasal 227, hal. 127
+    (1) Sebelum melakukan kegiatan usaha yang termasuk ke dalam tingkat
+    Risiko tinggi, Pelaku Usaha wajib memiliki NIB ...
+```
+
+Pasal 227 memang jawaban yang benar untuk pertanyaan itu — dan ditemukan
+**tanpa embedding sama sekali**. Seperti diperingatkan roadmap, jalur ini
+sparse-only; BM25 dan reranker dua-duanya jalan di komputer sendiri.
+
+### Tiga pintu, tiga jalur mundur
+
+| Yang mati | Akibat | Yang tetap jalan |
+|---|---|---|
+| Embedding (OpenRouter) | sisi dense hilang | BM25 + reranker, pasal tetap keluar |
+| Routing (Gemini) | intent jatuh ke `lookup` tanpa filter | seluruh korpus tetap dicari |
+| Penyusun jawaban (Gemini) | kalimat jawaban hilang | sitasi dan kutipan mentah tetap dikembalikan |
+
+Saat routing buta, filter sengaja **dibuang**, bukan ditebak. Menebak filter
+berarti membuang sumber yang mungkin justru berisi jawabannya.
+
+Saat penyusun jawaban mati, sistem **tidak merangkai kalimat sendiri** —
+hanya mengutip apa adanya. Merangkai tanpa model berisiko menyiratkan
+kesimpulan yang tidak ada di teksnya, dan itu lebih berbahaya daripada
+menyerahkan kutipan mentah ke pembaca.
+
+### `SystemExit` yang harus diganti
+
+Sejak Tahap 3, kuota embedding habis melempar `SystemExit`. Di CLI itu wajar.
+Di dalam server, `SystemExit` berubah jadi 500 — persis yang dilarang tahap
+ini. Sekarang ada `LayananTidakTersedia`, jenis error tersendiri, supaya
+pemanggil bisa membedakan "layanan luar mati" dari "ada bug di kode kita".
+Yang pertama diturunkan mutunya dengan anggun; yang kedua tetap berisik.
+
+### Bug yang ketemu saat diuji: budget bocor
+
+Pagar budget mula-mula cuma dipasang di `route_intent`. Hasilnya: budget
+dilaporkan habis, `degraded_mode: true`, tapi jawaban **tetap tersusun** —
+karena `jawab()` dan `_nilai()` tidak ikut memeriksa. Budget yang bocor di
+satu pintu sama saja tidak ada budget.
+
+Sekarang ketiga pintu ke LLM memeriksa pagar yang sama, dan ada test yang
+memanggil ketiganya sekaligus supaya pintu keempat yang lupa dipagari akan
+ketahuan.
+
+Bukti setelah diperbaiki, dengan ambang sengaja disetel 2:
+
+```
+panggilan 1 : degraded=False  "Lembaga OSS."
+panggilan 2 : degraded=True   "Layanan penyusun jawaban sedang tidak tersedia..."
+panggilan 3 : degraded=True   "Layanan penyusun jawaban sedang tidak tersedia..."
+```
+
+### Rate limit
+
+10 permintaan per menit per alamat IP (`RATE_LIMIT_QUERY`). Diuji dengan 13
+permintaan beruntun: sepuluh pertama `200`, sisanya `429` dengan pesan yang
+menyebut batasnya.
+
+Tanpa ini, satu klien yang mengulang-ulang bisa menghabiskan kuota LLM harian
+untuk semua orang dalam hitungan menit.
+
+### Yang sengaja tidak dibangun
+
+Roadmap sendiri menandai dua hal di tahap ini boleh dilewat, dan keduanya
+dilewat: **upload endpoint asynchronous** dan **cache jawaban untuk query
+identik**. Keduanya tidak menambah pelajaran baru di proyek ini, dan cache
+jawaban akan mengaburkan pengukuran latensi di Tahap 13.
+
+Batas yang disadari: hitungan budget disimpan di memori proses, jadi ikut nol
+saat container dibuat ulang dan tidak dibagi antar replika. Cukup untuk satu
+container; kalau nanti jalan lebih dari satu, pindahkan ke Redis.

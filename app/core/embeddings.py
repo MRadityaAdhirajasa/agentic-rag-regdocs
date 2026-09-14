@@ -21,6 +21,7 @@ import httpx
 
 from app.core.cache import EmbedCache
 from app.core.config import EMBED_MODEL, OPENROUTER_API_KEY, require
+from app.core.errors import LayananTidakTersedia
 
 URL = "https://openrouter.ai/api/v1/embeddings"
 BATCH = 256  # batas keras server OpenRouter; 512 ditolak 400
@@ -43,10 +44,10 @@ def _jeda_atau_menyerah(resp: httpx.Response, percobaan: int) -> float:
     berjam-jam sambil pura-pura bekerja. Lebih jujur berhenti dan bilang kenapa.
     """
     if "free-models-per-day" in resp.text:
-        raise SystemExit(
-            "Kuota embedding harian OpenRouter habis (50 request/hari).\n"
-            "Pulih pada 00:00 UTC (07:00 WIB). Yang sudah ter-embed tersimpan "
-            "di cache, jadi menjalankan ulang nanti tidak mengulang dari nol."
+        raise LayananTidakTersedia(
+            "OpenRouter",
+            "kuota harian habis (50 request/hari), pulih 00:00 UTC / 07:00 WIB. "
+            "Yang sudah ter-embed tersimpan di cache.",
         )
     # eksponensial plus jitter: tanpa jitter, beberapa proses yang kena limit
     # bersamaan akan mencoba lagi pada detik yang sama persis, dan bertabrakan lagi
@@ -75,9 +76,11 @@ def _minta(client: httpx.Client, key: str, batch: list[str]) -> list[Vector]:
             time.sleep(jeda)
             continue
 
+        if resp.status_code in (401, 403):
+            raise LayananTidakTersedia("OpenRouter", f"key ditolak ({resp.status_code})")
         raise RuntimeError(f"OpenRouter {resp.status_code}: {resp.text[:500]}")
 
-    raise RuntimeError(f"Menyerah setelah {MAX_PERCOBAAN} percobaan.")
+    raise LayananTidakTersedia("OpenRouter", f"menyerah setelah {MAX_PERCOBAAN} percobaan")
 
 
 def embed(texts: list[str], kind: str = "document", pakai_cache: bool = True) -> list[Vector]:

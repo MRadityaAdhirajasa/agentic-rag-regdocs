@@ -18,7 +18,9 @@ from google import genai
 from pydantic import BaseModel
 
 from app.agents.state import GraphState
+from app.core import budget
 from app.core.config import GEMINI_MODEL, GOOGLE_API_KEY, require
+from app.core.errors import LayananTidakTersedia
 
 logging.getLogger("google_genai.models").setLevel(logging.ERROR)
 
@@ -64,6 +66,8 @@ JAWABAN: {answer}"""
 
 
 def _nilai(question: str, answer: str, context: str) -> Penilaian:
+    if budget.habis():
+        raise LayananTidakTersedia("Gemini", "budget LLM harian aplikasi habis")
     client = genai.Client(api_key=require("GOOGLE_API_KEY", GOOGLE_API_KEY))
     resp = client.models.generate_content(
         model=GEMINI_MODEL,
@@ -74,6 +78,7 @@ def _nilai(question: str, answer: str, context: str) -> Penilaian:
             "temperature": 0.0,
         },
     )
+    budget.pakai()
     hasil = resp.parsed
     if not isinstance(hasil, Penilaian):
         potongan = (resp.text or "")[:200]

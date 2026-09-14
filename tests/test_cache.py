@@ -9,6 +9,7 @@ import pytest
 
 from app.core import embeddings
 from app.core.cache import EmbedCache
+from app.core.errors import LayananTidakTersedia
 
 
 def test_cache_bolak_balik(tmp_path) -> None:  # type: ignore[no-untyped-def]
@@ -56,8 +57,12 @@ def test_limit_per_menit_ditunggu() -> None:
 
 
 def test_limit_per_hari_langsung_berhenti() -> None:
-    """429 harian: menunggu tidak ada gunanya sampai besok, jadi harus berhenti."""
-    with pytest.raises(SystemExit, match="harian"):
+    """429 harian: menunggu tidak ada gunanya sampai besok, jadi harus berhenti.
+
+    Sejak Tahap 11 jenis error-nya khusus, bukan SystemExit — di dalam server
+    SystemExit berubah jadi 500, dan 500 justru yang dilarang.
+    """
+    with pytest.raises(LayananTidakTersedia, match="kuota harian"):
         embeddings._jeda_atau_menyerah(_resp(429, "free-models-per-day exceeded"), 0)
 
 
