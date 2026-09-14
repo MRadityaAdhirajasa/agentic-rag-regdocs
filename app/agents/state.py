@@ -7,7 +7,9 @@ sudah diisi node sebelumnya.
 
 Itu yang memungkinkan Tahap 10: node verifikasi perlu melihat pertanyaan
 asli, hasil pencarian, dan jawaban sekaligus — mustahil kalau tiap langkah
-hanya menerima keluaran langkah tepat sebelumnya.
+hanya menerima keluaran langkah tepat sebelumnya. Dan saat percobaan diulang,
+`strategy_history` menumpuk di state yang sama, sehingga jejak keputusan ikut
+terbawa sampai ke respons.
 """
 
 from typing import Any, TypedDict
@@ -37,3 +39,15 @@ class GraphState(TypedDict, total=False):
     # generate
     answer: str
     citations: list[dict[str, Any]]
+
+    # verify (Tahap 10, opt-in)
+    verify_aktif: bool
+    verdict: str
+    unsupported_claims: list[str]
+    supporting_chunk_ids: list[str]
+    reasoning: str
+
+    # mutate_strategy
+    retry_count: int
+    strategy_history: list[dict[str, Any]]
+    query_dipakai: str

@@ -1,13 +1,22 @@
-"""Perakitan graph. Alurnya lurus di Tahap 9; percabangan baru di Tahap 10.
+"""Perakitan graph.
 
-Kenapa dipindah ke graph padahal alurnya masih lurus: Tahap 10 menambahkan
-node verifikasi yang bisa memutuskan untuk mencoba ulang dengan strategi
-berbeda. Loop seperti itu tidak bisa ditulis sebagai rangkaian pemanggilan
-fungsi biasa tanpa berubah jadi kekusutan if-else. Struktur graph dibangun
-sekarang, saat isinya masih bisa dibaca sekali lihat.
+Sejak Tahap 10 alurnya tidak lurus lagi. Setelah `generate`, node `verify`
+menilai jawaban, dan sebuah **conditional edge** memutuskan: selesai, atau
+kembali ke `retrieve` lewat `mutate_strategy` dengan parameter yang sudah
+diubah. Inilah alasan sebenarnya struktur graph dipakai — percabangan yang
+kembali ke node sebelumnya tidak bisa ditulis sebagai rangkaian pemanggilan
+fungsi tanpa berubah jadi kekusutan if-else.
 
-Dua panggilan LLM terjadi sebelum pencarian: satu untuk routing, satu lagi
-untuk perluasan istilah kalau `ekspansi_llm` dinyalakan.
+    rewrite -> route -> retrieve -> rerank -> generate -> verify --+
+                          ^                                        |
+                          |                                        |
+                          +---- mutate_strategy <--- "ulangi" -----+
+                                                     "selesai" --> END
+
+Ongkos per pertanyaan: 1 panggilan LLM untuk routing, 1 untuk menyusun
+jawaban. Kalau `verify` dinyalakan, tambah 1 lagi; dan tiap percobaan ulang
+menambah 2 (susun ulang, lalu nilai lagi). Dengan `max_retries = 2`, batas
+atasnya 7 panggilan untuk satu pertanyaan. Karena itu verifikasi opt-in.
 """
 
 from functools import lru_cache
@@ -17,6 +26,7 @@ from langgraph.graph import END, START, StateGraph
 
 from app.agents.nodes import generate, rerank_node, retrieve, rewrite_query, route_intent
 from app.agents.state import GraphState
+from app.agents.verify import cukup_atau_ulangi, mutate_strategy, verify
 
 
 @lru_cache(maxsize=1)
@@ -27,13 +37,23 @@ def bangun() -> Any:
     g.add_node("retrieve", retrieve)
     g.add_node("rerank", rerank_node)
     g.add_node("generate", generate)
+    g.add_node("verify", verify)
+    g.add_node("mutate_strategy", mutate_strategy)
 
     g.add_edge(START, "rewrite_query")
     g.add_edge("rewrite_query", "route_intent")
     g.add_edge("route_intent", "retrieve")
     g.add_edge("retrieve", "rerank")
     g.add_edge("rerank", "generate")
-    g.add_edge("generate", END)
+    g.add_edge("generate", "verify")
+    g.add_conditional_edges(
+        "verify",
+        cukup_atau_ulangi,
+        {"selesai": END, "ulangi": "mutate_strategy"},
+    )
+    # kembali ke retrieve, bukan ke rewrite: yang diubah parameter pencarian,
+    # bukan pertanyaannya dari awal
+    g.add_edge("mutate_strategy", "retrieve")
     return g.compile()
 
 
@@ -42,6 +62,7 @@ def tanya(
     rerank: bool = True,
     ekspansi_llm: bool = False,
     top_k: int | None = None,
+    verify: bool = False,
 ) -> GraphState:
     """Jalankan graph untuk satu pertanyaan, kembalikan state akhirnya.
 
@@ -53,6 +74,9 @@ def tanya(
         "original_query": question,
         "rerank_aktif": rerank,
         "ekspansi_llm": ekspansi_llm,
+        "verify_aktif": verify,
+        "retry_count": 0,
+        "strategy_history": [],
     }
     hasil: GraphState = bangun().invoke(awal)
     if top_k is not None:

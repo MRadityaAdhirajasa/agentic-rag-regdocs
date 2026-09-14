@@ -25,7 +25,7 @@ app = FastAPI(
         "Tanya-jawab atas peraturan perizinan berusaha berbasis risiko, "
         "dengan sitasi tingkat pasal yang bisa diverifikasi."
     ),
-    version="0.9.0",
+    version="0.10.0",
 )
 
 
@@ -55,6 +55,13 @@ class QueryRequest(BaseModel):
         default=True,
         description="Penyusunan ulang cross-encoder. Menaikkan mutu, menambah ~4,5 detik",
     )
+    verify: bool = Field(
+        default=False,
+        description=(
+            "Nilai jawaban terhadap potongan yang dipakai, dan coba ulang dengan "
+            "strategi berbeda kalau tidak didukung. Menambah 1 sampai 5 panggilan LLM"
+        ),
+    )
 
 
 class QueryResponse(BaseModel):
@@ -66,6 +73,17 @@ class QueryResponse(BaseModel):
     intent: str | None = Field(default=None, description="Hasil route_intent")
     rewritten_query: str | None = Field(
         default=None, description="Pertanyaan setelah ditulis ulang"
+    )
+    # Tahap 10. Terisi hanya kalau verify=true diminta.
+    verdict: str | None = Field(
+        default=None, description="supported / partial / unsupported / tidak_diverifikasi"
+    )
+    unsupported_claims: list[str] = Field(default_factory=list)
+    supporting_chunk_ids: list[str] = Field(default_factory=list)
+    reasoning: str | None = None
+    retry_count: int = 0
+    strategy_history: list[dict[str, Any]] = Field(
+        default_factory=list, description="Parameter yang diubah di tiap percobaan ulang"
     )
 
 
@@ -132,7 +150,7 @@ def documents() -> list[DocumentInfo]:
 @app.post("/api/v1/query", response_model=QueryResponse, summary="Tanya korpus")
 def query(req: QueryRequest) -> QueryResponse:
     mulai = time.perf_counter()
-    state = tanya(req.question, rerank=req.rerank, top_k=req.top_k)
+    state = tanya(req.question, rerank=req.rerank, top_k=req.top_k, verify=req.verify)
     hits = state["reranked_chunks"]
     return QueryResponse(
         answer=state["answer"],
@@ -140,4 +158,10 @@ def query(req: QueryRequest) -> QueryResponse:
         execution_time_seconds=round(time.perf_counter() - mulai, 3),
         intent=state.get("intent"),
         rewritten_query=state.get("rewritten_query"),
+        verdict=state.get("verdict"),
+        unsupported_claims=state.get("unsupported_claims", []),
+        supporting_chunk_ids=state.get("supporting_chunk_ids", []),
+        reasoning=state.get("reasoning"),
+        retry_count=state.get("retry_count", 0),
+        strategy_history=state.get("strategy_history", []),
     )

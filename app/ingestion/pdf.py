@@ -117,8 +117,14 @@ def records(meta: dict[str, str]) -> list[dict[str, Any]]:
             {
                 "text": pot["teks"],
                 "payload": {
-                    # chunk_id ikut nomor pasal, bukan nomor urut karakter
-                    "chunk_id": f"{meta['doc_id']}:p{pot['pasal']}:{i}",
+                    # chunk_id ikut nomor pasal, bukan nomor urut karakter.
+                    # Chunk pembukaan dan penjelasan tidak punya nomor pasal;
+                    # penanda babnya yang dipakai, bukan "pNone".
+                    "chunk_id": (
+                        f"{meta['doc_id']}:p{pot['pasal']}:{i}"
+                        if pot["pasal"]
+                        else f"{meta['doc_id']}:{str(pot['bab'] or 'lain').lower()}:{i}"
+                    ),
                     "doc_id": meta["doc_id"],
                     "source_type": "regulasi",
                     "text": pot["teks"],

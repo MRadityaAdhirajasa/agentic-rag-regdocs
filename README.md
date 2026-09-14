@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 9 dari 13.
+> Status: dalam pengembangan. Tahap 10 dari 13.
 
 ## Menjalankan
 
@@ -16,7 +16,7 @@ Swagger siap dipakai di <http://localhost:8000/docs>.
 
 | Endpoint | Isi |
 |---|---|
-| `POST /api/v1/query` | `answer`, `citations`, `execution_time_seconds` |
+| `POST /api/v1/query` | `answer`, `citations`, `execution_time_seconds`, `intent`, `verdict` |
 | `GET /health` | status Qdrant dan jumlah titik; tetap menjawab saat Qdrant mati |
 | `GET /documents` | sumber yang ada di korpus |
 
@@ -93,6 +93,32 @@ lebih dari cukup untuk menebus kemunduran itu. Eksperimen #3 (reranking
 cross-encoder) menaikkan recall@10 sebesar 0,117, tapi waktunya 26 ms jadi
 4.526 ms per pertanyaan. Tahap 9 memindahkan semuanya ke LangGraph tanpa
 mengubah satu pun angka — itu memang kriterianya.
+
+## Verifikasi dan percobaan ulang
+
+Opsional lewat `"verify": true`. Jawaban dinilai terhadap potongan yang
+dipakai menyusunnya; kalau tidak didukung, sistem mencoba ulang dengan
+**parameter yang wajib berbeda**, maksimal dua kali.
+
+```bash
+curl -X POST http://localhost:8000/api/v1/query   -H "Content-Type: application/json"   -d '{"question":"berapa tarif pajak penghasilan badan","verify":true}'
+```
+
+```json
+{ "verdict": "unsupported", "retry_count": 2, "answer": "Tidak tahu.",
+  "strategy_history": [
+    {"percobaan": 1, "perubahan": "lebarkan: buang filter sumber, gandakan top_k"},
+    {"percobaan": 2, "perubahan": "kembali ke pertanyaan asli tanpa perluasan alias"}]}
+```
+
+Pertanyaan di luar korpus dijawab "tidak didukung" beserta potongan yang
+sempat ditemukan — bukan dikarang, bukan error 500.
+
+| | detik | panggilan LLM |
+|---|---|---|
+| `verify: false` (bawaan) | 4,9 | 2 |
+| `verify: true`, didukung | 12,2 | 3 |
+| `verify: true`, di luar korpus | 24,7 | 4 |
 
 ## Routing
 

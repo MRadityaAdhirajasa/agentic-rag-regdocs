@@ -97,19 +97,23 @@ def route_intent(state: GraphState) -> GraphState:
 def retrieve(state: GraphState) -> GraphState:
     """Ambil kandidat. Saat reranking aktif, ambil lebih banyak dulu."""
     jumlah = KANDIDAT_RERANK if state.get("rerank_aktif", True) else state["top_k"]
+    # `query_dipakai` bisa diganti mutate_strategy saat percobaan ulang;
+    # pada percobaan pertama isinya sama dengan hasil rewrite
+    kalimat = state.get("query_dipakai") or state["rewritten_query"]
     hits = search(
-        state["rewritten_query"],
+        kalimat,
         limit=jumlah,
         source_type=state["source_type"],
         rerank=False,
     )
-    return {"retrieved_chunks": hits}
+    return {"retrieved_chunks": hits, "query_dipakai": kalimat}
 
 
 def rerank_node(state: GraphState) -> GraphState:
     if not state.get("rerank_aktif", True):
         return {"reranked_chunks": state["retrieved_chunks"][: state["top_k"]]}
-    hasil = rerank(state["rewritten_query"], state["retrieved_chunks"], state["top_k"])
+    kalimat = state.get("query_dipakai") or state["rewritten_query"]
+    hasil = rerank(kalimat, state["retrieved_chunks"], state["top_k"])
     return {"reranked_chunks": hasil}
 
 

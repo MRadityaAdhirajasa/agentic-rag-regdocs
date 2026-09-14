@@ -342,3 +342,73 @@ berubah jadi "PB UMKU (Perizinan Berusaha untuk Menunjang Kegiatan Usaha)",
 lalu potongan "PB UMKU" di dalamnya tertangkap alias berikutnya dan diperluas
 lagi. Sekarang seluruh penggantian dilakukan dalam satu kali jalan, sehingga
 teks yang baru disisipkan tidak ikut terpindai.
+
+---
+
+## Tahap 10 — Verifikasi dan percobaan ulang
+
+Tidak ada eksperimen bernomor di sini: yang ditambahkan kemampuan baru, bukan
+perubahan cara mencari. Angka retrieval tidak berubah (0,583 / 0,767 / 0,567 /
+0,564), dan memang tidak seharusnya berubah — `verify` bekerja **setelah**
+jawaban tersusun.
+
+### Kriteria roadmap: terpenuhi
+
+> Ada satu pertanyaan yang kamu tahu jawabannya tidak ada di korpus, dan
+> sistem menjawab "tidak didukung" dengan `strategy_history` yang menunjukkan
+> dua percobaan berbeda.
+
+```
+question    : berapa tarif pajak penghasilan badan di Indonesia
+verdict     : unsupported
+retry_count : 2
+answer      : Tidak tahu.
+sitasi      : 2 (tetap dikembalikan)
+strategy_history:
+  #1 lebarkan: buang filter sumber, gandakan top_k
+  #2 kembali ke pertanyaan asli tanpa perluasan alias
+```
+
+Tidak mengarang, tidak 500, dan potongan yang sempat ditemukan tetap
+dikembalikan supaya penanya bisa menilai sendiri.
+
+### Ongkos: tiga jalur, tiga harga
+
+| | detik | panggilan LLM |
+|---|---|---|
+| `verify: false` (bawaan) | 4,9 | 2 |
+| `verify: true`, jawaban didukung | 12,2 | 3 |
+| `verify: true`, di luar korpus (2 percobaan) | 24,7 | 4 |
+
+Batas atasnya 7 panggilan kalau tiap percobaan ulang tetap menghasilkan klaim
+yang perlu dinilai. Karena itu verifikasi opt-in, bukan bawaan.
+
+### Taksonomi yang sempat salah
+
+Percobaan pertama, penilai menyatakan **`supported`** untuk jawaban "Tidak
+tahu." — dan secara logika dia benar: penolakan itu memang didukung konteks.
+Yang salah taksonomi kita, yang mencampur dua hal berbeda:
+
+1. jawaban mengarang (buruk)
+2. korpus tidak memuat jawabannya (bukan salah jawabannya)
+
+Perbaikannya sekaligus menghemat kuota: **penolakan dikenali tanpa memanggil
+LLM sama sekali.** Frasa "tidak tahu" itu kita sendiri yang perintahkan lewat
+prompt penyusun jawaban, jadi mencocokkannya bukan tebakan atas bahasa bebas
+model. Jalur yang paling sering diulang justru jadi jalur yang paling murah.
+
+### Aturan "wajib berubah" ditegakkan kode, bukan komentar
+
+Roadmap menuntut tiap percobaan ulang mengubah minimal satu parameter.
+`mutate_strategy` membandingkan parameter sebelum dan sesudah, lalu melempar
+error kalau sama. Ada test yang sengaja memancing keadaan itu — kalau suatu
+saat aturan mutasinya diubah dan jadi mandul, test-nya yang berteriak, bukan
+kuota yang diam-diam habis.
+
+### Cacat kosmetik yang ketahuan lewat API
+
+`supporting_chunk_ids` memunculkan `pp-28-2025:pNone:464`. Chunk pembukaan dan
+penjelasan tidak punya nomor pasal, dan `None`-nya ikut tercetak sejak Tahap 5
+— tidak terlihat selama id itu hanya dipakai di dalam sistem. Sekarang
+penanda babnya yang dipakai: `pp-28-2025:pembukaan:0`. Ingest ulang nol
+request, karena teksnya tidak berubah.
