@@ -12,7 +12,8 @@ hanya menerima keluaran langkah tepat sebelumnya. Dan saat percobaan diulang,
 terbawa sampai ke respons.
 """
 
-from typing import Any, TypedDict
+import operator
+from typing import Annotated, Any, TypedDict
 
 from qdrant_client.models import ScoredPoint
 
@@ -55,3 +56,8 @@ class GraphState(TypedDict, total=False):
     # degraded mode (Tahap 11)
     degraded_mode: bool
     degraded_reason: list[str]
+
+    # pemantauan (Tahap 12). `operator.add` membuat tiap node MENAMBAH
+    # catatannya sendiri, bukan menimpa catatan node sebelumnya — dan saat
+    # graph berputar, percobaan kedua ikut tercatat, tidak menghapus yang pertama.
+    trace: Annotated[list[dict[str, Any]], operator.add]

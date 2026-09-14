@@ -40,6 +40,12 @@ eval-baseline:
 eval-routing:
 	uv run python -m scripts.eval_routing
 
+eval-gate:
+	uv run python -m scripts.eval_gate
+
+fixture:
+	uv run python -m scripts.buat_fixture
+
 lint:
 	uv run ruff check .
 	uv run mypy app scripts

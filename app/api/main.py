@@ -30,7 +30,7 @@ app = FastAPI(
         "Tanya-jawab atas peraturan perizinan berusaha berbasis risiko, "
         "dengan sitasi tingkat pasal yang bisa diverifikasi."
     ),
-    version="0.11.0",
+    version="0.12.0",
 )
 
 # Rate limit per alamat IP. Tanpa ini, satu klien yang mengulang-ulang bisa
@@ -103,6 +103,10 @@ class QueryResponse(BaseModel):
     degraded_mode: bool = False
     degraded_reason: list[str] = Field(
         default_factory=list, description="Apa yang mati, dan akibatnya pada jawaban ini"
+    )
+    # Tahap 12. Lama tiap node, bahan tabel benchmark Tahap 13.
+    trace: list[dict[str, Any]] = Field(
+        default_factory=list, description="Lama tiap node graph, dalam milidetik"
     )
 
 
@@ -187,4 +191,5 @@ def query(request: Request, req: QueryRequest) -> QueryResponse:
         strategy_history=state.get("strategy_history", []),
         degraded_mode=state.get("degraded_mode", False),
         degraded_reason=state.get("degraded_reason", []),
+        trace=state.get("trace", []),
     )

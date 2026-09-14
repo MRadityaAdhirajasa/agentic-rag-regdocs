@@ -506,3 +506,106 @@ jawaban akan mengaburkan pengukuran latensi di Tahap 13.
 Batas yang disadari: hitungan budget disimpan di memori proses, jadi ikut nol
 saat container dibuat ulang dan tidak dibagi antar replika. Cukup untuk satu
 container; kalau nanti jalan lebih dari satu, pindahkan ke Redis.
+
+---
+
+## Tahap 12 — Terpantau dan terjaga
+
+### Kendala yang menentukan seluruh rancangan gate
+
+PDF sumber **tidak ada di repo** (tertahan `*.pdf`), dan cache embedding 29 MB
+juga tidak. Artinya komputer CI tidak mungkin membangun ulang korpus dengan
+vektor dense — tanpa secret, tanpa kuota, dan tanpa mengunduh apa pun.
+
+Jalan keluarnya: bekukan korpus jadi `eval/korpus_fixture.jsonl` (829 chunk,
+1,8 MB — teks dan payload saja, tanpa vektor), lalu jalankan gate pada jalur
+**sparse-only tanpa reranking**. BM25 dihitung di runner dalam hitungan detik,
+tidak menyentuh jaringan, dan memberi angka sama persis untuk korpus yang sama.
+
+| | jalur utama | jalur gate CI |
+|---|---|---|
+| pencarian | hybrid + rerank | sparse saja |
+| butuh API key | ya | **tidak** |
+| butuh kuota | ya | **tidak** |
+| deterministik | tidak sepenuhnya | **ya** |
+| recall@5 | 0,583 | 0,550 |
+| MRR | 0,567 | 0,425 |
+
+**Gate ini tidak menjaga mutu sisi dense.** Yang dijaganya: penulisan ulang
+pertanyaan, pencocokan kata harfiah, logika pencarian, susunan payload, dan
+perhitungan metrik. Dari pengalaman sebelas tahap, di situlah kerusakan paling
+sering masuk tanpa disadari.
+
+### Gate terbukti merah
+
+Kerusakan disengaja — seseorang "merapikan" `search_many` dan memangkas jumlah
+kandidat:
+
+```
+metrik        baseline  sekarang   selisih   status
+recall@5         0.550     0.450    -0.100   GAGAL
+recall@10        0.550     0.450    -0.100   GAGAL
+mrr              0.425     0.400    -0.025   GAGAL
+ndcg@10          0.428     0.402    -0.026   GAGAL
+
+GATE GAGAL — turun lebih dari 5%
+exit code: 1
+```
+
+Pesannya ikut menyebutkan cara memperbarui baseline, supaya penurunan yang
+memang disengaja tidak berubah jadi teka-teki.
+
+### Celah yang diakui dan ditutup
+
+Karena fixture-nya beku, perubahan pada pemotong dokumen **tidak** terlihat
+oleh gate sampai fixture dibuat ulang. Celah ini ditutup dari sisi lain:
+`tests/test_fixture.py` membandingkan fixture dengan hasil pemotong sekarang,
+dan gagal kalau jumlah atau urutan `chunk_id`-nya berbeda. Test itu dilewati
+otomatis di CI — di sana tidak ada PDF untuk dibandingkan.
+
+Diuji dengan sengaja memotong lima baris terakhir fixture: test-nya gagal,
+lalu lolos lagi setelah `make fixture`.
+
+### Latensi per node — bahan Tahap 13
+
+Tiap node graph dibungkus pengukur waktu, dan angkanya ikut di respons API.
+Median dari tiga permintaan, `verify: false`:
+
+| node | median ms | |
+|---|---|---|
+| rerank | **5.154** | dominan, sesuai eksperimen #3 |
+| generate | 1.630 | |
+| route_intent | 1.166 | |
+| retrieve | 650 | |
+| rewrite_query | 0 | deterministik, tanpa LLM |
+
+Satu koreksi yang layak dicatat: pengukuran pertama menunjukkan
+`route_intent` 5.749 ms, dan itu **salah dibaca** — angkanya termasuk
+pemanasan klien Gemini pada panggilan pertama proses. Setelah diulang tiga
+kali, mediannya 1.166 ms. Pelajarannya: satu sampel bukan pengukuran.
+
+### Langfuse: opsional, dan alasannya
+
+Trace dikirim ke Langfuse hanya kalau `LANGFUSE_PUBLIC_KEY` dan
+`LANGFUSE_SECRET_KEY` disetel. Tanpa keduanya, modul pemantauan diam total dan
+tidak menambah satu milidetik pun — sudah diuji.
+
+Keputusan yang disengaja: **angka latensi hidup di respons API lebih dulu,
+Langfuse jadi tempat menumpuknya.** Alasan Langfuse ada di roadmap adalah
+sebagai bahan tabel benchmark Tahap 13; menaruh angkanya di respons membuat
+bahan itu tetap ada meski dashboard-nya tidak pernah dipasang.
+
+Pengiriman ke Langfuse dibungkus try/except yang menelan error: pemantauan
+yang menjatuhkan permintaan adalah pemantauan yang salah.
+
+### Yang sengaja tidak dibangun: eval Tier 2 (RAGAS)
+
+Roadmap menyebut RAGAS di workflow nightly terpisah. Dilewat, dengan alasan
+yang bisa dihitung: RAGAS menilai pakai LLM, dan satu kali jalan atas 10
+pertanyaan memakan puluhan panggilan. Kuota harian proyek ini 50 request
+embedding dan kuota Gemini gratis yang sudah pernah habis di Tahap 9. Nightly
+RAGAS berarti kuota harian habis sebelum hari kerja dimulai.
+
+Yang menggantikannya di Tahap 13: kalibrasi verifier secara manual atas 30
+sampel, yang menghasilkan angka agreement rate — lebih sedikit otomatis, tapi
+angkanya bisa dipertanggungjawabkan.

@@ -3,7 +3,7 @@
 Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
 dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
 
-> Status: dalam pengembangan. Tahap 11 dari 13.
+> Status: dalam pengembangan. Tahap 12 dari 13.
 
 ## Menjalankan
 
@@ -93,6 +93,44 @@ lebih dari cukup untuk menebus kemunduran itu. Eksperimen #3 (reranking
 cross-encoder) menaikkan recall@10 sebesar 0,117, tapi waktunya 26 ms jadi
 4.526 ms per pertanyaan. Tahap 9 memindahkan semuanya ke LangGraph tanpa
 mengubah satu pun angka — itu memang kriterianya.
+
+## Gerbang mutu di CI
+
+Setiap PR menjalankan evaluasi retrieval dan **diblokir kalau ada metrik turun
+lebih dari 5%** dari `eval/baseline_ci.json`.
+
+Gate ini jalan **tanpa API key dan tanpa kuota sama sekali**. PDF sumber tidak
+ada di repo, jadi korpus dibekukan ke `eval/korpus_fixture.jsonl` (829 chunk,
+1,8 MB, teks saja tanpa vektor) dan pencariannya sparse-only — BM25 dihitung
+di runner, deterministik, gratis.
+
+```bash
+make fixture      # bekukan ulang korpus setelah pemotongan berubah
+make eval-gate    # jalankan gate secara lokal
+```
+
+Yang dijaga gate ini: penulisan ulang pertanyaan, pencocokan kata harfiah,
+logika pencarian, susunan payload, dan perhitungan metrik. Yang **tidak**
+dijaganya: mutu sisi dense, karena itu butuh API. `tests/test_fixture.py`
+menutup celah lain — dia gagal kalau fixture sudah basi terhadap pemotong
+dokumen, dan dilewati otomatis di CI.
+
+## Pemantauan
+
+Lama tiap node graph ikut di respons API. Median tiga permintaan,
+`verify: false`:
+
+| node | median ms |
+|---|---|
+| rerank | 5.154 |
+| generate | 1.630 |
+| route_intent | 1.166 |
+| retrieve | 650 |
+| rewrite_query | 0 |
+
+Trace juga dikirim ke [Langfuse](https://cloud.langfuse.com) kalau
+`LANGFUSE_PUBLIC_KEY` dan `LANGFUSE_SECRET_KEY` diisi. Tanpa keduanya modul
+pemantauan diam total.
 
 ## Tahan banting
 

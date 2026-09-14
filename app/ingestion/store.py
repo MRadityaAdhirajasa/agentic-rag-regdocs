@@ -39,12 +39,15 @@ def connect() -> QdrantClient:
     return QdrantClient(url=QDRANT_URL)
 
 
-def ensure_collection(client: QdrantClient, size: int, reset: bool = False) -> None:
+def ensure_collection(client: QdrantClient, size: int | None, reset: bool = False) -> None:
     """Bikin collection kalau belum ada; tolak keras kalau bentuknya tidak cocok.
 
     Dimensi maupun susunan vektor tidak bisa diubah setelah collection dibuat.
     Tanpa penjagaan ini, yang gagal adalah upsert-nya, dengan pesan yang jauh
     lebih membingungkan.
+
+    `size=None` membuat collection **sparse saja** — dipakai gate CI, yang
+    tidak punya API key maupun kuota untuk menghitung vektor dense.
     """
     existing = {c.name for c in client.get_collections().collections}
 
@@ -54,17 +57,23 @@ def ensure_collection(client: QdrantClient, size: int, reset: bool = False) -> N
         print(f"Collection '{QDRANT_COLLECTION}' dihapus (--reset).")
 
     if QDRANT_COLLECTION not in existing:
+        dense_config = (
+            {NAMA_DENSE: VectorParams(size=size, distance=Distance.COSINE)} if size else {}
+        )
         client.create_collection(
             collection_name=QDRANT_COLLECTION,
-            vectors_config={NAMA_DENSE: VectorParams(size=size, distance=Distance.COSINE)},
+            vectors_config=dense_config,
             sparse_vectors_config={
                 NAMA_SPARSE: SparseVectorParams(index=SparseIndexParams(), modifier=Modifier.IDF)
             },
         )
-        print(f"Collection '{QDRANT_COLLECTION}' dibuat: dense {size} + sparse BM25.")
+        bentuk = f"dense {size} + sparse BM25" if size else "sparse BM25 saja"
+        print(f"Collection '{QDRANT_COLLECTION}' dibuat: {bentuk}.")
         return
 
     current = client.get_collection(QDRANT_COLLECTION).config.params.vectors
+    if size is None:
+        return
     if not isinstance(current, dict) or NAMA_DENSE not in current:
         raise SystemExit(
             f"Collection '{QDRANT_COLLECTION}' masih berbentuk vektor tunggal (sebelum Tahap 6).\n"
@@ -81,18 +90,25 @@ def ensure_collection(client: QdrantClient, size: int, reset: bool = False) -> N
 def upsert(
     client: QdrantClient,
     records: list[dict[str, Any]],
-    vectors: list[list[float]],
+    vectors: list[list[float]] | None,
     sparse: list[SparseVector],
 ) -> None:
-    points = [
-        PointStruct(
-            # id deterministik dari chunk_id: ingest ulang menimpa, bukan menggandakan
-            id=str(uuid.uuid5(NAMESPACE, r["payload"]["chunk_id"])),
-            vector={NAMA_DENSE: dense, NAMA_SPARSE: jarang},
-            payload=r["payload"],
+    dense_list: list[list[float] | None] = (
+        list(vectors) if vectors is not None else [None] * len(records)
+    )
+    points = []
+    for r, dense, jarang in zip(records, dense_list, sparse, strict=True):
+        isi: dict[str, Any] = {NAMA_SPARSE: jarang}
+        if dense is not None:
+            isi[NAMA_DENSE] = dense
+        points.append(
+            PointStruct(
+                # id deterministik dari chunk_id: ingest ulang menimpa, bukan menggandakan
+                id=str(uuid.uuid5(NAMESPACE, r["payload"]["chunk_id"])),
+                vector=isi,
+                payload=r["payload"],
+            )
         )
-        for r, dense, jarang in zip(records, vectors, sparse, strict=True)
-    ]
     for start in range(0, len(points), UPSERT_BATCH):
         client.upsert(
             collection_name=QDRANT_COLLECTION,

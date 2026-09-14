@@ -27,18 +27,20 @@ from langgraph.graph import END, START, StateGraph
 from app.agents.nodes import generate, rerank_node, retrieve, rewrite_query, route_intent
 from app.agents.state import GraphState
 from app.agents.verify import cukup_atau_ulangi, mutate_strategy, verify
+from app.core.tracing import kirim, ukur
 
 
 @lru_cache(maxsize=1)
 def bangun() -> Any:
     g = StateGraph(GraphState)
-    g.add_node("rewrite_query", rewrite_query)
-    g.add_node("route_intent", route_intent)
-    g.add_node("retrieve", retrieve)
-    g.add_node("rerank", rerank_node)
-    g.add_node("generate", generate)
-    g.add_node("verify", verify)
-    g.add_node("mutate_strategy", mutate_strategy)
+    # tiap node dibungkus pengukur waktu; angkanya menumpuk di state["trace"]
+    g.add_node("rewrite_query", ukur("rewrite_query")(rewrite_query))
+    g.add_node("route_intent", ukur("route_intent")(route_intent))
+    g.add_node("retrieve", ukur("retrieve")(retrieve))
+    g.add_node("rerank", ukur("rerank")(rerank_node))
+    g.add_node("generate", ukur("generate")(generate))
+    g.add_node("verify", ukur("verify")(verify))
+    g.add_node("mutate_strategy", ukur("mutate_strategy")(mutate_strategy))
 
     g.add_edge(START, "rewrite_query")
     g.add_edge("rewrite_query", "route_intent")
@@ -77,8 +79,10 @@ def tanya(
         "verify_aktif": verify,
         "retry_count": 0,
         "strategy_history": [],
+        "trace": [],
     }
     hasil: GraphState = bangun().invoke(awal)
+    kirim(question, dict(hasil))
     if top_k is not None:
         # permintaan eksplisit dari pemanggil menimpa pilihan routing
         hasil["reranked_chunks"] = hasil["reranked_chunks"][:top_k]
