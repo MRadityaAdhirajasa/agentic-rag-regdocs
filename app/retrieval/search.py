@@ -75,7 +75,7 @@ def search_many(
     saring = source_types if source_types is not None else [source_type] * len(queries)
     # saat reranking aktif, ambil lebih banyak dulu — cross-encoder hanya bisa
     # menyusun ulang apa yang sudah terambil, tidak bisa memunculkan yang hilang
-    ambil = max(limit, KANDIDAT_RERANK) if rerank else limit
+    else 2
     hasil = []
     for d, s, st in zip(dense, jarang, saring, strict=True):
         kondisi = _filter(st)
