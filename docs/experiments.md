@@ -584,6 +584,113 @@ Satu koreksi yang layak dicatat: pengukuran pertama menunjukkan
 pemanasan klien Gemini pada panggilan pertama proses. Setelah diulang tiga
 kali, mediannya 1.166 ms. Pelajarannya: satu sampel bukan pengukuran.
 
+### Audit instrumentasi terhadap panduan resmi Langfuse
+
+Panduan `skills/langfuse/references/instrumentation.md` dibaca **sebagai
+bahan**, bukan dipasang sebagai skill yang mengarahkan perilaku agen.
+Berkas semacam itu adalah instruksi dari luar percakapan; yang benar adalah
+menilai isinya lalu menerapkannya sendiri dengan alasan yang bisa dijelaskan.
+
+Hasil audit terhadap daftar syarat mereka — lima cacat nyata di versi pertama:
+
+| Syarat | Versi pertama | Sesudah |
+|---|---|---|
+| Nama trace deskriptif | ok | ok |
+| Input/output eksplisit | ok | ok |
+| `flush()` dipanggil | ok | ok |
+| Import setelah `load_dotenv` | ok | ok |
+| **Span bersarang** | span anak jadi **saudara**, bukan anak | bersarang lewat context OpenTelemetry |
+| **Durasi span** | **semua nol**, angka asli cuma di metadata | durasi sebenarnya |
+| **Tipe observasi** | semuanya `span` | `retriever`, `evaluator`, `chain`, `generation`, `tool` |
+| **Nama model** | tidak dicatat | dicatat per panggilan |
+| **Jumlah token** | tidak dicatat | input/output/total, jadi biaya terhitung |
+
+Yang paling parah yang kedua. Versi pertama menyusun span **setelah** semua
+node selesai, jadi tiap span dibuka dan ditutup pada saat yang sama —
+Langfuse akan menampilkan durasi nol untuk semuanya, dan seluruh gunanya
+(melihat langkah mana yang lambat) hilang. Sekarang span dibuka sebelum node
+jalan dan ditutup sesudahnya.
+
+Tiga panggilan LLM ditandai `generation` dengan nama sendiri —
+`klasifikasi-intent`, `susun-jawaban`, `nilai-jawaban` — masing-masing membawa
+nama model dan jumlah token.
+
+### Self-audit trace: dijalankan, dan menemukan dua bug lagi
+
+Panduan Langfuse menuntut trace ditarik kembali lalu diperiksa, bukan
+diasumsikan benar. Dijalankan setelah key dipasang, dan hasilnya dua cacat
+yang tidak akan pernah terlihat dari membaca kode:
+
+**1. Span akar tidak pernah terkirim.** `flush()` dipanggil di dalam blok span
+akar, jadi pengiriman jalan saat span itu belum berakhir. Trace muncul tanpa
+nama dan tanpa metadata — node-nodenya seolah melayang tanpa induk. Sekarang
+`flush()` dipanggil setelah blok ditutup.
+
+**2. Pembungkus error merusak propagasi exception.** `try/except` melingkupi
+`yield` di context manager, jadi error dari node tertangkap di titik yield,
+generator melanjutkan, dan Python melempar `RuntimeError: generator didn't
+stop after throw()` — menutupi error yang sebenarnya. Sekarang hanya
+*pembuatan* observasi yang dijaga, bukan isinya. Ada test regresinya.
+
+Cacat kedua ditemukan oleh test, bukan oleh mata. Cacat pertama hanya bisa
+ditemukan dengan benar-benar menarik trace-nya kembali.
+
+Satu koreksi terhadap laporan awal saya: nama dan metadata tingkat trace
+sempat terlihat kosong, dan saya sempat menyebutnya bug kedua. Ternyata
+bukan — Langfuse mengisinya belakangan dari span akar, dan pembacaan saya
+terlalu cepat. Yang benar-benar rusak cuma urutan `flush()`.
+
+### Bentuk trace setelah diperbaiki
+
+```
+tanya-regdocs         AGENT       10.34s   metadata: intent, verdict, retry_count
+  rewrite_query       SPAN         0.00s   in: query           out: rewritten, alias
+  route_intent        CHAIN        1.36s   in: query           out: intent, source_type
+    klasifikasi-intent  GENERATION 1.33s   model + token
+  retrieve            RETRIEVER    0.18s   in: query, filter   out: chunk_ids
+  rerank              TOOL         5.21s   in: jumlah kandidat out: chunk_ids
+  generate            CHAIN        1.90s   in: chunk_ids       out: answer
+    susun-jawaban       GENERATION 1.87s   model + token
+  verify              EVALUATOR    1.68s   in: answer          out: verdict, klaim
+    nilai-jawaban       GENERATION 1.65s   model + token
+```
+
+Input dan output tiap node ikut dicatat. Tanpa itu, span cuma batang berwarna
+dengan durasi; dengan itu, trace bisa menjawab pertanyaan yang sebenarnya:
+**konteks apa yang dipegang sistem waktu mengambil keputusan itu.**
+
+### Yang terlihat begitu trace-nya jalan
+
+Satu permintaan dengan dua percobaan ulang terekam utuh: `retrieve → rerank →
+generate → verify` muncul tiga kali, dengan `mutate_strategy` di antaranya.
+Dari situ langsung terbaca dua hal yang sebelumnya cuma dugaan:
+
+- **Percobaan ulang didominasi reranking, bukan LLM.** Tiga kali rerank
+  memakan ~18 detik dari 23 detik total. Panggilan LLM-nya justru murah.
+- **Retry benar-benar menyelamatkan jawaban.** Pada satu permintaan lewat API,
+  percobaan 1 dan 2 menjawab "Tidak tahu" (`verify 0 ms` — penolakan dikenali
+  tanpa memanggil LLM), lalu percobaan 3 dengan filter dilebarkan menemukan
+  jawabannya: `verdict: supported`, `retry_count: 2`.
+
+Keduanya bahan langsung untuk tabel benchmark Tahap 13.
+
+### Jebakan env yang ditulis panduan mereka, dan saya tabrak juga
+
+Daftar "Common Mistakes" Langfuse memuat: *"Langfuse import before env vars
+loaded."* Saya membacanya, lalu tetap melakukannya — `app/core/tracing.py`
+membaca `os.getenv` di tingkat modul, padahal `load_dotenv()` ada di
+`app/core/config.py`. Modul mana yang diimpor duluan menentukan hasilnya, dan
+key terbaca kosong padahal `.env`-nya benar.
+
+Ini sekaligus melanggar aturan arsitektur proyek ini sendiri, yang sejak
+Tahap 1 tertulis di `config.py`: *"satu-satunya tempat yang membaca .env"*.
+Sekarang nilai Langfuse ikut dibaca di sana.
+
+Ditambah: dokumentasi Langfuse memakai `LANGFUSE_BASE_URL`, sedangkan kode
+memakai `LANGFUSE_HOST`. Keduanya sekarang diterima, yang baru didahulukan.
+Region host wajib sama dengan asal key — kalau beda, key ditolak, dan itu
+penyebab paling umum "sudah diisi tapi trace tidak muncul".
+
 ### Langfuse: opsional, dan alasannya
 
 Trace dikirim ke Langfuse hanya kalau `LANGFUSE_PUBLIC_KEY` dan

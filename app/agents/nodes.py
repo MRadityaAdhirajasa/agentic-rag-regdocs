@@ -11,7 +11,7 @@ from google import genai
 from qdrant_client.models import ScoredPoint
 
 from app.agents.state import GraphState
-from app.core import budget
+from app.core import budget, tracing
 from app.core.citation import citation
 from app.core.config import GEMINI_MODEL, GOOGLE_API_KEY, require
 from app.core.entities import normalisasi
@@ -58,17 +58,19 @@ Pertanyaan: {question}
 Tulis ulang:"""
 
 
-def _llm(prompt: str) -> str:
+def _llm(prompt: str, nama: str = "llm") -> str:
     if budget.habis():
         raise LayananTidakTersedia("Gemini", "budget LLM harian aplikasi habis")
     client = genai.Client(api_key=require("GOOGLE_API_KEY", GOOGLE_API_KEY))
-    resp = client.models.generate_content(
-        model=GEMINI_MODEL,
-        contents=prompt,
-        # suhu nol: hasil yang sama untuk pertanyaan yang sama, supaya cache
-        # embedding tetap kena dan routing bisa diukur ulang dengan hasil sama
-        config={"temperature": 0.0},
-    )
+    with tracing.generation(nama, GEMINI_MODEL, {"prompt": prompt[-600:]}) as g:
+        resp = client.models.generate_content(
+            model=GEMINI_MODEL,
+            contents=prompt,
+            # suhu nol: hasil yang sama untuk pertanyaan yang sama, supaya cache
+            # embedding tetap kena dan routing bisa diukur ulang dengan hasil sama
+            config={"temperature": 0.0},
+        )
+        g.update(output=str(resp.text), usage_details=tracing.usage(resp))
     budget.pakai()
     return str(resp.text).strip()
 
@@ -77,7 +79,7 @@ def rewrite_query(state: GraphState) -> GraphState:
     """Normalkan alias (deterministik), lalu opsional perluas dengan LLM."""
     teks, kena = normalisasi(state["original_query"])
     if state.get("ekspansi_llm"):
-        teks = _llm(PROMPT_EKSPANSI.format(question=teks))
+        teks = _llm(PROMPT_EKSPANSI.format(question=teks), "perluas-istilah")
     return {"rewritten_query": teks, "alias_terpakai": kena}
 
 
@@ -88,7 +90,9 @@ def route_intent(state: GraphState) -> GraphState:
     hukum justru membuat keluhan aplikasi terdengar seperti pertanyaan pasal.
     """
     try:
-        jawaban = _llm(PROMPT_ROUTE.format(question=state["original_query"])).lower()
+        jawaban = _llm(
+            PROMPT_ROUTE.format(question=state["original_query"]), "klasifikasi-intent"
+        ).lower()
     except Exception as e:  # noqa: BLE001
         # Routing yang gagal tidak boleh mematikan permintaan. Mundur ke
         # lookup tanpa filter — pilihan yang paling tidak merugikan, karena

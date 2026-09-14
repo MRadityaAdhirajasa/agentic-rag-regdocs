@@ -1,0 +1,77 @@
+"""Test pemantauan. Tanpa jaringan dan tanpa key Langfuse.
+
+Yang dijaga: modul ini tidak boleh menjatuhkan permintaan, dan angka latensi
+harus tetap ada meski Langfuse tidak dipasang sama sekali.
+"""
+
+import pytest
+
+from app.core import tracing
+
+
+def test_diam_total_tanpa_key() -> None:
+    assert tracing.aktif() is False or tracing.LANGFUSE_PUBLIC
+
+
+def test_ukur_mencatat_lama_node() -> None:
+    @tracing.ukur("retrieve")
+    def node(state: dict[str, object]) -> dict[str, object]:
+        return {"hasil": 1}
+
+    keluar = node({})
+    assert keluar["hasil"] == 1
+    jejak = keluar["trace"]
+    assert isinstance(jejak, list) and jejak[0]["node"] == "retrieve"  # type: ignore[index]
+    assert jejak[0]["ms"] >= 0  # type: ignore[index]
+
+
+def test_node_gagal_melempar_error_aslinya() -> None:
+    """Bug nyata: pembungkus error sempat merusak propagasi exception.
+
+    Try/except yang melingkupi `yield` menangkap error node di titik yield,
+    generator melanjutkan, dan Python melempar "generator didn't stop after
+    throw()" — menutupi error yang sebenarnya. Test ini menjaga agar yang
+    sampai ke pemanggil tetap ValueError, bukan RuntimeError dari contextlib.
+    """
+
+    @tracing.ukur("generate")
+    def node(state: dict[str, object]) -> dict[str, object]:
+        raise ValueError("rusak")
+
+    with pytest.raises(ValueError, match="rusak"):
+        node({})
+
+
+def test_tiap_node_punya_tipe_observasi() -> None:
+    """Menandai semuanya 'span' membuang informasi yang sudah kita punya."""
+    from app.agents.graph import bangun
+
+    node_graph = {n for n in bangun().get_graph().nodes if not n.startswith("__")}
+    assert node_graph <= set(tracing.TIPE_NODE), (
+        f"node tanpa tipe observasi: {node_graph - set(tracing.TIPE_NODE)}"
+    )
+    assert tracing.TIPE_NODE["retrieve"] == "retriever"
+    assert tracing.TIPE_NODE["verify"] == "evaluator"
+
+
+def test_usage_membaca_token_google_genai() -> None:
+    class Palsu:
+        prompt_token_count = 5
+        candidates_token_count = 9
+        total_token_count = 14
+
+    class Resp:
+        usage_metadata = Palsu()
+
+    assert tracing.usage(Resp()) == {"input": 5, "output": 9, "total": 14}
+    assert tracing.usage(object()) == {}
+
+
+def test_generation_tidak_meledak_tanpa_langfuse() -> None:
+    with tracing.generation("uji", "model-x", {"a": 1}) as g:
+        g.update(output="apa pun", usage_details={"input": 1})
+
+
+def test_permintaan_tidak_meledak_tanpa_langfuse() -> None:
+    with tracing.permintaan("pertanyaan") as akar:
+        tracing.tutup(akar, "pertanyaan", {"answer": "x", "trace": []})

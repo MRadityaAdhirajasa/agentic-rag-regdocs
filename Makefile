@@ -46,6 +46,9 @@ eval-gate:
 fixture:
 	uv run python -m scripts.buat_fixture
 
+langfuse:
+	uv run python -m scripts.cek_langfuse
+
 lint:
 	uv run ruff check .
 	uv run mypy app scripts

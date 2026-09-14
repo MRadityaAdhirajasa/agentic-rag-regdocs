@@ -19,6 +19,18 @@ EMBED_CACHE_PATH = os.getenv("EMBED_CACHE_PATH", "data/embed_cache.sqlite")
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
 GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.1-flash-lite")
 
+# Pemantauan (opsional). Dibaca di sini, bukan di app/core/tracing.py, karena
+# modul mana pun yang membaca os.getenv di tingkat modulnya sendiri bisa
+# dimuat SEBELUM load_dotenv() di atas sempat jalan — dan hasilnya key
+# terbaca kosong padahal .env-nya benar.
+LANGFUSE_PUBLIC_KEY = os.getenv("LANGFUSE_PUBLIC_KEY", "")
+LANGFUSE_SECRET_KEY = os.getenv("LANGFUSE_SECRET_KEY", "")
+# Dokumentasi Langfuse memakai LANGFUSE_BASE_URL; SDK-nya menerima keduanya.
+# Yang baru didahulukan, yang lama tetap diterima supaya .env lama tidak rusak.
+LANGFUSE_HOST = (
+    os.getenv("LANGFUSE_BASE_URL") or os.getenv("LANGFUSE_HOST") or "https://cloud.langfuse.com"
+)
+
 
 def require(name: str, value: str) -> str:
     """Gagal keras dan jelas kalau key belum diisi, bukan 401 misterius dari server.

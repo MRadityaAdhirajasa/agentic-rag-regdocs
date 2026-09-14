@@ -132,6 +132,24 @@ Trace juga dikirim ke [Langfuse](https://cloud.langfuse.com) kalau
 `LANGFUSE_PUBLIC_KEY` dan `LANGFUSE_SECRET_KEY` diisi. Tanpa keduanya modul
 pemantauan diam total.
 
+Menyalakannya: daftar di [cloud.langfuse.com](https://cloud.langfuse.com/auth/sign-up),
+buat project, ambil kedua key dari **Settings → API Keys**, isikan ke `.env`
+bersama `LANGFUSE_HOST` sesuai region (`https://cloud.langfuse.com` untuk EU,
+`https://jp.cloud.langfuse.com` untuk Jepang). Lalu:
+
+```bash
+make langfuse
+```
+
+Perintah itu memeriksa nilai di `.env`, menguji key ke server, dan mengirim
+satu trace percobaan — supaya kalau trace tidak muncul di dashboard, kamu tahu
+persis di langkah mana putusnya.
+
+Bentuk trace-nya mengikuti syarat dasar Langfuse: span bersarang dengan durasi
+sebenarnya, tipe observasi yang spesifik (`retriever` untuk pencarian,
+`evaluator` untuk verifikasi, `generation` untuk tiap panggilan LLM), serta
+nama model dan jumlah token supaya biayanya terhitung otomatis.
+
 ## Tahan banting
 
 Sistem tetap menjawab saat layanan luar mati — dengan `degraded_mode: true`

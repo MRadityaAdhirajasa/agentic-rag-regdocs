@@ -21,6 +21,8 @@ services:
       # "localhost" di sini berarti container API itu sendiri, bukan Qdrant.
       # Nilai ini menimpa QDRANT_URL dari .env yang menunjuk localhost.
       QDRANT_URL: http://qdrant:6333
+      # LANGFUSE_* ikut terbawa lewat env_file di atas. Tanpa key-nya,
+      # modul pemantauan diam dan API tetap jalan seperti biasa.
     volumes:
       # model fastembed 1,1 GB dan cache embedding: diunduh sekali, bertahan
       - api_cache:/app/.cache
