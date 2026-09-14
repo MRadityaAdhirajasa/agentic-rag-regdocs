@@ -22,6 +22,7 @@ selama semuanya jalan di thread yang sama.
 import time
 from collections.abc import Callable, Iterator, Mapping
 from contextlib import contextmanager
+from contextvars import ContextVar
 from functools import lru_cache, wraps
 from typing import Any, TypeVar, cast
 
@@ -50,6 +51,39 @@ TIPE_NODE = {
 }
 
 
+# Jumlah token per permintaan, ditampung lokal supaya tetap terukur meski
+# Langfuse tidak dipasang. Ini bahan kolom token dan biaya di tabel benchmark.
+# ContextVar, bukan variabel modul biasa: dua permintaan yang jalan bersamaan
+# tidak boleh saling menambah hitungan.
+_token: ContextVar[list[dict[str, int]] | None] = ContextVar("_token", default=None)
+
+# Harga tier berbayar gemini-3.1-flash-lite, USD per 1 juta token.
+# Proyek ini jalan di tier gratis; angka ini untuk menjawab "kalau dibayar,
+# berapa?" — bukan tagihan sungguhan.
+HARGA_INPUT_PER_JUTA = 0.25
+HARGA_OUTPUT_PER_JUTA = 1.50
+
+
+def catat_token(pemakaian: dict[str, int]) -> None:
+    daftar = _token.get()
+    if daftar is not None and pemakaian:
+        daftar.append(pemakaian)
+
+
+def ringkas_token() -> dict[str, float]:
+    daftar = _token.get() or []
+    masuk = sum(t.get("input", 0) for t in daftar)
+    keluar = sum(t.get("output", 0) for t in daftar)
+    biaya = masuk / 1e6 * HARGA_INPUT_PER_JUTA + keluar / 1e6 * HARGA_OUTPUT_PER_JUTA
+    return {
+        "panggilan_llm": len(daftar),
+        "token_input": masuk,
+        "token_output": keluar,
+        "token_total": masuk + keluar,
+        "biaya_usd": round(biaya, 6),
+    }
+
+
 def aktif() -> bool:
     return bool(LANGFUSE_PUBLIC and LANGFUSE_SECRET)
 
@@ -66,7 +100,9 @@ def _klien() -> Any:
 class _Diam:
     """Pengganti span saat Langfuse mati. Semua panggilan tidak melakukan apa-apa."""
 
-    def update(self, **_: Any) -> None:
+    def update(self, **kw: Any) -> None:
+        # token tetap dicatat meski Langfuse mati — tabel benchmark butuh
+        catat_token(kw.get("usage_details") or {})
         return None
 
     def set_trace_io(self, **_: Any) -> None:
@@ -106,15 +142,27 @@ def usage(resp: Any) -> dict[str, int]:
     }
 
 
+class _Rekam:
+    """Pembungkus span generation: meneruskan ke Langfuse, sekaligus mencatat token."""
+
+    def __init__(self, span: Any) -> None:
+        self._span = span
+
+    def update(self, **kw: Any) -> None:
+        catat_token(kw.get("usage_details") or {})
+        self._span.update(**kw)
+
+
 @contextmanager
 def generation(nama: str, model: str, masukan: Any) -> Iterator[Any]:
     """Bungkus satu panggilan LLM. Isi `.update(output=..., usage_details=...)` setelahnya.
 
     Ditandai `generation`, bukan `span`, supaya Langfuse bisa menghitung biaya
-    dan membandingkan antar model.
+    dan membandingkan antar model. Token dicatat lokal juga, karena tabel
+    benchmark harus tetap bisa dibuat tanpa Langfuse.
     """
     with _observasi(nama, "generation", model=model, input=masukan) as g:
-        yield g
+        yield g if isinstance(g, _Diam) else _Rekam(g)
 
 
 def _potong(hits: Any, n: int = 8) -> list[str]:
@@ -206,6 +254,7 @@ def ukur(nama: str) -> Callable[[F], F]:
 @contextmanager
 def permintaan(pertanyaan: str) -> Iterator[Any]:
     """Span akar satu permintaan. Semua span node bersarang di bawahnya."""
+    _token.set([])
     with _observasi("tanya-regdocs", "agent", input={"question": pertanyaan}) as s:
         yield s
 

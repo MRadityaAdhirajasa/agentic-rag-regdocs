@@ -61,3 +61,4 @@ class GraphState(TypedDict, total=False):
     # catatannya sendiri, bukan menimpa catatan node sebelumnya — dan saat
     # graph berputar, percobaan kedua ikut tercatat, tidak menghapus yang pertama.
     trace: Annotated[list[dict[str, Any]], operator.add]
+    token: dict[str, float]

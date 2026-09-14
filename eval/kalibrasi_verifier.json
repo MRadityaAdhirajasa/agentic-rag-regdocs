@@ -1,0 +1,163 @@
+{
+  "catatan": "Label dibangun, bukan dilabeli tangan. Karangan yang disisipkan kasar dan mencolok, jadi angka ini batas ATAS kemampuan verifier.",
+  "jumlah_sampel": 26,
+  "agreement_rate": 0.962,
+  "sampel": [
+    {
+      "qid": "g_001",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_001",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_002",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_002",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 2
+    },
+    {
+      "qid": "g_003",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_003",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_004",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_004",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_005",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_005",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_006",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_006",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_007",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_007",
+      "seharusnya": "unsupported",
+      "verdict": "gagal_diverifikasi",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_008",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_008",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_009",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_009",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_010",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_010",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_012",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_012",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_013",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_013",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 1
+    },
+    {
+      "qid": "g_015",
+      "seharusnya": "supported",
+      "verdict": "supported",
+      "klaim_tanpa_dasar": 0
+    },
+    {
+      "qid": "g_015",
+      "seharusnya": "unsupported",
+      "verdict": "partial",
+      "klaim_tanpa_dasar": 2
+    }
+  ]
+}

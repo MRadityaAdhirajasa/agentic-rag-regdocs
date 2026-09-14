@@ -11,6 +11,12 @@ Angka dipecah per `expected_source_type`. Ini bukan formalitas: kelompok
 FAQ yang ada di dalam korpus. Menggabungkannya ke satu angka akan menutupi
 kualitas sebenarnya di sisi regulasi, dan sisi regulasi itu yang dipakai
 jadi gate CI di Tahap 12.
+
+Kategori `negatif` **dikeluarkan dari recall**. Pertanyaannya memang tidak
+punya jawaban di korpus, jadi recall-nya selalu nol dan hanya akan menyeret
+rata-rata tanpa memberi informasi apa pun. Yang benar diukur untuk mereka:
+apakah sistem menjawab "tidak didukung" — dan itu butuh menjalankan graph
+sampai node verify, jadi diukur di `scripts/benchmark.py`.
 """
 
 import json
@@ -46,6 +52,13 @@ def kunci_hasil(payload: dict[str, Any]) -> set[str]:
     return {kunci_halaman(doc_id, h) for h in span}
 
 
+def kunci_relevan(soal: dict[str, Any]) -> set[str]:
+    """Ground truth satu pertanyaan: halaman untuk regulasi, id item untuk FAQ."""
+    kunci = {kunci_halaman(p["doc_id"], p["halaman"]) for p in soal.get("relevant_pages", [])}
+    kunci |= set(soal.get("relevant_faq_ids", []))
+    return kunci
+
+
 def muat() -> list[dict[str, Any]]:
     if not GOLDEN.exists():
         raise SystemExit(f"{GOLDEN} tidak ada.")
@@ -64,10 +77,12 @@ def main(argv: list[str]) -> None:
     mode = argv[argv.index("--mode") + 1] if "--mode" in argv else "hybrid"
     pakai_rerank = "--tanpa-rerank" not in argv
     lewat_graph = "--graph" in argv
-    soal = muat()
+    semua = muat()
+    negatif = [s for s in semua if s["category"] == "negatif"]
+    soal = [s for s in semua if s["category"] != "negatif"]
     print(
-        f"{len(soal)} pertanyaan, ambil {AMBIL} teratas. "
-        f"mode={mode} rerank={pakai_rerank} graph={lewat_graph}"
+        f"{len(soal)} pertanyaan diukur ({len(negatif)} kategori negatif dikeluarkan), "
+        f"ambil {AMBIL} teratas. mode={mode} rerank={pakai_rerank} graph={lewat_graph}"
     )
 
     kalimat = [s["question"] for s in soal]
@@ -96,7 +111,7 @@ def main(argv: list[str]) -> None:
     per_kelompok: dict[str, list[tuple[set[str], list[set[str]]]]] = defaultdict(list)
     baris = []
     for s, hits in zip(soal, hasil_cari, strict=True):
-        relevan = {kunci_halaman(p["doc_id"], p["halaman"]) for p in s["relevant_pages"]}
+        relevan = kunci_relevan(s)
         terambil = [kunci_hasil(h.payload) for h in hits if h.payload]
         per_kelompok[s["expected_source_type"]].append((relevan, terambil))
         per_kelompok["SEMUA"].append((relevan, terambil))
@@ -118,12 +133,19 @@ def main(argv: list[str]) -> None:
             catatan = "  (optimistis: soal berasal dari korpus)" if kelompok == "faq" else ""
             tabel(f"{kelompok}{catatan}", angka)
 
+    if negatif:
+        print(
+            f"\n{len(negatif)} pertanyaan kategori negatif tidak diukur di sini — "
+            "recall-nya selalu nol menurut definisi.\nUkurannya ada di "
+            "scripts/benchmark.py: berapa persen dijawab 'tidak didukung'."
+        )
+
     if "--simpan-baseline" in argv:
         BASELINE.write_text(
             json.dumps(
                 {
                     "catatan": "Angka utama = expected_source_type regulasi. Patokan halaman.",
-                    "tahap": 7,
+                    "tahap": 13,
                     "mode": mode,
                     "rerank": pakai_rerank,
                     "graph": lewat_graph,

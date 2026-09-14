@@ -1,0 +1,41 @@
+{
+  "catatan": "Diukur lokal, korpus 829 chunk, tier gratis. Biaya dihitung dengan harga tier berbayar gemini-3.1-flash-lite (USD 0,25/1J token input, USD 1,50/1J output).",
+  "verify_off": {
+    "jumlah_pertanyaan": 30,
+    "p50_ms": 8581.0,
+    "p95_ms": 13923.0,
+    "rata_ms": 8990.0,
+    "panggilan_llm_per_pertanyaan": 2.0,
+    "token_input": 34828,
+    "token_output": 2878,
+    "token_per_pertanyaan": 1257.0,
+    "biaya_usd_total": 0.01303,
+    "biaya_usd_per_1000_pertanyaan": 0.434,
+    "retry_total": 0,
+    "verdict": {
+      "tidak_diverifikasi": 30
+    },
+    "faithfulness": null,
+    "negatif_benar": "4/4"
+  },
+  "verify_on": {
+    "jumlah_pertanyaan": 30,
+    "p50_ms": 10794.0,
+    "p95_ms": 27203.0,
+    "rata_ms": 12642.0,
+    "panggilan_llm_per_pertanyaan": 2.97,
+    "token_input": 81455,
+    "token_output": 4969,
+    "token_per_pertanyaan": 2881.0,
+    "biaya_usd_total": 0.02782,
+    "biaya_usd_per_1000_pertanyaan": 0.927,
+    "retry_total": 10,
+    "verdict": {
+      "supported": 23,
+      "gagal_diverifikasi": 3,
+      "unsupported": 4
+    },
+    "faithfulness": 0.852,
+    "negatif_benar": "4/4"
+  }
+}

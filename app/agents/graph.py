@@ -86,6 +86,7 @@ def tanya(
     with tracing.permintaan(question) as akar:
         hasil: GraphState = bangun().invoke(awal)
         tracing.tutup(akar, question, dict(hasil))
+        hasil["token"] = tracing.ringkas_token()
     # flush di LUAR blok: span akar baru berakhir saat blok ditutup
     tracing.flush()
     if top_k is not None:

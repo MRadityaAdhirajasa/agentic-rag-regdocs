@@ -1,11 +1,11 @@
 {
   "catatan": "Jalur CI: sparse-only tanpa rerank, dari eval/korpus_fixture.jsonl.",
-  "jumlah_pertanyaan": 10,
+  "jumlah_pertanyaan": 23,
   "ambang_penurunan": 0.05,
   "metrik": {
-    "recall@5": 0.55,
-    "recall@10": 0.55,
-    "mrr": 0.425,
-    "ndcg@10": 0.42818506833785897
+    "recall@5": 0.5434782608695652,
+    "recall@10": 0.5869565217391305,
+    "mrr": 0.38768115942028986,
+    "ndcg@10": 0.4245092639701063
   }
 }

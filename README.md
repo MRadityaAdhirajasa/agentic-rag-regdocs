@@ -1,9 +1,74 @@
 # Agentic RAG untuk Dokumen Regulasi Indonesia
 
-Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko,
-dengan sitasi tingkat pasal dan evaluasi retrieval yang terukur.
+Sistem tanya-jawab atas peraturan perizinan berusaha berbasis risiko, dengan
+**sitasi tingkat pasal yang bisa diverifikasi** dan **evaluasi retrieval yang
+terukur di setiap perubahan**.
 
-> Status: dalam pengembangan. Tahap 12 dari 13.
+> Dibangun bertahap dalam 13 tahap. Tiap tahap punya kriteria selesai sendiri,
+> dan tiap perubahan retrieval diukur sebelum-sesudah di
+> [`docs/experiments.md`](docs/experiments.md).
+
+```
+Tanya : instansi mana yang berwenang menerbitkan PB UMKU?
+
+Jawab : Lembaga OSS atas nama menteri/kepala lembaga, kepala DPMPTSP,
+        Administrator KEK, dan Badan Pengusahaan KPBPB sesuai kewenangan
+        masing-masing.
+
+Sumber: [1] PP 28/2025, Pasal 138, hal. 83   (skor 1.290)
+        [2] PP 28/2025, Pasal 136, hal. 81-82 (skor 0.612)
+```
+
+Buka PDF-nya di halaman 83, pasalnya ada di sana. Itu intinya.
+
+---
+
+## Angka
+
+Semua diukur lokal atas 30 pertanyaan golden, korpus 829 chunk.
+
+### Mutu retrieval
+
+| Metrik | `regulasi` (23 soal) | `faq` (3 soal) |
+|---|---|---|
+| recall@5 | **0,580** | 1,000 |
+| recall@10 | 0,725 | 1,000 |
+| MRR | 0,526 | 0,667 |
+| nDCG@10 | 0,552 | 0,754 |
+
+Angka `faq` **optimistis** dan sengaja dilaporkan terpisah: pertanyaannya
+parafrase dari entri yang ada di dalam korpus. Menggabungkannya ke satu angka
+akan menutupi mutu sebenarnya di sisi regulasi.
+
+### Benchmark verify on/off
+
+| | verify OFF | verify ON |
+|---|---|---|
+| latensi p50 | **8.581 ms** | 10.794 ms |
+| latensi p95 | 13.923 ms | **27.203 ms** |
+| panggilan LLM / pertanyaan | 2,0 | 2,97 |
+| token / pertanyaan | 1.257 | 2.881 |
+| biaya USD / 1.000 pertanyaan | **0,434** | **0,927** |
+| faithfulness | — | **0,852** |
+| pertanyaan di luar korpus dijawab "tidak tahu" | **4/4** | **4/4** |
+
+Verifikasi menaikkan p50 sebesar 26%, tapi **p95 sebesar 95%** — percobaan
+ulang jatuh pada pertanyaan yang memang sulit, dan ekor distribusinya yang
+terpukul. Biaya dihitung dengan harga tier berbayar `gemini-3.1-flash-lite`;
+proyek ini sendiri jalan di tier gratis.
+
+Yang paling tidak disangka: **sistem menolak pertanyaan di luar korpus tanpa
+perlu verifikasi.** Yang ditambahkan verifikasi adalah `verdict` yang bisa
+dibaca mesin, bukan penolakan yang lebih baik.
+
+### Akurasi routing dan kalibrasi verifier
+
+| | angka | catatan |
+|---|---|---|
+| akurasi routing | **70,0%** (35/50) | diukur pada label perak, lihat batasannya |
+| kalibrasi verifier | **92,3%** (24/26) | dua kali jalan: 92,3% dan 96,2%; selisihnya murni gagal rate limit |
+
+---
 
 ## Menjalankan
 
@@ -14,280 +79,187 @@ make ingest               # regulasi + FAQ -> Qdrant
 
 Swagger siap dipakai di <http://localhost:8000/docs>.
 
+```bash
+curl -X POST http://localhost:8000/api/v1/query \
+  -H "Content-Type: application/json" \
+  -d '{"question":"instansi mana yang berwenang menerbitkan PB UMKU"}'
+```
+
 | Endpoint | Isi |
 |---|---|
-| `POST /api/v1/query` | `answer`, `citations`, `execution_time_seconds`, `intent`, `verdict` |
-| `GET /health` | status Qdrant dan jumlah titik; tetap menjawab saat Qdrant mati |
+| `POST /api/v1/query` | `answer`, `citations`, `intent`, `verdict`, `trace`, `degraded_mode` |
+| `GET /health` | status Qdrant, jumlah titik, sisa budget LLM |
 | `GET /documents` | sumber yang ada di korpus |
 
-```bash
-curl -X POST http://localhost:8000/api/v1/query   -H "Content-Type: application/json"   -d '{"question":"instansi mana yang berwenang menerbitkan PB UMKU"}'
-```
-
-Masih ada CLI-nya juga:
-
-```bash
-make chat
-```
+Ada juga CLI: `make chat`.
 
 **Jaringan antar container:** API memanggil Qdrant lewat nama service
 (`http://qdrant:6333`), bukan `localhost` — di dalam container, `localhost`
-berarti container itu sendiri. Nilai ini di-set di `docker-compose.yml` dan
-menimpa `QDRANT_URL` dari `.env` yang menunjuk localhost untuk dipakai CLI.
+berarti container itu sendiri.
 
-**Waktu tanggap** (diukur di dalam container):
+---
 
-| | detik |
+## Cara kerja
+
+```
+rewrite_query → route_intent → retrieve → rerank → generate → verify ──┐
+                    ▲                                                   │
+                    └──────── mutate_strategy ◄──── "ulangi" ───────────┤
+                                                    "selesai" ──────→ END
+```
+
+| Langkah | Isi |
 |---|---|
-| panggilan pertama, model reranker diunduh | 129 |
-| dengan rerank | 8,8 |
-| `"rerank": false` | 2,2 |
+| `rewrite_query` | normalisasi alias lembaga, deterministik tanpa LLM |
+| `route_intent` | 4 maksud; `troubleshooting` disaring ke FAQ saja |
+| `retrieve` | hybrid: dense + BM25, digabung Qdrant lewat RRF |
+| `rerank` | cross-encoder multilingual, 20 kandidat → k teratas |
+| `generate` | Gemini, hanya dari konteks, dengan batas token keras |
+| `verify` | opsional; kalau tidak didukung, ulangi dengan parameter **wajib berbeda** |
 
-Model 1,1 GB disimpan di volume `api_cache`, jadi hanya diunduh sekali.
+**Korpus** 829 chunk dalam satu collection, dibedakan lewat `source_type`:
+PP 28/2025 (503 chunk, dipotong per pasal) dan 6 file FAQ OSS (326 chunk).
 
-Ingest per bagian, berguna karena kuota embedding harian terbatas:
+**Model:** embedding `nvidia/nemotron-3-embed-1b:free` lewat OpenRouter
+(2.048 dimensi, prefix `query:`/`document:`), sparse BM25 lewat fastembed,
+reranker `jina-reranker-v2-base-multilingual`, LLM `gemini-3.1-flash-lite`.
+Dua yang di tengah jalan di komputer sendiri, tanpa API.
 
-```bash
-uv run python -m scripts.ingest --faq
-uv run python -m scripts.ingest --doc uu-6-2023
-```
+---
 
-Butuh `.env` berisi `OPENROUTER_API_KEY` (embedding) dan `GOOGLE_API_KEY`
-(LLM). Contohnya ada di `.env.example`.
+## Tahan banting
 
-Embedding: `nvidia/nemotron-3-embed-1b:free` lewat OpenRouter, 2048 dimensi,
-prefix `query:` / `document:`. Sisi sparse: BM25 lewat fastembed, dihitung
-lokal tanpa API. Keduanya digabung Qdrant dengan RRF.
+Sistem tetap menjawab saat layanan luar mati — `degraded_mode: true` dengan
+alasan yang disebutkan, bukan error 500.
 
-Penyusunan ulang akhir: cross-encoder `jina-reranker-v2-base-multilingual`,
-20 kandidat, juga lokal. Ongkosnya besar — lihat eksperimen #3.
+| Yang mati | Yang tetap jalan |
+|---|---|
+| Embedding (OpenRouter) | BM25 + reranker lokal, pasal tetap keluar |
+| Routing (Gemini) | seluruh korpus tetap dicari, filter dibuang bukan ditebak |
+| Penyusun jawaban (Gemini) | sitasi dan kutipan mentah tetap dikembalikan |
 
-```bash
-uv run python -m scripts.eval --mode dense       # bandingkan satu sisi saja
-uv run python -m scripts.eval --tanpa-rerank     # matikan cross-encoder
-```
+Dibuktikan dengan mengosongkan **kedua** API key lalu membuat ulang container:
+jawabannya `HTTP 200`, dan Pasal 227 — jawaban yang memang benar — tetap
+muncul di peringkat satu tanpa embedding sama sekali.
 
-## Ingestion
+Tidak dengan simulasi saja: selama benchmark 60 permintaan, kuota Gemini
+beberapa kali menolak di tengah jalan. **Tidak satu pun permintaan gagal.**
 
-Embedding di-cache di `data/embed_cache.sqlite`, dikunci hash dari isi teks
-plus nama model. Akibatnya ingest ulang seluruh korpus **tidak memanggil API
-sama sekali**: 7 detik, nol request, bahkan saat kuota harian habis.
+Pagar lain: rate limit 10 permintaan/menit per IP, budget LLM harian
+(`BUDGET_LLM_HARIAN`, sisa terlihat di `/health`), dan `max_output_tokens`.
 
-Cache ditulis dan di-commit per batch, jadi proses yang mati di tengah —
-Ctrl+C, koneksi putus, kuota habis — melanjutkan dari titik terakhir, bukan
-mengulang dari nol. Itu sekaligus checkpoint-nya; tidak ada file progress
-terpisah.
-
-Dua jenis rate limit ditangani berbeda: limit per-menit ditunggu dengan
-exponential backoff plus jitter, limit per-hari langsung dihentikan dengan
-pesan yang menyebut kapan pulih. Menunggu limit harian berarti menggantung
-berjam-jam sambil pura-pura bekerja.
-
-## Eksperimen
-
-Perbandingan sebelum/sesudah tiap perubahan retrieval ada di
-[`docs/experiments.md`](docs/experiments.md). Eksperimen #1 (pemotongan per
-pasal) menaikkan recall@10 sebesar 0,100 tapi menurunkan MRR sebesar 0,074.
-Eksperimen #2 (hybrid dense + BM25 lewat RRF) menaikkan MRR sebesar 0,189 —
-lebih dari cukup untuk menebus kemunduran itu. Eksperimen #3 (reranking
-cross-encoder) menaikkan recall@10 sebesar 0,117, tapi waktunya 26 ms jadi
-4.526 ms per pertanyaan. Tahap 9 memindahkan semuanya ke LangGraph tanpa
-mengubah satu pun angka — itu memang kriterianya.
+---
 
 ## Gerbang mutu di CI
 
 Setiap PR menjalankan evaluasi retrieval dan **diblokir kalau ada metrik turun
 lebih dari 5%** dari `eval/baseline_ci.json`.
 
-Gate ini jalan **tanpa API key dan tanpa kuota sama sekali**. PDF sumber tidak
-ada di repo, jadi korpus dibekukan ke `eval/korpus_fixture.jsonl` (829 chunk,
-1,8 MB, teks saja tanpa vektor) dan pencariannya sparse-only — BM25 dihitung
-di runner, deterministik, gratis.
+Gate ini jalan **tanpa API key dan tanpa kuota sama sekali**: korpus dibekukan
+ke `eval/korpus_fixture.jsonl` (829 chunk, 1,8 MB, teks saja) dan pencariannya
+sparse-only — BM25 dihitung di runner, deterministik, gratis.
+
+Terbukti merah saat retrieval sengaja dirusak: recall@5 0,550 → 0,450, exit
+code 1, lengkap dengan instruksi cara memperbarui baseline kalau penurunannya
+memang disengaja.
 
 ```bash
 make fixture      # bekukan ulang korpus setelah pemotongan berubah
 make eval-gate    # jalankan gate secara lokal
 ```
 
-Yang dijaga gate ini: penulisan ulang pertanyaan, pencocokan kata harfiah,
-logika pencarian, susunan payload, dan perhitungan metrik. Yang **tidak**
-dijaganya: mutu sisi dense, karena itu butuh API. `tests/test_fixture.py`
-menutup celah lain — dia gagal kalau fixture sudah basi terhadap pemotong
-dokumen, dan dilewati otomatis di CI.
+---
 
 ## Pemantauan
 
-Lama tiap node graph ikut di respons API. Median tiga permintaan,
-`verify: false`:
+Lama tiap node ikut di respons API, dan dikirim ke
+[Langfuse](https://cloud.langfuse.com) kalau key-nya diisi.
 
-| node | median ms |
+```
+tanya-regdocs         AGENT       10.34s   intent, verdict, retry_count
+  rewrite_query       SPAN         0.00s   in: query          out: rewritten, alias
+  route_intent        CHAIN        1.36s   in: query          out: intent, source_type
+    klasifikasi-intent  GENERATION 1.33s   model + token
+  retrieve            RETRIEVER    0.18s   in: query, filter  out: chunk_ids
+  rerank              TOOL         5.21s   in: jumlah         out: chunk_ids
+  generate            CHAIN        1.90s   in: chunk_ids      out: answer
+    susun-jawaban       GENERATION 1.87s   model + token
+  verify              EVALUATOR    1.68s   in: answer         out: verdict, klaim
+    nilai-jawaban       GENERATION 1.65s   model + token
+```
+
+```bash
+make langfuse   # cek nilai .env, uji key, kirim trace percobaan
+```
+
+Tanpa key, modul pemantauan diam total dan angka latensi tetap ada di respons.
+
+---
+
+## Perintah
+
+| Perintah | Isi |
 |---|---|
-| rerank | 5.154 |
-| generate | 1.630 |
-| route_intent | 1.166 |
-| retrieve | 650 |
-| rewrite_query | 0 |
+| `make ingest` | regulasi + FAQ ke Qdrant |
+| `make chat` | tanya-jawab CLI |
+| `make api` | jalankan API lokal dengan reload |
+| `make eval` | metrik retrieval |
+| `make eval-routing` | akurasi `route_intent` di 50 item holdout |
+| `make eval-gate` | gerbang CI secara lokal |
+| `make fixture` | bekukan ulang korpus untuk CI |
+| `make langfuse` | cek sambungan pemantauan |
+| `make lint` / `make test` | ruff + mypy / pytest |
 
-Trace juga dikirim ke [Langfuse](https://cloud.langfuse.com) kalau
-`LANGFUSE_PUBLIC_KEY` dan `LANGFUSE_SECRET_KEY` diisi. Tanpa keduanya modul
-pemantauan diam total.
-
-Menyalakannya: daftar di [cloud.langfuse.com](https://cloud.langfuse.com/auth/sign-up),
-buat project, ambil kedua key dari **Settings → API Keys**, isikan ke `.env`
-bersama `LANGFUSE_HOST` sesuai region (`https://cloud.langfuse.com` untuk EU,
-`https://jp.cloud.langfuse.com` untuk Jepang). Lalu:
+Benchmark dan kalibrasi:
 
 ```bash
-make langfuse
+uv run python -m scripts.benchmark
+uv run python -m scripts.kalibrasi_verifier --batas 15
 ```
 
-Perintah itu memeriksa nilai di `.env`, menguji key ke server, dan mengirim
-satu trace percobaan — supaya kalau trace tidak muncul di dashboard, kamu tahu
-persis di langkah mana putusnya.
-
-Bentuk trace-nya mengikuti syarat dasar Langfuse: span bersarang dengan durasi
-sebenarnya, tipe observasi yang spesifik (`retriever` untuk pencarian,
-`evaluator` untuk verifikasi, `generation` untuk tiap panggilan LLM), serta
-nama model dan jumlah token supaya biayanya terhitung otomatis.
-
-## Tahan banting
-
-Sistem tetap menjawab saat layanan luar mati — dengan `degraded_mode: true`
-dan alasan yang disebutkan, bukan error 500.
-
-| Yang mati | Akibat | Yang tetap jalan |
-|---|---|---|
-| Embedding (OpenRouter) | sisi dense hilang | BM25 + reranker lokal, pasal tetap keluar |
-| Routing (Gemini) | intent jatuh ke `lookup` tanpa filter | seluruh korpus tetap dicari |
-| Penyusun jawaban (Gemini) | kalimat jawaban hilang | sitasi dan kutipan mentah tetap dikembalikan |
-
-Dibuktikan dengan mengosongkan **kedua** API key lalu membuat ulang container:
-jawabannya `HTTP 200`, dan Pasal 227 — jawaban yang memang benar — tetap
-muncul di peringkat satu tanpa embedding sama sekali.
-
-Pagar lain: rate limit **10 permintaan/menit per IP**, budget LLM harian di
-level aplikasi (`BUDGET_LLM_HARIAN`, sisa terlihat di `/health`), dan batas
-keras `max_output_tokens`.
-
-## Verifikasi dan percobaan ulang
-
-Opsional lewat `"verify": true`. Jawaban dinilai terhadap potongan yang
-dipakai menyusunnya; kalau tidak didukung, sistem mencoba ulang dengan
-**parameter yang wajib berbeda**, maksimal dua kali.
-
-```bash
-curl -X POST http://localhost:8000/api/v1/query   -H "Content-Type: application/json"   -d '{"question":"berapa tarif pajak penghasilan badan","verify":true}'
-```
-
-```json
-{ "verdict": "unsupported", "retry_count": 2, "answer": "Tidak tahu.",
-  "strategy_history": [
-    {"percobaan": 1, "perubahan": "lebarkan: buang filter sumber, gandakan top_k"},
-    {"percobaan": 2, "perubahan": "kembali ke pertanyaan asli tanpa perluasan alias"}]}
-```
-
-Pertanyaan di luar korpus dijawab "tidak didukung" beserta potongan yang
-sempat ditemukan — bukan dikarang, bukan error 500.
-
-| | detik | panggilan LLM |
-|---|---|---|
-| `verify: false` (bawaan) | 4,9 | 2 |
-| `verify: true`, didukung | 12,2 | 3 |
-| `verify: true`, di luar korpus | 24,7 | 4 |
-
-## Routing
-
-Pertanyaan diklasifikasi ke empat maksud sebelum dicari. `troubleshooting`
-("kenapa ikon pensil tidak muncul") disaring ke FAQ; pasal tidak akan pernah
-menjawabnya, dan membiarkannya bersaing hanya mengisi slot teratas dengan
-hasil yang tidak relevan.
-
-**Akurasi routing: 70,0%** pada 50 item FAQ yang disisihkan sejak Tahap 4.
-
-| seharusnya \ tebakan | lookup | troubleshooting |
-|---|---|---|
-| lookup (28) | 26 | 2 |
-| troubleshooting (22) | 13 | 9 |
-
-```bash
-uv run python -m scripts.eval_routing
-```
-
-Angka ini diukur terhadap **label perak**: `expected_intent` diturunkan dari
-isi jawaban FAQ lewat aturan lexical, bukan dilabeli manual. Sebagian
-kesalahan tidak mungkin dimenangkan — label melihat jawaban, router hanya
-melihat pertanyaan. Rinciannya di `docs/experiments.md`.
-
-## Evaluasi
-
-```bash
-make eval
-```
-
-| Metrik (10 pertanyaan, `expected_source_type=regulasi`) | |
-|---|---|
-| recall@5 | **0,583** |
-| recall@10 | **0,767** |
-| MRR | **0,567** |
-| nDCG@10 | **0,564** |
-
-Ground truth memakai **nomor halaman**, bukan `chunk_id`. `chunk_id` berubah
-setiap cara memotong berubah — dan Tahap 5 memang mengubahnya — sehingga
-golden dataset akan rusak. Halaman tetap, dan tetap bisa diverifikasi manual
-dengan membuka PDF. Patokan ini sedikit longgar: satu halaman berisi sekitar
-dua chunk.
-
-Pertanyaan yang berasal dari FAQ **wajib diparafrase** dengan struktur dan
-kosakata berbeda. `origin.faq_id` disimpan supaya kebocoran bisa diaudit
-belakangan. Semua pertanyaan di-embed dalam satu request, bukan satu per
-satu — 50 pertanyaan berarti 1 request, bukan 50.
-
-## Korpus
-
-829 chunk dalam satu collection, dibedakan lewat payload `source_type`:
-
-| Sumber | Chunk | Sitasi |
-|---|---|---|
-| `regulasi` — PP 28/2025 | 503 | jenis, nomor/tahun, **pasal**, halaman |
-| `faq` — 6 file JSON OSS | 326 | kategori, tanggal akses |
-
-Identitas dokumen ada di `data/metadata.csv`, bukan diambil dari nama file.
+---
 
 ## Batasan korpus yang disadari
 
 - **Nama berkas PDF-nya menyesatkan dan sempat menyesatkan proyek ini.**
   Berkas bernama `UU 28 2025 - ...pdf`, tetapi halaman judulnya berbunyi
-  *Peraturan Pemerintah Republik Indonesia Nomor 28 Tahun 2025* — dan di
-  dalamnya "Peraturan Pemerintah ini" muncul 42 kali, "Undang-Undang ini"
-  nol kali. Sampai Tahap 5 seluruh sitasi tertulis `UU 28/2025` dan itu
-  salah. Identitas di `data/metadata.csv` sekarang diambil dari halaman
-  judul dokumen, bukan dari nama berkas. Berkasnya sendiri sengaja tidak
+  *Peraturan Pemerintah Nomor 28 Tahun 2025* — di dalamnya "Peraturan
+  Pemerintah ini" muncul 42 kali, "Undang-Undang ini" nol kali. Sampai Tahap 5
+  seluruh sitasi tertulis `UU 28/2025` dan itu salah. Identitas sekarang
+  diambil dari halaman judul, bukan nama berkas. Berkasnya sengaja tidak
   diganti nama supaya jejak kesalahannya tetap terlihat.
-
-- **Lapisan teks PP 28/2025 salah membaca huruf kapital I sebagai l** — 70 dari
-  95 kata "Izin" tertulis "lzin". Dikoreksi lewat daftar eksplisit di
-  `app/ingestion/pdf.py`; kalimat lain tidak terdampak.
-- **Korpus regulasi sengaja dibatasi satu dokumen: PP 28/2025.** Ini proyek
-  belajar; korpus besar tidak menambah pelajaran, hanya memperlambat siklus
-  coba-ukur-perbaiki dan menghabiskan kuota embedding. PP 28/2025 dipilih
-  karena topiknya paling bertemu dengan FAQ OSS (243 sebutan "OSS", 441
-  "Pelaku Usaha") dan strukturnya rapi per pasal.
+- **Lapisan teks PDF salah membaca huruf** — 0 terbaca O, 1 terbaca l/I/L.
+  144 dari 1.125 penanda pasal harus dibetulkan lewat daftar samaran.
 - **Ke-97 item FAQ "Layanan Informasi" sengaja dipertahankan** meski nilainya
-  rendah. Mereka berfungsi sebagai pengecoh; korpus tanpa pengecoh membuat
-  recall@5 terlihat bagus hanya karena tidak ada saingan.
-- **Permen 5/2025 dan UU 6/2023 masih ada di `dokumen/PDF/`**, tinggal tambah
-  barisnya di `data/metadata.csv` kalau suatu saat diperlukan. PDF UU 6/2023
-  ternyata nyaris tidak menyebut OSS, NIB, atau tingkat risiko sama sekali.
-- **Kolom `url_sumber` di `data/metadata.csv` belum diisi**, jadi sitasi belum
-  bisa ditautkan langsung ke JDIH.
+  rendah. Mereka pengecoh; korpus tanpa pengecoh membuat recall@5 terlihat
+  bagus semata-mata karena tidak ada saingan.
 - **Jawaban FAQ teknis cepat basi** — banyak yang menyebut elemen antarmuka
   ("klik ikon keranjang sampah"). Tanggal akses ikut disimpan di payload.
 
-## Batasan yang disengaja
+Daftar lengkap keputusan yang sengaja tidak dibangun, beserta alasannya, ada
+di **[`docs/batasan.md`](docs/batasan.md)**.
 
-Bagian ini diisi di Tahap 13.
+---
 
 ## Sumber data
 
-- FAQ OSS BKPM, diambil dari https://oss.go.id (`last_updated` file: 2025-12-22 s.d. 2025-12-24)
-- Peraturan dari https://jdih.bkpm.go.id
+- **PP 28/2025** tentang Penyelenggaraan Perizinan Berusaha Berbasis Risiko,
+  dari <https://jdih.bkpm.go.id>. Status `berlaku`; peraturan ini menggantikan
+  PP 5/2021.
+- **FAQ OSS BKPM**, dari <https://oss.go.id>, `last_updated` 2025-12-22 s.d.
+  2025-12-24.
+
+Peraturan perundang-undangan dikecualikan dari hak cipta berdasarkan UU
+28/2014 tentang Hak Cipta Pasal 42. FAQ diambil dari halaman publik; sumber
+dan tanggal aksesnya disimpan di payload tiap chunk dan ikut tercetak di
+sitasi.
+
+---
+
+## Catatan
+
+Ini proyek belajar. Yang dikejar bukan angka setinggi mungkin, melainkan
+**angka yang bisa dipertanggungjawabkan** — lengkap dengan sebab kenapa dia
+segitu, dan pengakuan di mana dia menyesatkan. Sebagian besar temuan paling
+berguna di `docs/experiments.md` adalah kesalahan yang tertangkap, bukan
+kemenangan.

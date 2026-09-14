@@ -716,3 +716,121 @@ RAGAS berarti kuota harian habis sebelum hari kerja dimulai.
 Yang menggantikannya di Tahap 13: kalibrasi verifier secara manual atas 30
 sampel, yang menghasilkan angka agreement rate — lebih sedikit otomatis, tapi
 angkanya bisa dipertanggungjawabkan.
+
+---
+
+## Tahap 13 — Angka akhir
+
+### Golden dataset: 10 -> 30 pertanyaan
+
+| kategori | jumlah | expected_source_type |
+|---|---|---|
+| `lookup_faktual` | 16 | regulasi |
+| `komparatif` | 5 | regulasi |
+| `alias_lembaga` | 2 | regulasi |
+| `lookup_teknis` | 3 | faq |
+| `negatif` | 4 | none |
+
+Asal pertanyaan: 14 parafrase dari FAQ, 10 dari membaca dokumen, 6 dikarang
+sendiri. Roadmap mengizinkan 30 alih-alih 50 kalau waktu mepet, dan itu yang
+diambil — menambah pertanyaan tanpa ground truth yang diverifikasi justru
+menurunkan mutu dataset.
+
+### Angkanya bertahan di korpus soal 2,3 kali lebih besar
+
+| Metrik (`regulasi`) | 10 soal (Tahap 4-12) | 23 soal (Tahap 13) |
+|---|---|---|
+| recall@5 | 0,583 | **0,580** |
+| recall@10 | 0,767 | 0,725 |
+| MRR | 0,567 | 0,526 |
+| nDCG@10 | 0,564 | 0,552 |
+
+Ini pengujian yang sebenarnya atas seluruh angka sebelumnya: **recall@5
+bergeser 0,003.** Angka Tahap 4 sampai 12 bukan kebetulan dari sepuluh soal
+pilihan.
+
+Kelompok `faq` (3 soal) mendapat recall@5 **1,000** — dan itu memang
+optimistis, karena pertanyaannya parafrase dari entri yang ada di dalam
+korpus. Dilaporkan terpisah, tidak pernah digabung ke angka utama.
+
+### Tabel benchmark: verify on/off
+
+30 pertanyaan, dijalankan dua kali. Ini yang roadmap tandai tidak boleh
+dipotong.
+
+| | verify OFF | verify ON |
+|---|---|---|
+| latensi p50 | **8.581 ms** | **10.794 ms** |
+| latensi p95 | 13.923 ms | **27.203 ms** |
+| latensi rata-rata | 8.990 ms | 12.642 ms |
+| panggilan LLM / pertanyaan | 2,0 | 2,97 |
+| token / pertanyaan | 1.257 | 2.881 |
+| biaya USD / 1.000 pertanyaan | **0,434** | **0,927** |
+| total percobaan ulang | 0 | 10 |
+| faithfulness | — | **0,852** |
+| negatif dijawab "tidak tahu" | **4/4** | **4/4** |
+
+Biaya dihitung dengan harga tier berbayar `gemini-3.1-flash-lite`
+(USD 0,25 per 1 juta token input, USD 1,50 output). Proyek ini jalan di tier
+gratis; angka itu menjawab "kalau dibayar, berapa?" — bukan tagihan.
+
+**Yang dibeli dengan verifikasi:** faithfulness terukur 0,852 dan 10 kali
+percobaan ulang yang sebagian berhasil menyelamatkan jawaban.
+
+**Harganya:** p50 naik 26%, tapi **p95 naik 95%** — dari 13,9 detik jadi 27,2
+detik. Rata-rata menyembunyikan itu; ekor distribusinya yang terpukul, karena
+percobaan ulang jatuh pada pertanyaan yang memang sulit. Biaya per seribu
+pertanyaan naik dua kali lipat, tapi tetap di bawah satu dolar.
+
+**Temuan yang paling tidak disangka: kategori negatif dijawab benar 4/4 pada
+kedua mode.** Sistem menolak pertanyaan di luar korpus **tanpa** perlu
+verifikasi — prompt penyusun jawaban sudah cukup. Verifikasi tidak
+memperbaiki angka itu; yang dia tambahkan adalah `verdict` yang bisa dibaca
+mesin, bukan penolakan yang lebih baik.
+
+### Kalibrasi verifier: 92,3% dan 96,2%
+
+26 sampel (13 pasang; 4 pertanyaan dilewati karena jawabannya penolakan).
+Dijalankan dua kali, dan **dua angkanya berbeda** — itu sendiri informasi.
+
+| jalan | agreement | jawaban asli | jawaban disisipi karangan |
+|---|---|---|---|
+| pertama | 24/26 = **92,3%** | 12/13 `supported` | 12/13 `partial` |
+| kedua | 25/26 = **96,2%** | 13/13 `supported` | 12/13 `partial` |
+
+**Seluruh selisihnya berasal dari kegagalan rate limit**, bukan dari salah
+nilai. Ketidaksepakatan di kedua jalan selalu berupa `gagal_diverifikasi` —
+penilai tidak pernah sempat memberi pendapat. Dari sampel yang benar-benar
+dinilai: **24/24 dan 25/25.**
+
+Yang dilaporkan sebagai angka resmi adalah **yang lebih rendah, 92,3%**. Dan
+sebaran dua jalan ini lebih berguna daripada satu angka: dia menunjukkan
+ketidakpastian pengukuran datang dari infrastruktur, bukan dari model.
+
+Yang menarik: karangan selalu ditandai `partial`, tidak pernah `unsupported`.
+Itu justru tepat — jawaban aslinya memang didukung, hanya kalimat sisipannya
+yang tidak. Verifier membedakan "sebagian ngawur" dari "seluruhnya ngawur".
+
+Karangan yang tidak tertangkap berbeda tiap jalan (`g_010` lalu `g_007`), dan
+keduanya kebetulan sampel yang penilaiannya gagal — bukan karangan yang
+berhasil mengelabui.
+
+**Batas yang wajib ikut dilaporkan:** label di sini **dibangun**, bukan
+dilabeli tangan, dan karangan yang disisipkan kasar dan mencolok. Angka 92,3%
+adalah batas **atas** — belum membuktikan verifier sanggup menangkap
+halusinasi halus seperti angka yang meleset sedikit atau nomor pasal yang
+keliru satu digit.
+
+### Degraded mode terbukti di bawah beban nyata
+
+Selama benchmark 60 permintaan, kuota Gemini beberapa kali menolak:
+
+```
+verify gagal, dilewati: ClientError
+route_intent mundur ke lookup: ClientError
+generate turun ke kutipan mentah: ClientError
+```
+
+**Tidak satu pun permintaan gagal.** Benchmark selesai penuh 30/30 di kedua
+mode. Jalur mundur Tahap 11 tidak diuji dengan simulasi di sini — dia diuji
+oleh keadaan sungguhan, tanpa direncanakan.

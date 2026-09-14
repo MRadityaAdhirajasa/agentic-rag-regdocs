@@ -49,6 +49,12 @@ fixture:
 langfuse:
 	uv run python -m scripts.cek_langfuse
 
+benchmark:
+	uv run python -m scripts.benchmark
+
+kalibrasi:
+	uv run python -m scripts.kalibrasi_verifier --batas 15
+
 lint:
 	uv run ruff check .
 	uv run mypy app scripts

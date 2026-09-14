@@ -80,10 +80,13 @@ def ukur() -> dict[str, float]:
         for b in Path("eval/golden.jsonl").read_text(encoding="utf-8").splitlines()
         if b.strip()
     ]
+    # kategori negatif tidak punya jawaban benar; recall-nya selalu nol
+    soal = [s for s in soal if s["category"] != "negatif"]
     hasil = search_many([s["question"] for s in soal], limit=10, mode="sparse", rerank=False)
     kel: dict[str, list[tuple[set[str], list[set[str]]]]] = defaultdict(list)
     for s, hits in zip(soal, hasil, strict=True):
-        relevan = {f"{p['doc_id']}#h{p['halaman']}" for p in s["relevant_pages"]}
+        relevan = {f"{p['doc_id']}#h{p['halaman']}" for p in s.get("relevant_pages", [])}
+        relevan |= set(s.get("relevant_faq_ids", []))
         terambil = []
         for h in hits:
             p = h.payload or {}

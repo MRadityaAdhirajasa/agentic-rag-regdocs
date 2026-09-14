@@ -1,16 +1,16 @@
 {
   "catatan": "Angka utama = expected_source_type regulasi. Patokan halaman.",
-  "tahap": 7,
+  "tahap": 13,
   "mode": "hybrid",
   "rerank": true,
   "graph": true,
-  "ms_per_pertanyaan": 4849,
+  "ms_per_pertanyaan": 4904,
   "top_k_evaluasi": 10,
   "metrik_regulasi": {
-    "recall@5": 0.5833333333333333,
-    "recall@10": 0.7666666666666667,
-    "mrr": 0.5666666666666667,
-    "ndcg@10": 0.5637278261895957,
-    "jumlah_pertanyaan": 10
+    "recall@5": 0.5797101449275363,
+    "recall@10": 0.7246376811594203,
+    "mrr": 0.5260869565217391,
+    "ndcg@10": 0.5515550750874807,
+    "jumlah_pertanyaan": 23
   }
 }
