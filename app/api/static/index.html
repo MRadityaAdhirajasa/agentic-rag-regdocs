@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>regdocs — tanya peraturan perizinan berusaha</title>
+<style>
+  :root {
+    --kertas:  #fbfaf7;
+    --putih:   #ffffff;
+    --tinta:   #1a1a18;
+    --redup:   #6f6d65;
+    --garis:   #ddd9d0;
+    --garis2:  #ebe8e1;
+    --biru:    #17365d;
+    --hijau:   #2f5d3a;
+    --kuning:  #8a6a1f;
+    --bata:    #8f3a2e;
+    --mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--kertas);
+    color: var(--tinta);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .bungkus { max-width: 880px; margin: 0 auto; padding: 0 24px 96px; }
+
+  /* ---------- kepala ---------- */
+  header {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap;
+    padding: 28px 0 14px;
+    border-bottom: 1px solid var(--tinta);
+  }
+  h1 {
+    margin: 0; font-size: 19px; font-weight: 650; letter-spacing: -0.01em;
+  }
+  h1 span { color: var(--redup); font-weight: 400; }
+  .korpus { font: 12px/1.4 var(--mono); color: var(--redup); }
+
+  /* ---------- kotak tanya ---------- */
+  form { display: flex; gap: 8px; margin: 22px 0 10px; }
+  input[type=text] {
+    flex: 1; min-width: 0;
+    padding: 11px 13px;
+    font: 15px/1.4 system-ui, sans-serif;
+    color: var(--tinta);
+    background: var(--putih);
+    border: 1px solid var(--garis);
+    border-radius: 2px;
+  }
+  input[type=text]:focus { outline: 2px solid var(--biru); outline-offset: -1px; border-color: var(--biru); }
+  button.kirim {
+    padding: 11px 20px;
+    font: 500 15px/1.4 system-ui, sans-serif;
+    color: #fff; background: var(--biru);
+    border: 1px solid var(--biru); border-radius: 2px; cursor: pointer;
+  }
+  button.kirim:disabled { opacity: .45; cursor: default; }
+
+  .contoh { display: flex; flex-wrap: wrap; gap: 6px; align-items: baseline; }
+  .contoh b { font: 400 12px/1.4 var(--mono); color: var(--redup); margin-right: 2px; }
+  .contoh button {
+    font: 12px/1.4 var(--mono);
+    padding: 4px 9px;
+    color: var(--biru); background: transparent;
+    border: 1px solid var(--garis); border-radius: 2px; cursor: pointer;
+  }
+  .contoh button:hover { border-color: var(--biru); }
+
+  .opsi { display: flex; gap: 18px; margin: 14px 0 0; font: 12px/1.4 var(--mono); color: var(--redup); }
+  .opsi label { cursor: pointer; user-select: none; }
+  .opsi input { vertical-align: -1px; margin-right: 4px; accent-color: var(--biru); }
+
+  /* ---------- bagian hasil ---------- */
+  section { margin-top: 30px; }
+  section[hidden] { display: none; }
+
+  .tajuk {
+    font: 500 11px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+    color: var(--redup);
+    padding-bottom: 7px; margin-bottom: 12px;
+    border-bottom: 1px solid var(--garis);
+  }
+
+  /* ---------- jalur node ---------- */
+  .jalur { font: 13px/1 var(--mono); }
+  .node {
+    display: grid;
+    grid-template-columns: 132px 74px 1fr;
+    gap: 12px; align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--garis2);
+    opacity: 0; transform: translateY(-2px);
+    animation: masuk .22s ease forwards;
+  }
+  @keyframes masuk { to { opacity: 1; transform: none; } }
+  .node .nama { color: var(--tinta); }
+  .node .ms   { text-align: right; color: var(--tinta); font-variant-numeric: tabular-nums; }
+  .node .sisa { display: flex; align-items: center; gap: 9px; color: var(--redup); min-width: 0; }
+  .bar { height: 3px; background: var(--biru); opacity: .32; flex: none; }
+  .ket { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .total {
+    display: grid; grid-template-columns: 132px 74px 1fr; gap: 12px;
+    padding-top: 8px; font: 13px/1 var(--mono); color: var(--redup);
+  }
+  .total .ms { text-align: right; color: var(--tinta); font-variant-numeric: tabular-nums; }
+
+  /* ---------- jawaban ---------- */
+  .jawaban {
+    background: var(--putih);
+    border: 1px solid var(--garis);
+    border-left: 2px solid var(--biru);
+    padding: 16px 18px;
+    font-size: 15.5px; line-height: 1.62;
+    white-space: pre-wrap;
+  }
+
+  /* ---------- sitasi ---------- */
+  table { width: 100%; border-collapse: collapse; font: 13px/1.4 var(--mono); }
+  th {
+    text-align: left; font-weight: 500; color: var(--redup);
+    padding: 0 10px 7px 0; border-bottom: 1px solid var(--garis);
+    font-size: 11px; letter-spacing: .05em; text-transform: uppercase;
+  }
+  td { padding: 8px 10px 8px 0; border-bottom: 1px solid var(--garis2); vertical-align: top; }
+  td.n { color: var(--redup); width: 26px; }
+  td.skor { text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  th.skor { text-align: right; padding-right: 0; }
+  td.skor { padding-right: 0; }
+  .pasal { color: var(--tinta); }
+  .faq   { color: var(--redup); font-style: italic; }
+
+  /* ---------- lencana & banner ---------- */
+  .lencana {
+    display: inline-block; padding: 1px 7px; border-radius: 2px;
+    font: 12px/1.6 var(--mono); border: 1px solid currentColor;
+  }
+  .supported   { color: var(--hijau); }
+  .partial     { color: var(--kuning); }
+  .unsupported { color: var(--bata); }
+
+  .banner {
+    margin-top: 22px; padding: 10px 13px;
+    border: 1px solid var(--kuning); border-left-width: 2px;
+    color: var(--kuning); background: #fdfaf1;
+    font: 13px/1.5 var(--mono);
+  }
+  .galat { border-color: var(--bata); color: var(--bata); background: #fdf4f2; }
+
+  footer {
+    margin-top: 44px; padding-top: 14px; border-top: 1px solid var(--garis);
+    font: 12px/1.6 var(--mono); color: var(--redup);
+  }
+  footer a { color: var(--biru); }
+
+  @media (max-width: 620px) {
+    .node, .total { grid-template-columns: 108px 66px 1fr; gap: 8px; font-size: 12px; }
+    .ket { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="bungkus">
+
+  <header>
+    <h1>regdocs <span>— tanya peraturan perizinan berusaha</span></h1>
+    <div class="korpus" id="korpus">829 potongan · PP 28/2025 + FAQ OSS</div>
+  </header>
+
+  <form id="form">
+    <input type="text" id="tanya" placeholder="Tulis pertanyaan dalam Bahasa Indonesia…"
+           autocomplete="off" required minlength="3">
+    <button type="submit" class="kirim" id="kirim">Tanya</button>
+  </form>
+
+  <div class="contoh" id="contoh"><b>contoh:</b></div>
+
+  <div class="opsi">
+    <label><input type="checkbox" id="opsi-rerank" checked> rerank <span style="opacity:.7">(+~4,5 dtk)</span></label>
+    <label><input type="checkbox" id="opsi-verify"> verify <span style="opacity:.7">(+1–5 panggilan LLM)</span></label>
+  </div>
+
+  <div id="pesan"></div>
+
+  <section id="hasil" hidden>
+    <div class="tajuk">jalur graph</div>
+    <div class="jalur" id="jalur"></div>
+    <div class="total" id="total"></div>
+
+    <div class="tajuk" style="margin-top:30px">jawaban</div>
+    <div class="jawaban" id="jawaban"></div>
+
+    <div class="tajuk" style="margin-top:30px">sumber</div>
+    <table id="tabel">
+      <thead><tr>
+        <th></th><th>dokumen</th><th>pasal</th><th>halaman</th><th class="skor">skor</th>
+      </tr></thead>
+      <tbody id="sumber"></tbody>
+    </table>
+  </section>
+
+  <footer>
+    hybrid dense + BM25, digabung RRF · reranker cross-encoder ·
+    <a href="/docs">Swagger</a> · <a href="/health">health</a>
+  </footer>
+
+</div>
+
+<script>
+const CONTOH = [
+  "instansi mana yang berwenang menerbitkan PB UMKU?",
+  "Kenapa NIB saya belum terbit padahal data usaha sudah lengkap?",
+  "Kegiatan usaha saya risiko menengah tinggi, perizinan apa yang harus dipunya?",
+  "Berapa biaya notaris untuk mendirikan PT di Jakarta?",
+];
+
+const $ = (id) => document.getElementById(id);
+const angka = (n, d = 1) => n.toLocaleString("id-ID", { minimumFractionDigits: d, maximumFractionDigits: d });
+
+// tombol contoh
+CONTOH.forEach((q) => {
+  const b = document.createElement("button");
+  b.type = "button";
+  b.textContent = q.length > 34 ? q.slice(0, 32) + "…" : q;
+  b.title = q;
+  b.onclick = () => { $("tanya").value = q; $("form").requestSubmit(); };
+  $("contoh").appendChild(b);
+});
+
+// jumlah potongan sebenarnya, kalau /health menjawab
+fetch("/health").then((r) => r.json()).then((h) => {
+  if (h.jumlah_titik) $("korpus").textContent = `${h.jumlah_titik} potongan · PP 28/2025 + FAQ OSS`;
+}).catch(() => {});
+
+// keterangan singkat per node, diambil dari bidang respons yang sudah ada
+function keterangan(nama, d) {
+  if (nama === "rewrite_query")
+    return d.rewritten_query && d.rewritten_query !== d._q ? d.rewritten_query : "";
+  if (nama === "route_intent") return d.intent || "";
+  if (nama === "rerank") return `${d.citations.length} potongan dipakai`;
+  if (nama === "verify") return d.verdict === "tidak_diverifikasi" ? "" : d.verdict || "";
+  if (nama === "mutate_strategy") {
+    const s = d.strategy_history || [];
+    return s.length ? s[s.length - 1].perubahan : "";
+  }
+  return "";
+}
+
+function tampilkan(d) {
+  const trace = d.trace || [];
+  const maks = Math.max(1, ...trace.map((t) => t.ms));
+
+  $("jalur").innerHTML = "";
+  trace.forEach((t, i) => {
+    const ket = keterangan(t.node, d);
+    const baris = document.createElement("div");
+    baris.className = "node";
+    baris.style.animationDelay = `${i * 70}ms`;
+    baris.innerHTML = `
+      <div class="nama"></div>
+      <div class="ms"></div>
+      <div class="sisa"><div class="bar"></div><div class="ket"></div></div>`;
+    baris.querySelector(".nama").textContent = t.node;
+    baris.querySelector(".ms").textContent = angka(t.ms);
+    baris.querySelector(".bar").style.width = `${Math.max(1, (t.ms / maks) * 100)}px`;
+    baris.querySelector(".ket").textContent = ket;
+    $("jalur").appendChild(baris);
+  });
+
+  const tk = d.token || {};
+  const bagian = [`${angka(trace.reduce((a, t) => a + t.ms, 0))} ms`];
+  if (tk.panggilan_llm) bagian.push(`${tk.panggilan_llm} panggilan LLM`, `${tk.token_total} token`);
+  if (d.retry_count) bagian.push(`${d.retry_count}× coba ulang`);
+  $("total").innerHTML = `<div>total</div><div class="ms">${angka(d.execution_time_seconds * 1000, 0)}</div><div>${bagian.slice(1).join(" · ")}</div>`;
+
+  $("jawaban").textContent = d.answer;
+
+  $("sumber").innerHTML = "";
+  d.citations.forEach((c, i) => {
+    const tr = document.createElement("tr");
+    const regulasi = c.source_type === "regulasi";
+    tr.innerHTML = `
+      <td class="n">[${i + 1}]</td>
+      <td class="${regulasi ? "pasal" : "faq"}"></td>
+      <td></td><td></td>
+      <td class="skor">${c.score.toFixed(3)}</td>`;
+    const sel = tr.querySelectorAll("td");
+    sel[1].textContent = regulasi ? c.doc_id.toUpperCase().replace(/-(\d+)-(\d+)$/, " $1/$2") : "FAQ OSS";
+    sel[2].textContent = c.pasal ? `Pasal ${c.pasal}` : "—";
+    sel[3].textContent = c.halaman ? `hal. ${c.halaman}` : "—";
+    $("sumber").appendChild(tr);
+  });
+
+  const pesan = [];
+  if (d.verdict && d.verdict !== "tidak_diverifikasi")
+    pesan.push(`<div style="margin-top:22px;font:13px/1.6 var(--mono);color:var(--redup)">
+      verdict <span class="lencana ${d.verdict}">${d.verdict}</span>
+      ${d.reasoning ? " · " + d.reasoning : ""}</div>`);
+  if (d.degraded_mode)
+    pesan.push(`<div class="banner">mode terbatas — ${d.degraded_reason.join("; ") || "layanan luar tidak tersedia"}</div>`);
+  $("pesan").innerHTML = pesan.join("");
+
+  $("hasil").hidden = false;
+}
+
+$("form").onsubmit = async (e) => {
+  e.preventDefault();
+  const q = $("tanya").value.trim();
+  $("kirim").disabled = true;
+  $("kirim").textContent = "…";
+  $("pesan").innerHTML = "";
+  try {
+    const r = await fetch("/api/v1/query", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        question: q,
+        rerank: $("opsi-rerank").checked,
+        verify: $("opsi-verify").checked,
+      }),
+    });
+    if (!r.ok) throw new Error(r.status === 429 ? "Terlalu banyak permintaan, tunggu sebentar." : `HTTP ${r.status}`);
+    const d = await r.json();
+    d._q = q;
+    tampilkan(d);
+  } catch (err) {
+    $("pesan").innerHTML = `<div class="banner galat">${err.message}</div>`;
+  } finally {
+    $("kirim").disabled = false;
+    $("kirim").textContent = "Tanya";
+  }
+};
+</script>
+</body>
+</html>

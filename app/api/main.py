@@ -8,9 +8,11 @@ sengaja dikunci sekarang, saat isinya masih sederhana.
 
 import os
 import time
+from pathlib import Path
 from typing import Any
 
 from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
@@ -108,6 +110,10 @@ class QueryResponse(BaseModel):
     trace: list[dict[str, Any]] = Field(
         default_factory=list, description="Lama tiap node graph, dalam milidetik"
     )
+    token: dict[str, float] = Field(
+        default_factory=dict,
+        description="Jumlah panggilan LLM, token masuk/keluar, dan perkiraan biaya USD",
+    )
 
 
 class DocumentInfo(BaseModel):
@@ -192,4 +198,10 @@ def query(request: Request, req: QueryRequest) -> QueryResponse:
         degraded_mode=state.get("degraded_mode", False),
         degraded_reason=state.get("degraded_reason", []),
         trace=state.get("trace", []),
+        token=state.get("token", {}),
     )
+
+
+# Dipasang paling akhir: Starlette mencocokkan rute sesuai urutan pendaftaran,
+# jadi mount di "/" tidak boleh mendahului /health, /documents, dan /api/*.
+app.mount("/", StaticFiles(directory=Path(__file__).parent / "static", html=True), name="ui")
