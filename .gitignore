@@ -32,3 +32,6 @@ qdrant_storage/
 
 # Cache embedding — 25 MB, bisa dibangun ulang, tidak masuk repo
 data/embed_cache.sqlite
+
+# Bahan perencanaan, tidak ikut repo
+plan & progress/
