@@ -1,19 +1,3 @@
-"""Masukkan kedua jenis sumber ke satu collection Qdrant.
-
-    uv run python -m scripts.ingest              # regulasi + FAQ
-    uv run python -m scripts.ingest --faq        # FAQ saja
-    uv run python -m scripts.ingest --pdf        # regulasi saja
-    uv run python -m scripts.ingest --reset      # hapus collection dulu
-    uv run python -m scripts.ingest --doc uu-6-2023   # satu dokumen saja
-    uv run python -m scripts.ingest --fixture         # dari eval/korpus_fixture.jsonl, sparse saja
-
-Ingest ulang aman: id titik diturunkan dari chunk_id, jadi yang lama ditimpa,
-bukan digandakan.
-
-Dibedakan lewat payload `source_type`, bukan lewat collection terpisah —
-itu yang bikin filter dan perbandingan antar sumber mungkin nanti.
-"""
-
 import json
 import sys
 from pathlib import Path
@@ -25,12 +9,6 @@ from app.ingestion import faq, pdf, store
 
 
 def dari_fixture(reset: bool) -> None:
-    """Jalur CI: korpus beku, tanpa API sama sekali.
-
-    Vektor dense dilewati — CI tidak punya key maupun kuota. Yang tersisa
-    BM25, dan itu justru bagian yang deterministik: angka yang sama untuk
-    korpus yang sama, selamanya.
-    """
     berkas = Path("eval/korpus_fixture.jsonl")
     if not berkas.exists():
         raise SystemExit(f"{berkas} tidak ada. Jalankan `python -m scripts.buat_fixture` dulu.")
@@ -67,16 +45,12 @@ def main(argv: list[str]) -> None:
     print(f"\nTotal {len(records)} chunk untuk di-embed.")
     client = store.connect()
 
-    # Satu chunk di-embed duluan hanya untuk mengukur dimensi, lalu collection
-    # divalidasi. Kalau dimensinya bentrok, kita berhenti setelah 1 request —
-    # bukan setelah membakar seluruh kuota harian.
     probe = embed([records[0]["text"]], kind="document")
     store.ensure_collection(client, len(probe[0]), reset)
 
     vectors = probe + embed([r["text"] for r in records[1:]], kind="document")
     print(f"{len(vectors)} vektor dense, dimensi {len(vectors[0])}.")
 
-    # sisi sparse dihitung lokal — tidak menyentuh kuota sama sekali
     sparse = encode_dokumen([r["text"] for r in records])
     print(f"{len(sparse)} vektor sparse (BM25, lokal).")
 

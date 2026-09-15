@@ -1,13 +1,3 @@
-"""Jaga agar korpus beku untuk CI tidak basi.
-
-Gate CI memakai `eval/korpus_fixture.jsonl`, bukan PDF — PDF tidak masuk repo.
-Akibatnya perubahan pada pemotong dokumen **tidak** terlihat oleh gate sampai
-fixture-nya dibuat ulang. Test inilah yang menutup celah itu.
-
-Hanya jalan di mesin yang punya PDF sumbernya. Di CI dia dilewati, dan memang
-harus begitu: di sana tidak ada yang bisa dibandingkan.
-"""
-
 import json
 from pathlib import Path
 
@@ -29,7 +19,6 @@ def _punya_pdf() -> bool:
 
 @pytest.mark.skipif(not _punya_pdf(), reason="PDF sumber tidak ada (wajar di CI)")
 def test_fixture_masih_cocok_dengan_pemotong() -> None:
-    """Kalau gagal: jalankan `make fixture` lalu `make eval-gate -- --simpan`."""
     from app.ingestion import faq, pdf
 
     sekarang = pdf.all_records() + faq.records()

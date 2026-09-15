@@ -1,21 +1,3 @@
-"""PDF -> chunk beridentitas, lewat PyMuPDF.
-
-Tiga hal yang berubah dari Tahap 1:
-
-1. PyMuPDF menggantikan pypdf, dan teks diambil **per halaman**. Karena itu
-   tiap chunk tahu ada di halaman berapa — tanpa itu sitasi tidak bisa
-   diverifikasi manual, dan verifikasi manual adalah inti tahap ini.
-2. Quality gate: dokumen hasil scan tidak punya lapisan teks. Kalau di-ingest
-   diam-diam, yang masuk korpus adalah ratusan chunk kosong yang merusak
-   metrik di Tahap 4. Lebih baik ditolak keras di depan.
-3. Identitas dokumen datang dari `data/metadata.csv`, bukan dari nama file.
-
-Sejak Tahap 5 pemotongan mengikuti batas Pasal (lihat `app/ingestion/pasal.py`).
-Kalau struktur pasal tidak terdeteksi, dokumen tetap masuk lewat pemotong
-karakter dan ditandai `parse_failed` di payload — kegagalan yang tercatat
-lebih berguna daripada dokumen yang diam-diam hilang dari korpus.
-"""
-
 import csv
 import statistics
 from pathlib import Path
@@ -30,17 +12,8 @@ CHUNK_SIZE = 1000
 CHUNK_OVERLAP = 150
 METADATA_CSV = Path("data/metadata.csv")
 
-# Median karakter per halaman. Halaman teks asli di korpus ini ada di kisaran
-# 1300-1900; hasil scan mendekati nol karena tidak punya lapisan teks.
 MIN_MEDIAN_CHARS = 200
 
-# Lapisan teks beberapa PDF salah membaca huruf kapital I sebagai l — di UU
-# 28/2025, 70 dari 95 kata "Izin" tertulis "lzin". Kalimatnya tetap terbaca
-# manusia, jadi quality gate berbasis jumlah karakter tidak menangkapnya.
-# Dampaknya baru terasa di Tahap 6, saat BM25 mencocokkan kata secara harfiah.
-#
-# ponytail: daftar eksplisit, bukan koreksi OCR umum. Tambah baris di sini
-# kalau ketemu pola baru; kalau daftarnya sudah panjang, ganti PDF sumbernya.
 KOREKSI = {
     "lzin": "Izin",
     "Pasa1": "Pasal",
@@ -62,7 +35,6 @@ def load_metadata(path: Path = METADATA_CSV) -> dict[str, dict[str, str]]:
 
 
 def normalisasi(teks: str) -> tuple[str, int]:
-    """Perbaiki salah baca huruf yang sudah terukur. Kembalikan teks dan jumlah perbaikan."""
     jumlah = 0
     for salah, benar in KOREKSI.items():
         n = teks.count(salah)
@@ -83,7 +55,6 @@ def quality_gate(pages: list[str], doc_id: str) -> None:
 
 
 def records(meta: dict[str, str]) -> list[dict[str, Any]]:
-    """Satu PDF -> daftar record siap embed, tiap record tahu pasal dan halamannya."""
     path = Path(meta["file_path"])
     if not path.exists():
         raise SystemExit(f"File tidak ada: {path} (dari metadata.csv baris {meta['doc_id']})")
@@ -117,9 +88,6 @@ def records(meta: dict[str, str]) -> list[dict[str, Any]]:
             {
                 "text": pot["teks"],
                 "payload": {
-                    # chunk_id ikut nomor pasal, bukan nomor urut karakter.
-                    # Chunk pembukaan dan penjelasan tidak punya nomor pasal;
-                    # penanda babnya yang dipakai, bukan "pNone".
                     "chunk_id": (
                         f"{meta['doc_id']}:p{pot['pasal']}:{i}"
                         if pot["pasal"]
@@ -147,7 +115,6 @@ def records(meta: dict[str, str]) -> list[dict[str, Any]]:
 
 
 def _potong_karakter(pages: list[str]) -> list[dict[str, Any]]:
-    """Jalur cadangan Tahap 2: potong per halaman, tanpa nomor pasal."""
     pemotong = RecursiveCharacterTextSplitter(chunk_size=CHUNK_SIZE, chunk_overlap=CHUNK_OVERLAP)
     keluar = []
     for nomor_halaman, teks in enumerate(pages, start=1):
@@ -160,11 +127,6 @@ def _potong_karakter(pages: list[str]) -> list[dict[str, Any]]:
 
 
 def all_records(doc_ids: list[str] | None = None) -> list[dict[str, Any]]:
-    """Semua dokumen, atau hanya `doc_ids` tertentu.
-
-    Ingest per dokumen penting karena kuota embedding harian terbatas: kalau
-    cuma satu dokumen yang berubah, jangan embed ulang seluruh korpus.
-    """
     meta = load_metadata()
     if doc_ids:
         tidak_ada = set(doc_ids) - set(meta)

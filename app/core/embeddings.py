@@ -1,18 +1,3 @@
-"""Embedding lewat OpenRouter (format OpenAI-compatible), dengan cache dan backoff.
-
-Tiga hal yang gampang salah dan mahal akibatnya:
-
-1. Nemotron 3 Embed butuh prefix `query: ` untuk pertanyaan dan `document: `
-   untuk isi korpus. Tanpa prefix tidak ada error apa pun — recall-nya saja
-   yang turun diam-diam. Karena itu prefix dipasang di sini, bukan diserahkan
-   ke pemanggil.
-2. Free tier OpenRouter dibatasi 50 request/hari dan 20 request/menit. Satu
-   request menampung maksimum 256 teks, jadi batching itu keharusan, bukan
-   optimasi. Korpus 2900 chunk jadi 12 request, bukan 2900.
-3. Dua limit itu butuh perlakuan berbeda, dan menyamakannya adalah kesalahan
-   yang mahal — lihat `_jeda_atau_menyerah`.
-"""
-
 import hashlib
 import random
 import time
@@ -24,7 +9,7 @@ from app.core.config import EMBED_MODEL, OPENROUTER_API_KEY, require
 from app.core.errors import LayananTidakTersedia
 
 URL = "https://openrouter.ai/api/v1/embeddings"
-BATCH = 256  # batas keras server OpenRouter; 512 ditolak 400
+BATCH = 256
 TIMEOUT = 120.0
 MAX_PERCOBAAN = 5
 
@@ -32,25 +17,16 @@ Vector = list[float]
 
 
 def content_hash(text: str, kind: str) -> str:
-    """Kunci cache. Nama model ikut supaya ganti model = cache-miss, bukan vektor salah."""
     return hashlib.sha256(f"{EMBED_MODEL}|{kind}|{text}".encode()).hexdigest()
 
 
 def _jeda_atau_menyerah(resp: httpx.Response, percobaan: int) -> float:
-    """Tentukan berapa lama menunggu, atau berhenti sama sekali.
-
-    Limit per-menit lewat sendirinya dalam hitungan detik — itu layak ditunggu.
-    Limit per-hari baru pulih besok pagi; menunggunya berarti proses menggantung
-    berjam-jam sambil pura-pura bekerja. Lebih jujur berhenti dan bilang kenapa.
-    """
     if "free-models-per-day" in resp.text:
         raise LayananTidakTersedia(
             "OpenRouter",
             "kuota harian habis (50 request/hari), pulih 00:00 UTC / 07:00 WIB. "
             "Yang sudah ter-embed tersimpan di cache.",
         )
-    # eksponensial plus jitter: tanpa jitter, beberapa proses yang kena limit
-    # bersamaan akan mencoba lagi pada detik yang sama persis, dan bertabrakan lagi
     return float(min(2**percobaan, 30)) + random.uniform(0, 1)
 
 
@@ -62,7 +38,6 @@ def _minta(client: httpx.Client, key: str, batch: list[str]) -> list[Vector]:
             json={
                 "model": EMBED_MODEL,
                 "input": batch,
-                # eksplisit: default base64 pernah bikin data balik kosong
                 "encoding_format": "float",
             },
         )
@@ -84,7 +59,6 @@ def _minta(client: httpx.Client, key: str, batch: list[str]) -> list[Vector]:
 
 
 def embed(texts: list[str], kind: str = "document", pakai_cache: bool = True) -> list[Vector]:
-    """Ubah daftar teks jadi daftar vektor. `kind` = "document" atau "query"."""
     if kind not in ("document", "query"):
         raise ValueError(f"kind harus 'document' atau 'query', bukan {kind!r}")
     if not texts:
@@ -94,7 +68,6 @@ def embed(texts: list[str], kind: str = "document", pakai_cache: bool = True) ->
     cache = EmbedCache() if pakai_cache else None
     tersimpan = cache.get_many(list(set(hashes))) if cache else {}
 
-    # urutan asli dipertahankan; yang belum ada saja yang dibayar
     perlu = [t for t, h in zip(texts, hashes, strict=True) if h not in tersimpan]
     if tersimpan:
         print(f"  cache: {len(texts) - len(perlu)}/{len(texts)} chunk sudah ada")
@@ -108,7 +81,6 @@ def embed(texts: list[str], kind: str = "document", pakai_cache: bool = True) ->
                 vektor = _minta(client, key, [f"{kind}: {t}" for t in potongan])
                 sebagian = {content_hash(t, kind): v for t, v in zip(potongan, vektor, strict=True)}
                 if cache:
-                    # ditulis per batch, bukan di akhir: inilah checkpoint-nya
                     cache.put_many(sebagian)
                 baru.update(sebagian)
                 print(f"  embed {min(start + BATCH, len(perlu))}/{len(perlu)}")

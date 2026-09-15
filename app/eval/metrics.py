@@ -1,31 +1,7 @@
-"""recall@k, MRR, dan nDCG@k. Python murni, tanpa pustaka.
-
-Ditulis sendiri bukan karena tidak ada pustakanya, tapi karena empat rumus
-ini yang akan kamu pakai untuk menilai setiap perubahan dari Tahap 5 sampai
-13. Kalau isinya kotak hitam, kamu tidak bisa menjelaskan kenapa angkanya
-naik atau turun.
-
-Yang dibandingkan adalah **kunci halaman**, bukan chunk_id. chunk_id ikut
-berubah setiap cara memotong berubah — dan Tahap 5 memang mengubahnya.
-Halaman tetap. Konsekuensinya patokan ini sedikit lebih longgar: satu
-halaman berisi sekitar dua chunk, jadi menemukan chunk tetangga di halaman
-yang sama tetap dihitung benar.
-
-Tiap hasil pencarian diwakili **himpunan** kunci, bukan satu kunci. Sejak
-Tahap 5 satu chunk bisa mencakup lebih dari satu halaman (rata-rata 1,58),
-karena batas pasal tidak berhenti di batas halaman. Chunk dihitung benar
-kalau himpunannya bersinggungan dengan yang dicari.
-
-Ini berarti chunk yang lebih besar secara mekanis lebih mudah "kena" —
-jadi jumlah dan ukuran chunk wajib dilaporkan bersama angkanya, kalau
-tidak perbandingan antar tahap jadi menyesatkan.
-"""
-
 import math
 
 
 def recall_at_k(relevan: set[str], terambil: list[set[str]], k: int) -> float:
-    """Berapa bagian dari yang seharusnya, tercakup oleh k chunk teratas."""
     if not relevan:
         return 0.0
     tercakup: set[str] = set()
@@ -35,11 +11,6 @@ def recall_at_k(relevan: set[str], terambil: list[set[str]], k: int) -> float:
 
 
 def mrr(relevan: set[str], terambil: list[set[str]]) -> float:
-    """1 dibagi peringkat hasil benar yang pertama. Nol kalau tidak ada sama sekali.
-
-    Peka pada posisi: benar di peringkat 1 bernilai 1.0, di peringkat 5 cuma 0.2.
-    Ini yang membedakannya dari recall, yang tidak peduli urutan.
-    """
     for i, himpunan in enumerate(terambil, start=1):
         if himpunan & relevan:
             return 1.0 / i
@@ -47,11 +18,6 @@ def mrr(relevan: set[str], terambil: list[set[str]]) -> float:
 
 
 def ndcg_at_k(relevan: set[str], terambil: list[set[str]], k: int) -> float:
-    """nDCG: seperti MRR tapi menghargai semua hasil benar, bukan cuma yang pertama.
-
-    Hasil benar di peringkat bawah tetap dihitung, dengan bobot yang menyusut
-    secara logaritmik. Dibagi dengan susunan ideal supaya rentangnya 0 sampai 1.
-    """
     if not relevan:
         return 0.0
     dcg = sum(1 / math.log2(i + 1) for i, h in enumerate(terambil[:k], start=1) if h & relevan)
@@ -60,7 +26,6 @@ def ndcg_at_k(relevan: set[str], terambil: list[set[str]], k: int) -> float:
 
 
 def ringkas(hasil: list[tuple[set[str], list[set[str]]]]) -> dict[str, float]:
-    """Rata-rata semua metrik untuk sekumpulan pertanyaan."""
     if not hasil:
         return {}
     n = len(hasil)

@@ -1,15 +1,3 @@
-"""Pastikan Langfuse tersambung, sebelum menebak-nebak kenapa trace tidak muncul.
-
-    uv run python -m scripts.cek_langfuse
-
-Memeriksa tiga hal berurutan, dan berhenti di titik gagal pertama supaya
-kamu tahu persis apa yang salah:
-
-1. ketiga nilai ada di .env
-2. key-nya diterima server (auth_check)
-3. satu trace percobaan benar-benar terkirim
-"""
-
 import sys
 import time
 
@@ -68,7 +56,7 @@ def main() -> int:
             },
         )
     tracing.flush()
-    time.sleep(2)  # beri waktu pengiriman latar belakang menyelesaikan flush
+    time.sleep(2)
     print("   terkirim.")
     print(f"\nBuka {tracing.LANGFUSE_HOST} -> project kamu -> Tracing.")
     print("Cari trace bernama 'tanya-regdocs'. Kalau belum muncul, tunggu lalu refresh.")

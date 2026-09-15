@@ -1,9 +1,3 @@
-"""Test cache dan backoff. Tidak ada jaringan, tidak ada Qdrant, tidak ada API key.
-
-Yang diuji di sini justru bagian yang paling sulit diuji manual: perilaku saat
-gagal. Menunggu limit harian benar-benar habis untuk mengetesnya bukan pilihan.
-"""
-
 import httpx
 import pytest
 
@@ -24,7 +18,6 @@ def test_cache_bolak_balik(tmp_path) -> None:  # type: ignore[no-untyped-def]
 
 
 def test_cache_bertahan_setelah_ditutup(tmp_path) -> None:  # type: ignore[no-untyped-def]
-    """Commit per batch: yang sudah dibayar harus selamat walau proses mati."""
     path = tmp_path / "uji.sqlite"
     cache = EmbedCache(path)
     cache.put_many({"a": [1.0, 2.0]})
@@ -34,12 +27,10 @@ def test_cache_bertahan_setelah_ditutup(tmp_path) -> None:  # type: ignore[no-un
 
 
 def test_hash_beda_kalau_kind_beda() -> None:
-    """`query:` dan `document:` menghasilkan vektor berbeda, jadi kuncinya harus beda."""
     assert embeddings.content_hash("teks", "query") != embeddings.content_hash("teks", "document")
 
 
 def test_hash_ikut_nama_model(monkeypatch) -> None:  # type: ignore[no-untyped-def]
-    """Ganti model harus jadi cache-miss, bukan memakai vektor dari ruang vektor lain."""
     sebelum = embeddings.content_hash("teks", "query")
     monkeypatch.setattr(embeddings, "EMBED_MODEL", "model/lain")
     assert embeddings.content_hash("teks", "query") != sebelum
@@ -50,18 +41,12 @@ def _resp(status: int, body: str) -> httpx.Response:
 
 
 def test_limit_per_menit_ditunggu() -> None:
-    """429 biasa: jeda naik secara eksponensial, dan ada jitter-nya."""
     jeda = [embeddings._jeda_atau_menyerah(_resp(429, "rate limit"), i) for i in range(4)]
     assert jeda[0] < jeda[1] < jeda[2] < jeda[3]
     assert all(j < 40 for j in jeda)
 
 
 def test_limit_per_hari_langsung_berhenti() -> None:
-    """429 harian: menunggu tidak ada gunanya sampai besok, jadi harus berhenti.
-
-    Sejak Tahap 11 jenis error-nya khusus, bukan SystemExit — di dalam server
-    SystemExit berubah jadi 500, dan 500 justru yang dilarang.
-    """
     with pytest.raises(LayananTidakTersedia, match="kuota harian"):
         embeddings._jeda_atau_menyerah(_resp(429, "free-models-per-day exceeded"), 0)
 
@@ -71,11 +56,6 @@ def test_embed_kosong_tidak_menyentuh_jaringan() -> None:
 
 
 def test_lanjut_dari_titik_terakhir_setelah_mati(tmp_path, monkeypatch) -> None:  # type: ignore[no-untyped-def]
-    """Kriteria penerimaan Tahap 3: mati di tengah, jalan lagi, tidak mengulang dari nol.
-
-    Disimulasikan tanpa jaringan: panggilan ke API diganti stub yang meledak
-    di batch kedua, persis seperti Ctrl+C atau kuota habis di tengah jalan.
-    """
     monkeypatch.setattr(embeddings, "BATCH", 2)
     db = tmp_path / "c.sqlite"
     monkeypatch.setattr(embeddings, "EmbedCache", lambda: EmbedCache(db))
@@ -94,11 +74,9 @@ def test_lanjut_dari_titik_terakhir_setelah_mati(tmp_path, monkeypatch) -> None:
     with pytest.raises(RuntimeError, match="mati di tengah"):
         embeddings.embed(teks)
 
-    # batch pertama sudah ter-commit sebelum yang kedua meledak
     assert sum(dipanggil) == 4
     assert EmbedCache(db).size() == 2
 
-    # jalan lagi: hanya sisanya yang diminta, bukan keempatnya
     dipanggil.clear()
 
     def stub2(client, key, batch):  # type: ignore[no-untyped-def]

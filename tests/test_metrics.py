@@ -1,9 +1,3 @@
-"""Test metrik dengan angka yang bisa dihitung tangan.
-
-Rumus evaluasi yang salah jauh lebih berbahaya daripada retrieval yang
-salah: dia bikin kamu percaya perubahan yang merugikan itu menguntungkan.
-"""
-
 import math
 
 from app.eval.metrics import mrr, ndcg_at_k, recall_at_k, ringkas
@@ -14,7 +8,6 @@ def test_recall_setengah() -> None:
 
 
 def test_recall_hormati_batas_k() -> None:
-    """Yang benar tapi ada di peringkat 6 tidak boleh dihitung di recall@5."""
     assert recall_at_k({"a"}, [{"x"}] * 5 + [{"a"}], 5) == 0.0
     assert recall_at_k({"a"}, [{"x"}] * 5 + [{"a"}], 10) == 1.0
 
@@ -30,7 +23,6 @@ def test_ndcg_sempurna_bernilai_satu() -> None:
 
 
 def test_chunk_lintas_halaman_dihitung_sekali_saja() -> None:
-    """Satu chunk yang mencakup dua halaman benar, menutup keduanya."""
     assert recall_at_k({"h50", "h51"}, [{"h50", "h51"}], 5) == 1.0
     assert recall_at_k({"h50", "h51"}, [{"h50"}], 5) == 0.5
 

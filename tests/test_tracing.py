@@ -1,9 +1,3 @@
-"""Test pemantauan. Tanpa jaringan dan tanpa key Langfuse.
-
-Yang dijaga: modul ini tidak boleh menjatuhkan permintaan, dan angka latensi
-harus tetap ada meski Langfuse tidak dipasang sama sekali.
-"""
-
 import pytest
 
 from app.core import tracing
@@ -26,14 +20,6 @@ def test_ukur_mencatat_lama_node() -> None:
 
 
 def test_node_gagal_melempar_error_aslinya() -> None:
-    """Bug nyata: pembungkus error sempat merusak propagasi exception.
-
-    Try/except yang melingkupi `yield` menangkap error node di titik yield,
-    generator melanjutkan, dan Python melempar "generator didn't stop after
-    throw()" — menutupi error yang sebenarnya. Test ini menjaga agar yang
-    sampai ke pemanggil tetap ValueError, bukan RuntimeError dari contextlib.
-    """
-
     @tracing.ukur("generate")
     def node(state: dict[str, object]) -> dict[str, object]:
         raise ValueError("rusak")
@@ -43,7 +29,6 @@ def test_node_gagal_melempar_error_aslinya() -> None:
 
 
 def test_tiap_node_punya_tipe_observasi() -> None:
-    """Menandai semuanya 'span' membuang informasi yang sudah kita punya."""
     from app.agents.graph import bangun
 
     node_graph = {n for n in bangun().get_graph().nodes if not n.startswith("__")}

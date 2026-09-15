@@ -1,5 +1,3 @@
-"""Test yang tidak butuh Qdrant, supaya CI bisa jalan tanpa service."""
-
 import os
 
 from dotenv import load_dotenv

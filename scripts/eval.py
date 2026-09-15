@@ -1,24 +1,3 @@
-"""Ukur kualitas retrieval terhadap eval/golden.jsonl.
-
-    uv run python -m scripts.eval
-    uv run python -m scripts.eval --mode dense      # bandingkan satu sisi saja
-    uv run python -m scripts.eval --tanpa-rerank   # matikan cross-encoder
-    uv run python -m scripts.eval --graph          # lewat LangGraph (rewrite + routing)
-    uv run python -m scripts.eval --simpan-baseline
-
-Angka dipecah per `expected_source_type`. Ini bukan formalitas: kelompok
-`faq` optimistis secara struktural, karena pertanyaannya berasal dari entri
-FAQ yang ada di dalam korpus. Menggabungkannya ke satu angka akan menutupi
-kualitas sebenarnya di sisi regulasi, dan sisi regulasi itu yang dipakai
-jadi gate CI di Tahap 12.
-
-Kategori `negatif` **dikeluarkan dari recall**. Pertanyaannya memang tidak
-punya jawaban di korpus, jadi recall-nya selalu nol dan hanya akan menyeret
-rata-rata tanpa memberi informasi apa pun. Yang benar diukur untuk mereka:
-apakah sistem menjawab "tidak didukung" — dan itu butuh menjalankan graph
-sampai node verify, jadi diukur di `scripts/benchmark.py`.
-"""
-
 import json
 import sys
 import time
@@ -32,7 +11,7 @@ from app.retrieval.search import search_many
 
 GOLDEN = Path("eval/golden.jsonl")
 BASELINE = Path("eval/baseline.json")
-AMBIL = 10  # cukup untuk recall@10; retrieval produksi tetap k=3
+AMBIL = 10
 
 
 def kunci_halaman(doc_id: str, halaman: int | str) -> str:
@@ -40,11 +19,6 @@ def kunci_halaman(doc_id: str, halaman: int | str) -> str:
 
 
 def kunci_hasil(payload: dict[str, Any]) -> set[str]:
-    """Kunci pembanding satu hasil: himpunan, karena satu chunk bisa lintas halaman.
-
-    Dua jenis sumber punya penanda stabil yang berbeda. FAQ sudah punya id
-    sendiri yang tidak berubah; regulasi tidak, jadi dipakai halamannya.
-    """
     if payload.get("source_type") == "faq":
         return {str(payload["chunk_id"])}
     doc_id = str(payload["doc_id"])
@@ -53,7 +27,6 @@ def kunci_hasil(payload: dict[str, Any]) -> set[str]:
 
 
 def kunci_relevan(soal: dict[str, Any]) -> set[str]:
-    """Ground truth satu pertanyaan: halaman untuk regulasi, id item untuk FAQ."""
     kunci = {kunci_halaman(p["doc_id"], p["halaman"]) for p in soal.get("relevant_pages", [])}
     kunci |= set(soal.get("relevant_faq_ids", []))
     return kunci
@@ -88,9 +61,6 @@ def main(argv: list[str]) -> None:
     kalimat = [s["question"] for s in soal]
     saring: list[str | None] | None = None
     if lewat_graph:
-        # Dua langkah awal graph dijalankan di sini supaya embedding tetap
-        # bisa dikirim sekali untuk semua pertanyaan. Node generate dilewati:
-        # yang diukur retrieval, bukan mutu kalimat jawabannya.
         from app.agents.nodes import klasifikasi_intent
 
         kalimat = [normalisasi(q)[0] for q in kalimat]
@@ -100,7 +70,6 @@ def main(argv: list[str]) -> None:
         saring = [PARAMETER[i][0] for i in intents]
         print("  intent:", ", ".join(f"{s['qid']}={i}" for s, i in zip(soal, intents, strict=True)))
 
-    # satu request embedding untuk semua pertanyaan sekaligus
     mulai = time.perf_counter()
     hasil_cari = search_many(
         kalimat, limit=AMBIL, mode=mode, rerank=pakai_rerank, source_types=saring

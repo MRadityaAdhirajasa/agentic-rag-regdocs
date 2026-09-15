@@ -1,9 +1,3 @@
-"""Test tahan banting: budget, dan jalur mundur saat layanan luar mati.
-
-Tanpa jaringan. Kegagalan layanan disimulasikan dengan menukar fungsi yang
-memanggilnya — menunggu kuota benar-benar habis bukan cara menguji.
-"""
-
 import pytest
 
 from app.agents import nodes
@@ -26,7 +20,6 @@ def test_budget_menghitung_dan_habis(monkeypatch) -> None:  # type: ignore[no-un
 
 
 def test_llm_ditolak_saat_budget_habis(monkeypatch) -> None:  # type: ignore[no-untyped-def]
-    """Pagar sendiri harus menahan SEBELUM menabrak kuota penyedia."""
     monkeypatch.setattr(budget, "BATAS_HARIAN", 1)
     budget.pakai()
     with pytest.raises(LayananTidakTersedia, match="budget"):
@@ -63,7 +56,6 @@ def test_retrieve_turun_ke_sparse_saat_embedding_mati(monkeypatch) -> None:  # t
 
 
 def test_generate_mengembalikan_kutipan_saat_llm_mati(monkeypatch) -> None:  # type: ignore[no-untyped-def]
-    """Inti Tahap 11: tanpa LLM, pasal yang relevan tetap keluar."""
     from qdrant_client.models import ScoredPoint
 
     titik = ScoredPoint(
@@ -95,11 +87,6 @@ def test_generate_mengembalikan_kutipan_saat_llm_mati(monkeypatch) -> None:  # t
 
 
 def test_pagar_budget_dipasang_di_semua_pintu_llm(monkeypatch) -> None:  # type: ignore[no-untyped-def]
-    """Bug nyata Tahap 11: pagar cuma dipasang di routing.
-
-    Akibatnya budget habis tapi jawaban tetap tersusun. Budget yang bocor di
-    satu pintu sama saja tidak ada budget.
-    """
     from app.agents import verify as v
     from app.core import generate as g
 

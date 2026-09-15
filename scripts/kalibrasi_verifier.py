@@ -1,26 +1,3 @@
-"""Ukur seberapa bisa dipercaya node `verify`, dengan label yang dibangun, bukan ditebak.
-
-    uv run python -m scripts.kalibrasi_verifier
-    uv run python -m scripts.kalibrasi_verifier --batas 5
-
-Roadmap meminta 30 sampel **dilabeli manual**, lalu laporkan agreement rate.
-Di sini labelnya **dibangun**, bukan dilabeli tangan:
-
-- Jawaban asli yang disusun dari konteks yang benar -> seharusnya `supported`.
-- Jawaban yang sama, lalu disisipi satu kalimat yang jelas-jelas karangan ->
-  seharusnya `unsupported` atau `partial`.
-
-Alasan menyimpang: pelabelan manual oleh orang yang sama yang menulis
-prompt-nya rawan memutar. Label yang dibangun bisa diulang siapa pun dan
-hasilnya sama.
-
-Batas yang harus ikut dilaporkan: karangan yang disisipkan di sini **kasar dan
-mencolok**. Kalau verifier lolos di sini, itu belum membuktikan dia sanggup
-menangkap halusinasi halus — angka yang tidak akurat sedikit, atau pasal yang
-disebut keliru satu nomor. Angka di bawah adalah batas ATAS kemampuannya,
-bukan perkiraan yang wajar.
-"""
-
 import json
 import sys
 import time
@@ -34,9 +11,6 @@ from app.agents.verify import verify
 GOLDEN = Path("eval/golden.jsonl")
 HASIL = Path("eval/kalibrasi_verifier.json")
 
-# Kalimat karangan yang disisipkan. Sengaja memuat angka dan nama yang tidak
-# mungkin ada di korpus, supaya yang diuji jelas: apakah verifier membaca
-# konteks, atau sekadar menyetujui apa pun yang terdengar rapi.
 KARANGAN = (
     " Selain itu, seluruh ketentuan ini mulai berlaku sejak 1 Januari 1999 dan "
     "pelanggarnya dikenai denda tetap sebesar Rp5.000.000.000,00 yang disetor "
@@ -45,7 +19,6 @@ KARANGAN = (
 
 
 def siapkan(question: str) -> dict[str, Any]:
-    """Jalankan graph sampai jawaban tersusun, tanpa node verify."""
     state: dict[str, Any] = {"original_query": question, "rerank_aktif": True}
     state.update(rewrite_query(state))  # type: ignore[arg-type]
     state.update({"intent": "lookup", "source_type": None, "top_k": 3})
@@ -71,8 +44,6 @@ def main(argv: list[str]) -> None:
             continue
         jawaban = str(state.get("answer", "")).strip()
         if jawaban.lower().startswith("tidak tahu"):
-            # penolakan tidak berguna untuk kalibrasi: verdict-nya sudah
-            # ditentukan aturan, bukan oleh penilai
             print(f"  {s['qid']}: dilewati, jawabannya penolakan")
             continue
 
@@ -96,8 +67,6 @@ def main(argv: list[str]) -> None:
     if not sampel:
         raise SystemExit("Tidak ada sampel yang bisa dinilai.")
 
-    # "setuju" untuk sampel yang dikarang: verifier menolaknya, entah sebagai
-    # unsupported atau partial. Keduanya berarti dia melihat ada yang tidak beres.
     def setuju(x: dict[str, Any]) -> bool:
         if x["seharusnya"] == "supported":
             return bool(x["verdict"] == "supported")

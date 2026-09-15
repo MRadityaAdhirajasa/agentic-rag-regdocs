@@ -1,28 +1,9 @@
-"""Bandingkan hasil evaluasi dengan baseline. Keluar dengan kode 1 kalau turun.
-
-    uv run python -m scripts.eval_gate
-
-Dipakai GitHub Actions untuk memblokir PR yang menurunkan mutu retrieval.
-Ambangnya 5 persen relatif, sesuai roadmap.
-
-Baseline CI dipisah dari `eval/baseline.json` dan bukan karena rapi-rapi:
-keduanya mengukur hal yang berbeda. Baseline utama memakai hybrid plus
-reranking — butuh API key, kuota, dan unduhan model 1,1 GB. Baseline CI
-memakai jalur sparse tanpa reranking, yang berjalan tanpa jaringan sama
-sekali dan memberi angka sama persis untuk korpus yang sama.
-
-Artinya gate ini **tidak** menjaga mutu sisi dense. Yang dijaganya: pemotongan
-dokumen, susunan payload, penulisan ulang pertanyaan, dan pencocokan kata
-harfiah. Dari pengalaman sembilan tahap sebelumnya, di situlah kerusakan
-paling sering masuk tanpa disadari.
-"""
-
 import json
 import sys
 from pathlib import Path
 
 BASELINE = Path("eval/baseline_ci.json")
-AMBANG = 0.05  # turun lebih dari 5 persen relatif = PR diblokir
+AMBANG = 0.05
 DIJAGA = ("recall@5", "recall@10", "mrr", "ndcg@10")
 
 
@@ -68,7 +49,6 @@ def main(argv: list[str]) -> int:
 
 
 def ukur() -> dict[str, float]:
-    """Jalankan evaluasi pada jalur yang tersedia di CI: sparse, tanpa rerank."""
     import json as _json
     from collections import defaultdict
 
@@ -80,7 +60,6 @@ def ukur() -> dict[str, float]:
         for b in Path("eval/golden.jsonl").read_text(encoding="utf-8").splitlines()
         if b.strip()
     ]
-    # kategori negatif tidak punya jawaban benar; recall-nya selalu nol
     soal = [s for s in soal if s["category"] != "negatif"]
     hasil = search_many([s["question"] for s in soal], limit=10, mode="sparse", rerank=False)
     kel: dict[str, list[tuple[set[str], list[set[str]]]]] = defaultdict(list)

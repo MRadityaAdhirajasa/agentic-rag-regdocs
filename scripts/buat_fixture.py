@@ -1,16 +1,3 @@
-"""Bekukan korpus jadi satu berkas yang muat di repo, untuk gate CI.
-
-    uv run python -m scripts.buat_fixture
-
-Kenapa perlu: PDF sumber tidak masuk repo (tertahan `*.pdf`), dan cache
-embedding 29 MB juga tidak. Tanpa fixture, komputer CI tidak punya apa pun
-untuk dicari — gate-nya jadi mustahil.
-
-Yang dibekukan hanya **teks dan payload**, bukan vektor. Vektor dense butuh
-API dan kuota; vektor sparse (BM25) dihitung ulang di CI dalam hitungan detik
-tanpa jaringan. Itu yang membuat gate ini deterministik dan gratis.
-"""
-
 import json
 from pathlib import Path
 

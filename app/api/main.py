@@ -1,11 +1,3 @@
-"""HTTP API. Permukaan inilah yang tidak berubah lagi setelah ini.
-
-Alasan API dibangun sebelum graph (Tahap 9): isi dalamnya akan diganti total
-jadi LangGraph, dan perubahan sebesar itu jauh lebih aman kalau ada permukaan
-tetap untuk membandingkan hasil sebelum dan sesudah. Kontrak di bawah ini
-sengaja dikunci sekarang, saat isinya masih sederhana.
-"""
-
 import os
 import time
 from pathlib import Path
@@ -35,13 +27,9 @@ app = FastAPI(
     version="0.12.0",
 )
 
-# Rate limit per alamat IP. Tanpa ini, satu klien yang mengulang-ulang bisa
-# menghabiskan kuota LLM harian untuk semua orang dalam hitungan menit.
 BATAS_QUERY = os.getenv("RATE_LIMIT_QUERY", "10/minute")
 limiter = Limiter(key_func=get_remote_address)
 app.state.limiter = limiter
-# tanda abaikan tipe: slowapi menuliskan handler-nya untuk RateLimitExceeded,
-# sedangkan Starlette mengharapkan Exception yang lebih umum
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)  # type: ignore[arg-type]
 
 
@@ -84,13 +72,10 @@ class QueryResponse(BaseModel):
     answer: str
     citations: list[Citation]
     execution_time_seconds: float
-    # Ditambahkan di Tahap 9. Bidang baru bersifat menambah, tidak mengubah
-    # yang sudah ada — klien lama tetap jalan.
     intent: str | None = Field(default=None, description="Hasil route_intent")
     rewritten_query: str | None = Field(
         default=None, description="Pertanyaan setelah ditulis ulang"
     )
-    # Tahap 10. Terisi hanya kalau verify=true diminta.
     verdict: str | None = Field(
         default=None, description="supported / partial / unsupported / tidak_diverifikasi"
     )
@@ -101,12 +86,10 @@ class QueryResponse(BaseModel):
     strategy_history: list[dict[str, Any]] = Field(
         default_factory=list, description="Parameter yang diubah di tiap percobaan ulang"
     )
-    # Tahap 11. True kalau ada layanan luar yang mati dan sistem turun mutu.
     degraded_mode: bool = False
     degraded_reason: list[str] = Field(
         default_factory=list, description="Apa yang mati, dan akibatnya pada jawaban ini"
     )
-    # Tahap 12. Lama tiap node, bahan tabel benchmark Tahap 13.
     trace: list[dict[str, Any]] = Field(
         default_factory=list, description="Lama tiap node graph, dalam milidetik"
     )
@@ -144,7 +127,7 @@ def health() -> dict[str, Any]:
 
     try:
         jumlah = connect().count(collection_name=QDRANT_COLLECTION).count
-    except Exception as e:  # noqa: BLE001 — health check tidak boleh ikut mati
+    except Exception as e:  # noqa: BLE001
         return {"status": "degraded", "qdrant": f"{type(e).__name__}: {e}"[:200]}
     return {
         "status": "ok" if jumlah else "kosong",
@@ -202,6 +185,6 @@ def query(request: Request, req: QueryRequest) -> QueryResponse:
     )
 
 
-# Dipasang paling akhir: Starlette mencocokkan rute sesuai urutan pendaftaran,
-# jadi mount di "/" tidak boleh mendahului /health, /documents, dan /api/*.
+# Didaftarkan paling akhir: Starlette mencocokkan rute sesuai urutan, jadi mount di "/"
+# tidak boleh mendahului /health, /documents, dan /api/*.
 app.mount("/", StaticFiles(directory=Path(__file__).parent / "static", html=True), name="ui")

@@ -1,9 +1,3 @@
-"""Test tanpa jaringan dan tanpa Qdrant: yang diuji logika penyusunan chunk.
-
-Embedding dan Qdrant sengaja tidak disentuh — CI tidak punya API key maupun
-container, dan test yang butuh keduanya akan jadi test yang selalu dimatikan.
-"""
-
 import json
 from pathlib import Path
 
@@ -15,7 +9,6 @@ FAQ_DIR = Path("dokumen/faq")
 
 
 def test_quality_gate_menolak_hasil_scan() -> None:
-    """Halaman tanpa lapisan teks harus ditolak, bukan diam-diam masuk korpus."""
     with pytest.raises(SystemExit, match="quality gate"):
         pdf.quality_gate(["", "  ", "\n"], "dokumen-scan")
 
@@ -34,7 +27,6 @@ def test_metadata_punya_kolom_wajib() -> None:
 
 @pytest.mark.skipif(not FAQ_DIR.exists(), reason="folder FAQ tidak ada")
 def test_faq_embed_gabungan_question_dan_answer() -> None:
-    """Yang di-embed harus question + answer, dan question ada di depan."""
     records = faq.records(FAQ_DIR)
     assert len(records) > 300
 
@@ -49,7 +41,6 @@ def test_faq_embed_gabungan_question_dan_answer() -> None:
 
 
 def test_normalisasi_memperbaiki_salah_baca_huruf() -> None:
-    """Huruf kapital I yang terbaca l harus dibetulkan sebelum di-embed."""
     teks, jumlah = pdf.normalisasi("wajib memenuhi persyaratan lzin sesuai Pasa1 227")
     assert teks == "wajib memenuhi persyaratan Izin sesuai Pasal 227"
     assert jumlah == 2

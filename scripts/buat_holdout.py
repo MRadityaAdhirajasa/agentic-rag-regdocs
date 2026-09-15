@@ -1,35 +1,10 @@
-"""Sisihkan 50 item FAQ untuk uji routing di Tahap 9.
-
-Diambil proporsional dari lima kategori terbesar, dan yang sudah dipakai
-sebagai asal pertanyaan golden dibuang — kalau tidak, uji routing dan uji
-retrieval memakai item yang sama dan angkanya jadi tidak independen.
-
-Pertanyaan di sini sengaja TIDAK diparafrase: yang diuji keputusan routing,
-bukan retrieval.
-
-**Label `expected_intent` diturunkan dari isi jawaban, bukan dari kategori.**
-Versi pertama memetakan kategori langsung ke intent, dan itu salah: kategori
-FAQ menandai *topik*, bukan *maksud*. Kategori "Proses Perizinan Berusaha"
-ternyata berisi 81 dari 147 item yang isinya langkah-langkah aplikasi,
-sedangkan "Layanan Informasi" yang tadinya dilabeli troubleshooting justru
-paling sedikit menyentuh antarmuka (79 dari 97 tidak menyebutnya sama sekali).
-
-Aturannya sekarang: jawaban yang menyebut elemen antarmuka dua kali atau
-lebih (klik, menu, tombol, ikon, tautan) dianggap `troubleshooting`, sisanya
-`lookup`. Aturan ini lexical dan tidak melibatkan LLM, jadi tetap sah dipakai
-menilai LLM. Tapi ini label perak, bukan emas — laporkan begitu.
-
-    uv run python -m scripts.buat_holdout
-"""
-
 import json
 import random
 from pathlib import Path
 
 JUMLAH = 50
-BENIH = 28  # tetap, supaya hasilnya sama tiap dijalankan
+BENIH = 28
 
-# kata yang menandakan jawaban berisi langkah di aplikasi, bukan isi aturan
 KATA_ANTARMUKA = [
     "klik",
     "menu ",
@@ -65,7 +40,6 @@ def main() -> None:
         kategori = data["source"]["category"]
         per_kategori[kategori] = [i for i in data["items"] if i["id"] not in dipakai]
 
-    # lima kategori terbesar; yang cuma 3 item tidak cukup untuk disisihkan
     terbesar = sorted(per_kategori, key=lambda k: -len(per_kategori[k]))[:5]
     total = sum(len(per_kategori[k]) for k in terbesar)
 
@@ -73,7 +47,6 @@ def main() -> None:
     keluar: list[dict[str, str]] = []
     for i, kategori in enumerate(terbesar):
         item = per_kategori[kategori]
-        # kategori terakhir menyerap sisa pembulatan
         n = JUMLAH - len(keluar) if i == len(terbesar) - 1 else round(len(item) / total * JUMLAH)
         for it in acak.sample(item, min(n, len(item))):
             keluar.append(

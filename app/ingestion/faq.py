@@ -1,20 +1,3 @@
-"""FAQ OSS BKPM (6 file JSON) -> chunk. Satu item = satu chunk, tanpa dipotong.
-
-Keputusan yang menentukan kualitas retrieval di sini: **yang di-embed adalah
-question + answer, bukan salah satu.** Question mencocokkan cara orang
-bertanya, answer membawa kata kunci substansinya. Question ditaruh di depan
-karena model embedding memberi bobot lebih pada awal teks — ini pengganti
-parameter `title` milik Gemini, yang tidak ada di endpoint OpenRouter.
-
-Field `notes`, `input_method`, dan `base_url` sengaja dibuang: tidak dipakai
-untuk retrieval maupun sitasi.
-
-Item kembar juga dibuang. 27 dari 353 item FAQ punya teks identik dengan item
-lain — biasanya pertanyaan yang sama didaftar di dua kategori. Kalau
-dibiarkan, keduanya muncul di hasil pencarian dan memakan dua dari lima
-slot teratas untuk satu jawaban yang sama.
-"""
-
 import json
 from pathlib import Path
 from typing import Any
@@ -53,7 +36,6 @@ def records(directory: Path = FAQ_DIR) -> list[dict[str, Any]]:
                         "faq_category": kategori,
                         "confidence": item.get("confidence", ""),
                         "url_sumber": item.get("reference_url", ""),
-                        # tanggal dari file FAQ itu sendiri, bukan tanggal hari ini
                         "tanggal_akses": sumber.get("last_updated", ""),
                     },
                 }

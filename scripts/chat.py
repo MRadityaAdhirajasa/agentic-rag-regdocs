@@ -1,20 +1,3 @@
-"""Chat loop CLI. Sejak Tahap 9 seluruhnya dijalankan lewat LangGraph.
-
-Dijalankan sebagai modul (`-m`), bukan sebagai file, supaya `app/` ikut
-terbaca dari root proyek:
-
-    uv run python -m scripts.chat
-    uv run python -m scripts.chat "apa itu perizinan berusaha berbasis risiko"
-    uv run python -m scripts.chat "kenapa ID izin PB-UMKU hilang"
-
-Jawaban selalu datang bersama sitasi yang bisa kamu buka sendiri: pasal dan
-halaman untuk regulasi, kategori dan tanggal untuk FAQ. Itu satu-satunya cara
-membuktikan sistem ini tidak mengarang.
-
-Intent hasil routing ikut dicetak, supaya keputusan sistem bisa dinilai —
-bukan cuma hasil akhirnya.
-"""
-
 import sys
 
 from app.agents.graph import tanya
@@ -22,7 +5,6 @@ from app.core.citation import citation
 
 
 def answer(question: str) -> str:
-    """Sejak Tahap 9 semuanya lewat graph, termasuk routing dan penulisan ulang."""
     state = tanya(question)
     hits = state["reranked_chunks"]
     if not hits:
@@ -42,8 +24,6 @@ def answer(question: str) -> str:
 
 
 def main(argv: list[str]) -> None:
-    # --faq / --regulasi dihapus di Tahap 9: routing yang memilih sendiri,
-    # dan intent yang dipilih ikut dicetak supaya keputusannya bisa dinilai
     sisa = [a for a in argv if not a.startswith("--")]
 
     if sisa:

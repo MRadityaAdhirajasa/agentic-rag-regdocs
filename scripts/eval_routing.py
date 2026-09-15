@@ -1,18 +1,3 @@
-"""Ukur akurasi `route_intent` pada 50 item FAQ yang disisihkan di Tahap 4.
-
-    uv run python -m scripts.eval_routing
-
-Test set ini gratis: tiap item FAQ sudah berlabel kategori sejak diambil dari
-OSS, dan kategori itu dipetakan ke intent yang diharapkan. Mengukur akurasi
-routing jarang ada di portofolio RAG — kebanyakan berhenti di metrik retrieval.
-
-Peringatan yang harus ikut dilaporkan: pemetaan kategori ke intent itu
-buatan kita, bukan label asli. Kategori "Layanan Informasi" misalnya berisi
-campuran keluhan aplikasi dan pertanyaan biasa. Karena itu confusion matrix
-ikut dicetak — ketidaksepakatan perlu dilihat satu per satu, bukan cuma
-dihitung.
-"""
-
 import json
 import sys
 import time
@@ -36,7 +21,7 @@ def main(argv: list[str]) -> None:
     for i, it in enumerate(item, 1):
         try:
             tebakan = klasifikasi_intent(it["question"])
-        except Exception as e:  # noqa: BLE001 — satu item gagal tidak boleh membatalkan semua
+        except Exception as e:  # noqa: BLE001
             print(f"  {it['faq_id']}: GAGAL {type(e).__name__}: {str(e)[:90]}")
             continue
         benar = it["expected_intent"]
@@ -45,7 +30,7 @@ def main(argv: list[str]) -> None:
             salah.append((it["faq_id"], benar, tebakan, it["question"][:58]))
         if i % 10 == 0:
             print(f"  {i}/{len(item)}")
-        time.sleep(0.4)  # jaga jarak dari rate limit Gemini
+        time.sleep(0.4)
 
     total = sum(bingung.values())
     tepat = sum(n for (b, t), n in bingung.items() if b == t)

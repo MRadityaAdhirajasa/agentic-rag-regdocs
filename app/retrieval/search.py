@@ -1,22 +1,3 @@
-"""Pencarian hybrid: dense + BM25, digabung Qdrant lewat RRF.
-
-Kenapa RRF dan bukan menjumlahkan skor: skor cosine (0-1) dan skor BM25
-(tak terbatas) tidak sebanding, jadi menjumlahkannya butuh normalisasi yang
-selalu jadi tebakan. RRF membuang skor sama sekali dan hanya memakai
-**peringkat** — dokumen yang muncul tinggi di kedua daftar menang, tanpa
-perlu menyetel bobot apa pun.
-
-Penggabungan dilakukan Qdrant, bukan di Python. Bedanya bukan soal rapi:
-kalau digabung di sisi kita, dua daftar harus ditarik penuh dulu lewat
-jaringan, dan filter `source_type` harus diterapkan dua kali.
-
-`mode` ada supaya eksperimen #2 bisa dijalankan tiga arah tanpa ingest ulang.
-
-Sejak Tahap 7 hasil gabungan disusun ulang cross-encoder: ambil 20 kandidat,
-kembalikan k teratas setelah dibaca ulang. `rerank=False` mematikannya,
-supaya eksperimen #3 bisa diukur dua arah tanpa ingest ulang.
-"""
-
 from qdrant_client import QdrantClient
 from qdrant_client.models import (
     FieldCondition,
@@ -35,9 +16,7 @@ from app.ingestion.store import NAMA_DENSE, NAMA_SPARSE
 from app.retrieval.rerank import rerank as susun_ulang
 
 TOP_K = 3
-# tiap sisi menyumbang kandidat sebanyak ini sebelum digabung
 AMBIL_PER_SISI = 20
-# jumlah kandidat yang dibaca ulang cross-encoder sebelum dipangkas jadi k
 KANDIDAT_RERANK = 20
 
 
@@ -55,16 +34,6 @@ def search_many(
     rerank: bool = True,
     source_types: list[str | None] | None = None,
 ) -> list[list[ScoredPoint]]:
-    """Cari untuk banyak pertanyaan sekaligus.
-
-    Embedding dense-nya satu request untuk semua pertanyaan; sisi sparse
-    dihitung lokal.
-
-    `source_types` memberi filter berbeda per pertanyaan — dibutuhkan sejak
-    Tahap 9, karena routing bisa memutuskan lain untuk tiap pertanyaan.
-    Tanpa ini, evaluasi harus memanggil embedding satu per satu dan 10
-    pertanyaan berubah dari 1 request jadi 10.
-    """
     if mode not in ("hybrid", "dense", "sparse"):
         raise ValueError(f"mode harus hybrid/dense/sparse, bukan {mode!r}")
 
@@ -73,8 +42,6 @@ def search_many(
 
     client = QdrantClient(url=QDRANT_URL)
     saring = source_types if source_types is not None else [source_type] * len(queries)
-    # saat reranking aktif, ambil lebih banyak dulu — cross-encoder hanya bisa
-    # menyusun ulang apa yang sudah terambil, tidak bisa memunculkan yang hilang
     ambil = max(limit, KANDIDAT_RERANK) if rerank else limit
     hasil = []
     for d, s, st in zip(dense, jarang, saring, strict=True):

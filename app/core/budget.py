@@ -1,15 +1,3 @@
-"""Pagar pemakaian LLM harian, di level aplikasi.
-
-Kenapa perlu padahal penyedia sudah punya kuota sendiri: kuota penyedia baru
-terasa **setelah** habis, dan habisnya mendadak di tengah pemakaian. Pagar
-sendiri bisa disetel lebih rendah, sehingga sistem punya waktu turun mutu
-dengan anggun sebelum menabrak batas yang sebenarnya.
-
-ponytail: hitungan disimpan di memori proses, jadi ikut nol saat container
-dibuat ulang dan tidak dibagi antar replika. Cukup untuk satu container.
-Kalau nanti jalan lebih dari satu, pindahkan ke Redis atau tabel Qdrant.
-"""
-
 import os
 import threading
 from datetime import date
@@ -22,7 +10,6 @@ _terpakai = 0
 
 
 def pakai(jumlah: int = 1) -> None:
-    """Catat pemakaian. Panggil setelah panggilan LLM berhasil."""
     global _hari, _terpakai
     with _kunci:
         hari_ini = date.today()
@@ -47,7 +34,6 @@ def status() -> dict[str, int | str]:
 
 
 def reset() -> None:
-    """Hanya untuk test."""
     global _hari, _terpakai
     with _kunci:
         _hari, _terpakai = None, 0

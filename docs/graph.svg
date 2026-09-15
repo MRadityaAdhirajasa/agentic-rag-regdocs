@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 940" width="1080" height="940">
+  <!-- Gaya ditulis sebagai atribut, bukan class CSS: sebagian konverter SVG->PNG
+       (termasuk PyMuPDF) mengabaikan blok <style>, dan seluruh gambar jadi hitam.
+       Kepala panah digambar sebagai poligon, bukan <marker>, karena alasan sama. -->
+
+  <rect width="1080" height="940" fill="#fbfaf7"/>
+
+  <text x="64" y="58" font-family="Helvetica, Arial, system-ui, sans-serif" font-size="27" font-weight="650" fill="#1a1a18">Agentic RAG regdocs — alur LangGraph</text>
+  <line x1="64" y1="84" x2="1016" y2="84" stroke="#1a1a18" stroke-width="1"/>
+
+  <g fill="#ffffff" stroke="#17365d" stroke-width="1.5">
+    <rect x="170" y="194" width="320" height="52" rx="2"/>
+    <rect x="170" y="284" width="320" height="52" rx="2"/>
+    <rect x="170" y="394" width="320" height="52" rx="2"/>
+    <rect x="170" y="484" width="320" height="52" rx="2"/>
+    <rect x="170" y="574" width="320" height="52" rx="2"/>
+    <rect x="170" y="664" width="320" height="52" rx="2"/>
+    <rect x="170" y="808" width="320" height="52" rx="2"/>
+  </g>
+
+  <!-- nama node digambar ulang di atas kotak -->
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Courier New', monospace" font-size="19" fill="#1a1a18">
+    <text x="196" y="226">rewrite_query</text>
+    <text x="196" y="316">route_intent</text>
+    <text x="196" y="426">retrieve</text>
+    <text x="196" y="516">rerank</text>
+    <text x="196" y="606">generate</text>
+    <text x="196" y="696">verify</text>
+    <text x="196" y="840">mutate_strategy</text>
+  </g>
+
+  <!-- pil start / end -->
+  <g fill="#f1eee7" stroke="#6f6d65" stroke-width="1.5">
+    <rect x="255" y="120" width="150" height="40" rx="20"/>
+    <rect x="855" y="752" width="150" height="40" rx="20"/>
+  </g>
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Courier New', monospace" font-size="16" fill="#6f6d65" text-anchor="middle">
+    <text x="330" y="146">__start__</text>
+    <text x="930" y="778">__end__</text>
+  </g>
+
+  <!-- keterangan kanan -->
+  <g font-family="Helvetica, Arial, system-ui, sans-serif" font-size="15" fill="#6f6d65">
+    <text x="524" y="214">normalisasi alias lembaga</text>
+    <text x="524" y="234">deterministik, tanpa LLM</text>
+    <text x="524" y="304">4 maksud pertanyaan</text>
+    <text x="524" y="324">troubleshooting disaring ke FAQ saja</text>
+    <text x="524" y="414">hybrid: dense + BM25</text>
+    <text x="524" y="434">digabung Qdrant lewat RRF</text>
+    <text x="524" y="504">cross-encoder multilingual, lokal</text>
+    <text x="524" y="524">20 kandidat ke k teratas</text>
+    <text x="524" y="594">menyusun jawaban hanya dari konteks</text>
+    <text x="524" y="614">dengan batas token keras</text>
+    <text x="524" y="684">LLM-as-a-judge — apakah tiap klaim</text>
+    <text x="524" y="704">ada dasarnya di konteks?</text>
+    <text x="524" y="828">wajib mengubah minimal satu parameter</text>
+    <text x="524" y="848">kalau tidak, kodenya melempar RuntimeError</text>
+  </g>
+
+  <!-- garis lurus -->
+  <g stroke="#17365d" stroke-width="1.5" fill="none">
+    <path d="M330,160 L330,182"/>
+    <path d="M330,246 L330,272"/>
+    <path d="M330,336 L330,382"/>
+    <path d="M330,446 L330,472"/>
+    <path d="M330,536 L330,562"/>
+    <path d="M330,626 L330,652"/>
+    <path d="M170,834 L100,834 L100,420 L158,420"/>
+  </g>
+
+  <!-- conditional edge: arah ditentukan hasil verify -->
+  <g stroke="#17365d" stroke-width="1.5" fill="none">
+    <path d="M250,716 L250,796"/>
+    <path d="M410,716 L410,772 L843,772"/>
+  </g>
+
+  <!-- kepala panah -->
+  <g fill="#17365d">
+    <path d="M330,192 L324,180 L336,180 Z"/>
+    <path d="M330,282 L324,270 L336,270 Z"/>
+    <path d="M330,392 L324,380 L336,380 Z"/>
+    <path d="M330,482 L324,470 L336,470 Z"/>
+    <path d="M330,572 L324,560 L336,560 Z"/>
+    <path d="M330,662 L324,650 L336,650 Z"/>
+    <path d="M250,806 L244,794 L256,794 Z"/>
+    <path d="M853,772 L841,766 L841,778 Z"/>
+    <path d="M168,420 L156,414 L156,426 Z"/>
+  </g>
+
+  <!-- label cabang -->
+  <g font-family="ui-monospace, 'SF Mono', Menlo, Consolas, 'Courier New', monospace" font-size="14" fill="#17365d">
+    <text x="264" y="770">ulangi</text>
+    <text x="424" y="764">selesai</text>
+  </g>
+</svg>

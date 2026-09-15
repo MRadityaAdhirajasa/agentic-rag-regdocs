@@ -1,16 +1,3 @@
-"""Node verifikasi dan mutasi strategi.
-
-Verifikasi memakai LLM untuk menilai jawaban terhadap potongan yang dipakai
-menyusunnya — LLM-as-a-judge. Sengaja opt-in (`verify=false` secara bawaan):
-dia menambah satu panggilan LLM per percobaan, dan tiap percobaan ulang
-menambah dua lagi (susun jawaban, lalu nilai lagi).
-
-Aturan keras dari roadmap: **tiap percobaan ulang wajib mengubah minimal satu
-parameter.** Kalau tidak, mengulang cuma membuang kuota untuk mendapatkan
-hasil yang sama persis. Aturan itu ditegakkan lewat pemeriksaan di
-`mutate_strategy`, bukan lewat komentar yang bisa dilupakan.
-"""
-
 import logging
 from typing import Literal
 
@@ -28,15 +15,10 @@ MAX_RETRIES = 2
 
 VERDICT_CUKUP = ("supported", "partial")
 
-# Prompt penyusun jawaban memerintahkan "bilang tidak tahu" kalau konteksnya
-# tidak memuat jawaban, jadi frasa ini kita yang kendalikan — bukan tebakan
-# atas bahasa bebas model.
 PENOLAKAN = ("tidak tahu", "tidak diketahui", "tidak ditemukan dalam konteks")
 
 
 class Penilaian(BaseModel):
-    """Bentuk keluaran verifikasi. Dipaksakan lewat response_schema, bukan diparse manual."""
-
     verdict: Literal["supported", "partial", "unsupported"]
     unsupported_claims: list[str]
     supporting_chunk_numbers: list[int]
@@ -94,8 +76,6 @@ def verify(state: GraphState) -> GraphState:
     if not state.get("verify_aktif"):
         return {"verdict": "tidak_diverifikasi"}
 
-    # Penolakan dikenali tanpa memanggil LLM: lebih andal, dan menghemat satu
-    # panggilan pada jalur yang justru paling sering diulang.
     jawaban = state.get("answer", "").strip().lower()
     if any(jawaban.startswith(p) or jawaban == p + "." for p in PENOLAKAN):
         return {
@@ -114,14 +94,10 @@ def verify(state: GraphState) -> GraphState:
             "reasoning": "Tidak ada potongan yang terambil.",
         }
 
-    # potongan dinomori supaya penilai cukup menyebut angka; meminta dia
-    # menyalin chunk_id panjang mengundang salah ketik yang tidak terdeteksi
     context = "\n\n".join(f"[{i}] {h.payload['text']}" for i, h in enumerate(hits, 1) if h.payload)
     try:
         hasil = _nilai(state["original_query"], state["answer"], context)
     except Exception as e:  # noqa: BLE001
-        # Penilai yang mati tidak boleh menjatuhkan permintaan. Yang jujur
-        # adalah mengaku belum dinilai, bukan mengaku sudah lolos.
         print(f"  verify gagal, dilewati: {type(e).__name__}")
         return {"verdict": "gagal_diverifikasi", "reasoning": str(e)[:200]}
 
@@ -140,12 +116,6 @@ def verify(state: GraphState) -> GraphState:
 
 
 def mutate_strategy(state: GraphState) -> GraphState:
-    """Ubah parameter pencarian sebelum mencoba lagi. Wajib berubah.
-
-    Percobaan 1 melebarkan jangkauan: filter sumber dibuang dan lebih banyak
-    potongan diambil. Percobaan 2 kembali ke pertanyaan asli — perluasan alias
-    kadang justru menggeser makna pertanyaan pendek.
-    """
     percobaan = state.get("retry_count", 0) + 1
     top_k_lama = state["top_k"]
     sumber_lama = state["source_type"]
@@ -162,9 +132,8 @@ def mutate_strategy(state: GraphState) -> GraphState:
         query_baru = state["original_query"]
         perubahan = "kembali ke pertanyaan asli tanpa perluasan alias"
 
+    # Mengulang tanpa mengubah apa pun cuma membuang kuota untuk hasil yang sama persis.
     if (top_k_baru, sumber_baru, query_baru) == (top_k_lama, sumber_lama, query_lama):
-        # Aturan roadmap ditegakkan di sini: mengulang tanpa mengubah apa pun
-        # hanya membuang kuota untuk hasil yang sama persis.
         raise RuntimeError(f"Percobaan {percobaan} tidak mengubah satu pun parameter.")
 
     riwayat = list(state.get("strategy_history", []))
@@ -189,7 +158,6 @@ def mutate_strategy(state: GraphState) -> GraphState:
 
 
 def cukup_atau_ulangi(state: GraphState) -> str:
-    """Conditional edge: ini yang membuat graph bisa berputar, bukan cuma lurus."""
     if state.get("verdict") in VERDICT_CUKUP or not state.get("verify_aktif"):
         return "selesai"
     if state.get("verdict") in ("gagal_diverifikasi", "tidak_diverifikasi"):

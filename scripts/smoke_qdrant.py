@@ -1,10 +1,3 @@
-"""Smoke test Qdrant: bikin collection, isi satu titik, hitung ulang.
-
-Pakai:
-    uv run python scripts/smoke_qdrant.py seed
-    uv run python scripts/smoke_qdrant.py check
-"""
-
 import os
 import sys
 
@@ -16,7 +9,7 @@ load_dotenv()
 
 QDRANT_URL = os.getenv("QDRANT_URL", "http://localhost:6333")
 COLLECTION = os.getenv("QDRANT_COLLECTION", "regdocs")
-VECTOR_SIZE = 768  # sesuaikan dengan model embedding nanti
+VECTOR_SIZE = 768
 
 
 def get_client() -> QdrantClient:
@@ -68,8 +61,6 @@ def check() -> None:
         print("GAGAL: collection kosong. Volume kemungkinan tidak persist.")
         sys.exit(1)
 
-    # Dimensi dibaca dari collection, bukan ditebak. Sejak Tahap 1 isinya
-    # vektor 2048 dari nemotron, bukan lagi dummy 768.
     params = client.get_collection(COLLECTION).config.params.vectors
     size = params.size if isinstance(params, VectorParams) else VECTOR_SIZE
     hits = client.query_points(

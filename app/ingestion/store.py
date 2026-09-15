@@ -1,15 +1,3 @@
-"""Bagian Qdrant yang dipakai bareng oleh loader PDF maupun FAQ.
-
-Sejak Tahap 6 satu titik membawa **dua vektor bernama**: `dense` dari model
-embedding, dan `sparse` dari BM25. Keduanya di collection yang sama supaya
-Qdrant bisa menggabungkan hasil keduanya sendiri lewat RRF, tanpa kita
-menyatukan dua daftar hasil secara manual di Python.
-
-Indeks sparse dipasangi `Modifier.IDF`: bobot kata langka dihitung Qdrant
-berdasarkan seluruh korpus. Kalau dihitung di sisi kita, dasarnya cuma batch
-yang sedang diproses, dan bobotnya jadi salah.
-"""
-
 import uuid
 from typing import Any
 
@@ -26,8 +14,7 @@ from qdrant_client.models import (
 
 from app.core.config import QDRANT_COLLECTION, QDRANT_URL
 
-# Qdrant menolak body HTTP di atas 32 MB. Vektor 2048 dimensi cepat sekali
-# menembusnya, jadi upsert selalu dipecah.
+# Qdrant menolak body HTTP di atas 32 MB dan vektor 2048 dimensi cepat menembusnya.
 UPSERT_BATCH = 256
 
 NAMA_DENSE = "dense"
@@ -40,15 +27,6 @@ def connect() -> QdrantClient:
 
 
 def ensure_collection(client: QdrantClient, size: int | None, reset: bool = False) -> None:
-    """Bikin collection kalau belum ada; tolak keras kalau bentuknya tidak cocok.
-
-    Dimensi maupun susunan vektor tidak bisa diubah setelah collection dibuat.
-    Tanpa penjagaan ini, yang gagal adalah upsert-nya, dengan pesan yang jauh
-    lebih membingungkan.
-
-    `size=None` membuat collection **sparse saja** — dipakai gate CI, yang
-    tidak punya API key maupun kuota untuk menghitung vektor dense.
-    """
     existing = {c.name for c in client.get_collections().collections}
 
     if reset and QDRANT_COLLECTION in existing:
@@ -103,7 +81,7 @@ def upsert(
             isi[NAMA_DENSE] = dense
         points.append(
             PointStruct(
-                # id deterministik dari chunk_id: ingest ulang menimpa, bukan menggandakan
+                # id deterministik dari chunk_id: ingest ulang menimpa, bukan menggandakan.
                 id=str(uuid.uuid5(NAMESPACE, r["payload"]["chunk_id"])),
                 vector=isi,
                 payload=r["payload"],

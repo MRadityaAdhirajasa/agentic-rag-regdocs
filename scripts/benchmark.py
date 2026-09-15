@@ -1,21 +1,3 @@
-"""Tabel benchmark verify on/off: p50, p95, token, biaya, faithfulness.
-
-    uv run python -m scripts.benchmark
-    uv run python -m scripts.benchmark --batas 10   # potong jumlah pertanyaan
-
-Roadmap menandai tabel ini sebagai satu dari tiga hal yang tidak boleh
-dipotong. Alasannya: dia menjawab pertanyaan yang paling sering ditanyakan
-tentang sistem RAG mana pun — **berapa harga satu jawaban, dan seberapa bisa
-dipercaya** — dengan angka, bukan dengan kesan.
-
-Dijalankan dua kali atas pertanyaan yang sama: sekali tanpa verifikasi, sekali
-dengan. Yang dibandingkan bukan cuma mutu, tapi ongkosnya.
-
-Kategori `negatif` diukur berbeda. Pertanyaannya memang tidak punya jawaban di
-korpus, jadi recall tidak berlaku; yang dinilai apakah sistem berani berkata
-tidak tahu alih-alih mengarang.
-"""
-
 import json
 import statistics
 import sys
@@ -30,7 +12,6 @@ HASIL = Path("eval/benchmark.json")
 
 
 def persentil(nilai: list[float], p: float) -> float:
-    """p95 dari 26 sampel itu kasar; tetap dilaporkan, tapi jangan diperlakukan presisi."""
     if not nilai:
         return 0.0
     urut = sorted(nilai)
@@ -69,7 +50,6 @@ def jalankan(soal: list[dict[str, Any]], verify: bool) -> dict[str, Any]:
 
         if s["category"] == "negatif":
             negatif_jumlah += 1
-            # benar = sistem mengaku tidak tahu, bukan mengarang
             menolak = str(st.get("answer", "")).strip().lower().startswith("tidak tahu")
             if menolak or v == "unsupported":
                 negatif_benar += 1
