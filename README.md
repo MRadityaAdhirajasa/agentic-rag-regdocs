@@ -6,9 +6,6 @@ Sistem ini menjawab pertanyaan dalam Bahasa Indonesia, lalu menyertakan **sitasi
 sampai nomor pasal dan halaman** supaya pembaca bisa membuka PDF aslinya dan
 memeriksa sendiri.
 
-Dibangun bertahap dalam 13 tahap sebagai proyek belajar, dengan tiap perubahan
-retrieval **diukur sebelum-sesudah**, bukan ditebak.
-
 ---
 
 ![Dashboard regdocs](ScreenShot/dashboard.png)
