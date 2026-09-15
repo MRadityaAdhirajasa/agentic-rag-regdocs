@@ -90,6 +90,20 @@
   }
 
   /* ---------- jalur node ---------- */
+  details { margin-top: 30px; border-top: 1px solid var(--garis); }
+  summary {
+    display: flex; align-items: baseline; gap: 10px;
+    padding: 9px 0; cursor: pointer; list-style: none;
+    font: 500 11px/1 var(--mono); letter-spacing: .09em; text-transform: uppercase;
+    color: var(--redup);
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary .label::before { content: "+ "; color: var(--biru); }
+  details[open] summary .label::before { content: "− "; }
+  summary:hover .label { color: var(--biru); }
+  summary .ringkas { letter-spacing: 0; text-transform: none; font-weight: 400; }
+  details > .jalur { padding-bottom: 6px; }
+
   .jalur { font: 13px/1 var(--mono); }
   .node {
     display: grid;
@@ -97,10 +111,7 @@
     gap: 12px; align-items: center;
     padding: 6px 0;
     border-bottom: 1px solid var(--garis2);
-    opacity: 0; transform: translateY(-2px);
-    animation: masuk .22s ease forwards;
   }
-  @keyframes masuk { to { opacity: 1; transform: none; } }
   .node .nama { color: var(--tinta); }
   .node .ms   { text-align: right; color: var(--tinta); font-variant-numeric: tabular-nums; }
   .node .sisa { display: flex; align-items: center; gap: 9px; color: var(--redup); min-width: 0; }
@@ -191,11 +202,7 @@
   <div id="pesan"></div>
 
   <section id="hasil" hidden>
-    <div class="tajuk">jalur graph</div>
-    <div class="jalur" id="jalur"></div>
-    <div class="total" id="total"></div>
-
-    <div class="tajuk" style="margin-top:30px">jawaban</div>
+    <div class="tajuk">jawaban</div>
     <div class="jawaban" id="jawaban"></div>
 
     <div class="tajuk" style="margin-top:30px">sumber</div>
@@ -205,6 +212,12 @@
       </tr></thead>
       <tbody id="sumber"></tbody>
     </table>
+
+    <details id="kotak-jalur">
+      <summary><span class="label">jalur graph</span><span class="ringkas" id="ringkas"></span></summary>
+      <div class="jalur" id="jalur"></div>
+      <div class="total" id="total"></div>
+    </details>
   </section>
 
   <footer>
@@ -259,11 +272,10 @@ function tampilkan(d) {
   const maks = Math.max(1, ...trace.map((t) => t.ms));
 
   $("jalur").innerHTML = "";
-  trace.forEach((t, i) => {
+  trace.forEach((t) => {
     const ket = keterangan(t.node, d);
     const baris = document.createElement("div");
     baris.className = "node";
-    baris.style.animationDelay = `${i * 70}ms`;
     baris.innerHTML = `
       <div class="nama"></div>
       <div class="ms"></div>
@@ -276,10 +288,16 @@ function tampilkan(d) {
   });
 
   const tk = d.token || {};
-  const bagian = [`${angka(trace.reduce((a, t) => a + t.ms, 0))} ms`];
+  const bagian = [];
   if (tk.panggilan_llm) bagian.push(`${tk.panggilan_llm} panggilan LLM`, `${tk.token_total} token`);
   if (d.retry_count) bagian.push(`${d.retry_count}× coba ulang`);
-  $("total").innerHTML = `<div>total</div><div class="ms">${angka(d.execution_time_seconds * 1000, 0)}</div><div>${bagian.slice(1).join(" · ")}</div>`;
+  $("total").innerHTML =
+    `<div>total</div><div class="ms">${angka(d.execution_time_seconds * 1000, 0)}</div>` +
+    `<div>${bagian.join(" · ")}</div>`;
+
+  // ringkasan tetap terbaca saat jalur masih terlipat
+  $("ringkas").textContent =
+    [`${angka(d.execution_time_seconds, 2)} dtk`, `${trace.length} node`, ...bagian].join(" · ");
 
   $("jawaban").textContent = d.answer;
 
