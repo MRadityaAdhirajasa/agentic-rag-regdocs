@@ -129,22 +129,6 @@ tetap jalan dalam mode terbatas. Daftar perintah lengkap ada di
 
 ---
 
-## Batasan yang disadari
-
-**Nama berkas PDF-nya menyesatkan, dan sempat menyesatkan proyek ini.** Berkas
-bernama `UU 28 2025 - ....pdf`, tetapi halaman judulnya berbunyi *Peraturan
-Pemerintah Nomor 28 Tahun 2025*. Sampai Tahap 5 seluruh sitasi tertulis
-`UU 28/2025` dan itu salah. Identitas dokumen sekarang dibaca dari isinya, bukan
-dari nama berkasnya, dan **berkasnya sengaja tidak diganti nama** supaya jejak
-kesalahannya tetap terlihat.
-
-Batasan lain yang diambil secara sadar: BM25 tanpa stemming karena Bahasa
-Indonesia tidak tersedia di pustakanya, golden dataset 30 pertanyaan, label
-routing yang bersifat perak, dan gate CI yang tidak menjaga sisi dense. Semuanya
-beserta alasannya ada di [`docs/batasan.md`](docs/batasan.md).
-
----
-
 ## Sumber data
 
 **PP 28/2025** tentang Penyelenggaraan Perizinan Berusaha Berbasis Risiko dari
