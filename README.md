@@ -8,18 +8,12 @@ terukur di setiap perubahan**.
 > dan tiap perubahan retrieval diukur sebelum-sesudah di
 > [`docs/experiments.md`](docs/experiments.md).
 
-```
-Tanya : instansi mana yang berwenang menerbitkan PB UMKU?
-
-Jawab : Lembaga OSS atas nama menteri/kepala lembaga, kepala DPMPTSP,
-        Administrator KEK, dan Badan Pengusahaan KPBPB sesuai kewenangan
-        masing-masing.
-
-Sumber: [1] PP 28/2025, Pasal 138, hal. 83   (skor 1.290)
-        [2] PP 28/2025, Pasal 136, hal. 81-82 (skor 0.612)
-```
+![Dashboard regdocs](ScreenShot/dashboard.png)
 
 Buka PDF-nya di halaman 83, pasalnya ada di sana. Itu intinya.
+
+Lama tiap node ikut di setiap jawaban, terlipat di bawah sumber. Bukan hiasan:
+angka itu yang jadi bahan tabel benchmark di bawah.
 
 ---
 
@@ -73,11 +67,17 @@ dibaca mesin, bukan penolakan yang lebih baik.
 ## Menjalankan
 
 ```bash
-docker compose up -d      # Qdrant + API sekaligus
+docker compose up -d      # Qdrant + API + dashboard
 make ingest               # regulasi + FAQ -> Qdrant
 ```
 
-Swagger siap dipakai di <http://localhost:8000/docs>.
+Dashboard-nya langsung hidup di <http://localhost:8000>, Swagger di
+<http://localhost:8000/docs>.
+
+Dashboard itu satu berkas HTML statis yang di-mount di FastAPI yang sama. Tanpa
+npm, tanpa build, tanpa proses tambahan. Dua kotak centang di atas membuka
+pertukaran yang biasanya disembunyikan: `rerank` menaikkan recall@10 sebesar
+0,117 dengan ongkos ~4,5 detik, `verify` melipatgandakan biaya per pertanyaan.
 
 ```bash
 curl -X POST http://localhost:8000/api/v1/query \
@@ -87,9 +87,10 @@ curl -X POST http://localhost:8000/api/v1/query \
 
 | Endpoint | Isi |
 |---|---|
-| `POST /api/v1/query` | `answer`, `citations`, `intent`, `verdict`, `trace`, `degraded_mode` |
+| `POST /api/v1/query` | `answer`, `citations`, `intent`, `verdict`, `trace`, `token`, `degraded_mode` |
 | `GET /health` | status Qdrant, jumlah titik, sisa budget LLM |
 | `GET /documents` | sumber yang ada di korpus |
+| `GET /` | dashboard |
 
 Ada juga CLI: `make chat`.
 
@@ -101,12 +102,10 @@ berarti container itu sendiri.
 
 ## Cara kerja
 
-```
-rewrite_query → route_intent → retrieve → rerank → generate → verify ──┐
-                    ▲                                                   │
-                    └──────── mutate_strategy ◄──── "ulangi" ───────────┤
-                                                    "selesai" ──────→ END
-```
+![Alur LangGraph](docs/graph.svg)
+
+Bentuk di atas diambil dari graph yang dikompilasi, bukan digambar tangan:
+`bangun().get_graph().draw_mermaid()`.
 
 | Langkah | Isi |
 |---|---|
@@ -200,6 +199,7 @@ Tanpa key, modul pemantauan diam total dan angka latensi tetap ada di respons.
 
 | Perintah | Isi |
 |---|---|
+| `docker compose up -d` | Qdrant + API + dashboard di `localhost:8000` |
 | `make ingest` | regulasi + FAQ ke Qdrant |
 | `make chat` | tanya-jawab CLI |
 | `make api` | jalankan API lokal dengan reload |

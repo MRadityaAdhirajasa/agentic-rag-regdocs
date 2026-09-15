@@ -81,9 +81,11 @@ roadmap; tidak menambah pelajaran baru.
 ulang, dan tidak dibagi antar replika. Cukup untuk satu container; kalau nanti
 jalan lebih dari satu, pindahkan ke Redis.
 
-**Belum di-deploy, belum ada demo GIF.** Keduanya ditandai boleh diganti oleh
-roadmap. Yang menggantikan: `docker compose up -d` menyalakan Qdrant dan API
-sekaligus di mesin bersih, dan Swagger di `/docs` bisa langsung dipakai.
+**Belum di-deploy.** Ditandai boleh diganti oleh roadmap. Yang menggantikan:
+`docker compose up -d` menyalakan Qdrant, API, dan dashboard sekaligus di mesin
+bersih. Deploy publik sengaja tidak dikejar karena kuota embedding 50/hari
+bersifat akun-wide, jadi satu pengunjung iseng bisa mematikannya untuk semua
+orang termasuk pengembangnya sendiri.
 
 ## Verifikasi
 
